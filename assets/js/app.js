@@ -32,6 +32,11 @@ const state = {
   missing: null,
   packages: null,
   activeJobId: "",
+  resultFilters: { scope: "current", group: "", mother: "", perturbation: "", risk: "" },
+  selectedSampleId: "",
+  resultPreviewImages: [],
+  resultPreviewIndex: 0,
+  resultAutoplayTimer: null,
   indexStatus: { running: false, progress: 0 },
   preloadStatus: null,
   warmupStarted: false,
@@ -247,7 +252,8 @@ async function loadRouteData(route) {
     state.scriptsPage = await api.scripts({ page: 1, page_size: 100, query: q });
   }
   if (["results", "diagnosis", "topology"].includes(route)) {
-    state.runsPage = await api.runs({ page: 1, page_size: route === "results" ? 80 : 50, query: q });
+    const filters = route === "results" ? state.resultFilters : { scope: "current" };
+    state.runsPage = await api.runs({ page: 1, page_size: route === "results" ? 500 : 50, query: q, ...filters });
     if (!state.selectedRunId && state.runsPage.runs?.[0]) state.selectedRunId = state.runsPage.runs[0].run_id;
   }
   if (route === "quality") {
@@ -265,6 +271,7 @@ async function loadRouteData(route) {
 async function renderRoute() {
   const route = routeName();
   const seq = ++renderSeq;
+  if (route !== "results") stopResultAutoplay();
   closeDrawer();
   closeModal();
   updateHeader();
@@ -402,26 +409,86 @@ function inputField(id, label, value, unit) {
 
 function renderResults() {
   const runs = state.runsPage?.runs || [];
+  const filters = state.resultFilters;
+  const groupOptions = uniqueValues(runs, "group");
+  const motherOptions = uniqueValues(runs, "mother_structure");
+  const perturbOptions = uniqueValues(runs, "perturbation").slice(0, 80);
   return `<section class="page active">
-    ${pageHead("结果浏览", "run 树、样本表和文件预览按需加载；搜索和分页来自缓存，不触发目录扫描。")}
-    <div class="layout-3">
-      <div class="card pad"><div class="card-title">run 树 <span class="muted">${fmt(state.runsPage?.total || runs.length)} 个</span></div><div class="filter-grid" style="margin-bottom:12px"><select class="select" id="group-filter"><option value="">全部群类别</option><option>C2</option><option>C3</option><option>C4</option><option>C6</option><option>近径向</option></select><select class="select" id="risk-filter"><option value="">全部风险</option><option value="high">高风险</option><option value="medium">中风险</option><option value="low">低风险</option></select></div><div class="run-tree">${runs.length ? runs.map(runRow).join("") : emptySmall("暂无 run 缓存")}</div></div>
-      <div class="card pad"><div class="card-title">样本点 / 输出文件 <span id="run-title" class="muted">${esc(state.selectedRunId || "未选择")}</span></div><div id="sample-table" class="empty">请选择 run。</div><div class="card-title" style="margin-top:16px">文件列表</div><div id="file-table" class="empty">请选择 run。</div></div>
-      <div class="card pad"><div class="card-title">文件预览 <span class="muted">限制读取大小</span></div><div id="preview-pane" class="preview-pane">选择文件后显示预览。</div></div>
+    ${pageHead("结果浏览", "按当前结果 / 旧文件分域加载；run 树使用 群类别 → 母结构 → 扰动 → run 的层级，点击样本后预览对应谱图。")}
+    <div class="results-layout">
+      <div class="card pad">
+        <div class="card-title">run 树 <span class="muted">${fmt(state.runsPage?.total || runs.length)} 个</span></div>
+        <div class="filter-stack">
+          <select class="select" id="scope-filter"><option value="current" ${filters.scope === "current" ? "selected" : ""}>当前 results</option><option value="old" ${filters.scope === "old" ? "selected" : ""}>旧文件结果</option><option value="" ${!filters.scope ? "selected" : ""}>全部结果</option></select>
+          <select class="select" id="group-filter"><option value="">全部群类别</option>${groupOptions.map((x) => `<option ${x === filters.group ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+          <select class="select" id="mother-filter"><option value="">全部母结构</option>${motherOptions.map((x) => `<option ${x === filters.mother ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+          <select class="select" id="perturbation-filter"><option value="">全部扰动</option>${perturbOptions.map((x) => `<option ${x === filters.perturbation ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+          <select class="select" id="risk-filter"><option value="">全部风险</option><option value="high" ${filters.risk === "high" ? "selected" : ""}>高风险</option><option value="medium" ${filters.risk === "medium" ? "selected" : ""}>中风险</option><option value="low" ${filters.risk === "low" ? "selected" : ""}>低风险</option></select>
+        </div>
+        <div class="run-tree hierarchical">${runs.length ? renderRunTree(runs) : emptySmall("暂无 run 缓存")}</div>
+      </div>
+      <div class="results-main">
+        <div class="card pad">
+          <div class="card-title">样本点 / 输出文件 <span id="run-title" class="muted">${esc(state.selectedRunId || "未选择")}</span></div>
+          <div id="sample-table" class="empty">请选择 run。</div>
+        </div>
+        <div class="card chart-card" style="margin-top:16px">
+          <div class="chart-head"><strong>参数趋势 / 相关资源</strong><span id="resource-hint" class="muted">选择 run 后按需加载</span></div>
+          <div class="trend-resource-grid">
+            <div class="chart-box small"><canvas id="result-trend-chart"></canvas></div>
+            <div id="resource-strip" class="resource-strip">请选择 run。</div>
+          </div>
+        </div>
+      </div>
+      <div class="card pad">
+        <div class="card-title">谱图预览 <span class="muted">样本点联动</span></div>
+        <div id="preview-pane" class="preview-pane spectrum-preview">点击“样本点 / 输出文件”中的样本后显示透射谱图。</div>
+      </div>
     </div>
   </section>`;
 }
 
+function uniqueValues(rows, key) {
+  return Array.from(new Set((rows || []).map((row) => row[key]).filter(Boolean))).sort((a, b) => String(a).localeCompare(String(b), "zh-CN"));
+}
+
+function renderRunTree(runs) {
+  const groups = new Map();
+  runs.forEach((run) => {
+    const g = run.group || "未分类";
+    const m = run.mother_structure || "未识别母结构";
+    const p = run.perturbation || "未识别扰动";
+    if (!groups.has(g)) groups.set(g, new Map());
+    if (!groups.get(g).has(m)) groups.get(g).set(m, new Map());
+    if (!groups.get(g).get(m).has(p)) groups.get(g).get(m).set(p, []);
+    groups.get(g).get(m).get(p).push(run);
+  });
+  return Array.from(groups.entries()).map(([group, mothers]) => `
+    <div class="tree-block">
+      <div class="tree-level level-0">${esc(group)} <span>${Array.from(mothers.values()).reduce((sum, p) => sum + Array.from(p.values()).reduce((n, rows) => n + rows.length, 0), 0)}</span></div>
+      ${Array.from(mothers.entries()).map(([mother, perts]) => `
+        <div class="tree-level level-1">${esc(mother)} <span>${Array.from(perts.values()).reduce((n, rows) => n + rows.length, 0)}</span></div>
+        ${Array.from(perts.entries()).map(([perturbation, rows]) => `
+          <div class="tree-level level-2">${esc(perturbation)} <span>${rows.length}</span></div>
+          ${rows.map(runRow).join("")}
+        `).join("")}
+      `).join("")}
+    </div>
+  `).join("");
+}
+
 function runRow(r) {
-  return `<button class="tree-row ${r.run_id === state.selectedRunId ? "active" : ""}" data-run-id="${esc(r.run_id)}" data-group="${esc(r.group || "")}" data-risk="${esc(r.risk_level || r.risk || "")}" type="button"><span class="dot ${tagTone(r.risk_level || r.risk)}"></span><span>${esc(r.group || "")} / ${esc(r.mother_structure || "")} / ${esc(r.run_name || r.run_id)}</span><span class="tag blue">${fmt(r.sample_count || 0)}</span></button>`;
+  const label = r.run_name || r.run_id;
+  return `<button class="tree-row run-leaf ${r.run_id === state.selectedRunId ? "active" : ""}" data-run-id="${esc(r.run_id)}" data-group="${esc(r.group || "")}" data-risk="${esc(r.risk_level || r.risk || "")}" type="button"><span class="dot ${tagTone(r.risk_level || r.risk)}"></span><span title="${esc(label)}">${esc(label)}</span><span class="tag blue">${fmt(r.sample_count || 0)}</span></button>`;
 }
 
 function renderDiagnosis() {
   const runs = state.runsPage?.runs || [];
   const d = state.diagnostics || {};
   const qFlags = d.quality?.flag_records || [];
+  const imageFiles = selectedRunImageFiles();
   return `<section class="page active">
-    ${pageHead("光谱诊断", "当前 run 的指标、谱线、趋势和质量旗标按需加载。")}
+    ${pageHead("光谱诊断", "当前 run 的指标、谱线、趋势、谱图和质量旗标按需加载；优先显示 T 谱。")}
     ${runSelector(runs)}
     <div class="metric-grid">
       ${metric("最佳评分", d.best_score)}
@@ -429,7 +496,8 @@ function renderDiagnosis() {
       ${metric("Q", d.q)}
       ${metric("FWHM", d.fwhm_nm, "nm")}
     </div>
-    <div class="layout-2"><div class="card chart-card"><div class="chart-head"><strong>T(λ) 曲线</strong><button class="btn secondary" id="load-spectrum" type="button">加载谱线</button></div><div class="chart-box"><canvas id="spectrum-chart"></canvas></div></div><div class="card pad"><div class="card-title">质量旗标</div><div id="quality-flags">${qFlags.length ? `<div class="flag-list">${qFlags.map((f) => `<div class="flag-item"><span class="dot ${f.severity === "fail" ? "red" : "orange"}"></span><span><strong>${esc(f.flag)}</strong><br><span class="muted">${esc(f.detail || "")}</span></span></div>`).join("")}</div>` : emptySmall("选择 run 后加载质量状态")}</div></div></div>
+    <div class="layout-2"><div class="card chart-card"><div class="chart-head"><strong>T(λ) 曲线</strong><button class="btn secondary" id="load-spectrum" type="button">重载谱线</button></div><div class="chart-box"><canvas id="spectrum-chart"></canvas></div></div><div class="card pad"><div class="card-title">质量旗标</div><div id="quality-flags">${qFlags.length ? `<div class="flag-list">${qFlags.map((f) => `<div class="flag-item"><span class="dot ${f.severity === "fail" ? "red" : "orange"}"></span><span><strong>${esc(f.flag)}</strong><br><span class="muted">${esc(f.detail || "")}</span></span></div>`).join("")}</div>` : emptySmall("选择 run 后加载质量状态")}</div></div></div>
+    <div class="card pad" style="margin-top:16px"><div class="card-title">谱图图片 <span class="muted">${fmt(imageFiles.length)} 张</span></div><div class="image-strip">${imageFiles.length ? imageFiles.slice(0, 18).map((f, idx) => `<button class="thumb" data-diagnosis-image="${esc(f.relative_path)}" type="button"><img src="/api/v2/files/raw?path=${encodeURIComponent(f.relative_path.replaceAll("\\", "/"))}" alt="${esc(f.name || f.relative_path)}"><span>${idx + 1}</span></button>`).join("") : emptySmall("该 run 暂无谱图 png；仍可显示 Excel/CSV 曲线。")}</div></div>
     <div class="card chart-card" style="margin-top:16px"><div class="chart-head"><strong>参数趋势</strong><button class="btn secondary" id="load-trend" type="button">加载趋势</button></div><div class="chart-box"><canvas id="trend-chart"></canvas></div></div>
   </section>`;
 }
@@ -445,6 +513,7 @@ function metric(label, value, unit = "") {
 function renderTopology() {
   const runs = state.runsPage?.runs || [];
   const relay = state.relay || {};
+  const imageFiles = selectedRunImageFiles();
   return `<section class="page active">
     ${pageHead("模式接力 / 拓扑候选", "本页仅做候选筛选，不等价于严格拓扑证明。")}
     <div class="notice">本页仅为候选筛选；严格证明仍需 k-space 扫描、带隙演化、相位连续性与缠绕数验证。</div>
@@ -455,7 +524,8 @@ function renderTopology() {
       ${metric("证据缺口", relay.evidence_gaps?.length)}
       <div class="metric"><label>临界区间</label><strong>${esc(relay.critical_interval || "-")}</strong></div>
     </div>
-    <div class="layout-2"><div class="card chart-card"><div class="chart-head"><strong>T(λ,δ) 热图</strong><button class="btn secondary" id="load-heatmap" type="button">加载热图</button></div><div class="chart-box"><canvas id="heatmap-chart"></canvas></div></div><div class="card pad"><div class="card-title">证据缺口 / Todo</div>${(relay.evidence_gaps || []).concat(relay.todo || []).length ? `<div class="flag-list">${(relay.evidence_gaps || []).concat(relay.todo || []).map((x) => `<div class="flag-item"><span class="dot orange"></span><span>${esc(x)}</span></div>`).join("")}</div>` : emptySmall("选择 run 后加载")}</div></div>
+    <div class="layout-2"><div class="card chart-card"><div class="chart-head"><strong>T(λ,δ) 热图</strong><button class="btn secondary" id="load-heatmap" type="button">重载热图</button></div><div class="chart-box"><canvas id="heatmap-chart"></canvas></div></div><div class="card pad"><div class="card-title">证据缺口 / Todo</div>${(relay.evidence_gaps || []).concat(relay.todo || []).length ? `<div class="flag-list">${(relay.evidence_gaps || []).concat(relay.todo || []).map((x) => `<div class="flag-item"><span class="dot orange"></span><span>${esc(x)}</span></div>`).join("")}</div>` : emptySmall("选择 run 后加载")}</div></div>
+    <div class="card pad" style="margin-top:16px"><div class="card-title">代表谱图 <span class="muted">${fmt(imageFiles.length)} 张</span></div><div class="image-strip">${imageFiles.length ? imageFiles.slice(0, 18).map((f, idx) => `<button class="thumb" data-diagnosis-image="${esc(f.relative_path)}" type="button"><img src="/api/v2/files/raw?path=${encodeURIComponent(f.relative_path.replaceAll("\\", "/"))}" alt="${esc(f.name || f.relative_path)}"><span>${idx + 1}</span></button>`).join("") : emptySmall("该 run 暂无谱图 png；可先用热图和峰位轨迹判断候选。")}</div></div>
   </section>`;
 }
 
@@ -474,7 +544,8 @@ function renderSupplement() {
   const packages = state.packages?.packages || state.supplements || [];
   return `<section class="page active">
     ${pageHead("补做实验", "从缺失证据和质量旗标生成 patch_request.json 与 patch_points.csv，不覆盖原 run。")}
-    <div class="layout-2"><div class="card pad"><div class="card-title">待补做样本 <span class="muted">${fmt(items.length)} 条</span></div><div class="toolbar" style="margin-bottom:12px"><select class="select" id="supplement-type" style="max-width:240px"><option value="field">Field</option><option value="phase">Phase</option><option value="poynting">Poynting</option><option value="R">R</option><option value="A">A</option><option value="angle-resolved">angle-resolved</option><option value="band sweep">band sweep</option></select><button class="btn primary" id="create-package" type="button">生成任务包</button></div>${items.length ? `<table class="table"><thead><tr><th>选择</th><th>样本</th><th>缺失证据</th><th>优先级</th></tr></thead><tbody>${items.slice(0, 120).map((s, i) => `<tr><td><input type="checkbox" data-missing-index="${i}" ${i < 5 ? "checked" : ""}></td><td>${esc(s.group || "")} / ${esc(s.mother_structure || "")}<br><span class="muted">${esc(s.run_id || "")} ${esc(s.sample_id || "")}</span></td><td>${esc((s.missing_evidence || []).join(", "))}</td><td>${esc(s.priority || "")}</td></tr>`).join("")}</tbody></table>` : emptySmall("暂无待补做样本")}</div><div class="card pad"><div class="card-title">已有任务包</div>${packages.length ? `<div class="resource-list">${packages.slice(0, 30).map((p) => `<div class="resource-row"><strong>${esc(p.package_id)}</strong><span>${esc(p.status || "")}</span><span>${esc(p.created_at || "")}</span></div>`).join("")}</div>` : emptySmall("暂无补做任务包")}</div></div>
+    <div class="notice">缺 Field/Phase/Poynting 时，建议打开对应 source_fsp 添加场、相位或能流监视器；缺 R/A 时补反射或吸收输出。任务包只记录计划，不覆盖原 run。</div>
+    <div class="layout-2"><div class="card pad"><div class="card-title">待补做样本 <span class="muted">${fmt(items.length)} 条</span></div><div class="toolbar" style="margin-bottom:12px"><select class="select" id="supplement-type" style="max-width:240px"><option value="field">Field</option><option value="phase">Phase</option><option value="poynting">Poynting</option><option value="R">R</option><option value="A">A</option><option value="angle-resolved">angle-resolved</option><option value="band sweep">band sweep</option></select><button class="btn primary" id="create-package" type="button">生成任务包</button></div>${items.length ? `<table class="table supplement-table"><thead><tr><th>选择</th><th>样本</th><th>缺失与建议</th><th>指标</th><th>操作</th></tr></thead><tbody>${items.slice(0, 120).map((s, i) => `<tr><td><input type="checkbox" data-missing-index="${i}" ${i < 5 ? "checked" : ""}></td><td>${esc(s.group || "")} / ${esc(s.mother_structure || "")}<br><span class="muted">${esc(s.run_id || "")} ${esc(s.sample_id || "")}</span></td><td>${evidenceAdvice(s.missing_evidence || [])}<br><span class="muted">${esc(s.reason || "")}</span></td><td>λ0 ${fmt(s.lambda0_nm, 2)}<br>Q ${fmt(s.Q, 1)} / FWHM ${fmt(s.FWHM_nm, 3)}</td><td>${s.source_fsp ? `<button class="link" data-open-fsp="${esc(s.source_fsp)}" type="button">打开 FSP</button>` : `<span class="muted">无 FSP</span>`}</td></tr>`).join("")}</tbody></table>` : emptySmall("暂无待补做样本")}</div><div class="card pad"><div class="card-title">已有任务包</div>${packages.length ? `<div class="package-list">${packages.slice(0, 40).map((p) => `<div class="package-row"><div><strong>${esc(p.package_id)}</strong><br><span class="muted">${esc(p.relative_path || p.output_root || "")}</span></div><span>${esc(p.status || "")}</span><span>${esc(p.created_at || "")}</span><button class="btn danger" data-delete-package="${esc(p.package_id)}" type="button">删除</button></div>`).join("")}</div>` : emptySmall("暂无补做任务包")}</div></div>
   </section>`;
 }
 
@@ -590,6 +661,13 @@ function bindRun(root) {
   });
 }
 
+function stopResultAutoplay() {
+  if (state.resultAutoplayTimer) {
+    clearInterval(state.resultAutoplayTimer);
+    state.resultAutoplayTimer = null;
+  }
+}
+
 async function pollJob(root) {
   if (!state.activeJobId) return;
   try {
@@ -607,18 +685,174 @@ async function pollJob(root) {
   }
 }
 
+function sampleRiskTone(sample) {
+  const flags = sample.quality_flags || [];
+  const maxT = Number(sample.max_T ?? sample.max_t);
+  if (flags.includes("T > 1") || (Number.isFinite(maxT) && maxT > 1)) return "bad";
+  if (flags.some((x) => String(x).includes("FWHM")) || (sample.missing_evidence || []).length) return "warn";
+  return "ok";
+}
+
+function sampleRow(sample, index) {
+  const tone = sampleRiskTone(sample);
+  const flags = sample.quality_flags || [];
+  const missing = sample.missing_evidence || [];
+  const maxT = Number(sample.max_T ?? sample.max_t);
+  const convergence = flags.includes("T > 1") || (Number.isFinite(maxT) && maxT > 1)
+    ? `<span class="flag-text bad">不收敛：T &gt; 1</span>`
+    : `<span class="flag-text ${tone}">${tone === "ok" ? "质量正常" : "需复核"}</span>`;
+  return `<tr class="sample-row ${state.selectedSampleId === String(sample.sample_id) ? "active" : ""}" data-sample-index="${index}" data-sample-id="${esc(sample.sample_id)}">
+    <td><button class="link" data-sample-index="${index}" type="button">${esc(sample.sample_id)}</button></td>
+    <td>${esc(sample.delta ?? "")}</td>
+    <td>${fmt(sample.lambda0_nm, 2)}</td>
+    <td>${fmt(sample.Q ?? sample.q, 1)}</td>
+    <td>${fmt(sample.FWHM_nm ?? sample.fwhm_nm, 3)}</td>
+    <td>${fmt(sample.max_T ?? sample.max_t, 3)}</td>
+    <td>${fmt(sample.score, 3)}</td>
+    <td>${convergence}<br><span class="muted">${esc([...missing, ...flags].slice(0, 5).join(", "))}</span></td>
+  </tr>`;
+}
+
+function getRunImages(detail) {
+  const files = detail?.files || [];
+  const images = files.filter((f) => f.kind === "image" || /\.(png|jpg|jpeg|webp)$/i.test(f.relative_path || ""));
+  const preferred = images.filter((f) => /03_|transmission|abs2|spectrum|png/i.test(f.relative_path || ""));
+  return (preferred.length ? preferred : images).slice(0, 300);
+}
+
+function selectedRunImageFiles() {
+  const detail = state.runDetails.get(state.selectedRunId);
+  return getRunImages(detail);
+}
+
+function resourceChips(files) {
+  const wanted = files.filter((f) => ["image", "xlsx", "csv", "fsp"].includes(f.kind) || ["xlsx", "csv", "fsp", "png", "jpg"].includes(f.extension)).slice(0, 60);
+  if (!wanted.length) return "该 run 暂无可快速预览的谱图、表格或 FSP。";
+  return wanted.map((f) => `<button class="resource-chip" data-file-path="${esc(f.relative_path)}" type="button">${esc(f.kind || f.extension)} · ${esc(f.name || f.relative_path)}</button>`).join("");
+}
+
+function renderSamplePreview(root, detail, sampleIndex) {
+  const samples = detail.samples || [];
+  const sample = samples[sampleIndex] || samples[0] || {};
+  state.selectedSampleId = String(sample.sample_id || "");
+  state.resultPreviewImages = getRunImages(detail);
+  state.resultPreviewIndex = Math.min(Math.max(sampleIndex, 0), Math.max(0, state.resultPreviewImages.length - 1));
+  const image = state.resultPreviewImages[state.resultPreviewIndex];
+  const pane = $("#preview-pane", root);
+  if (!pane) return;
+  pane.innerHTML = `
+    <div class="preview-toolbar">
+      <button class="btn ghost" data-preview-prev type="button">上一张</button>
+      <button class="btn ghost" data-preview-next type="button">下一张</button>
+      <button class="btn secondary" data-preview-auto type="button">${state.resultAutoplayTimer ? "停止播放" : "自动播放"}</button>
+      ${image ? `<button class="btn ghost" data-open-folder="${esc(image.relative_path)}" type="button">打开文件夹</button>` : ""}
+    </div>
+    <div class="preview-stage">
+      ${image ? `<img id="preview-image" src="/api/v2/files/raw?path=${encodeURIComponent(image.relative_path.replaceAll("\\", "/"))}" alt="${esc(image.name || image.relative_path)}">` : `<div class="empty">该样本没有找到谱图图片，将显示 T(λ) 曲线。</div>`}
+    </div>
+    <div id="preview-path" class="muted">${image ? esc(image.relative_path) : "无谱图图片"}</div>
+    <div class="peak-tools">
+      <input class="input" id="peak-min" type="number" step="0.001" placeholder="λ min nm" value="${esc(sample.lambda0_nm ? Number(sample.lambda0_nm).toFixed(3) : "")}">
+      <input class="input" id="peak-max" type="number" step="0.001" placeholder="λ max nm" value="${esc(sample.lambda0_nm ? (Number(sample.lambda0_nm) + 1).toFixed(3) : "")}">
+      <button class="btn primary" id="save-peak-selection" type="button">记录峰值区间</button>
+    </div>
+    <div class="chart-box small" style="margin-top:10px"><canvas id="sample-spectrum-canvas"></canvas></div>
+    <div id="peak-result" class="muted">框选峰区后会写入当前 run 的 12_analysis_summary/v2_peak_selections.json。</div>
+  `;
+  loadSampleSpectrum(root, sample.sample_id);
+}
+
+async function loadSampleSpectrum(root, sampleId = "") {
+  if (!state.selectedRunId) return;
+  try {
+    const data = await api.diagnosticsSpectrum(state.selectedRunId, sampleId || "", "T");
+    const points = (data.points || []).map((p) => ({ x: Number(p[0]), y: Number(p[1]) }));
+    drawLine($("#sample-spectrum-canvas", root), points, { xLabel: "λ (nm)", yLabel: "T" });
+  } catch (error) {
+    $("#peak-result", root).textContent = `谱线读取失败：${error.message}`;
+  }
+}
+
+function showPreviewImage(root, delta) {
+  if (!state.resultPreviewImages.length) return;
+  state.resultPreviewIndex = (state.resultPreviewIndex + delta + state.resultPreviewImages.length) % state.resultPreviewImages.length;
+  const image = state.resultPreviewImages[state.resultPreviewIndex];
+  const img = $("#preview-image", root);
+  if (img) {
+    img.src = `/api/v2/files/raw?path=${encodeURIComponent(image.relative_path.replaceAll("\\", "/"))}`;
+    img.alt = image.name || image.relative_path;
+  }
+  const path = $("#preview-path", root);
+  if (path) path.textContent = image.relative_path;
+}
+
+function evidenceAdvice(missing) {
+  const advice = {
+    R: "缺 R：补反射谱输出",
+    A: "缺 A：补吸收谱输出",
+    Field: "缺 Field：添加场监视器",
+    Phase: "缺 Phase：导出相位数据",
+    Poynting: "缺 Poynting：添加能流监视器",
+  };
+  return (missing || []).map((x) => `<span class="tag orange">${esc(advice[x] || `缺 ${x}`)}</span>`).join(" ");
+}
+
 function bindResults(root) {
   $$(".tree-row[data-run-id]", root).forEach((btn) => btn.addEventListener("click", () => loadRunInResults(root, btn.dataset.runId)));
-  $("#group-filter", root)?.addEventListener("change", (event) => {
-    const value = event.target.value;
-    $$(".tree-row[data-run-id]", root).forEach((row) => { row.hidden = value && !row.dataset.group.includes(value); });
-  });
-  $("#risk-filter", root)?.addEventListener("change", (event) => {
-    const value = event.target.value;
-    $$(".tree-row[data-run-id]", root).forEach((row) => { row.hidden = value && row.dataset.risk !== value; });
+  [
+    ["scope-filter", "scope"],
+    ["group-filter", "group"],
+    ["mother-filter", "mother"],
+    ["perturbation-filter", "perturbation"],
+    ["risk-filter", "risk"],
+  ].forEach(([id, key]) => {
+    $(`#${id}`, root)?.addEventListener("change", async (event) => {
+      state.resultFilters[key] = event.target.value;
+      await renderRoute();
+    });
   });
   root.addEventListener("click", (event) => {
     if (routeName() !== "results") return;
+    const sampleBtn = event.target.closest("[data-sample-index]");
+    if (sampleBtn && sampleBtn.closest("#sample-table")) {
+      const detail = state.runDetails.get(state.selectedRunId);
+      if (detail) {
+        renderSamplePreview(root, detail, Number(sampleBtn.dataset.sampleIndex || 0));
+        $$(".sample-row", root).forEach((row) => row.classList.toggle("active", row.dataset.sampleId === state.selectedSampleId));
+      }
+      return;
+    }
+    if (event.target.closest("[data-preview-prev]")) return showPreviewImage(root, -1);
+    if (event.target.closest("[data-preview-next]")) return showPreviewImage(root, 1);
+    if (event.target.closest("[data-preview-auto]")) {
+      if (state.resultAutoplayTimer) {
+        stopResultAutoplay();
+        event.target.closest("[data-preview-auto]").textContent = "自动播放";
+      } else {
+        state.resultAutoplayTimer = setInterval(() => showPreviewImage(root, 1), 1600);
+        event.target.closest("[data-preview-auto]").textContent = "停止播放";
+      }
+      return;
+    }
+    const openFolder = event.target.closest("[data-open-folder]");
+    if (openFolder) {
+      api.openFolder(openFolder.dataset.openFolder).then(() => toast("已请求打开文件夹。", "success")).catch((error) => toast(error.message, "error"));
+      return;
+    }
+    if (event.target.closest("#save-peak-selection")) {
+      api.savePeakSelection({
+        run_id: state.selectedRunId,
+        sample_id: state.selectedSampleId,
+        kind: "T",
+        lambda_min: $("#peak-min", root)?.value,
+        lambda_max: $("#peak-max", root)?.value,
+      }).then((result) => {
+        const m = result.selection?.metrics || {};
+        $("#peak-result", root).innerHTML = `已记录：λ0 ${fmt(m.lambda0_nm, 3)} nm，FWHM ${fmt(m.FWHM_nm, 4)} nm，Q ${fmt(m.Q, 2)}。<br><span class="muted">${esc(result.relative_path || "")}</span>`;
+        toast("峰值区间已写入 run 的分析摘要。", "success");
+      }).catch((error) => toast(error.message, "error"));
+      return;
+    }
     const btn = event.target.closest("[data-file-path]");
     const pane = $("#preview-pane", root);
     if (btn && pane) previewFile(btn.dataset.filePath, pane);
@@ -628,6 +862,7 @@ function bindResults(root) {
 
 async function loadRunInResults(root, runId) {
   state.selectedRunId = runId;
+  stopResultAutoplay();
   $$(".tree-row[data-run-id]", root).forEach((row) => row.classList.toggle("active", row.dataset.runId === runId));
   try {
     const detail = await api.run(runId);
@@ -636,11 +871,19 @@ async function loadRunInResults(root, runId) {
     const samples = detail.samples || [];
     const files = detail.files || [];
     const samplePane = $("#sample-table", root);
-    const filePane = $("#file-table", root);
     samplePane.className = samples.length ? "" : "empty";
-    filePane.className = files.length ? "" : "empty";
-    samplePane.innerHTML = samples.length ? `<div style="overflow:auto"><table class="table" style="min-width:560px"><thead><tr><th>sample_id</th><th>delta</th><th>λ0</th><th>score</th><th>缺失证据</th></tr></thead><tbody>${samples.slice(0, 80).map((s) => `<tr><td>${esc(s.sample_id)}</td><td>${esc(s.delta ?? "")}</td><td>${esc(s.lambda0_nm ?? "")}</td><td>${esc(s.score ?? "")}</td><td>${esc((s.missing_evidence || []).join(", "))}</td></tr>`).join("")}</tbody></table></div>` : "未发现 scan_points / manifest 样本摘要。";
-    filePane.innerHTML = files.length ? `<div style="overflow:auto"><table class="table" style="min-width:560px"><thead><tr><th>文件</th><th>类型</th><th>大小</th><th>预览</th></tr></thead><tbody>${files.slice(0, 180).map((f) => `<tr><td>${esc(f.relative_path)}</td><td>${esc(f.kind)}</td><td>${fmt(f.size || 0)} B</td><td><button class="link" data-file-path="${esc(f.relative_path)}" type="button">预览</button></td></tr>`).join("")}</tbody></table></div>` : "该 run 下未登记文件。";
+    samplePane.innerHTML = samples.length ? `<div class="sample-table-wrap"><table class="table sample-table"><thead><tr><th>sample</th><th>δ / 参数</th><th>λ0 nm</th><th>Q</th><th>FWHM nm</th><th>max(T)</th><th>score</th><th>状态</th></tr></thead><tbody>${samples.slice(0, 160).map(sampleRow).join("")}</tbody></table></div>` : "未发现 scan_points / manifest 样本摘要。";
+    const strip = $("#resource-strip", root);
+    if (strip) strip.innerHTML = resourceChips(files);
+    const hint = $("#resource-hint", root);
+    if (hint) hint.textContent = `${fmt(files.length)} 个文件，已隐藏完整文件表，只保留关键资源入口`;
+    try {
+      const trend = await api.diagnosticsTrend(runId);
+      drawTrend($("#result-trend-chart", root), trend.points || detail.metrics || [], "delta", "score");
+    } catch {
+      drawTrend($("#result-trend-chart", root), detail.metrics || [], "delta", "score");
+    }
+    if (samples.length) renderSamplePreview(root, detail, 0);
   } catch (error) {
     toast(error.message, "error");
   }
@@ -655,7 +898,7 @@ async function previewFile(path, pane) {
     } else if (data.kind === "xlsx") {
       pane.innerHTML = `<strong>工作表摘要</strong><pre>${esc(JSON.stringify(data, null, 2))}</pre>`;
     } else if (data.kind === "fsp") {
-      pane.innerHTML = `<table class="table"><tbody><tr><td>路径</td><td>${esc(data.relative_path)}</td></tr><tr><td>大小</td><td>${fmt(data.size)} B</td></tr><tr><td>mtime</td><td>${esc(data.mtime)}</td></tr></tbody></table>`;
+      pane.innerHTML = `<table class="table"><tbody><tr><td>路径</td><td>${esc(data.relative_path)}</td></tr><tr><td>大小</td><td>${fmt(data.size)} B</td></tr><tr><td>mtime</td><td>${esc(data.mtime)}</td></tr></tbody></table><div class="toolbar" style="margin-top:10px"><button class="btn primary" data-open-fsp="${esc(data.relative_path)}" type="button">打开 FSP</button><button class="btn ghost" data-open-folder="${esc(data.relative_path)}" type="button">打开文件夹</button></div>`;
     } else {
       pane.innerHTML = `<pre>${esc(data.text || JSON.stringify(data, null, 2))}</pre>`;
     }
@@ -665,16 +908,30 @@ async function previewFile(path, pane) {
 }
 
 function bindDiagnosis(root) {
-  $("#run-select", root)?.addEventListener("change", (event) => { state.selectedRunId = event.target.value; });
+  $("#run-select", root)?.addEventListener("change", (event) => {
+    state.selectedRunId = event.target.value;
+    state.diagnostics = null;
+    state.spectrum = null;
+    state.trend = null;
+    renderRoute();
+  });
   $("#load-run-diagnostics", root)?.addEventListener("click", () => loadDiagnostics(root));
   $("#load-spectrum", root)?.addEventListener("click", () => loadSpectrum(root));
   $("#load-trend", root)?.addEventListener("click", () => loadTrend(root));
+  root.addEventListener("click", (event) => {
+    const img = event.target.closest("[data-diagnosis-image]");
+    if (img) openDrawer("谱图预览", `<img src="/api/v2/files/raw?path=${encodeURIComponent(img.dataset.diagnosisImage.replaceAll("\\", "/"))}" alt="${esc(img.dataset.diagnosisImage)}" style="width:100%;height:auto;border-radius:8px"><p class="muted">${esc(img.dataset.diagnosisImage)}</p>`);
+  });
   if (state.spectrum?.run_id === state.selectedRunId) {
     const points = (state.spectrum.points || []).map((p) => ({ x: Number(p[0]), y: Number(p[1]) }));
     drawLine($("#spectrum-chart", root), points, { xLabel: "λ (nm)", yLabel: "T" });
+  } else if (state.diagnostics?.run_id === state.selectedRunId) {
+    loadSpectrum(root);
   }
   if (state.trend?.run_id === state.selectedRunId) {
     drawTrend($("#trend-chart", root), state.trend.points || [], "delta", "score");
+  } else if (state.diagnostics?.run_id === state.selectedRunId) {
+    loadTrend(root);
   }
   if (state.selectedRunId && (state.diagnostics?.run_id !== state.selectedRunId || !state.diagnostics?.quality)) loadDiagnostics(root);
 }
@@ -682,9 +939,14 @@ function bindDiagnosis(root) {
 async function loadDiagnostics(root) {
   if (!state.selectedRunId) return;
   try {
-    state.diagnostics = await api.diagnosticsRun(state.selectedRunId);
-    const q = await api.diagnosticsQuality(state.selectedRunId);
+    const [diagnostics, q, detail] = await Promise.all([
+      api.diagnosticsRun(state.selectedRunId),
+      api.diagnosticsQuality(state.selectedRunId),
+      api.run(state.selectedRunId),
+    ]);
+    state.diagnostics = diagnostics;
     state.diagnostics.quality = q;
+    state.runDetails.set(state.selectedRunId, detail);
     await renderRoute();
   } catch (error) {
     toast(error.message, "error");
@@ -706,9 +968,18 @@ async function loadTrend(root) {
 }
 
 function bindTopology(root) {
-  $("#run-select", root)?.addEventListener("change", (event) => { state.selectedRunId = event.target.value; });
+  $("#run-select", root)?.addEventListener("change", (event) => {
+    state.selectedRunId = event.target.value;
+    state.relay = null;
+    state.heatmap = null;
+    renderRoute();
+  });
   $("#load-run-diagnostics", root)?.addEventListener("click", () => loadRelay(root));
   $("#load-heatmap", root)?.addEventListener("click", () => loadHeatmap(root));
+  root.addEventListener("click", (event) => {
+    const img = event.target.closest("[data-diagnosis-image]");
+    if (img) openDrawer("代表谱图", `<img src="/api/v2/files/raw?path=${encodeURIComponent(img.dataset.diagnosisImage.replaceAll("\\", "/"))}" alt="${esc(img.dataset.diagnosisImage)}" style="width:100%;height:auto;border-radius:8px"><p class="muted">${esc(img.dataset.diagnosisImage)}</p>`);
+  });
   if (state.heatmap?.run_id === state.selectedRunId) {
     drawHeatmap($("#heatmap-chart", root), state.heatmap);
   }
@@ -716,7 +987,14 @@ function bindTopology(root) {
 }
 
 async function loadRelay(root) {
-  state.relay = await api.modeRelay(state.selectedRunId);
+  const [relay, detail, heatmap] = await Promise.all([
+    api.modeRelay(state.selectedRunId),
+    api.run(state.selectedRunId),
+    api.modeRelayHeatmap(state.selectedRunId),
+  ]);
+  state.relay = relay;
+  state.heatmap = heatmap;
+  state.runDetails.set(state.selectedRunId, detail);
   $("#page-root").innerHTML = renderTopology();
   bindTopology($("#page-root"));
 }
@@ -738,6 +1016,23 @@ function bindQuality(root) {
 }
 
 function bindSupplement(root) {
+  root.addEventListener("click", (event) => {
+    const del = event.target.closest("[data-delete-package]");
+    if (!del) return;
+    const packageId = del.dataset.deletePackage;
+    openModal({
+      title: "删除补做任务包",
+      danger: true,
+      confirmText: "确认删除任务包",
+      body: `<p>只会删除 V2 生成的 patch 任务包目录和 supplement_index 条目，不会删除原始 run。</p><pre class="mono">${esc(packageId)}</pre>`,
+      onConfirm: async () => {
+        await api.deleteSupplementPackage(packageId);
+        toast("补做任务包已删除。", "success");
+        state.packages = await api.supplementPackages();
+        await renderRoute();
+      },
+    });
+  });
   $("#create-package", root)?.addEventListener("click", async () => {
     const items = state.missing?.items || [];
     const selected = $$("[data-missing-index]:checked", root).map((box) => items[Number(box.dataset.missingIndex)]).filter(Boolean);
@@ -789,6 +1084,16 @@ function bindChrome() {
     if (go) navigate(go.dataset.go);
     const selectRun = event.target.closest("[data-select-run]");
     if (selectRun?.dataset.selectRun) state.selectedRunId = selectRun.dataset.selectRun;
+    const openFsp = event.target.closest("[data-open-fsp]");
+    if (openFsp?.dataset.openFsp) {
+      event.preventDefault();
+      api.openFile(openFsp.dataset.openFsp).then(() => toast("已请求打开 FSP。", "success")).catch((error) => toast(error.message, "error"));
+    }
+    const openFolder = event.target.closest("[data-open-folder]");
+    if (openFolder?.dataset.openFolder && routeName() !== "results") {
+      event.preventDefault();
+      api.openFolder(openFolder.dataset.openFolder).then(() => toast("已请求打开文件夹。", "success")).catch((error) => toast(error.message, "error"));
+    }
   }, true);
   $("#global-search").addEventListener("input", async (event) => {
     state.search = event.target.value;

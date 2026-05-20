@@ -2663,6 +2663,27 @@ class WorkbenchApp(object):
             raise ValueError("file not found")
         return path
 
+    def open_project_file(self, rel_path):
+        path = self.safe_path(rel_path)
+        if not path.exists() or not path.is_file():
+            raise ValueError("file not found")
+        if path.suffix.lower() != ".fsp":
+            raise ValueError("only .fsp direct open is enabled")
+        if os.name != "nt" or not hasattr(os, "startfile"):
+            raise ValueError("open file is only available on Windows")
+        os.startfile(str(path))
+        return {"ok": True, "path": slash(rel_to(self.root, path))}
+
+    def open_project_folder(self, rel_path):
+        path = self.safe_path(rel_path)
+        target = path if path.is_dir() else path.parent
+        if not target.exists():
+            raise ValueError("folder not found")
+        if os.name != "nt" or not hasattr(os, "startfile"):
+            raise ValueError("open folder is only available on Windows")
+        os.startfile(str(target))
+        return {"ok": True, "path": slash(rel_to(self.root, target))}
+
     def run_files(self, run_id):
         run = self.find_run(run_id)
         if not run:
@@ -2674,6 +2695,58 @@ class WorkbenchApp(object):
         if not detail:
             raise ValueError("run not found")
         return {"run_id": run_id, "samples": detail.get("samples", [])}
+
+    def save_peak_selection(self, payload):
+        run_id = payload.get("run_id")
+        sample_id = str(payload.get("sample_id") or "")
+        kind = (payload.get("kind") or "T").upper()
+        lambda_min = numeric(payload.get("lambda_min"))
+        lambda_max = numeric(payload.get("lambda_max"))
+        if not run_id or lambda_min is None or lambda_max is None:
+            raise ValueError("run_id, lambda_min and lambda_max are required")
+        if lambda_min > lambda_max:
+            lambda_min, lambda_max = lambda_max, lambda_min
+        run = self.find_run(run_id)
+        if not run:
+            raise ValueError("run not found")
+        spectra = read_json(self.spectra_index_path, {"items": []}).get("items", [])
+        item = next((s for s in spectra if s.get("run_id") == run_id and s.get("kind", "").upper() == kind and (not sample_id or str(s.get("sample_id")) == sample_id)), None)
+        if not item:
+            candidates = scan_spectrum_index({"run_id": run_id, "relative_path": run.get("relative_path")}, root=self.root)
+            item = next((s for s in candidates if s.get("kind", "").upper() == kind and (not sample_id or str(s.get("sample_id")) == sample_id)), None)
+        if not item:
+            raise ValueError("spectrum not found for selected sample")
+        spectrum = load_or_build_spectrum_cache(item, root=self.root)
+        pairs = [
+            (numeric(x), numeric(y))
+            for x, y in zip(spectrum.get("lambda_nm", []), spectrum.get("value", []))
+            if numeric(x) is not None and numeric(y) is not None and lambda_min <= numeric(x) <= lambda_max
+        ]
+        if len(pairs) < 3:
+            raise ValueError("selected λ range has too few points")
+        metrics = extract_metrics_from_spectrum([p[0] for p in pairs], [p[1] for p in pairs])
+        record = {
+            "selection_id": "peak_" + now_stamp() + "_" + hashlib.sha1(("%s|%s|%s|%s" % (run_id, sample_id, lambda_min, lambda_max)).encode("utf-8", errors="replace")).hexdigest()[:8],
+            "created_at": now_iso(),
+            "run_id": run_id,
+            "sample_id": item.get("sample_id") or sample_id,
+            "kind": kind,
+            "lambda_min_nm": lambda_min,
+            "lambda_max_nm": lambda_max,
+            "source_path": item.get("relative_path"),
+            "metrics": metrics,
+            "note": payload.get("note") or "用户在 V2 页面框选峰区后计算",
+        }
+        run_path = self.root / run.get("relative_path", "")
+        summary_dir = run_path / "12_analysis_summary"
+        summary_dir.mkdir(parents=True, exist_ok=True)
+        target = summary_dir / "v2_peak_selections.json"
+        data = load_json_safe(target, {"schema_version": 1, "selections": []})
+        data["selections"] = [x for x in data.get("selections", []) if x.get("selection_id") != record["selection_id"]]
+        data["selections"].insert(0, record)
+        data["updated_at"] = now_iso()
+        save_json_atomic(target, data)
+        return {"ok": True, "selection": record, "relative_path": slash(rel_to(self.root, target))}
 
     def controller_preview(self, payload):
         ids = payload.get("ids") or []
@@ -2777,8 +2850,8 @@ class WorkbenchApp(object):
         if os.name == "nt":
             creationflags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
         env = os.environ.copy()
-        env.setdefault("PYTHONIOENCODING", "utf-8")
-        env.setdefault("PYTHONUTF8", "1")
+        env["PYTHONIOENCODING"] = "utf-8"
+        env["PYTHONUTF8"] = "1"
         process = subprocess.Popen(
             cmd,
             cwd=str(self.root),
@@ -3109,9 +3182,9 @@ class WorkbenchApp(object):
                     "sample_id": sample.get("sample_id"),
                     "delta": sample.get("delta"),
                     "lambda0_nm": sample.get("lambda0_nm") or run.get("lambda0_nm"),
-                    "Q": run.get("q"),
-                    "FWHM_nm": run.get("fwhm_nm"),
-                    "score": run.get("score"),
+                    "Q": sample.get("Q") or sample.get("q") or run.get("q"),
+                    "FWHM_nm": sample.get("FWHM_nm") or sample.get("fwhm_nm") or run.get("fwhm_nm"),
+                    "score": sample.get("score") or run.get("score"),
                     "missing_evidence": missing,
                     "source_fsp": sample.get("source_fsp", ""),
                     "priority": priority,
@@ -3215,8 +3288,15 @@ class WorkbenchApp(object):
             "package_id": package_id,
             "created_at": request["created_at"],
             "supplement_type": supplement_type,
+            "type": supplement_type,
             "status": "planned",
+            "source_run_id": first.get("run_id"),
+            "source_job_id": first.get("source_job_id") or run.get("source_job_id"),
             "relative_path": slash(rel_to(self.root, package_root)) if self.root in package_root.resolve().parents else str(package_root),
+            "output_root": slash(rel_to(self.root, package_root)) if self.root in package_root.resolve().parents else str(package_root),
+            "expected_outputs": [
+                {"kind": supplement_type, "relative_path": slash(rel_to(self.root, package_root / self._output_dir_for_type(supplement_type)))}
+            ],
         }
         packages = [p for p in index.get("packages", []) if p.get("package_id") != package_id]
         packages.insert(0, item)
@@ -3244,6 +3324,32 @@ class WorkbenchApp(object):
             if item.get("package_id") == package_id:
                 return item
         raise ValueError("package not found")
+
+    def delete_supplement_package(self, package_id):
+        if not str(package_id).startswith("patch_"):
+            raise ValueError("only V2 patch packages can be deleted")
+        index = read_json(self.supplement_index_path, {"schema_version": 1, "packages": []})
+        packages = index.get("packages", [])
+        item = next((p for p in packages if p.get("package_id") == package_id), None)
+        if not item:
+            raise ValueError("package not found")
+        rel = item.get("relative_path") or item.get("output_root") or ""
+        package_root = self.safe_path(rel)
+        if not package_root.exists() or not package_root.is_dir():
+            packages = [p for p in packages if p.get("package_id") != package_id]
+            index["packages"] = packages
+            index["built_at"] = now_iso()
+            atomic_write_json(self.supplement_index_path, index)
+            return {"ok": True, "deleted": False, "package_id": package_id, "message": "index entry removed; folder was missing"}
+        marker = package_root / "patch_request.json"
+        if not marker.exists():
+            raise ValueError("refuse to delete folder without patch_request.json")
+        shutil.rmtree(str(package_root))
+        packages = [p for p in packages if p.get("package_id") != package_id]
+        index["packages"] = packages
+        index["built_at"] = now_iso()
+        atomic_write_json(self.supplement_index_path, index)
+        return {"ok": True, "deleted": True, "package_id": package_id}
 
     def refresh_scripts_only(self):
         runs = read_json(self.run_index_cache_path, {"runs": []}).get("runs", [])
@@ -3403,11 +3509,20 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(app.controller_preview(payload))
         if path == "/api/v2/controller/start":
             return self._json(app.controller_start(payload))
+        if path == "/api/v2/files/open":
+            return self._json(app.open_project_file(payload.get("path") or ""))
+        if path == "/api/v2/files/open-folder":
+            return self._json(app.open_project_folder(payload.get("path") or ""))
+        if path == "/api/v2/diagnostics/peak-selection":
+            return self._json(app.save_peak_selection(payload))
         m = re.match(r"^/api/v2/jobs/([^/]+)/stop$", path)
         if m:
             return self._json(app.stop_job(unquote(m.group(1))))
         if path == "/api/v2/supplement/create-package":
             return self._json(app.create_supplement_package(payload))
+        m = re.match(r"^/api/v2/supplement/packages/([^/]+)/delete$", path)
+        if m:
+            return self._json(app.delete_supplement_package(unquote(m.group(1))))
         if path == "/api/v2/results-manager/dry-run":
             return self._json(app.result_manager_dry_run())
         raise ValueError("unknown endpoint: " + path)
