@@ -1,0 +1,694 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+    "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒",
+    "group": "C4",
+    "mother_structure": "四孔方块",
+    "perturbation": "单孔偏移扰动",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 9,
+    "spectra_count": 9,
+    "sample_count": 9,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": 0.0017000000000000001,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": 1700.0,
+    "modified_at": "2026-05-12T09:50:38",
+    "mtime": 1778550638.2455323,
+    "fingerprint": {
+      "mtime_max": 1778554742.6895216,
+      "total_size": 259010232,
+      "file_count": 33,
+      "dir_count": 6,
+      "fingerprint": "1778554742.6895216-259010232-33-6"
+    },
+    "last_indexed_at": "2026-05-20T14:34:02",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1700",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0000_single_hole_offset_offset_0.000_nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0001_single_hole_offset_offset_9.375_nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0002_single_hole_offset_offset_18.750_nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0003_single_hole_offset_offset_28.125_nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0004_single_hole_offset_offset_37.500_nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0005_single_hole_offset_offset_46.875_nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0006_single_hole_offset_offset_56.250_nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0007_single_hole_offset_offset_65.625_nm.fsp"
+    },
+    {
+      "sample_id": "8",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0008_single_hole_offset_offset_75.000_nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 475,
+      "mtime": 1778550638.2435303,
+      "mtime_iso": "2026-05-12T09:50:38"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 5651,
+      "mtime": 1778554742.6895216,
+      "mtime_iso": "2026-05-12T10:59:02"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0000_single_hole_offset_offset_0.000_nm.fsp",
+      "name": "0000_single_hole_offset_offset_0.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804697,
+      "mtime": 1778550765.0486546,
+      "mtime_iso": "2026-05-12T09:52:45"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0001_single_hole_offset_offset_9.375_nm.fsp",
+      "name": "0001_single_hole_offset_offset_9.375_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805657,
+      "mtime": 1778551264.3214965,
+      "mtime_iso": "2026-05-12T10:01:04"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0002_single_hole_offset_offset_18.750_nm.fsp",
+      "name": "0002_single_hole_offset_offset_18.750_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805657,
+      "mtime": 1778551752.92427,
+      "mtime_iso": "2026-05-12T10:09:12"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0003_single_hole_offset_offset_28.125_nm.fsp",
+      "name": "0003_single_hole_offset_offset_28.125_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805657,
+      "mtime": 1778552247.622772,
+      "mtime_iso": "2026-05-12T10:17:27"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0004_single_hole_offset_offset_37.500_nm.fsp",
+      "name": "0004_single_hole_offset_offset_37.500_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805673,
+      "mtime": 1778552752.4719737,
+      "mtime_iso": "2026-05-12T10:25:52"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0005_single_hole_offset_offset_46.875_nm.fsp",
+      "name": "0005_single_hole_offset_offset_46.875_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805657,
+      "mtime": 1778553248.5931726,
+      "mtime_iso": "2026-05-12T10:34:08"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0006_single_hole_offset_offset_56.250_nm.fsp",
+      "name": "0006_single_hole_offset_offset_56.250_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805657,
+      "mtime": 1778553743.238951,
+      "mtime_iso": "2026-05-12T10:42:23"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0007_single_hole_offset_offset_65.625_nm.fsp",
+      "name": "0007_single_hole_offset_offset_65.625_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805673,
+      "mtime": 1778554245.6003368,
+      "mtime_iso": "2026-05-12T10:50:45"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\01_fsp\\0008_single_hole_offset_offset_75.000_nm.fsp",
+      "name": "0008_single_hole_offset_offset_75.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805673,
+      "mtime": 1778554741.5030577,
+      "mtime_iso": "2026-05-12T10:59:01"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804537,
+      "mtime": 1777254204.3492599,
+      "mtime_iso": "2026-04-27T09:43:24"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0000_single_hole_offset_offset_0.000_nm.png",
+      "name": "0000_single_hole_offset_offset_0.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 74609,
+      "mtime": 1778550766.2357273,
+      "mtime_iso": "2026-05-12T09:52:46"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0001_single_hole_offset_offset_9.375_nm.png",
+      "name": "0001_single_hole_offset_offset_9.375_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 74079,
+      "mtime": 1778551264.655635,
+      "mtime_iso": "2026-05-12T10:01:04"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0002_single_hole_offset_offset_18.750_nm.png",
+      "name": "0002_single_hole_offset_offset_18.750_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 76024,
+      "mtime": 1778551753.2585301,
+      "mtime_iso": "2026-05-12T10:09:13"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0003_single_hole_offset_offset_28.125_nm.png",
+      "name": "0003_single_hole_offset_offset_28.125_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78998,
+      "mtime": 1778552247.9302478,
+      "mtime_iso": "2026-05-12T10:17:27"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0004_single_hole_offset_offset_37.500_nm.png",
+      "name": "0004_single_hole_offset_offset_37.500_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 79026,
+      "mtime": 1778552753.6054044,
+      "mtime_iso": "2026-05-12T10:25:53"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0005_single_hole_offset_offset_46.875_nm.png",
+      "name": "0005_single_hole_offset_offset_46.875_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 76251,
+      "mtime": 1778553249.4738421,
+      "mtime_iso": "2026-05-12T10:34:09"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0006_single_hole_offset_offset_56.250_nm.png",
+      "name": "0006_single_hole_offset_offset_56.250_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 77766,
+      "mtime": 1778553743.5677905,
+      "mtime_iso": "2026-05-12T10:42:23"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0007_single_hole_offset_offset_65.625_nm.png",
+      "name": "0007_single_hole_offset_offset_65.625_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 81144,
+      "mtime": 1778554246.1631415,
+      "mtime_iso": "2026-05-12T10:50:46"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\03_transmission_abs2_png\\0008_single_hole_offset_offset_75.000_nm.png",
+      "name": "0008_single_hole_offset_offset_75.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80200,
+      "mtime": 1778554742.6895216,
+      "mtime_iso": "2026-05-12T10:59:02"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\04_logs\\automation_run.log",
+      "name": "automation_run.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 2125,
+      "mtime": 1778554742.6895216,
+      "mtime_iso": "2026-05-12T10:59:02"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1401,
+      "mtime": 1778550638.2455323,
+      "mtime_iso": "2026-05-12T09:50:38"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\00_scan_plan\\scan_summary.txt",
+      "name": "scan_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 449,
+      "mtime": 1778550638.2445605,
+      "mtime_iso": "2026-05-12T09:50:38"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0000_single_hole_offset_offset_0.000_nm.xlsx",
+      "name": "0000_single_hole_offset_offset_0.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27475,
+      "mtime": 1778550766.0770476,
+      "mtime_iso": "2026-05-12T09:52:46"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0001_single_hole_offset_offset_9.375_nm.xlsx",
+      "name": "0001_single_hole_offset_offset_9.375_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27504,
+      "mtime": 1778551264.5437713,
+      "mtime_iso": "2026-05-12T10:01:04"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0002_single_hole_offset_offset_18.750_nm.xlsx",
+      "name": "0002_single_hole_offset_offset_18.750_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27488,
+      "mtime": 1778551753.13803,
+      "mtime_iso": "2026-05-12T10:09:13"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0003_single_hole_offset_offset_28.125_nm.xlsx",
+      "name": "0003_single_hole_offset_offset_28.125_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27468,
+      "mtime": 1778552247.8152442,
+      "mtime_iso": "2026-05-12T10:17:27"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0004_single_hole_offset_offset_37.500_nm.xlsx",
+      "name": "0004_single_hole_offset_offset_37.500_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27513,
+      "mtime": 1778552753.4811919,
+      "mtime_iso": "2026-05-12T10:25:53"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0005_single_hole_offset_offset_46.875_nm.xlsx",
+      "name": "0005_single_hole_offset_offset_46.875_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27465,
+      "mtime": 1778553249.2236233,
+      "mtime_iso": "2026-05-12T10:34:09"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0006_single_hole_offset_offset_56.250_nm.xlsx",
+      "name": "0006_single_hole_offset_offset_56.250_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27565,
+      "mtime": 1778553743.4470346,
+      "mtime_iso": "2026-05-12T10:42:23"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0007_single_hole_offset_offset_65.625_nm.xlsx",
+      "name": "0007_single_hole_offset_offset_65.625_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27530,
+      "mtime": 1778554246.0452094,
+      "mtime_iso": "2026-05-12T10:50:46"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒\\02_transmission_excel\\0008_single_hole_offset_offset_75.000_nm.xlsx",
+      "name": "0008_single_hole_offset_offset_75.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27488,
+      "mtime": 1778554742.5845,
+      "mtime_iso": "2026-05-12T10:59:02"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+  "relative_path": "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_09时50分29秒",
+  "group": "C4",
+  "mother_structure": "四孔方块",
+  "perturbation": "单孔偏移扰动",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 9,
+  "spectra_count": 9,
+  "sample_count": 9,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": 0.0017000000000000001,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": 1700.0,
+  "modified_at": "2026-05-12T09:50:38",
+  "mtime": 1778550638.2455323,
+  "fingerprint": {
+    "mtime_max": 1778554742.6895216,
+    "total_size": 259010232,
+    "file_count": 33,
+    "dir_count": 6,
+    "fingerprint": "1778554742.6895216-259010232-33-6"
+  },
+  "last_indexed_at": "2026-05-20T14:34:02",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1700",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_09时50分29秒_0795386b",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

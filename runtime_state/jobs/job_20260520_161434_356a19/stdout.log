@@ -1,0 +1,148 @@
+
+发现可运行脚本 91 个：
+状态说明：FULL完整已跑 = 已跑过完整 full；TEST仅测试 = 只跑过 test 但未 full；TODO未跑 = test/full 都没有。
+========================================================================================================================
+[C2对称结构]
+  - 双圆盘
+      [001] 半径差扰动              run_fdtd_disk_radius_difference_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [002] 单盘开孔扰动             run_fdtd_single_disk_hole_sweep.py           状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月7日_13时43分58秒（完成7点）
+      [003] 双盘同步开孔扰动           run_fdtd_all_disk_hole_sweep.py              状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月15日_03时38分08秒（完成31点，计划31点）
+      [004] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月14日_20时24分28秒（完成13点，计划13点）
+      [005] 非对称位移扰动            run_fdtd_disk_asymmetric_offset_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 双柱
+      [006] 左右位置差扰动            run_fdtd_pillar_position_difference_sweep.py 状态=TODO未跑          最近test: 无 | 最近full: 无
+      [007] 左右半径差扰动            run_fdtd_pillar_radius_difference_sweep.py   状态=TODO未跑          最近test: 无 | 最近full: 无
+      [008] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [009] 间距扫描扰动             run_fdtd_pillar_spacing_sweep.py             状态=TODO未跑          最近test: 无 | 最近full: 无
+      [010] 高度差扰动              run_fdtd_pillar_height_difference_sweep.py   状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月7日_16时23分37秒（完成9点）
+  - 双梁
+      [011] 同步梁宽扫描扰动           run_fdtd_all_beam_width_sweep.py             状态=TODO未跑          最近test: 无 | 最近full: 无
+      [012] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [013] 梁偏移扰动              run_fdtd_beam_offset_sweep.py                状态=TODO未跑          最近test: 无 | 最近full: 无
+      [014] 梁宽差扰动              run_fdtd_beam_width_difference_sweep.py      状态=TODO未跑          最近test: 无 | 最近full: 无
+      [015] 梁长差扰动              run_fdtd_beam_length_difference_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 双椭圆
+      [016] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [017] 短轴差扰动              run_fdtd_ellipse_short_axis_difference_sweep.py 状态=TODO未跑          最近test: 无 | 最近full: 无
+      [018] 转角差扰动              run_fdtd_ellipse_angle_difference_sweep.py   状态=TODO未跑          最近test: 无 | 最近full: 无
+      [019] 长轴差扰动              run_fdtd_ellipse_long_axis_difference_sweep.py 状态=TODO未跑          最近test: 无 | 最近full: 无
+      [020] 间距差扰动              run_fdtd_ellipse_spacing_difference_sweep.py 状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 双脊
+      [021] 位置差扰动              run_fdtd_ridge_position_difference_sweep.py  状态=TODO未跑          最近test: 无 | 最近full: 无
+      [022] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [023] 脊宽差扰动              run_fdtd_ridge_width_difference_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [024] 脊高差扰动              run_fdtd_ridge_height_difference_sweep.py    状态=TODO未跑          最近test: 无 | 最近full: 无
+      [025] 顶部槽差扰动             run_fdtd_ridge_top_slot_sweep.py             状态=TODO未跑          最近test: 无 | 最近full: 无
+[C3对称结构]
+  - 三叶星
+      [026] 三臂同步缩放扰动           run_fdtd_all_arm_scale_sweep.py              状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月13日_23时12分08秒（完成3点，计划12点）
+      [027] 单臂宽度差扰动            run_fdtd_single_arm_width_sweep.py           状态=TODO未跑          最近test: 无 | 最近full: 无
+      [028] 单臂转角扰动             run_fdtd_single_arm_angle_sweep.py           状态=TODO未跑          最近test: 无 | 最近full: 无
+      [029] 单臂长度差扰动            run_fdtd_single_arm_length_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [030] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 三柱簇
+      [031] 三柱同步半径扫描扰动         run_fdtd_all_pillar_radius_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [032] 其中两柱同改扰动           run_fdtd_two_pillar_radius_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [033] 单点偏移扰动             run_fdtd_single_pillar_offset_sweep.py       状态=TODO未跑          最近test: 无 | 最近full: 无
+      [034] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [035] 改单个柱子扰动            run_fdtd_single_pillar_radius_sweep.py       状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 三裂缝环
+      [036] 三裂缝同步宽度扰动          run_fdtd_all_slit_width_sweep.py             状态=TODO未跑          最近test: 无 | 最近full: 无
+      [037] 单裂缝宽度扰动            run_fdtd_single_slit_width_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [038] 单裂缝角度扰动            run_fdtd_single_slit_angle_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [039] 单裂缝长度扰动            run_fdtd_single_slit_length_sweep.py         状态=TODO未跑          最近test: 无 | 最近full: 无
+      [040] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+[C4对称结构]
+  - 十字
+      [041] 单臂开槽扰动             run_fdtd_single_arm_slot_sweep.py            状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月8日_04时27分45秒（完成20点）
+      [042] 单臂长度变化扰动           run_fdtd_single_arm_length_sweep.py          状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月14日_22时32分32秒（完成20点，计划20点）
+      [043] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月14日_22时51分50秒（完成13点，计划13点）
+      [044] 横竖臂宽度差扰动           run_fdtd_arm_width_diff_sweep.py             状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月14日_23时06分50秒（完成7点，计划15点）
+      [045] 横竖臂长度差扰动           run_fdtd_arm_length_diff_sweep.py            状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月14日_23时13分12秒（完成7点，计划20点）
+  - 四孔方块
+      [046] 单孔偏移扰动             run_fdtd_single_hole_offset_sweep.py         状态=TODO未跑          最近test: 无 | 最近full: 无
+      [047] 四孔同步孔径扰动           run_fdtd_all_hole_radius_sweep.py            状态=TODO未跑          最近test: 无 | 最近full: 无
+      [048] 孔距同步扫描扰动           run_fdtd_hole_pitch_sweep.py                 状态=TODO未跑          最近test: 无 | 最近full: 无
+      [049] 对角成对变化扰动           run_fdtd_diagonal_pair_radius_sweep.py       状态=TODO未跑          最近test: 无 | 最近full: 无
+      [050] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [051] 改单孔半径扰动            run_fdtd_single_hole_radius_sweep.py         状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 四柱簇
+      [052] 单柱偏移扰动             run_fdtd_single_pillar_offset_sweep.py       状态=TODO未跑          最近test: 无 | 最近full: 无
+      [053] 四柱同步半径扰动           run_fdtd_all_pillar_radius_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [054] 对边成对变化扰动           run_fdtd_opposite_pair_pillar_radius_sweep.py 状态=TODO未跑          最近test: 无 | 最近full: 无
+      [055] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [056] 改单个柱子扰动            run_fdtd_single_pillar_radius_sweep.py       状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 四裂缝环
+      [057] 四裂缝同步扫描扰动          run_fdtd_all_slit_width_sweep.py             状态=TODO未跑          最近test: 无 | 最近full: 无
+      [058] 对边裂缝成对变化扰动         run_fdtd_opposite_pair_slit_width_sweep.py   状态=TODO未跑          最近test: 无 | 最近full: 无
+      [059] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [060] 改单裂缝宽度扰动           run_fdtd_single_slit_width_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [061] 裂缝角度差扰动            run_fdtd_single_slit_angle_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [062] 裂缝长度差扰动            run_fdtd_single_slit_length_sweep.py         状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 方环
+      [063] 偏心内孔扰动             run_fdtd_eccentric_inner_hole_sweep.py       状态=TODO未跑          最近test: 无 | 最近full: 无
+      [064] 内孔尺寸扫描扰动           run_fdtd_inner_hole_size_sweep.py            状态=TODO未跑          最近test: 无 | 最近full: 无
+      [065] 外框长宽差扰动            run_fdtd_outer_aspect_ratio_sweep.py         状态=TODO未跑          最近test: 无 | 最近full: 无
+      [066] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [067] 边宽差扰动              run_fdtd_edge_width_diff_sweep.py            状态=TODO未跑          最近test: 无 | 最近full: 无
+[C6对称结构]
+  - 六柱环
+      [068] 交替两组柱子扰动           run_fdtd_alternating_pillar_radius_sweep.py  状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月19日_15时55分08秒（计划7点）
+      [069] 六柱同步半径扰动           run_fdtd_all_pillar_radius_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+      [070] 单柱偏移扰动             run_fdtd_single_pillar_offset_sweep.py       状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月19日_17时17分37秒（计划16点）
+      [071] 对边两柱变化扰动           run_fdtd_opposite_pillar_radius_sweep.py     状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月19日_18时17分37秒（计划16点）
+      [072] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [073] 改单个柱子扰动            run_fdtd_single_pillar_radius_sweep.py       状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 六臂星
+      [074] 交替两组臂变化扰动          run_fdtd_alternating_arm_width_sweep.py      状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月12日_19时40分11秒（计划9点）
+      [075] 单臂变化扰动             run_fdtd_single_arm_width_sweep.py           状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月12日_19时47分21秒（计划9点）
+      [076] 对臂变化扰动             run_fdtd_opposite_arm_width_sweep.py         状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月12日_19时54分18秒（计划9点）
+      [077] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [078] 所有臂同步缩放扰动          run_fdtd_all_arm_scale_sweep.py              状态=TODO未跑          最近test: 无 | 最近full: 无
+  - 六裂缝环
+      [079] 交替裂缝扰动             run_fdtd_alternating_slit_width_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [080] 六裂缝同步宽度扰动          run_fdtd_all_slit_width_sweep.py             状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月12日_21时04分08秒（计划8点）
+      [081] 单点缺口扰动             run_fdtd_single_cut_sweep.py                 状态=TODO未跑          最近test: 无 | 最近full: 无
+      [082] 对裂缝变化扰动            run_fdtd_opposite_slit_width_sweep.py        状态=TODO未跑          最近test: 无 | 最近full: 无
+      [083] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [084] 改单裂缝扰动             run_fdtd_single_slit_width_sweep.py          状态=TODO未跑          最近test: 无 | 最近full: 无
+[近径向高对称结构]
+  - 圆环
+      [085] 偏心内孔扰动             run_fdtd_eccentric_inner_hole_sweep.py       状态=TODO未跑          最近test: 无 | 最近full: 无
+      [086] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [087] 环宽不均扰动             run_fdtd_uneven_ring_width_sweep.py          状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月13日_01时25分55秒（完成15点，计划15点）
+  - 圆盘
+      [088] 偏心孔扰动              run_fdtd_hole_sweep.py                       状态=TODO未跑          最近test: 无 | 最近full: 无
+      [089] 单侧缺口扰动             run_fdtd_single_side_notch_sweep.py          状态=FULL完整已跑        最近test: 无 | 最近full: run_full_2026年5月13日_09时08分39秒（完成3点，计划9点）
+      [090] 布里渊区折叠             run_fdtd_brillouin_zone_folding_sweep.py     状态=TODO未跑          最近test: 无 | 最近full: 无
+      [091] 椭圆化扰动              run_fdtd_ellipticization_sweep.py            状态=TODO未跑          最近test: 无 | 最近full: 无
+========================================================================================================================
+
+运行前检查：
+================================================================================================
+[001] C2对称结构 / 双圆盘 / 半径差扰动
+脚本：run_fdtd_disk_radius_difference_sweep.py
+  扫描范围：SCAN 从 0.0000 um 到 0.0300 um，步长 0.0050 um。
+  SIMULATION_TIME_FS：10000.000 fs
+  AUTO_SHUTOFF_MIN：1e-12
+  MESH_ACCURACY：2
+  DT_STABILITY_FACTOR：0.8
+================================================================================================
+
+最终将运行 1 个脚本；模式：preview；方式：sequential。
+已通过 --yes 跳过最终确认。
+
+启动 [001] 双圆盘 / 半径差扰动：C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe H:\FDTD outcome\struct\群论_struct\C2对称结构\双圆盘\coding\半径差扰动\run_fdtd_disk_radius_difference_sweep.py --mode preview
+[总控中断命令] 标准终端可直接按 s/n/q；PyCharm 请在运行窗口输入 s 或 n 后回车=跳过当前仿真，输入 q 后回车=结束当前仿真并退出总控。
+[001 OUT] 源 FSP: H:\FDTD outcome\struct\群论_struct\C2对称结构\双圆盘\fsp\dual_disks_CodexAstra_20260426_232913.fsp
+[001 OUT] results 工作母版 FSP: H:\FDTD outcome\struct\群论_struct\C2对称结构\双圆盘\results\半径差扰动\run_preview_2026年5月20日_16时14分39秒\05_work_fsp\master_template.fsp
+[001 OUT] Lumerical 英文镜像母版 FSP: H:\FDTD_CodeX\fdtd_ascii_work\dual_disks\run_preview_2026年5月20日_16时14分39秒\master_template.fsp
+[001 OUT] 输出批次目录: H:\FDTD outcome\struct\群论_struct\C2对称结构\双圆盘\results\半径差扰动\run_preview_2026年5月20日_16时14分39秒
+[001 OUT] 扰动: 半径差扰动；降群路径: C2 -> C1
+[001 OUT] 当前用户修改区影响: disk_radius_difference：0.0000 um 到 0.0300 um，自动/当前步长 0.0050 um，共 7 组
+[001 OUT] 单次仿真时间上限: 10.000 ps；auto shutoff min: 1e-12
+[001 OUT] 扫描计划已保存: H:\FDTD outcome\struct\群论_struct\C2对称结构\双圆盘\results\半径差扰动\run_preview_2026年5月20日_16时14分39秒\00_scan_plan\scan_points.csv
+[001 OUT] 结构说明已保存: H:\FDTD outcome\struct\群论_struct\C2对称结构\双圆盘\results\半径差扰动\run_preview_2026年5月20日_16时14分39秒\结构状态说明.md
+[001 OUT] 预览模式结束：没有运行真实 FDTD。
+
+全部任务结束。总控日志目录：H:\FDTD outcome\struct\群论_struct\controller_logs\controller_run_2026年5月20日_16时14分36秒

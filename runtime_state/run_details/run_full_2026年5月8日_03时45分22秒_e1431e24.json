@@ -1,0 +1,581 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+    "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒",
+    "group": "C3",
+    "mother_structure": "三裂缝环",
+    "perturbation": "单裂缝长度扰动",
+    "reduction_path": "C3 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 8,
+    "spectra_count": 8,
+    "sample_count": 8,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 15.318189240794302,
+    "score": 15.318189240794302,
+    "lambda0_nm": 1463.27467482785,
+    "Q": 15.468683576412808,
+    "q": 15.468683576412808,
+    "FWHM_nm": 94.59594073403264,
+    "fwhm_nm": 94.59594073403264,
+    "max_t": 0.9902714385990756,
+    "modified_at": "2026-05-08T03:45:28",
+    "mtime": 1778183128.1966302,
+    "fingerprint": {
+      "mtime_max": 1778185663.8738554,
+      "total_size": 233025191,
+      "file_count": 28,
+      "dir_count": 6,
+      "fingerprint": "1778185663.8738554-233025191-28-6"
+    },
+    "last_indexed_at": "2026-05-20T14:34:00",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "1.0000000000000001e-07",
+      "lambda0_nm": 1463.27467482785,
+      "score": 15.318189240794302,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0000_single_slit_length_slit_length_100.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "1.1857142857142858e-07",
+      "lambda0_nm": 1463.27467482785,
+      "score": 15.318189240794302,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0001_single_slit_length_slit_length_118.571nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "1.3714285714285715e-07",
+      "lambda0_nm": 1463.27467482785,
+      "score": 15.318189240794302,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0002_single_slit_length_slit_length_137.143nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "1.5571428571428572e-07",
+      "lambda0_nm": 1463.27467482785,
+      "score": 15.318189240794302,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0003_single_slit_length_slit_length_155.714nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "1.742857142857143e-07",
+      "lambda0_nm": 1463.27467482785,
+      "score": 15.318189240794302,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0004_single_slit_length_slit_length_174.286nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "1.9285714285714287e-07",
+      "lambda0_nm": 1463.27467482785,
+      "score": 15.318189240794302,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0005_single_slit_length_slit_length_192.857nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "2.1142857142857145e-07",
+      "lambda0_nm": 1463.27467482785,
+      "score": 15.318189240794302,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0006_single_slit_length_slit_length_211.429nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "2.3000000000000002e-07",
+      "lambda0_nm": 1463.27467482785,
+      "score": 15.318189240794302,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0007_single_slit_length_slit_length_230.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 916,
+      "mtime": 1778183128.1966302,
+      "mtime_iso": "2026-05-08T03:45:28"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 6399,
+      "mtime": 1778185663.8738554,
+      "mtime_iso": "2026-05-08T04:27:43"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0000_single_slit_length_slit_length_100.000nm.fsp",
+      "name": "0000_single_slit_length_slit_length_100.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804914,
+      "mtime": 1778183247.172997,
+      "mtime_iso": "2026-05-08T03:47:27"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0001_single_slit_length_slit_length_118.571nm.fsp",
+      "name": "0001_single_slit_length_slit_length_118.571nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804914,
+      "mtime": 1778183369.5744915,
+      "mtime_iso": "2026-05-08T03:49:29"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0002_single_slit_length_slit_length_137.143nm.fsp",
+      "name": "0002_single_slit_length_slit_length_137.143nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805234,
+      "mtime": 1778183619.881199,
+      "mtime_iso": "2026-05-08T03:53:39"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0003_single_slit_length_slit_length_155.714nm.fsp",
+      "name": "0003_single_slit_length_slit_length_155.714nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805282,
+      "mtime": 1778183887.234065,
+      "mtime_iso": "2026-05-08T03:58:07"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0004_single_slit_length_slit_length_174.286nm.fsp",
+      "name": "0004_single_slit_length_slit_length_174.286nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805506,
+      "mtime": 1778184248.4233627,
+      "mtime_iso": "2026-05-08T04:04:08"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0005_single_slit_length_slit_length_192.857nm.fsp",
+      "name": "0005_single_slit_length_slit_length_192.857nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805554,
+      "mtime": 1778184625.0804803,
+      "mtime_iso": "2026-05-08T04:10:25"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0006_single_slit_length_slit_length_211.429nm.fsp",
+      "name": "0006_single_slit_length_slit_length_211.429nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805874,
+      "mtime": 1778185146.1422129,
+      "mtime_iso": "2026-05-08T04:19:06"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\01_fsp\\0007_single_slit_length_slit_length_230.000nm.fsp",
+      "name": "0007_single_slit_length_slit_length_230.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805874,
+      "mtime": 1778185662.9805672,
+      "mtime_iso": "2026-05-08T04:27:42"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805570,
+      "mtime": 1777256537.9787655,
+      "mtime_iso": "2026-04-27T10:22:17"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\03_transmission_abs2_png\\0000_single_slit_length_slit_length_100.000nm_transmission_abs2.png",
+      "name": "0000_single_slit_length_slit_length_100.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 72775,
+      "mtime": 1778183247.5326302,
+      "mtime_iso": "2026-05-08T03:47:27"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\03_transmission_abs2_png\\0001_single_slit_length_slit_length_118.571nm_transmission_abs2.png",
+      "name": "0001_single_slit_length_slit_length_118.571nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 71619,
+      "mtime": 1778183369.749156,
+      "mtime_iso": "2026-05-08T03:49:29"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\03_transmission_abs2_png\\0002_single_slit_length_slit_length_137.143nm_transmission_abs2.png",
+      "name": "0002_single_slit_length_slit_length_137.143nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 72971,
+      "mtime": 1778183620.0400674,
+      "mtime_iso": "2026-05-08T03:53:40"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\03_transmission_abs2_png\\0003_single_slit_length_slit_length_155.714nm_transmission_abs2.png",
+      "name": "0003_single_slit_length_slit_length_155.714nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68905,
+      "mtime": 1778183887.4012587,
+      "mtime_iso": "2026-05-08T03:58:07"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\03_transmission_abs2_png\\0004_single_slit_length_slit_length_174.286nm_transmission_abs2.png",
+      "name": "0004_single_slit_length_slit_length_174.286nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69463,
+      "mtime": 1778184248.6229537,
+      "mtime_iso": "2026-05-08T04:04:08"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\03_transmission_abs2_png\\0005_single_slit_length_slit_length_192.857nm_transmission_abs2.png",
+      "name": "0005_single_slit_length_slit_length_192.857nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69960,
+      "mtime": 1778184625.2666802,
+      "mtime_iso": "2026-05-08T04:10:25"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\03_transmission_abs2_png\\0006_single_slit_length_slit_length_211.429nm_transmission_abs2.png",
+      "name": "0006_single_slit_length_slit_length_211.429nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 70138,
+      "mtime": 1778185146.3195713,
+      "mtime_iso": "2026-05-08T04:19:06"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\03_transmission_abs2_png\\0007_single_slit_length_slit_length_230.000nm_transmission_abs2.png",
+      "name": "0007_single_slit_length_slit_length_230.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69528,
+      "mtime": 1778185663.1484559,
+      "mtime_iso": "2026-05-08T04:27:43"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1783,
+      "mtime": 1778183128.197629,
+      "mtime_iso": "2026-05-08T03:45:28"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\02_transmission_excel\\0000_single_slit_length_slit_length_100.000nm_transmission_abs2.xlsx",
+      "name": "0000_single_slit_length_slit_length_100.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25274,
+      "mtime": 1778183247.2240856,
+      "mtime_iso": "2026-05-08T03:47:27"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\02_transmission_excel\\0001_single_slit_length_slit_length_118.571nm_transmission_abs2.xlsx",
+      "name": "0001_single_slit_length_slit_length_118.571nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25225,
+      "mtime": 1778183369.6258287,
+      "mtime_iso": "2026-05-08T03:49:29"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\02_transmission_excel\\0002_single_slit_length_slit_length_137.143nm_transmission_abs2.xlsx",
+      "name": "0002_single_slit_length_slit_length_137.143nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25269,
+      "mtime": 1778183619.9260318,
+      "mtime_iso": "2026-05-08T03:53:39"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\02_transmission_excel\\0003_single_slit_length_slit_length_155.714nm_transmission_abs2.xlsx",
+      "name": "0003_single_slit_length_slit_length_155.714nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25251,
+      "mtime": 1778183887.287259,
+      "mtime_iso": "2026-05-08T03:58:07"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\02_transmission_excel\\0004_single_slit_length_slit_length_174.286nm_transmission_abs2.xlsx",
+      "name": "0004_single_slit_length_slit_length_174.286nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25259,
+      "mtime": 1778184248.4901078,
+      "mtime_iso": "2026-05-08T04:04:08"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\02_transmission_excel\\0005_single_slit_length_slit_length_192.857nm_transmission_abs2.xlsx",
+      "name": "0005_single_slit_length_slit_length_192.857nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25269,
+      "mtime": 1778184625.1504333,
+      "mtime_iso": "2026-05-08T04:10:25"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\02_transmission_excel\\0006_single_slit_length_slit_length_211.429nm_transmission_abs2.xlsx",
+      "name": "0006_single_slit_length_slit_length_211.429nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25237,
+      "mtime": 1778185146.1925669,
+      "mtime_iso": "2026-05-08T04:19:06"
+    },
+    {
+      "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒\\02_transmission_excel\\0007_single_slit_length_slit_length_230.000nm_transmission_abs2.xlsx",
+      "name": "0007_single_slit_length_slit_length_230.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25228,
+      "mtime": 1778185663.0324225,
+      "mtime_iso": "2026-05-08T04:27:43"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+  "relative_path": "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\旧文件\\full\\待考察\\run_full_2026年5月8日_03时45分22秒",
+  "group": "C3",
+  "mother_structure": "三裂缝环",
+  "perturbation": "单裂缝长度扰动",
+  "reduction_path": "C3 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 8,
+  "spectra_count": 8,
+  "sample_count": 8,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 15.318189240794302,
+  "score": 15.318189240794302,
+  "lambda0_nm": 1463.27467482785,
+  "Q": 15.468683576412808,
+  "q": 15.468683576412808,
+  "FWHM_nm": 94.59594073403264,
+  "fwhm_nm": 94.59594073403264,
+  "max_t": 0.9902714385990756,
+  "modified_at": "2026-05-08T03:45:28",
+  "mtime": 1778183128.1966302,
+  "fingerprint": {
+    "mtime_max": 1778185663.8738554,
+    "total_size": 233025191,
+    "file_count": 28,
+    "dir_count": 6,
+    "fingerprint": "1778185663.8738554-233025191-28-6"
+  },
+  "last_indexed_at": "2026-05-20T14:34:00",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_03时45分22秒_e1431e24",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

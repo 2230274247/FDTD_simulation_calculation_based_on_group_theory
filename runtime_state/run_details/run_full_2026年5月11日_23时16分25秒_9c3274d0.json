@@ -1,0 +1,581 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+    "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒",
+    "group": "C2",
+    "mother_structure": "双圆盘",
+    "perturbation": "非对称位移扰动",
+    "reduction_path": "C2 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 8,
+    "spectra_count": 8,
+    "sample_count": 8,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 47.135868058621135,
+    "score": 47.135868058621135,
+    "lambda0_nm": 1443.3962264150946,
+    "Q": 47.635329618786585,
+    "q": 47.635329618786585,
+    "FWHM_nm": 30.30096018997301,
+    "fwhm_nm": 30.30096018997301,
+    "max_t": 0.9895405229649533,
+    "modified_at": "2026-05-11T23:16:54",
+    "mtime": 1778512614.8674307,
+    "fingerprint": {
+      "mtime_max": 1778517349.0414965,
+      "total_size": 462123641,
+      "file_count": 28,
+      "dir_count": 6,
+      "fingerprint": "1778517349.0414965-462123641-28-6"
+    },
+    "last_indexed_at": "2026-05-20T14:33:56",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "0.0",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 47.135868058621135,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0000_disk_asymmetric_offset_right_disk_dx_0.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "5e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 47.135868058621135,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0001_disk_asymmetric_offset_right_disk_dx_5.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "1e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 47.135868058621135,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0002_disk_asymmetric_offset_right_disk_dx_10.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "1.5000000000000002e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 47.135868058621135,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0003_disk_asymmetric_offset_right_disk_dx_15.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "2e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 47.135868058621135,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0004_disk_asymmetric_offset_right_disk_dx_20.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "2.5e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 47.135868058621135,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0005_disk_asymmetric_offset_right_disk_dx_25.000nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "3e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 47.135868058621135,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0006_disk_asymmetric_offset_right_disk_dx_30.000nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "3.4999999999999996e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 47.135868058621135,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0007_disk_asymmetric_offset_right_disk_dx_35.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 661,
+      "mtime": 1778512614.8664694,
+      "mtime_iso": "2026-05-11T23:16:54"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 6502,
+      "mtime": 1778517349.0414965,
+      "mtime_iso": "2026-05-12T00:35:49"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0000_disk_asymmetric_offset_right_disk_dx_0.000nm.fsp",
+      "name": "0000_disk_asymmetric_offset_right_disk_dx_0.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51263834,
+      "mtime": 1778512692.1646156,
+      "mtime_iso": "2026-05-11T23:18:12"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0001_disk_asymmetric_offset_right_disk_dx_5.000nm.fsp",
+      "name": "0001_disk_asymmetric_offset_right_disk_dx_5.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265130,
+      "mtime": 1778513420.7514422,
+      "mtime_iso": "2026-05-11T23:30:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0002_disk_asymmetric_offset_right_disk_dx_10.000nm.fsp",
+      "name": "0002_disk_asymmetric_offset_right_disk_dx_10.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265130,
+      "mtime": 1778514094.6169896,
+      "mtime_iso": "2026-05-11T23:41:34"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0003_disk_asymmetric_offset_right_disk_dx_15.000nm.fsp",
+      "name": "0003_disk_asymmetric_offset_right_disk_dx_15.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265130,
+      "mtime": 1778514780.8862045,
+      "mtime_iso": "2026-05-11T23:53:00"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0004_disk_asymmetric_offset_right_disk_dx_20.000nm.fsp",
+      "name": "0004_disk_asymmetric_offset_right_disk_dx_20.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265034,
+      "mtime": 1778515439.7417169,
+      "mtime_iso": "2026-05-12T00:03:59"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0005_disk_asymmetric_offset_right_disk_dx_25.000nm.fsp",
+      "name": "0005_disk_asymmetric_offset_right_disk_dx_25.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265042,
+      "mtime": 1778516083.190682,
+      "mtime_iso": "2026-05-12T00:14:43"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0006_disk_asymmetric_offset_right_disk_dx_30.000nm.fsp",
+      "name": "0006_disk_asymmetric_offset_right_disk_dx_30.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51264946,
+      "mtime": 1778516705.8764663,
+      "mtime_iso": "2026-05-12T00:25:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\01_fsp\\0007_disk_asymmetric_offset_right_disk_dx_35.000nm.fsp",
+      "name": "0007_disk_asymmetric_offset_right_disk_dx_35.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265090,
+      "mtime": 1778517348.6620426,
+      "mtime_iso": "2026-05-12T00:35:48"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51263946,
+      "mtime": 1778315939.6778734,
+      "mtime_iso": "2026-05-09T16:38:59"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\03_transmission_abs2_png\\0000_disk_asymmetric_offset_right_disk_dx_0.000nm_transmission_abs2.png",
+      "name": "0000_disk_asymmetric_offset_right_disk_dx_0.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 70217,
+      "mtime": 1778512693.0021253,
+      "mtime_iso": "2026-05-11T23:18:13"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\03_transmission_abs2_png\\0001_disk_asymmetric_offset_right_disk_dx_5.000nm_transmission_abs2.png",
+      "name": "0001_disk_asymmetric_offset_right_disk_dx_5.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 70654,
+      "mtime": 1778513420.9275267,
+      "mtime_iso": "2026-05-11T23:30:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\03_transmission_abs2_png\\0002_disk_asymmetric_offset_right_disk_dx_10.000nm_transmission_abs2.png",
+      "name": "0002_disk_asymmetric_offset_right_disk_dx_10.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69698,
+      "mtime": 1778514094.7810688,
+      "mtime_iso": "2026-05-11T23:41:34"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\03_transmission_abs2_png\\0003_disk_asymmetric_offset_right_disk_dx_15.000nm_transmission_abs2.png",
+      "name": "0003_disk_asymmetric_offset_right_disk_dx_15.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69700,
+      "mtime": 1778514781.1148398,
+      "mtime_iso": "2026-05-11T23:53:01"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\03_transmission_abs2_png\\0004_disk_asymmetric_offset_right_disk_dx_20.000nm_transmission_abs2.png",
+      "name": "0004_disk_asymmetric_offset_right_disk_dx_20.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69785,
+      "mtime": 1778515439.9039657,
+      "mtime_iso": "2026-05-12T00:03:59"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\03_transmission_abs2_png\\0005_disk_asymmetric_offset_right_disk_dx_25.000nm_transmission_abs2.png",
+      "name": "0005_disk_asymmetric_offset_right_disk_dx_25.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 70097,
+      "mtime": 1778516083.36615,
+      "mtime_iso": "2026-05-12T00:14:43"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\03_transmission_abs2_png\\0006_disk_asymmetric_offset_right_disk_dx_30.000nm_transmission_abs2.png",
+      "name": "0006_disk_asymmetric_offset_right_disk_dx_30.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 38462,
+      "mtime": 1778516706.0490737,
+      "mtime_iso": "2026-05-12T00:25:06"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\03_transmission_abs2_png\\0007_disk_asymmetric_offset_right_disk_dx_35.000nm_transmission_abs2.png",
+      "name": "0007_disk_asymmetric_offset_right_disk_dx_35.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69687,
+      "mtime": 1778517348.8477888,
+      "mtime_iso": "2026-05-12T00:35:48"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1316,
+      "mtime": 1778512614.8674307,
+      "mtime_iso": "2026-05-11T23:16:54"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\02_transmission_excel\\0000_disk_asymmetric_offset_right_disk_dx_0.000nm_transmission_abs2.xlsx",
+      "name": "0000_disk_asymmetric_offset_right_disk_dx_0.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25409,
+      "mtime": 1778512692.2157474,
+      "mtime_iso": "2026-05-11T23:18:12"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\02_transmission_excel\\0001_disk_asymmetric_offset_right_disk_dx_5.000nm_transmission_abs2.xlsx",
+      "name": "0001_disk_asymmetric_offset_right_disk_dx_5.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25412,
+      "mtime": 1778513420.801198,
+      "mtime_iso": "2026-05-11T23:30:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\02_transmission_excel\\0002_disk_asymmetric_offset_right_disk_dx_10.000nm_transmission_abs2.xlsx",
+      "name": "0002_disk_asymmetric_offset_right_disk_dx_10.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25412,
+      "mtime": 1778514094.6524708,
+      "mtime_iso": "2026-05-11T23:41:34"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\02_transmission_excel\\0003_disk_asymmetric_offset_right_disk_dx_15.000nm_transmission_abs2.xlsx",
+      "name": "0003_disk_asymmetric_offset_right_disk_dx_15.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25377,
+      "mtime": 1778514780.9649427,
+      "mtime_iso": "2026-05-11T23:53:00"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\02_transmission_excel\\0004_disk_asymmetric_offset_right_disk_dx_20.000nm_transmission_abs2.xlsx",
+      "name": "0004_disk_asymmetric_offset_right_disk_dx_20.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25457,
+      "mtime": 1778515439.7830954,
+      "mtime_iso": "2026-05-12T00:03:59"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\02_transmission_excel\\0005_disk_asymmetric_offset_right_disk_dx_25.000nm_transmission_abs2.xlsx",
+      "name": "0005_disk_asymmetric_offset_right_disk_dx_25.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25422,
+      "mtime": 1778516083.2509763,
+      "mtime_iso": "2026-05-12T00:14:43"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\02_transmission_excel\\0006_disk_asymmetric_offset_right_disk_dx_30.000nm_transmission_abs2.xlsx",
+      "name": "0006_disk_asymmetric_offset_right_disk_dx_30.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25630,
+      "mtime": 1778516705.9169452,
+      "mtime_iso": "2026-05-12T00:25:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒\\02_transmission_excel\\0007_disk_asymmetric_offset_right_disk_dx_35.000nm_transmission_abs2.xlsx",
+      "name": "0007_disk_asymmetric_offset_right_disk_dx_35.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25461,
+      "mtime": 1778517348.721374,
+      "mtime_iso": "2026-05-12T00:35:48"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+  "relative_path": "C2对称结构\\双圆盘\\results\\非对称位移扰动\\旧文件\\full\\不收敛\\run_full_2026年5月11日_23时16分25秒",
+  "group": "C2",
+  "mother_structure": "双圆盘",
+  "perturbation": "非对称位移扰动",
+  "reduction_path": "C2 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 8,
+  "spectra_count": 8,
+  "sample_count": 8,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 47.135868058621135,
+  "score": 47.135868058621135,
+  "lambda0_nm": 1443.3962264150946,
+  "Q": 47.635329618786585,
+  "q": 47.635329618786585,
+  "FWHM_nm": 30.30096018997301,
+  "fwhm_nm": 30.30096018997301,
+  "max_t": 0.9895405229649533,
+  "modified_at": "2026-05-11T23:16:54",
+  "mtime": 1778512614.8674307,
+  "fingerprint": {
+    "mtime_max": 1778517349.0414965,
+    "total_size": 462123641,
+    "file_count": 28,
+    "dir_count": 6,
+    "fingerprint": "1778517349.0414965-462123641-28-6"
+  },
+  "last_indexed_at": "2026-05-20T14:33:56",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_23时16分25秒_9c3274d0",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

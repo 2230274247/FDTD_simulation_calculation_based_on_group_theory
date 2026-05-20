@@ -1,0 +1,710 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+    "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒",
+    "group": "C6",
+    "mother_structure": "六裂缝环",
+    "perturbation": "六裂缝同步宽度扰动",
+    "reduction_path": "C6 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 9,
+    "spectra_count": 9,
+    "sample_count": 8,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 3.02982202517397,
+    "score": 3.02982202517397,
+    "lambda0_nm": 1458.8100686498858,
+    "Q": 64.58894,
+    "q": 64.58894,
+    "FWHM_nm": 21.317734,
+    "fwhm_nm": 21.317734,
+    "max_t": 0.958105242485876,
+    "modified_at": "2026-05-15T18:04:53",
+    "mtime": 1778839493.4083455,
+    "fingerprint": {
+      "mtime_max": 1778839493.4213467,
+      "total_size": 233100666,
+      "file_count": 36,
+      "dir_count": 7,
+      "fingerprint": "1778839493.4213467-233100666-36-7"
+    },
+    "last_indexed_at": "2026-05-20T14:34:08",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "2e-08",
+      "lambda0_nm": 1458.8100686498858,
+      "score": 3.02982202517397,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0000_all_slit_width_slit_width_20.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "2.785714285714286e-08",
+      "lambda0_nm": 1458.8100686498858,
+      "score": 3.02982202517397,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0001_all_slit_width_slit_width_27.857nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "3.571428571428572e-08",
+      "lambda0_nm": 1458.8100686498858,
+      "score": 3.02982202517397,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0002_all_slit_width_slit_width_35.714nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "4.3571428571428574e-08",
+      "lambda0_nm": 1458.8100686498858,
+      "score": 3.02982202517397,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0003_all_slit_width_slit_width_43.571nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "5.142857142857143e-08",
+      "lambda0_nm": 1458.8100686498858,
+      "score": 3.02982202517397,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0004_all_slit_width_slit_width_51.429nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "5.9285714285714285e-08",
+      "lambda0_nm": 1458.8100686498858,
+      "score": 3.02982202517397,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0005_all_slit_width_slit_width_59.286nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "6.714285714285714e-08",
+      "lambda0_nm": 1458.8100686498858,
+      "score": 3.02982202517397,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0006_all_slit_width_slit_width_67.143nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "7.5e-08",
+      "lambda0_nm": 1458.8100686498858,
+      "score": 3.02982202517397,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0007_all_slit_width_slit_width_75.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 803,
+      "mtime": 1778591052.7392106,
+      "mtime_iso": "2026-05-12T21:04:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2675,
+      "mtime": 1778839493.4173462,
+      "mtime_iso": "2026-05-15T18:04:53"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2681,
+      "mtime": 1778839493.4193482,
+      "mtime_iso": "2026-05-15T18:04:53"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2268,
+      "mtime": 1778839493.4103498,
+      "mtime_iso": "2026-05-15T18:04:53"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 6395,
+      "mtime": 1778591321.023321,
+      "mtime_iso": "2026-05-12T21:08:41"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0000_all_slit_width_slit_width_20.000nm.fsp",
+      "name": "0000_all_slit_width_slit_width_20.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807190,
+      "mtime": 1778591085.4573262,
+      "mtime_iso": "2026-05-12T21:04:45"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0001_all_slit_width_slit_width_27.857nm.fsp",
+      "name": "0001_all_slit_width_slit_width_27.857nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807190,
+      "mtime": 1778591114.8569672,
+      "mtime_iso": "2026-05-12T21:05:14"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0002_all_slit_width_slit_width_35.714nm.fsp",
+      "name": "0002_all_slit_width_slit_width_35.714nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807206,
+      "mtime": 1778591148.7520425,
+      "mtime_iso": "2026-05-12T21:05:48"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0003_all_slit_width_slit_width_43.571nm.fsp",
+      "name": "0003_all_slit_width_slit_width_43.571nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807222,
+      "mtime": 1778591190.777938,
+      "mtime_iso": "2026-05-12T21:06:30"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0004_all_slit_width_slit_width_51.429nm.fsp",
+      "name": "0004_all_slit_width_slit_width_51.429nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807206,
+      "mtime": 1778591228.4573686,
+      "mtime_iso": "2026-05-12T21:07:08"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0005_all_slit_width_slit_width_59.286nm.fsp",
+      "name": "0005_all_slit_width_slit_width_59.286nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807190,
+      "mtime": 1778591261.4039185,
+      "mtime_iso": "2026-05-12T21:07:41"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0006_all_slit_width_slit_width_67.143nm.fsp",
+      "name": "0006_all_slit_width_slit_width_67.143nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807190,
+      "mtime": 1778591291.680721,
+      "mtime_iso": "2026-05-12T21:08:11"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\01_fsp\\0007_all_slit_width_slit_width_75.000nm.fsp",
+      "name": "0007_all_slit_width_slit_width_75.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807190,
+      "mtime": 1778591320.6770408,
+      "mtime_iso": "2026-05-12T21:08:40"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807366,
+      "mtime": 1777217708.0545065,
+      "mtime_iso": "2026-04-26T23:35:08"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\03_transmission_abs2_png\\0000_all_slit_width_slit_width_20.000nm_transmission_abs2.png",
+      "name": "0000_all_slit_width_slit_width_20.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 62167,
+      "mtime": 1778591086.424975,
+      "mtime_iso": "2026-05-12T21:04:46"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\03_transmission_abs2_png\\0001_all_slit_width_slit_width_27.857nm_transmission_abs2.png",
+      "name": "0001_all_slit_width_slit_width_27.857nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 65533,
+      "mtime": 1778591115.1716185,
+      "mtime_iso": "2026-05-12T21:05:15"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\03_transmission_abs2_png\\0002_all_slit_width_slit_width_35.714nm_transmission_abs2.png",
+      "name": "0002_all_slit_width_slit_width_35.714nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61996,
+      "mtime": 1778591149.948816,
+      "mtime_iso": "2026-05-12T21:05:49"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\03_transmission_abs2_png\\0003_all_slit_width_slit_width_43.571nm_transmission_abs2.png",
+      "name": "0003_all_slit_width_slit_width_43.571nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61367,
+      "mtime": 1778591191.0882633,
+      "mtime_iso": "2026-05-12T21:06:31"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\03_transmission_abs2_png\\0004_all_slit_width_slit_width_51.429nm_transmission_abs2.png",
+      "name": "0004_all_slit_width_slit_width_51.429nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 60162,
+      "mtime": 1778591228.7877176,
+      "mtime_iso": "2026-05-12T21:07:08"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\03_transmission_abs2_png\\0005_all_slit_width_slit_width_59.286nm_transmission_abs2.png",
+      "name": "0005_all_slit_width_slit_width_59.286nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 59922,
+      "mtime": 1778591261.7172496,
+      "mtime_iso": "2026-05-12T21:07:41"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\03_transmission_abs2_png\\0006_all_slit_width_slit_width_67.143nm_transmission_abs2.png",
+      "name": "0006_all_slit_width_slit_width_67.143nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 58659,
+      "mtime": 1778591291.991259,
+      "mtime_iso": "2026-05-12T21:08:11"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\03_transmission_abs2_png\\0007_all_slit_width_slit_width_75.000nm_transmission_abs2.png",
+      "name": "0007_all_slit_width_slit_width_75.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 57145,
+      "mtime": 1778591321.0224638,
+      "mtime_iso": "2026-05-12T21:08:41"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1740,
+      "mtime": 1778839493.4193482,
+      "mtime_iso": "2026-05-15T18:04:53"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839493.4203632,
+      "mtime_iso": "2026-05-15T18:04:53"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 123200,
+      "mtime": 1778839493.4163485,
+      "mtime_iso": "2026-05-15T18:04:53"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2548,
+      "mtime": 1778839493.4213467,
+      "mtime_iso": "2026-05-15T18:04:53"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1492,
+      "mtime": 1778839493.4213467,
+      "mtime_iso": "2026-05-15T18:04:53"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1620,
+      "mtime": 1778591052.7392106,
+      "mtime_iso": "2026-05-12T21:04:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\02_transmission_excel\\0000_all_slit_width_slit_width_20.000nm_transmission_abs2.xlsx",
+      "name": "0000_all_slit_width_slit_width_20.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25346,
+      "mtime": 1778591085.8919437,
+      "mtime_iso": "2026-05-12T21:04:45"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\02_transmission_excel\\0001_all_slit_width_slit_width_27.857nm_transmission_abs2.xlsx",
+      "name": "0001_all_slit_width_slit_width_27.857nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25321,
+      "mtime": 1778591115.0375462,
+      "mtime_iso": "2026-05-12T21:05:15"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\02_transmission_excel\\0002_all_slit_width_slit_width_35.714nm_transmission_abs2.xlsx",
+      "name": "0002_all_slit_width_slit_width_35.714nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25297,
+      "mtime": 1778591149.8167925,
+      "mtime_iso": "2026-05-12T21:05:49"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\02_transmission_excel\\0003_all_slit_width_slit_width_43.571nm_transmission_abs2.xlsx",
+      "name": "0003_all_slit_width_slit_width_43.571nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25324,
+      "mtime": 1778591190.962101,
+      "mtime_iso": "2026-05-12T21:06:30"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\02_transmission_excel\\0004_all_slit_width_slit_width_51.429nm_transmission_abs2.xlsx",
+      "name": "0004_all_slit_width_slit_width_51.429nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25222,
+      "mtime": 1778591228.661399,
+      "mtime_iso": "2026-05-12T21:07:08"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\02_transmission_excel\\0005_all_slit_width_slit_width_59.286nm_transmission_abs2.xlsx",
+      "name": "0005_all_slit_width_slit_width_59.286nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25193,
+      "mtime": 1778591261.591672,
+      "mtime_iso": "2026-05-12T21:07:41"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\02_transmission_excel\\0006_all_slit_width_slit_width_67.143nm_transmission_abs2.xlsx",
+      "name": "0006_all_slit_width_slit_width_67.143nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25180,
+      "mtime": 1778591291.867305,
+      "mtime_iso": "2026-05-12T21:08:11"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒\\02_transmission_excel\\0007_all_slit_width_slit_width_75.000nm_transmission_abs2.xlsx",
+      "name": "0007_all_slit_width_slit_width_75.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25101,
+      "mtime": 1778591320.8984182,
+      "mtime_iso": "2026-05-12T21:08:40"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 25.221997,
+      "fwhm_nm": 57.8388,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 31.293505,
+      "fwhm_nm": 46.054949,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 33.249442,
+      "fwhm_nm": 43.021513,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 38.089639,
+      "fwhm_nm": 37.220537,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 44.215506,
+      "fwhm_nm": 31.827857,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 50.480976,
+      "fwhm_nm": 27.673893,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 58.536649,
+      "fwhm_nm": 23.726826,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 64.58894,
+      "fwhm_nm": 21.317734,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+  "relative_path": "C6对称结构\\六裂缝环\\results\\六裂缝同步宽度扰动\\run_full_2026年5月12日_21时04分08秒",
+  "group": "C6",
+  "mother_structure": "六裂缝环",
+  "perturbation": "六裂缝同步宽度扰动",
+  "reduction_path": "C6 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 9,
+  "spectra_count": 9,
+  "sample_count": 8,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 3.02982202517397,
+  "score": 3.02982202517397,
+  "lambda0_nm": 1458.8100686498858,
+  "Q": 64.58894,
+  "q": 64.58894,
+  "FWHM_nm": 21.317734,
+  "fwhm_nm": 21.317734,
+  "max_t": 0.958105242485876,
+  "modified_at": "2026-05-15T18:04:53",
+  "mtime": 1778839493.4083455,
+  "fingerprint": {
+    "mtime_max": 1778839493.4213467,
+    "total_size": 233100666,
+    "file_count": 36,
+    "dir_count": 7,
+    "fingerprint": "1778839493.4213467-233100666-36-7"
+  },
+  "last_indexed_at": "2026-05-20T14:34:08",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_21时04分08秒_b67fb137",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

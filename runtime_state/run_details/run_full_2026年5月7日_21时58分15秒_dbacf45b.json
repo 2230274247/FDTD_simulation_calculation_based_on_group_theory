@@ -1,0 +1,614 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+    "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒",
+    "group": "C2",
+    "mother_structure": "双脊",
+    "perturbation": "顶部槽差扰动",
+    "reduction_path": "C2 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 6,
+    "spectra_count": 6,
+    "sample_count": 6,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 526.8676452185283,
+    "score": 526.8676452185283,
+    "lambda0_nm": 1455.4794520547946,
+    "Q": 822.67759,
+    "q": 822.67759,
+    "FWHM_nm": 1.5614502,
+    "fwhm_nm": 1.5614502,
+    "max_t": 0.7913543362989529,
+    "modified_at": "2026-05-15T18:05:05",
+    "mtime": 1778839505.5886471,
+    "fingerprint": {
+      "mtime_max": 1778839505.6101277,
+      "total_size": 151507245,
+      "file_count": 30,
+      "dir_count": 7,
+      "fingerprint": "1778839505.6101277-151507245-30-7"
+    },
+    "last_indexed_at": "2026-05-20T14:33:58",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "0.0",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 526.8676452185283,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0000_ridge_top_slot_top_slot_width_0.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "5e-09",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 526.8676452185283,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0001_ridge_top_slot_top_slot_width_5.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "1e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 526.8676452185283,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0002_ridge_top_slot_top_slot_width_10.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "1.5000000000000002e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 526.8676452185283,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0003_ridge_top_slot_top_slot_width_15.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "2e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 526.8676452185283,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0004_ridge_top_slot_top_slot_width_20.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "2.5e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 526.8676452185283,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0005_ridge_top_slot_top_slot_width_25.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 437,
+      "mtime": 1778162299.8042665,
+      "mtime_iso": "2026-05-07T21:58:19"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 4595,
+      "mtime": 1778163909.4537902,
+      "mtime_iso": "2026-05-07T22:25:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2340,
+      "mtime": 1778839505.6061602,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2347,
+      "mtime": 1778839505.6071577,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2038,
+      "mtime": 1778839505.590611,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0000_ridge_top_slot_top_slot_width_0.000nm.fsp",
+      "name": "0000_ridge_top_slot_top_slot_width_0.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562266,
+      "mtime": 1778162360.6145234,
+      "mtime_iso": "2026-05-07T21:59:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0001_ridge_top_slot_top_slot_width_5.000nm.fsp",
+      "name": "0001_ridge_top_slot_top_slot_width_5.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21563815,
+      "mtime": 1778162625.7396202,
+      "mtime_iso": "2026-05-07T22:03:45"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0002_ridge_top_slot_top_slot_width_10.000nm.fsp",
+      "name": "0002_ridge_top_slot_top_slot_width_10.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21563831,
+      "mtime": 1778163012.898206,
+      "mtime_iso": "2026-05-07T22:10:12"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0003_ridge_top_slot_top_slot_width_15.000nm.fsp",
+      "name": "0003_ridge_top_slot_top_slot_width_15.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21563815,
+      "mtime": 1778163280.8073936,
+      "mtime_iso": "2026-05-07T22:14:40"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0004_ridge_top_slot_top_slot_width_20.000nm.fsp",
+      "name": "0004_ridge_top_slot_top_slot_width_20.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21563831,
+      "mtime": 1778163593.2565677,
+      "mtime_iso": "2026-05-07T22:19:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\01_fsp\\0005_ridge_top_slot_top_slot_width_25.000nm.fsp",
+      "name": "0005_ridge_top_slot_top_slot_width_25.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21563847,
+      "mtime": 1778163909.0682867,
+      "mtime_iso": "2026-05-07T22:25:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562234,
+      "mtime": 1777340590.609325,
+      "mtime_iso": "2026-04-28T09:43:10"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\03_transmission_abs2_png\\0000_ridge_top_slot_top_slot_width_0.000nm_transmission_abs2.png",
+      "name": "0000_ridge_top_slot_top_slot_width_0.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 73445,
+      "mtime": 1778162360.957946,
+      "mtime_iso": "2026-05-07T21:59:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\03_transmission_abs2_png\\0001_ridge_top_slot_top_slot_width_5.000nm_transmission_abs2.png",
+      "name": "0001_ridge_top_slot_top_slot_width_5.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 42610,
+      "mtime": 1778162625.9719718,
+      "mtime_iso": "2026-05-07T22:03:45"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\03_transmission_abs2_png\\0002_ridge_top_slot_top_slot_width_10.000nm_transmission_abs2.png",
+      "name": "0002_ridge_top_slot_top_slot_width_10.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 42350,
+      "mtime": 1778163013.053366,
+      "mtime_iso": "2026-05-07T22:10:13"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\03_transmission_abs2_png\\0003_ridge_top_slot_top_slot_width_15.000nm_transmission_abs2.png",
+      "name": "0003_ridge_top_slot_top_slot_width_15.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 43169,
+      "mtime": 1778163280.9788399,
+      "mtime_iso": "2026-05-07T22:14:40"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\03_transmission_abs2_png\\0004_ridge_top_slot_top_slot_width_20.000nm_transmission_abs2.png",
+      "name": "0004_ridge_top_slot_top_slot_width_20.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 43055,
+      "mtime": 1778163593.4449582,
+      "mtime_iso": "2026-05-07T22:19:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\03_transmission_abs2_png\\0005_ridge_top_slot_top_slot_width_25.000nm_transmission_abs2.png",
+      "name": "0005_ridge_top_slot_top_slot_width_25.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 44296,
+      "mtime": 1778163909.2481008,
+      "mtime_iso": "2026-05-07T22:25:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1739,
+      "mtime": 1778839505.6081579,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839505.6081579,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 101046,
+      "mtime": 1778839505.5941267,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2545,
+      "mtime": 1778839505.6101277,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1491,
+      "mtime": 1778839505.6091568,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1448,
+      "mtime": 1778162299.8052335,
+      "mtime_iso": "2026-05-07T21:58:19"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\02_transmission_excel\\0000_ridge_top_slot_top_slot_width_0.000nm_transmission_abs2.xlsx",
+      "name": "0000_ridge_top_slot_top_slot_width_0.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25205,
+      "mtime": 1778162360.6597888,
+      "mtime_iso": "2026-05-07T21:59:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\02_transmission_excel\\0001_ridge_top_slot_top_slot_width_5.000nm_transmission_abs2.xlsx",
+      "name": "0001_ridge_top_slot_top_slot_width_5.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25570,
+      "mtime": 1778162625.8066056,
+      "mtime_iso": "2026-05-07T22:03:45"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\02_transmission_excel\\0002_ridge_top_slot_top_slot_width_10.000nm_transmission_abs2.xlsx",
+      "name": "0002_ridge_top_slot_top_slot_width_10.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25384,
+      "mtime": 1778163012.9428804,
+      "mtime_iso": "2026-05-07T22:10:12"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\02_transmission_excel\\0003_ridge_top_slot_top_slot_width_15.000nm_transmission_abs2.xlsx",
+      "name": "0003_ridge_top_slot_top_slot_width_15.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25657,
+      "mtime": 1778163280.8580494,
+      "mtime_iso": "2026-05-07T22:14:40"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\02_transmission_excel\\0004_ridge_top_slot_top_slot_width_20.000nm_transmission_abs2.xlsx",
+      "name": "0004_ridge_top_slot_top_slot_width_20.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25756,
+      "mtime": 1778163593.30712,
+      "mtime_iso": "2026-05-07T22:19:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒\\02_transmission_excel\\0005_ridge_top_slot_top_slot_width_25.000nm_transmission_abs2.xlsx",
+      "name": "0005_ridge_top_slot_top_slot_width_25.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25724,
+      "mtime": 1778163909.1215065,
+      "mtime_iso": "2026-05-07T22:25:09"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 51.534487,
+      "fwhm_nm": 28.209012,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 822.06184,
+      "fwhm_nm": 1.5626197,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 822.67759,
+      "fwhm_nm": 1.5614502,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 821.03604,
+      "fwhm_nm": 1.564572,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 821.61408,
+      "fwhm_nm": 1.5634713,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 822.22938,
+      "fwhm_nm": 1.5623013,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+  "relative_path": "C2对称结构\\双脊\\results\\顶部槽差扰动\\不收敛结果\\run_full_2026年5月7日_21时58分15秒",
+  "group": "C2",
+  "mother_structure": "双脊",
+  "perturbation": "顶部槽差扰动",
+  "reduction_path": "C2 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 6,
+  "spectra_count": 6,
+  "sample_count": 6,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 526.8676452185283,
+  "score": 526.8676452185283,
+  "lambda0_nm": 1455.4794520547946,
+  "Q": 822.67759,
+  "q": 822.67759,
+  "FWHM_nm": 1.5614502,
+  "fwhm_nm": 1.5614502,
+  "max_t": 0.7913543362989529,
+  "modified_at": "2026-05-15T18:05:05",
+  "mtime": 1778839505.5886471,
+  "fingerprint": {
+    "mtime_max": 1778839505.6101277,
+    "total_size": 151507245,
+    "file_count": 30,
+    "dir_count": 7,
+    "fingerprint": "1778839505.6101277-151507245-30-7"
+  },
+  "last_indexed_at": "2026-05-20T14:33:58",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_21时58分15秒_dbacf45b",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

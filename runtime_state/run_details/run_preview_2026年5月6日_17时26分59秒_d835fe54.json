@@ -1,0 +1,317 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+    "relative_path": "C4对称结构\\四裂缝环\\results\\四裂缝同步扫描扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月6日_17时26分59秒",
+    "group": "C4",
+    "mother_structure": "四裂缝环",
+    "perturbation": "四裂缝同步扫描扰动",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "preview",
+    "spectrum_count": 1,
+    "spectra_count": 1,
+    "sample_count": 2,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": null,
+    "score": null,
+    "lambda0_nm": null,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": null,
+    "modified_at": "2026-05-06T17:27:16",
+    "mtime": 1778059636.018821,
+    "fingerprint": {
+      "mtime_max": 1778059636.018821,
+      "total_size": 25807471,
+      "file_count": 4,
+      "dir_count": 6,
+      "fingerprint": "1778059636.018821-25807471-4-6"
+    },
+    "last_indexed_at": "2026-05-20T14:34:04",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "采样不足",
+      "FWHM 不可靠",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+        "sample_id": null,
+        "flag": "采样不足",
+        "severity": "warning",
+        "detail": "主特征附近或谱线采样点不足",
+        "suggestion": "缩小区间并加密扫描"
+      },
+      {
+        "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": ""
+    },
+    {
+      "sample_id": "1",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": ""
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\四裂缝同步扫描扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月6日_17时26分59秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 140,
+      "mtime": 1778059636.0168152,
+      "mtime_iso": "2026-05-06T17:27:16"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\四裂缝同步扫描扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月6日_17时26分59秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805654,
+      "mtime": 1777217597.5635574,
+      "mtime_iso": "2026-04-26T23:33:17"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\四裂缝同步扫描扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月6日_17时26分59秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1418,
+      "mtime": 1778059636.018821,
+      "mtime_iso": "2026-05-06T17:27:16"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\四裂缝同步扫描扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月6日_17时26分59秒\\00_scan_plan\\scan_summary.txt",
+      "name": "scan_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 259,
+      "mtime": 1778059636.017825,
+      "mtime_iso": "2026-05-06T17:27:16"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "采样不足",
+    "FWHM 不可靠",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+  "relative_path": "C4对称结构\\四裂缝环\\results\\四裂缝同步扫描扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月6日_17时26分59秒",
+  "group": "C4",
+  "mother_structure": "四裂缝环",
+  "perturbation": "四裂缝同步扫描扰动",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "preview",
+  "spectrum_count": 1,
+  "spectra_count": 1,
+  "sample_count": 2,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": null,
+  "score": null,
+  "lambda0_nm": null,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": null,
+  "modified_at": "2026-05-06T17:27:16",
+  "mtime": 1778059636.018821,
+  "fingerprint": {
+    "mtime_max": 1778059636.018821,
+    "total_size": 25807471,
+    "file_count": 4,
+    "dir_count": 6,
+    "fingerprint": "1778059636.018821-25807471-4-6"
+  },
+  "last_indexed_at": "2026-05-20T14:34:04",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+      "sample_id": null,
+      "flag": "采样不足",
+      "severity": "warning",
+      "detail": "主特征附近或谱线采样点不足",
+      "suggestion": "缩小区间并加密扫描"
+    },
+    {
+      "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_preview_2026年5月6日_17时26分59秒_d835fe54",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

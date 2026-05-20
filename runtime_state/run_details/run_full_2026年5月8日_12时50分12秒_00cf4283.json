@@ -1,0 +1,728 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+    "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒",
+    "group": "C4",
+    "mother_structure": "四柱簇",
+    "perturbation": "改单个柱子扰动",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 9,
+    "spectra_count": 9,
+    "sample_count": 8,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 370.43210435969473,
+    "score": 370.43210435969473,
+    "lambda0_nm": 904.2553191489363,
+    "Q": 694.45503,
+    "q": 694.45503,
+    "FWHM_nm": 1.8747161,
+    "fwhm_nm": 1.8747161,
+    "max_t": 0.9881208298538223,
+    "modified_at": "2026-05-15T18:04:59",
+    "mtime": 1778839499.0978858,
+    "fingerprint": {
+      "mtime_max": 1778839499.112763,
+      "total_size": 233029757,
+      "file_count": 36,
+      "dir_count": 7,
+      "fingerprint": "1778839499.112763-233029757-36-7"
+    },
+    "last_indexed_at": "2026-05-20T14:34:04",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 4.26 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": null,
+      "lambda0_nm": 904.2553191489363,
+      "score": 370.43210435969473,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0000_0_radius_60.000_nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": null,
+      "lambda0_nm": 904.2553191489363,
+      "score": 370.43210435969473,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0001_1_radius_68.774_nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": null,
+      "lambda0_nm": 904.2553191489363,
+      "score": 370.43210435969473,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0002_2_radius_77.549_nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": null,
+      "lambda0_nm": 904.2553191489363,
+      "score": 370.43210435969473,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0003_3_radius_86.323_nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": null,
+      "lambda0_nm": 904.2553191489363,
+      "score": 370.43210435969473,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0004_4_radius_95.098_nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": null,
+      "lambda0_nm": 904.2553191489363,
+      "score": 370.43210435969473,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0005_5_radius_103.872_nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": null,
+      "lambda0_nm": 904.2553191489363,
+      "score": 370.43210435969473,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0006_6_radius_112.647_nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": null,
+      "lambda0_nm": 904.2553191489363,
+      "score": 370.43210435969473,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0007_7_radius_121.421_nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 892,
+      "mtime": 1778215817.994458,
+      "mtime_iso": "2026-05-08T12:50:17"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2550,
+      "mtime": 1778839499.106919,
+      "mtime_iso": "2026-05-15T18:04:59"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2558,
+      "mtime": 1778839499.1079214,
+      "mtime_iso": "2026-05-15T18:04:59"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2157,
+      "mtime": 1778839499.0988903,
+      "mtime_iso": "2026-05-15T18:04:59"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 5655,
+      "mtime": 1778216723.2172542,
+      "mtime_iso": "2026-05-08T13:05:23"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0000_0_radius_60.000_nm.fsp",
+      "name": "0000_0_radius_60.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803639,
+      "mtime": 1778215849.3451793,
+      "mtime_iso": "2026-05-08T12:50:49"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0001_1_radius_68.774_nm.fsp",
+      "name": "0001_1_radius_68.774_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803655,
+      "mtime": 1778215890.5127776,
+      "mtime_iso": "2026-05-08T12:51:30"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0002_2_radius_77.549_nm.fsp",
+      "name": "0002_2_radius_77.549_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803831,
+      "mtime": 1778216013.1576576,
+      "mtime_iso": "2026-05-08T12:53:33"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0003_3_radius_86.323_nm.fsp",
+      "name": "0003_3_radius_86.323_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803975,
+      "mtime": 1778216198.7949326,
+      "mtime_iso": "2026-05-08T12:56:38"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0004_4_radius_95.098_nm.fsp",
+      "name": "0004_4_radius_95.098_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803655,
+      "mtime": 1778216235.4483693,
+      "mtime_iso": "2026-05-08T12:57:15"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0005_5_radius_103.872_nm.fsp",
+      "name": "0005_5_radius_103.872_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803655,
+      "mtime": 1778216273.1126287,
+      "mtime_iso": "2026-05-08T12:57:53"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0006_6_radius_112.647_nm.fsp",
+      "name": "0006_6_radius_112.647_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803655,
+      "mtime": 1778216310.1234787,
+      "mtime_iso": "2026-05-08T12:58:30"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\01_fsp\\0007_7_radius_121.421_nm.fsp",
+      "name": "0007_7_radius_121.421_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804455,
+      "mtime": 1778216722.8779936,
+      "mtime_iso": "2026-05-08T13:05:22"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803639,
+      "mtime": 1777255251.1794326,
+      "mtime_iso": "2026-04-27T10:00:51"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\03_transmission_abs2_png\\0000_0_radius_60.000_nm_transmission_abs2.png",
+      "name": "0000_0_radius_60.000_nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 52452,
+      "mtime": 1778215849.8850772,
+      "mtime_iso": "2026-05-08T12:50:49"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\03_transmission_abs2_png\\0001_1_radius_68.774_nm_transmission_abs2.png",
+      "name": "0001_1_radius_68.774_nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 56131,
+      "mtime": 1778215890.8809378,
+      "mtime_iso": "2026-05-08T12:51:30"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\03_transmission_abs2_png\\0002_2_radius_77.549_nm_transmission_abs2.png",
+      "name": "0002_2_radius_77.549_nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 51418,
+      "mtime": 1778216013.504735,
+      "mtime_iso": "2026-05-08T12:53:33"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\03_transmission_abs2_png\\0003_3_radius_86.323_nm_transmission_abs2.png",
+      "name": "0003_3_radius_86.323_nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 45265,
+      "mtime": 1778216199.1852493,
+      "mtime_iso": "2026-05-08T12:56:39"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\03_transmission_abs2_png\\0004_4_radius_95.098_nm_transmission_abs2.png",
+      "name": "0004_4_radius_95.098_nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 59263,
+      "mtime": 1778216236.7095141,
+      "mtime_iso": "2026-05-08T12:57:16"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\03_transmission_abs2_png\\0005_5_radius_103.872_nm_transmission_abs2.png",
+      "name": "0005_5_radius_103.872_nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61046,
+      "mtime": 1778216274.327114,
+      "mtime_iso": "2026-05-08T12:57:54"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\03_transmission_abs2_png\\0006_6_radius_112.647_nm_transmission_abs2.png",
+      "name": "0006_6_radius_112.647_nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61473,
+      "mtime": 1778216310.4431198,
+      "mtime_iso": "2026-05-08T12:58:30"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\03_transmission_abs2_png\\0007_7_radius_121.421_nm_transmission_abs2.png",
+      "name": "0007_7_radius_121.421_nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63158,
+      "mtime": 1778216723.2152343,
+      "mtime_iso": "2026-05-08T13:05:23"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1741,
+      "mtime": 1778839499.1089213,
+      "mtime_iso": "2026-05-15T18:04:59"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839499.109693,
+      "mtime_iso": "2026-05-15T18:04:59"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 123441,
+      "mtime": 1778839499.1059208,
+      "mtime_iso": "2026-05-15T18:04:59"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2568,
+      "mtime": 1778839499.112763,
+      "mtime_iso": "2026-05-15T18:04:59"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1507,
+      "mtime": 1778839499.110703,
+      "mtime_iso": "2026-05-15T18:04:59"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 934,
+      "mtime": 1778215817.9954572,
+      "mtime_iso": "2026-05-08T12:50:17"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\02_transmission_excel\\0000_0_radius_60.000_nm_transmission_abs2.xlsx",
+      "name": "0000_0_radius_60.000_nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24800,
+      "mtime": 1778215849.5596778,
+      "mtime_iso": "2026-05-08T12:50:49"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\02_transmission_excel\\0001_1_radius_68.774_nm_transmission_abs2.xlsx",
+      "name": "0001_1_radius_68.774_nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24858,
+      "mtime": 1778215890.7389388,
+      "mtime_iso": "2026-05-08T12:51:30"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\02_transmission_excel\\0002_2_radius_77.549_nm_transmission_abs2.xlsx",
+      "name": "0002_2_radius_77.549_nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24907,
+      "mtime": 1778216013.3705924,
+      "mtime_iso": "2026-05-08T12:53:33"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\02_transmission_excel\\0003_3_radius_86.323_nm_transmission_abs2.xlsx",
+      "name": "0003_3_radius_86.323_nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24940,
+      "mtime": 1778216199.042242,
+      "mtime_iso": "2026-05-08T12:56:39"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\02_transmission_excel\\0004_4_radius_95.098_nm_transmission_abs2.xlsx",
+      "name": "0004_4_radius_95.098_nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25006,
+      "mtime": 1778216236.570989,
+      "mtime_iso": "2026-05-08T12:57:16"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\02_transmission_excel\\0005_5_radius_103.872_nm_transmission_abs2.xlsx",
+      "name": "0005_5_radius_103.872_nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25117,
+      "mtime": 1778216274.181594,
+      "mtime_iso": "2026-05-08T12:57:54"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\02_transmission_excel\\0006_6_radius_112.647_nm_transmission_abs2.xlsx",
+      "name": "0006_6_radius_112.647_nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25214,
+      "mtime": 1778216310.3265343,
+      "mtime_iso": "2026-05-08T12:58:30"
+    },
+    {
+      "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒\\02_transmission_excel\\0007_7_radius_121.421_nm_transmission_abs2.xlsx",
+      "name": "0007_7_radius_121.421_nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25188,
+      "mtime": 1778216723.0962539,
+      "mtime_iso": "2026-05-08T13:05:23"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 3.8071106,
+      "fwhm_nm": 337.37372,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 3.6920568,
+      "fwhm_nm": 348.35504,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 694.45503,
+      "fwhm_nm": 1.8747161,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 683.41659,
+      "fwhm_nm": 1.9075934,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 243.73408,
+      "fwhm_nm": 5.400321,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 234.86002,
+      "fwhm_nm": 5.6667699,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 206.34573,
+      "fwhm_nm": 6.5224668,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 145.22187,
+      "fwhm_nm": 9.3733124,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+  "relative_path": "C4对称结构\\四柱簇\\results\\改单个柱子扰动\\不收敛结果\\run_full_2026年5月8日_12时50分12秒",
+  "group": "C4",
+  "mother_structure": "四柱簇",
+  "perturbation": "改单个柱子扰动",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 9,
+  "spectra_count": 9,
+  "sample_count": 8,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 370.43210435969473,
+  "score": 370.43210435969473,
+  "lambda0_nm": 904.2553191489363,
+  "Q": 694.45503,
+  "q": 694.45503,
+  "FWHM_nm": 1.8747161,
+  "fwhm_nm": 1.8747161,
+  "max_t": 0.9881208298538223,
+  "modified_at": "2026-05-15T18:04:59",
+  "mtime": 1778839499.0978858,
+  "fingerprint": {
+    "mtime_max": 1778839499.112763,
+    "total_size": 233029757,
+    "file_count": 36,
+    "dir_count": 7,
+    "fingerprint": "1778839499.112763-233029757-36-7"
+  },
+  "last_indexed_at": "2026-05-20T14:34:04",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 4.26 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_12时50分12秒_00cf4283",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

@@ -1,0 +1,986 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+    "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒",
+    "group": "C4",
+    "mother_structure": "十字",
+    "perturbation": "布里渊区折叠",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 13,
+    "spectra_count": 13,
+    "sample_count": 13,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.01652919554642209,
+    "score": 0.01652919554642209,
+    "lambda0_nm": 1347.7801268498945,
+    "Q": 5.0757976,
+    "q": 5.0757976,
+    "FWHM_nm": 307.08074,
+    "fwhm_nm": 307.08074,
+    "max_t": 0.8815594050316817,
+    "modified_at": "2026-05-15T18:04:49",
+    "mtime": 1778839489.8833592,
+    "fingerprint": {
+      "mtime_max": 1778839489.8979044,
+      "total_size": 705571848,
+      "file_count": 55,
+      "dir_count": 10,
+      "fingerprint": "1778839489.8979044-705571848-55-10"
+    },
+    "last_indexed_at": "2026-05-20T14:34:01",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0000_BZF_eta_000.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0001_BZF_eta_005.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0002_BZF_eta_010.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0003_BZF_eta_015.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0004_BZF_eta_020.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0005_BZF_eta_025.000nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0006_BZF_eta_030.000nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0007_BZF_eta_035.000nm.fsp"
+    },
+    {
+      "sample_id": "8",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0008_BZF_eta_040.000nm.fsp"
+    },
+    {
+      "sample_id": "9",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0009_BZF_eta_045.000nm.fsp"
+    },
+    {
+      "sample_id": "10",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0010_BZF_eta_050.000nm.fsp"
+    },
+    {
+      "sample_id": "11",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0011_BZF_eta_055.000nm.fsp"
+    },
+    {
+      "sample_id": "12",
+      "delta": null,
+      "lambda0_nm": 1347.7801268498945,
+      "score": 0.01652919554642209,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0012_BZF_eta_060.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 1136,
+      "mtime": 1778770310.370351,
+      "mtime_iso": "2026-05-14T22:51:50"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_topology_metrics\\bzf_supercell_metrics.csv",
+      "name": "bzf_supercell_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 19675,
+      "mtime": 1778771209.4428868,
+      "mtime_iso": "2026-05-14T23:06:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\04_logs\\geometry_validation.csv",
+      "name": "geometry_validation.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 5255,
+      "mtime": 1778771209.4409058,
+      "mtime_iso": "2026-05-14T23:06:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 29954,
+      "mtime": 1778771209.4398773,
+      "mtime_iso": "2026-05-14T23:06:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3842,
+      "mtime": 1778839489.894613,
+      "mtime_iso": "2026-05-15T18:04:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3843,
+      "mtime": 1778839489.8955865,
+      "mtime_iso": "2026-05-15T18:04:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3185,
+      "mtime": 1778839489.8845768,
+      "mtime_iso": "2026-05-15T18:04:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0000_BZF_eta_000.000nm.fsp",
+      "name": "0000_BZF_eta_000.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770383.9226859,
+      "mtime_iso": "2026-05-14T22:53:03"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0001_BZF_eta_005.000nm.fsp",
+      "name": "0001_BZF_eta_005.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770457.0356572,
+      "mtime_iso": "2026-05-14T22:54:17"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0002_BZF_eta_010.000nm.fsp",
+      "name": "0002_BZF_eta_010.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770526.1211035,
+      "mtime_iso": "2026-05-14T22:55:26"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0003_BZF_eta_015.000nm.fsp",
+      "name": "0003_BZF_eta_015.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770593.6168077,
+      "mtime_iso": "2026-05-14T22:56:33"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0004_BZF_eta_020.000nm.fsp",
+      "name": "0004_BZF_eta_020.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770662.6524768,
+      "mtime_iso": "2026-05-14T22:57:42"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0005_BZF_eta_025.000nm.fsp",
+      "name": "0005_BZF_eta_025.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770732.1742892,
+      "mtime_iso": "2026-05-14T22:58:52"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0006_BZF_eta_030.000nm.fsp",
+      "name": "0006_BZF_eta_030.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770800.8174746,
+      "mtime_iso": "2026-05-14T23:00:00"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0007_BZF_eta_035.000nm.fsp",
+      "name": "0007_BZF_eta_035.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770870.2755022,
+      "mtime_iso": "2026-05-14T23:01:10"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0008_BZF_eta_040.000nm.fsp",
+      "name": "0008_BZF_eta_040.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778770938.1732771,
+      "mtime_iso": "2026-05-14T23:02:18"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0009_BZF_eta_045.000nm.fsp",
+      "name": "0009_BZF_eta_045.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778771007.306882,
+      "mtime_iso": "2026-05-14T23:03:27"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0010_BZF_eta_050.000nm.fsp",
+      "name": "0010_BZF_eta_050.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778771076.0689037,
+      "mtime_iso": "2026-05-14T23:04:36"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0011_BZF_eta_055.000nm.fsp",
+      "name": "0011_BZF_eta_055.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778771143.2958913,
+      "mtime_iso": "2026-05-14T23:05:43"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\0012_BZF_eta_060.000nm.fsp",
+      "name": "0012_BZF_eta_060.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 50189879,
+      "mtime": 1778771209.1155005,
+      "mtime_iso": "2026-05-14T23:06:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\01_supercell_fsp\\source_readonly_copy.fsp",
+      "name": "source_readonly_copy.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802515,
+      "mtime": 1778311389.878584,
+      "mtime_iso": "2026-05-09T15:23:09"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802515,
+      "mtime": 1778311389.878584,
+      "mtime_iso": "2026-05-09T15:23:09"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_brillouin_folding_png\\bzf_eta_center_distance.png",
+      "name": "bzf_eta_center_distance.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 46666,
+      "mtime": 1778771209.5544405,
+      "mtime_iso": "2026-05-14T23:06:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0000_BZF_eta_000.000nm_transmission_abs2.png",
+      "name": "0000_BZF_eta_000.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61375,
+      "mtime": 1778770384.0898678,
+      "mtime_iso": "2026-05-14T22:53:04"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0001_BZF_eta_005.000nm_transmission_abs2.png",
+      "name": "0001_BZF_eta_005.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61592,
+      "mtime": 1778770457.2162688,
+      "mtime_iso": "2026-05-14T22:54:17"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0002_BZF_eta_010.000nm_transmission_abs2.png",
+      "name": "0002_BZF_eta_010.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61629,
+      "mtime": 1778770526.2699633,
+      "mtime_iso": "2026-05-14T22:55:26"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0003_BZF_eta_015.000nm_transmission_abs2.png",
+      "name": "0003_BZF_eta_015.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61340,
+      "mtime": 1778770593.7635307,
+      "mtime_iso": "2026-05-14T22:56:33"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0004_BZF_eta_020.000nm_transmission_abs2.png",
+      "name": "0004_BZF_eta_020.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 62805,
+      "mtime": 1778770662.8160603,
+      "mtime_iso": "2026-05-14T22:57:42"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0005_BZF_eta_025.000nm_transmission_abs2.png",
+      "name": "0005_BZF_eta_025.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 62317,
+      "mtime": 1778770732.3208523,
+      "mtime_iso": "2026-05-14T22:58:52"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0006_BZF_eta_030.000nm_transmission_abs2.png",
+      "name": "0006_BZF_eta_030.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 62969,
+      "mtime": 1778770800.9701297,
+      "mtime_iso": "2026-05-14T23:00:00"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0007_BZF_eta_035.000nm_transmission_abs2.png",
+      "name": "0007_BZF_eta_035.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63143,
+      "mtime": 1778770870.4224756,
+      "mtime_iso": "2026-05-14T23:01:10"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0008_BZF_eta_040.000nm_transmission_abs2.png",
+      "name": "0008_BZF_eta_040.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63090,
+      "mtime": 1778770938.3246303,
+      "mtime_iso": "2026-05-14T23:02:18"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0009_BZF_eta_045.000nm_transmission_abs2.png",
+      "name": "0009_BZF_eta_045.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63211,
+      "mtime": 1778771007.4658914,
+      "mtime_iso": "2026-05-14T23:03:27"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0010_BZF_eta_050.000nm_transmission_abs2.png",
+      "name": "0010_BZF_eta_050.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63283,
+      "mtime": 1778771076.5388248,
+      "mtime_iso": "2026-05-14T23:04:36"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0011_BZF_eta_055.000nm_transmission_abs2.png",
+      "name": "0011_BZF_eta_055.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 62901,
+      "mtime": 1778771143.4432607,
+      "mtime_iso": "2026-05-14T23:05:43"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\03_transmission_abs2_png\\0012_BZF_eta_060.000nm_transmission_abs2.png",
+      "name": "0012_BZF_eta_060.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63061,
+      "mtime": 1778771209.274248,
+      "mtime_iso": "2026-05-14T23:06:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1698,
+      "mtime": 1778839489.897146,
+      "mtime_iso": "2026-05-15T18:04:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839489.8979044,
+      "mtime_iso": "2026-05-15T18:04:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 230799,
+      "mtime": 1778839489.8936136,
+      "mtime_iso": "2026-05-15T18:04:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2576,
+      "mtime": 1778839489.8979044,
+      "mtime_iso": "2026-05-15T18:04:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1504,
+      "mtime": 1778839489.8979044,
+      "mtime_iso": "2026-05-15T18:04:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\布里渊区折叠_脚本实现说明.md",
+      "name": "布里渊区折叠_脚本实现说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2037,
+      "mtime": 1778771209.5554817,
+      "mtime_iso": "2026-05-14T23:06:49"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0000_BZF_eta_000.000nm_transmission_abs2.xlsx",
+      "name": "0000_BZF_eta_000.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25542,
+      "mtime": 1778770383.954252,
+      "mtime_iso": "2026-05-14T22:53:03"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0001_BZF_eta_005.000nm_transmission_abs2.xlsx",
+      "name": "0001_BZF_eta_005.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25523,
+      "mtime": 1778770457.0843928,
+      "mtime_iso": "2026-05-14T22:54:17"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0002_BZF_eta_010.000nm_transmission_abs2.xlsx",
+      "name": "0002_BZF_eta_010.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25595,
+      "mtime": 1778770526.1481023,
+      "mtime_iso": "2026-05-14T22:55:26"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0003_BZF_eta_015.000nm_transmission_abs2.xlsx",
+      "name": "0003_BZF_eta_015.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25551,
+      "mtime": 1778770593.6442752,
+      "mtime_iso": "2026-05-14T22:56:33"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0004_BZF_eta_020.000nm_transmission_abs2.xlsx",
+      "name": "0004_BZF_eta_020.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25556,
+      "mtime": 1778770662.6894987,
+      "mtime_iso": "2026-05-14T22:57:42"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0005_BZF_eta_025.000nm_transmission_abs2.xlsx",
+      "name": "0005_BZF_eta_025.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25570,
+      "mtime": 1778770732.2009687,
+      "mtime_iso": "2026-05-14T22:58:52"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0006_BZF_eta_030.000nm_transmission_abs2.xlsx",
+      "name": "0006_BZF_eta_030.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25564,
+      "mtime": 1778770800.845693,
+      "mtime_iso": "2026-05-14T23:00:00"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0007_BZF_eta_035.000nm_transmission_abs2.xlsx",
+      "name": "0007_BZF_eta_035.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25542,
+      "mtime": 1778770870.30254,
+      "mtime_iso": "2026-05-14T23:01:10"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0008_BZF_eta_040.000nm_transmission_abs2.xlsx",
+      "name": "0008_BZF_eta_040.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25565,
+      "mtime": 1778770938.200274,
+      "mtime_iso": "2026-05-14T23:02:18"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0009_BZF_eta_045.000nm_transmission_abs2.xlsx",
+      "name": "0009_BZF_eta_045.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25523,
+      "mtime": 1778771007.335842,
+      "mtime_iso": "2026-05-14T23:03:27"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0010_BZF_eta_050.000nm_transmission_abs2.xlsx",
+      "name": "0010_BZF_eta_050.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25537,
+      "mtime": 1778771076.1915238,
+      "mtime_iso": "2026-05-14T23:04:36"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0011_BZF_eta_055.000nm_transmission_abs2.xlsx",
+      "name": "0011_BZF_eta_055.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25550,
+      "mtime": 1778771143.32286,
+      "mtime_iso": "2026-05-14T23:05:43"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒\\02_transmission_excel\\0012_BZF_eta_060.000nm_transmission_abs2.xlsx",
+      "name": "0012_BZF_eta_060.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25528,
+      "mtime": 1778771209.1533432,
+      "mtime_iso": "2026-05-14T23:06:49"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 4.4296543,
+      "fwhm_nm": 305.98814,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 4.4000991,
+      "fwhm_nm": 308.91919,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 4.3757739,
+      "fwhm_nm": 309.31744,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 4.3820068,
+      "fwhm_nm": 308.87748,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 4.3800067,
+      "fwhm_nm": 309.01852,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 4.3800232,
+      "fwhm_nm": 309.01735,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 4.3834751,
+      "fwhm_nm": 309.21168,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 5.0266213,
+      "fwhm_nm": 310.59123,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 8,
+      "score": 0,
+      "q": 5.063788,
+      "fwhm_nm": 307.80904,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 9,
+      "score": 0,
+      "q": 5.0320904,
+      "fwhm_nm": 310.25367,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 10,
+      "score": 0,
+      "q": 5.0583108,
+      "fwhm_nm": 308.14234,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 11,
+      "score": 0,
+      "q": 5.0682555,
+      "fwhm_nm": 307.53771,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 12,
+      "score": 0,
+      "q": 5.0757976,
+      "fwhm_nm": 307.08074,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+  "relative_path": "C4对称结构\\十字\\results\\布里渊区折叠\\run_full_2026年5月14日_22时51分50秒",
+  "group": "C4",
+  "mother_structure": "十字",
+  "perturbation": "布里渊区折叠",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 13,
+  "spectra_count": 13,
+  "sample_count": 13,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.01652919554642209,
+  "score": 0.01652919554642209,
+  "lambda0_nm": 1347.7801268498945,
+  "Q": 5.0757976,
+  "q": 5.0757976,
+  "FWHM_nm": 307.08074,
+  "fwhm_nm": 307.08074,
+  "max_t": 0.8815594050316817,
+  "modified_at": "2026-05-15T18:04:49",
+  "mtime": 1778839489.8833592,
+  "fingerprint": {
+    "mtime_max": 1778839489.8979044,
+    "total_size": 705571848,
+    "file_count": 55,
+    "dir_count": 10,
+    "fingerprint": "1778839489.8979044-705571848-55-10"
+  },
+  "last_indexed_at": "2026-05-20T14:34:01",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月14日_22时51分50秒_1345a7cf",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

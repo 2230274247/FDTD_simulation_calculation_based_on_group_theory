@@ -1,0 +1,710 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+    "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒",
+    "group": "C3",
+    "mother_structure": "三叶星",
+    "perturbation": "三臂同步缩放扰动",
+    "reduction_path": "C3 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 8,
+    "spectra_count": 8,
+    "sample_count": 8,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 325.870414491117,
+    "score": 325.870414491117,
+    "lambda0_nm": 1338.3484954513647,
+    "Q": 676.6968,
+    "q": 676.6968,
+    "FWHM_nm": 2.0765825,
+    "fwhm_nm": 2.0765825,
+    "max_t": 0.9783477753060167,
+    "modified_at": "2026-05-15T18:05:05",
+    "mtime": 1778839505.342998,
+    "fingerprint": {
+      "mtime_max": 1778839505.3549988,
+      "total_size": 205411072,
+      "file_count": 36,
+      "dir_count": 7,
+      "fingerprint": "1778839505.3549988-205411072-36-7"
+    },
+    "last_indexed_at": "2026-05-20T14:33:59",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "3.5000000000000004e-07",
+      "lambda0_nm": 1338.3484954513647,
+      "score": 325.870414491117,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0000_all_arm_scale_arm_scale_reference_length_350.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "3.7428571428571434e-07",
+      "lambda0_nm": 1338.3484954513647,
+      "score": 325.870414491117,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0001_all_arm_scale_arm_scale_reference_length_374.286nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "3.9857142857142864e-07",
+      "lambda0_nm": 1338.3484954513647,
+      "score": 325.870414491117,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0002_all_arm_scale_arm_scale_reference_length_398.571nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "4.2285714285714295e-07",
+      "lambda0_nm": 1338.3484954513647,
+      "score": 325.870414491117,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0003_all_arm_scale_arm_scale_reference_length_422.857nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "4.4714285714285725e-07",
+      "lambda0_nm": 1338.3484954513647,
+      "score": 325.870414491117,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0004_all_arm_scale_arm_scale_reference_length_447.143nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "4.7142857142857155e-07",
+      "lambda0_nm": 1338.3484954513647,
+      "score": 325.870414491117,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0005_all_arm_scale_arm_scale_reference_length_471.429nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "4.957142857142859e-07",
+      "lambda0_nm": 1338.3484954513647,
+      "score": 325.870414491117,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0006_all_arm_scale_arm_scale_reference_length_495.714nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "5.200000000000001e-07",
+      "lambda0_nm": 1338.3484954513647,
+      "score": 325.870414491117,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0007_all_arm_scale_arm_scale_reference_length_520.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 986,
+      "mtime": 1778163917.678854,
+      "mtime_iso": "2026-05-07T22:25:17"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 6682,
+      "mtime": 1778166370.60776,
+      "mtime_iso": "2026-05-07T23:06:10"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3032,
+      "mtime": 1778839505.3499973,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3058,
+      "mtime": 1778839505.3509932,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2646,
+      "mtime": 1778839505.3439925,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0000_all_arm_scale_arm_scale_reference_length_350.000nm.fsp",
+      "name": "0000_all_arm_scale_arm_scale_reference_length_350.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21369484,
+      "mtime": 1778163952.9721978,
+      "mtime_iso": "2026-05-07T22:25:52"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0001_all_arm_scale_arm_scale_reference_length_374.286nm.fsp",
+      "name": "0001_all_arm_scale_arm_scale_reference_length_374.286nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 22478004,
+      "mtime": 1778164025.3737245,
+      "mtime_iso": "2026-05-07T22:27:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0002_all_arm_scale_arm_scale_reference_length_398.571nm.fsp",
+      "name": "0002_all_arm_scale_arm_scale_reference_length_398.571nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 22477940,
+      "mtime": 1778164073.1951714,
+      "mtime_iso": "2026-05-07T22:27:53"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0003_all_arm_scale_arm_scale_reference_length_422.857nm.fsp",
+      "name": "0003_all_arm_scale_arm_scale_reference_length_422.857nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 22478468,
+      "mtime": 1778164348.8635542,
+      "mtime_iso": "2026-05-07T22:32:28"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0004_all_arm_scale_arm_scale_reference_length_447.143nm.fsp",
+      "name": "0004_all_arm_scale_arm_scale_reference_length_447.143nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 22479084,
+      "mtime": 1778164871.1156807,
+      "mtime_iso": "2026-05-07T22:41:11"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0005_all_arm_scale_arm_scale_reference_length_471.429nm.fsp",
+      "name": "0005_all_arm_scale_arm_scale_reference_length_471.429nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 22479084,
+      "mtime": 1778165355.2455683,
+      "mtime_iso": "2026-05-07T22:49:15"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0006_all_arm_scale_arm_scale_reference_length_495.714nm.fsp",
+      "name": "0006_all_arm_scale_arm_scale_reference_length_495.714nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 22479068,
+      "mtime": 1778165833.792758,
+      "mtime_iso": "2026-05-07T22:57:13"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\01_fsp\\0007_all_arm_scale_arm_scale_reference_length_520.000nm.fsp",
+      "name": "0007_all_arm_scale_arm_scale_reference_length_520.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804388,
+      "mtime": 1778166370.2459939,
+      "mtime_iso": "2026-05-07T23:06:10"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 22477980,
+      "mtime": 1777217749.5063152,
+      "mtime_iso": "2026-04-26T23:35:49"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\03_transmission_abs2_png\\0000_all_arm_scale_arm_scale_reference_length_350.000nm_transmission_abs2.png",
+      "name": "0000_all_arm_scale_arm_scale_reference_length_350.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 67224,
+      "mtime": 1778163953.3963764,
+      "mtime_iso": "2026-05-07T22:25:53"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\03_transmission_abs2_png\\0001_all_arm_scale_arm_scale_reference_length_374.286nm_transmission_abs2.png",
+      "name": "0001_all_arm_scale_arm_scale_reference_length_374.286nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68476,
+      "mtime": 1778164025.5628123,
+      "mtime_iso": "2026-05-07T22:27:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\03_transmission_abs2_png\\0002_all_arm_scale_arm_scale_reference_length_398.571nm_transmission_abs2.png",
+      "name": "0002_all_arm_scale_arm_scale_reference_length_398.571nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 71064,
+      "mtime": 1778164073.3951313,
+      "mtime_iso": "2026-05-07T22:27:53"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\03_transmission_abs2_png\\0003_all_arm_scale_arm_scale_reference_length_422.857nm_transmission_abs2.png",
+      "name": "0003_all_arm_scale_arm_scale_reference_length_422.857nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 72737,
+      "mtime": 1778164349.0708873,
+      "mtime_iso": "2026-05-07T22:32:29"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\03_transmission_abs2_png\\0004_all_arm_scale_arm_scale_reference_length_447.143nm_transmission_abs2.png",
+      "name": "0004_all_arm_scale_arm_scale_reference_length_447.143nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 51899,
+      "mtime": 1778164871.280084,
+      "mtime_iso": "2026-05-07T22:41:11"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\03_transmission_abs2_png\\0005_all_arm_scale_arm_scale_reference_length_471.429nm_transmission_abs2.png",
+      "name": "0005_all_arm_scale_arm_scale_reference_length_471.429nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 56444,
+      "mtime": 1778165355.4294107,
+      "mtime_iso": "2026-05-07T22:49:15"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\03_transmission_abs2_png\\0006_all_arm_scale_arm_scale_reference_length_495.714nm_transmission_abs2.png",
+      "name": "0006_all_arm_scale_arm_scale_reference_length_495.714nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 71006,
+      "mtime": 1778165833.9697788,
+      "mtime_iso": "2026-05-07T22:57:13"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\03_transmission_abs2_png\\0007_all_arm_scale_arm_scale_reference_length_520.000nm_transmission_abs2.png",
+      "name": "0007_all_arm_scale_arm_scale_reference_length_520.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 71350,
+      "mtime": 1778166370.4155254,
+      "mtime_iso": "2026-05-07T23:06:10"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1698,
+      "mtime": 1778839505.3520024,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839505.3529658,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 129442,
+      "mtime": 1778839505.3489962,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2598,
+      "mtime": 1778839505.3549988,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1506,
+      "mtime": 1778839505.3540022,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1537,
+      "mtime": 1778163917.6798544,
+      "mtime_iso": "2026-05-07T22:25:17"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\02_transmission_excel\\0000_all_arm_scale_arm_scale_reference_length_350.000nm_transmission_abs2.xlsx",
+      "name": "0000_all_arm_scale_arm_scale_reference_length_350.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25193,
+      "mtime": 1778163953.0202947,
+      "mtime_iso": "2026-05-07T22:25:53"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\02_transmission_excel\\0001_all_arm_scale_arm_scale_reference_length_374.286nm_transmission_abs2.xlsx",
+      "name": "0001_all_arm_scale_arm_scale_reference_length_374.286nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25189,
+      "mtime": 1778164025.42287,
+      "mtime_iso": "2026-05-07T22:27:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\02_transmission_excel\\0002_all_arm_scale_arm_scale_reference_length_398.571nm_transmission_abs2.xlsx",
+      "name": "0002_all_arm_scale_arm_scale_reference_length_398.571nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25254,
+      "mtime": 1778164073.2467906,
+      "mtime_iso": "2026-05-07T22:27:53"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\02_transmission_excel\\0003_all_arm_scale_arm_scale_reference_length_422.857nm_transmission_abs2.xlsx",
+      "name": "0003_all_arm_scale_arm_scale_reference_length_422.857nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25364,
+      "mtime": 1778164348.9271383,
+      "mtime_iso": "2026-05-07T22:32:28"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\02_transmission_excel\\0004_all_arm_scale_arm_scale_reference_length_447.143nm_transmission_abs2.xlsx",
+      "name": "0004_all_arm_scale_arm_scale_reference_length_447.143nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25404,
+      "mtime": 1778164871.1619582,
+      "mtime_iso": "2026-05-07T22:41:11"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\02_transmission_excel\\0005_all_arm_scale_arm_scale_reference_length_471.429nm_transmission_abs2.xlsx",
+      "name": "0005_all_arm_scale_arm_scale_reference_length_471.429nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25451,
+      "mtime": 1778165355.2960794,
+      "mtime_iso": "2026-05-07T22:49:15"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\02_transmission_excel\\0006_all_arm_scale_arm_scale_reference_length_495.714nm_transmission_abs2.xlsx",
+      "name": "0006_all_arm_scale_arm_scale_reference_length_495.714nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25440,
+      "mtime": 1778165833.8416703,
+      "mtime_iso": "2026-05-07T22:57:13"
+    },
+    {
+      "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒\\02_transmission_excel\\0007_all_arm_scale_arm_scale_reference_length_520.000nm_transmission_abs2.xlsx",
+      "name": "0007_all_arm_scale_arm_scale_reference_length_520.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25533,
+      "mtime": 1778166370.2870798,
+      "mtime_iso": "2026-05-07T23:06:10"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 17.907686,
+      "fwhm_nm": 74.63153,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 13.96136,
+      "fwhm_nm": 99.480917,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 13.639011,
+      "fwhm_nm": 106.47136,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 16.783606,
+      "fwhm_nm": 77.7819,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 676.6968,
+      "fwhm_nm": 2.0765825,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 604.93811,
+      "fwhm_nm": 2.4005167,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 13.227368,
+      "fwhm_nm": 122.22028,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 13.220998,
+      "fwhm_nm": 124.59625,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+  "relative_path": "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\不收敛结果\\run_full_2026年5月7日_22时25分10秒",
+  "group": "C3",
+  "mother_structure": "三叶星",
+  "perturbation": "三臂同步缩放扰动",
+  "reduction_path": "C3 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 8,
+  "spectra_count": 8,
+  "sample_count": 8,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 325.870414491117,
+  "score": 325.870414491117,
+  "lambda0_nm": 1338.3484954513647,
+  "Q": 676.6968,
+  "q": 676.6968,
+  "FWHM_nm": 2.0765825,
+  "fwhm_nm": 2.0765825,
+  "max_t": 0.9783477753060167,
+  "modified_at": "2026-05-15T18:05:05",
+  "mtime": 1778839505.342998,
+  "fingerprint": {
+    "mtime_max": 1778839505.3549988,
+    "total_size": 205411072,
+    "file_count": 36,
+    "dir_count": 7,
+    "fingerprint": "1778839505.3549988-205411072-36-7"
+  },
+  "last_indexed_at": "2026-05-20T14:33:59",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_22时25分10秒_fab9a03e",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

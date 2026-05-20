@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "built_at": "2026-05-20T16:50:02",
+  "packages": [
+    {
+      "package_id": "patch_20260520_165002_field",
+      "created_at": "2026-05-20T16:50:02",
+      "supplement_type": "field",
+      "status": "planned",
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260520_165002_field"
+    },
+    {
+      "package_id": "patch_20260520_161301_field",
+      "created_at": "2026-05-20T16:13:01",
+      "supplement_type": "field",
+      "status": "planned",
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\补做实验\\patch_20260520_161301_field"
+    }
+  ]
+}

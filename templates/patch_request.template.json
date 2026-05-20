@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "package_id": "patch_YYYYMMDD_HHMMSS_type",
+  "created_at": "ISO_TIME",
+  "supplement_type": "field",
+  "monitor_policy": "single_monitor_only",
+  "source_run_id": "run_id",
+  "source_run_path": "relative_path",
+  "mother_structure": "",
+  "perturbation": "",
+  "reduction_path": "",
+  "samples": [],
+  "outputs": {
+    "root": "补做实验\\patch_YYYYMMDD_HHMMSS_type",
+    "field_dir": "08_field_data",
+    "summary_dir": "12_patch_summary"
+  },
+  "status": "planned"
+}

@@ -1,0 +1,581 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+    "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒",
+    "group": "C3",
+    "mother_structure": "三柱簇",
+    "perturbation": "三柱同步半径扫描扰动",
+    "reduction_path": "C3 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 8,
+    "spectra_count": 8,
+    "sample_count": 8,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.08878239054820437,
+    "score": 0.08878239054820437,
+    "lambda0_nm": 1272.4550898203595,
+    "Q": 3.617127346569052,
+    "q": 3.617127346569052,
+    "FWHM_nm": 351.78609097833373,
+    "fwhm_nm": 351.78609097833373,
+    "max_t": 0.9549494319401669,
+    "modified_at": "2026-05-12T07:49:14",
+    "mtime": 1778543354.7627466,
+    "fingerprint": {
+      "mtime_max": 1778543920.0197134,
+      "total_size": 232914440,
+      "file_count": 28,
+      "dir_count": 6,
+      "fingerprint": "1778543920.0197134-232914440-28-6"
+    },
+    "last_indexed_at": "2026-05-20T14:33:59",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "6.000000000000001e-08",
+      "lambda0_nm": 1272.4550898203595,
+      "score": 0.08878239054820437,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0000_all_pillar_radius_all_pillar_radius_60.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "7e-08",
+      "lambda0_nm": 1272.4550898203595,
+      "score": 0.08878239054820437,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0001_all_pillar_radius_all_pillar_radius_70.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "8e-08",
+      "lambda0_nm": 1272.4550898203595,
+      "score": 0.08878239054820437,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0002_all_pillar_radius_all_pillar_radius_80.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "9e-08",
+      "lambda0_nm": 1272.4550898203595,
+      "score": 0.08878239054820437,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0003_all_pillar_radius_all_pillar_radius_90.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "1e-07",
+      "lambda0_nm": 1272.4550898203595,
+      "score": 0.08878239054820437,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0004_all_pillar_radius_all_pillar_radius_100.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "1.0999999999999999e-07",
+      "lambda0_nm": 1272.4550898203595,
+      "score": 0.08878239054820437,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0005_all_pillar_radius_all_pillar_radius_110.000nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "1.2e-07",
+      "lambda0_nm": 1272.4550898203595,
+      "score": 0.08878239054820437,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0006_all_pillar_radius_all_pillar_radius_120.000nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "1.3e-07",
+      "lambda0_nm": 1272.4550898203595,
+      "score": 0.08878239054820437,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0007_all_pillar_radius_all_pillar_radius_130.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 778,
+      "mtime": 1778543354.761747,
+      "mtime_iso": "2026-05-12T07:49:14"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 6671,
+      "mtime": 1778543920.0197134,
+      "mtime_iso": "2026-05-12T07:58:40"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0000_all_pillar_radius_all_pillar_radius_60.000nm.fsp",
+      "name": "0000_all_pillar_radius_all_pillar_radius_60.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802948,
+      "mtime": 1778543377.8941107,
+      "mtime_iso": "2026-05-12T07:49:37"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0001_all_pillar_radius_all_pillar_radius_70.000nm.fsp",
+      "name": "0001_all_pillar_radius_all_pillar_radius_70.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802948,
+      "mtime": 1778543405.7251265,
+      "mtime_iso": "2026-05-12T07:50:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0002_all_pillar_radius_all_pillar_radius_80.000nm.fsp",
+      "name": "0002_all_pillar_radius_all_pillar_radius_80.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802964,
+      "mtime": 1778543435.3552673,
+      "mtime_iso": "2026-05-12T07:50:35"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0003_all_pillar_radius_all_pillar_radius_90.000nm.fsp",
+      "name": "0003_all_pillar_radius_all_pillar_radius_90.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802964,
+      "mtime": 1778543467.9469492,
+      "mtime_iso": "2026-05-12T07:51:07"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0004_all_pillar_radius_all_pillar_radius_100.000nm.fsp",
+      "name": "0004_all_pillar_radius_all_pillar_radius_100.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803636,
+      "mtime": 1778543787.444296,
+      "mtime_iso": "2026-05-12T07:56:27"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0005_all_pillar_radius_all_pillar_radius_110.000nm.fsp",
+      "name": "0005_all_pillar_radius_all_pillar_radius_110.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802948,
+      "mtime": 1778543834.3675838,
+      "mtime_iso": "2026-05-12T07:57:14"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0006_all_pillar_radius_all_pillar_radius_120.000nm.fsp",
+      "name": "0006_all_pillar_radius_all_pillar_radius_120.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802932,
+      "mtime": 1778543872.994229,
+      "mtime_iso": "2026-05-12T07:57:52"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\01_fsp\\0007_all_pillar_radius_all_pillar_radius_130.000nm.fsp",
+      "name": "0007_all_pillar_radius_all_pillar_radius_130.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802948,
+      "mtime": 1778543918.9518056,
+      "mtime_iso": "2026-05-12T07:58:38"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803140,
+      "mtime": 1777217729.5910132,
+      "mtime_iso": "2026-04-26T23:35:29"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\03_transmission_abs2_png\\0000_all_pillar_radius_all_pillar_radius_60.000nm_transmission_abs2.png",
+      "name": "0000_all_pillar_radius_all_pillar_radius_60.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68399,
+      "mtime": 1778543378.4610162,
+      "mtime_iso": "2026-05-12T07:49:38"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\03_transmission_abs2_png\\0001_all_pillar_radius_all_pillar_radius_70.000nm_transmission_abs2.png",
+      "name": "0001_all_pillar_radius_all_pillar_radius_70.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 66509,
+      "mtime": 1778543405.8855374,
+      "mtime_iso": "2026-05-12T07:50:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\03_transmission_abs2_png\\0002_all_pillar_radius_all_pillar_radius_80.000nm_transmission_abs2.png",
+      "name": "0002_all_pillar_radius_all_pillar_radius_80.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61415,
+      "mtime": 1778543435.493036,
+      "mtime_iso": "2026-05-12T07:50:35"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\03_transmission_abs2_png\\0003_all_pillar_radius_all_pillar_radius_90.000nm_transmission_abs2.png",
+      "name": "0003_all_pillar_radius_all_pillar_radius_90.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 49685,
+      "mtime": 1778543468.078542,
+      "mtime_iso": "2026-05-12T07:51:08"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\03_transmission_abs2_png\\0004_all_pillar_radius_all_pillar_radius_100.000nm_transmission_abs2.png",
+      "name": "0004_all_pillar_radius_all_pillar_radius_100.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 38890,
+      "mtime": 1778543787.6211972,
+      "mtime_iso": "2026-05-12T07:56:27"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\03_transmission_abs2_png\\0005_all_pillar_radius_all_pillar_radius_110.000nm_transmission_abs2.png",
+      "name": "0005_all_pillar_radius_all_pillar_radius_110.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 60596,
+      "mtime": 1778543834.5230043,
+      "mtime_iso": "2026-05-12T07:57:14"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\03_transmission_abs2_png\\0006_all_pillar_radius_all_pillar_radius_120.000nm_transmission_abs2.png",
+      "name": "0006_all_pillar_radius_all_pillar_radius_120.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 64202,
+      "mtime": 1778543873.1497924,
+      "mtime_iso": "2026-05-12T07:57:53"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\03_transmission_abs2_png\\0007_all_pillar_radius_all_pillar_radius_130.000nm_transmission_abs2.png",
+      "name": "0007_all_pillar_radius_all_pillar_radius_130.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68592,
+      "mtime": 1778543919.1271791,
+      "mtime_iso": "2026-05-12T07:58:39"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1481,
+      "mtime": 1778543354.7627466,
+      "mtime_iso": "2026-05-12T07:49:14"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\02_transmission_excel\\0000_all_pillar_radius_all_pillar_radius_60.000nm_transmission_abs2.xlsx",
+      "name": "0000_all_pillar_radius_all_pillar_radius_60.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24414,
+      "mtime": 1778543377.9317448,
+      "mtime_iso": "2026-05-12T07:49:37"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\02_transmission_excel\\0001_all_pillar_radius_all_pillar_radius_70.000nm_transmission_abs2.xlsx",
+      "name": "0001_all_pillar_radius_all_pillar_radius_70.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24475,
+      "mtime": 1778543405.755364,
+      "mtime_iso": "2026-05-12T07:50:05"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\02_transmission_excel\\0002_all_pillar_radius_all_pillar_radius_80.000nm_transmission_abs2.xlsx",
+      "name": "0002_all_pillar_radius_all_pillar_radius_80.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24384,
+      "mtime": 1778543435.3732681,
+      "mtime_iso": "2026-05-12T07:50:35"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\02_transmission_excel\\0003_all_pillar_radius_all_pillar_radius_90.000nm_transmission_abs2.xlsx",
+      "name": "0003_all_pillar_radius_all_pillar_radius_90.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24617,
+      "mtime": 1778543467.9659476,
+      "mtime_iso": "2026-05-12T07:51:07"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\02_transmission_excel\\0004_all_pillar_radius_all_pillar_radius_100.000nm_transmission_abs2.xlsx",
+      "name": "0004_all_pillar_radius_all_pillar_radius_100.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25753,
+      "mtime": 1778543787.4872117,
+      "mtime_iso": "2026-05-12T07:56:27"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\02_transmission_excel\\0005_all_pillar_radius_all_pillar_radius_110.000nm_transmission_abs2.xlsx",
+      "name": "0005_all_pillar_radius_all_pillar_radius_110.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25281,
+      "mtime": 1778543834.398905,
+      "mtime_iso": "2026-05-12T07:57:14"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\02_transmission_excel\\0006_all_pillar_radius_all_pillar_radius_120.000nm_transmission_abs2.xlsx",
+      "name": "0006_all_pillar_radius_all_pillar_radius_120.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25395,
+      "mtime": 1778543873.0234632,
+      "mtime_iso": "2026-05-12T07:57:53"
+    },
+    {
+      "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒\\02_transmission_excel\\0007_all_pillar_radius_all_pillar_radius_130.000nm_transmission_abs2.xlsx",
+      "name": "0007_all_pillar_radius_all_pillar_radius_130.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25475,
+      "mtime": 1778543918.9876535,
+      "mtime_iso": "2026-05-12T07:58:38"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+  "relative_path": "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_07时49分08秒",
+  "group": "C3",
+  "mother_structure": "三柱簇",
+  "perturbation": "三柱同步半径扫描扰动",
+  "reduction_path": "C3 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 8,
+  "spectra_count": 8,
+  "sample_count": 8,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.08878239054820437,
+  "score": 0.08878239054820437,
+  "lambda0_nm": 1272.4550898203595,
+  "Q": 3.617127346569052,
+  "q": 3.617127346569052,
+  "FWHM_nm": 351.78609097833373,
+  "fwhm_nm": 351.78609097833373,
+  "max_t": 0.9549494319401669,
+  "modified_at": "2026-05-12T07:49:14",
+  "mtime": 1778543354.7627466,
+  "fingerprint": {
+    "mtime_max": 1778543920.0197134,
+    "total_size": 232914440,
+    "file_count": 28,
+    "dir_count": 6,
+    "fingerprint": "1778543920.0197134-232914440-28-6"
+  },
+  "last_indexed_at": "2026-05-20T14:33:59",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_07时49分08秒_e343ddc7",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

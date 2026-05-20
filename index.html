@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FDTD 光谱群论工作台 V2</title>
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/base.css" />
+  <link rel="stylesheet" href="./assets/css/shell.css" />
+  <link rel="stylesheet" href="./assets/css/components.css" />
+  <link rel="stylesheet" href="./assets/css/pages.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-title">FDTD 群论工作台<small>结果预览 / 脚本总控 / 质量审计</small></div>
+      </div>
+      <nav class="nav" id="nav">
+        <button class="nav-item active" data-route="overview" type="button" aria-label="研究总览">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+          <span class="nav-label">研究总览</span>
+        </button>
+        <button class="nav-item" data-route="run" type="button" aria-label="运行控制">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9z"/></svg>
+          <span class="nav-label">运行控制</span>
+        </button>
+        <button class="nav-item" data-route="results" type="button" aria-label="结果浏览">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18"/><path d="M3 12h18"/><path d="M3 17h18"/></svg>
+          <span class="nav-label">结果浏览</span>
+        </button>
+        <button class="nav-item" data-route="diagnosis" type="button" aria-label="光谱诊断">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18c3-10 5-10 8 0s5 10 8 0"/><path d="M4 6h16"/></svg>
+          <span class="nav-label">光谱诊断</span>
+        </button>
+        <button class="nav-item" data-route="topology" type="button" aria-label="模式接力与拓扑候选">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.1 0l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"/><path d="M14 11a5 5 0 0 0-7.1 0l-2 2A5 5 0 0 0 12 20.1l1.1-1.1"/></svg>
+          <span class="nav-label">模式接力 / 拓扑候选</span>
+        </button>
+        <button class="nav-item" data-route="quality" type="button" aria-label="质量审计">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span class="nav-label">质量审计</span>
+        </button>
+        <button class="nav-item" data-route="supplement" type="button" aria-label="补做实验">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M5 12h14"/><path d="M4 4h16v16H4z"/></svg>
+          <span class="nav-label">补做实验</span>
+        </button>
+        <button class="nav-item" data-route="resources" type="button" aria-label="资源浏览">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h5l2 3h11v9H3z"/><path d="M3 7V5h6l2 2"/></svg>
+          <span class="nav-label">资源浏览</span>
+        </button>
+      </nav>
+      <section class="side-summary" aria-label="当前研究配置">
+        <h2>当前研究配置</h2>
+        <div class="side-row"><span>目标函数</span><strong>score / Q / FWHM</strong></div>
+        <div class="side-row"><span>缓存策略</span><strong>轻量首屏</strong></div>
+        <div class="side-row"><span>运行安全</span><strong>二次确认</strong></div>
+        <button class="btn secondary" id="open-config" type="button">查看配置</button>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="crumb"><span>首页</span><span>/</span><strong id="crumb-title">研究总览</strong></div>
+        <label class="global-search" for="global-search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input id="global-search" type="search" placeholder="搜索 run、群类别、结构、扰动、脚本" autocomplete="off" />
+          <span class="kbd">Ctrl K</span>
+        </label>
+        <div class="top-time" id="index-time">索引缓存：未建立</div>
+        <div class="top-actions">
+          <button class="btn secondary" id="refresh-index" type="button" title="后台增量刷新索引">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+            后台刷新
+          </button>
+          <button class="btn ghost" id="export-summary" type="button" title="导出轻量摘要">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+            导出摘要
+          </button>
+        </div>
+      </header>
+
+      <section class="content" id="page-root" aria-live="polite">
+        <div class="empty">正在加载轻量缓存...</div>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-mask" id="drawer-mask" hidden></div>
+  <aside class="drawer" id="drawer" hidden>
+    <div class="drawer-head">
+      <span id="drawer-title">详情</span>
+      <button class="icon-btn" id="drawer-close" type="button" aria-label="关闭详情">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+
+  <div class="modal-mask" id="modal-root" hidden></div>
+  <div class="toast-host" id="toast-host" aria-live="assertive"></div>
+
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

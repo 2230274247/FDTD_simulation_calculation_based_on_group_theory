@@ -1,0 +1,1345 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+    "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒",
+    "group": "C4",
+    "mother_structure": "方环",
+    "perturbation": "外框长宽差扰动",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 15,
+    "spectra_count": 15,
+    "sample_count": 15,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": 0.0017000000000000001,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": 1700.0,
+    "modified_at": "2026-05-12T16:20:19",
+    "mtime": 1778574019.9731624,
+    "fingerprint": {
+      "mtime_max": 1778575665.0536292,
+      "total_size": 806147486,
+      "file_count": 96,
+      "dir_count": 6,
+      "fingerprint": "1778575665.0536292-806147486-96-6"
+    },
+    "last_indexed_at": "2026-05-20T14:34:05",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1700",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "#1",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0000_ar1d000_Ox0580d00nm_Oy0580d00nm.fsp"
+    },
+    {
+      "sample_id": "#2",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0001_ar1d036_Ox0590d27nm_Oy0569d91nm.fsp"
+    },
+    {
+      "sample_id": "#3",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0002_ar1d071_Ox0600d36nm_Oy0560d33nm.fsp"
+    },
+    {
+      "sample_id": "#4",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0003_ar1d107_Ox0610d28nm_Oy0551d22nm.fsp"
+    },
+    {
+      "sample_id": "#5",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0004_ar1d143_Ox0620d05nm_Oy0542d54nm.fsp"
+    },
+    {
+      "sample_id": "#6",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0005_ar1d179_Ox0629d66nm_Oy0534d26nm.fsp"
+    },
+    {
+      "sample_id": "#7",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0006_ar1d214_Ox0639d13nm_Oy0526d34nm.fsp"
+    },
+    {
+      "sample_id": "#8",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0007_ar1d250_Ox0648d46nm_Oy0518d77nm.fsp"
+    },
+    {
+      "sample_id": "#9",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0008_ar1d286_Ox0657d66nm_Oy0511d51nm.fsp"
+    },
+    {
+      "sample_id": "#10",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0009_ar1d321_Ox0666d73nm_Oy0504d55nm.fsp"
+    },
+    {
+      "sample_id": "#11",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0010_ar1d357_Ox0675d68nm_Oy0497d87nm.fsp"
+    },
+    {
+      "sample_id": "#12",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0011_ar1d393_Ox0684d51nm_Oy0491d44nm.fsp"
+    },
+    {
+      "sample_id": "#13",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0012_ar1d429_Ox0693d23nm_Oy0485d26nm.fsp"
+    },
+    {
+      "sample_id": "#14",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0013_ar1d464_Ox0701d84nm_Oy0479d31nm.fsp"
+    },
+    {
+      "sample_id": "#15",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0014_ar1d500_Ox0710d35nm_Oy0473d57nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0000_ar1d000_Ox0580d00nm_Oy0580d00nm.fsp.bak",
+      "name": "work_0000_ar1d000_Ox0580d00nm_Oy0580d00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778574169.4634013,
+      "mtime_iso": "2026-05-12T16:22:49"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0001_ar1d036_Ox0590d27nm_Oy0569d91nm.fsp.bak",
+      "name": "work_0001_ar1d036_Ox0590d27nm_Oy0569d91nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778574267.7879932,
+      "mtime_iso": "2026-05-12T16:24:27"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0002_ar1d071_Ox0600d36nm_Oy0560d33nm.fsp.bak",
+      "name": "work_0002_ar1d071_Ox0600d36nm_Oy0560d33nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778574348.6538675,
+      "mtime_iso": "2026-05-12T16:25:48"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0003_ar1d107_Ox0610d28nm_Oy0551d22nm.fsp.bak",
+      "name": "work_0003_ar1d107_Ox0610d28nm_Oy0551d22nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778574416.6901338,
+      "mtime_iso": "2026-05-12T16:26:56"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0004_ar1d143_Ox0620d05nm_Oy0542d54nm.fsp.bak",
+      "name": "work_0004_ar1d143_Ox0620d05nm_Oy0542d54nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778574470.3259864,
+      "mtime_iso": "2026-05-12T16:27:50"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0005_ar1d179_Ox0629d66nm_Oy0534d26nm.fsp.bak",
+      "name": "work_0005_ar1d179_Ox0629d66nm_Oy0534d26nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778575116.0383015,
+      "mtime_iso": "2026-05-12T16:38:36"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0006_ar1d214_Ox0639d13nm_Oy0526d34nm.fsp.bak",
+      "name": "work_0006_ar1d214_Ox0639d13nm_Oy0526d34nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778575168.7715414,
+      "mtime_iso": "2026-05-12T16:39:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0007_ar1d250_Ox0648d46nm_Oy0518d77nm.fsp.bak",
+      "name": "work_0007_ar1d250_Ox0648d46nm_Oy0518d77nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778575219.984727,
+      "mtime_iso": "2026-05-12T16:40:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0008_ar1d286_Ox0657d66nm_Oy0511d51nm.fsp.bak",
+      "name": "work_0008_ar1d286_Ox0657d66nm_Oy0511d51nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778575277.4847195,
+      "mtime_iso": "2026-05-12T16:41:17"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0009_ar1d321_Ox0666d73nm_Oy0504d55nm.fsp.bak",
+      "name": "work_0009_ar1d321_Ox0666d73nm_Oy0504d55nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778575337.8815417,
+      "mtime_iso": "2026-05-12T16:42:17"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0010_ar1d357_Ox0675d68nm_Oy0497d87nm.fsp.bak",
+      "name": "work_0010_ar1d357_Ox0675d68nm_Oy0497d87nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778575396.2169366,
+      "mtime_iso": "2026-05-12T16:43:16"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0011_ar1d393_Ox0684d51nm_Oy0491d44nm.fsp.bak",
+      "name": "work_0011_ar1d393_Ox0684d51nm_Oy0491d44nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778575447.3906357,
+      "mtime_iso": "2026-05-12T16:44:07"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0012_ar1d429_Ox0693d23nm_Oy0485d26nm.fsp.bak",
+      "name": "work_0012_ar1d429_Ox0693d23nm_Oy0485d26nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778575519.470031,
+      "mtime_iso": "2026-05-12T16:45:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0013_ar1d464_Ox0701d84nm_Oy0479d31nm.fsp.bak",
+      "name": "work_0013_ar1d464_Ox0701d84nm_Oy0479d31nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292375,
+      "mtime": 1778575581.526644,
+      "mtime_iso": "2026-05-12T16:46:21"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0014_ar1d500_Ox0710d35nm_Oy0473d57nm.fsp.bak",
+      "name": "work_0014_ar1d500_Ox0710d35nm_Oy0473d57nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292375,
+      "mtime": 1778575663.8027594,
+      "mtime_iso": "2026-05-12T16:47:43"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 1080,
+      "mtime": 1778574019.9721625,
+      "mtime_iso": "2026-05-12T16:20:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 9970,
+      "mtime": 1778575665.0536292,
+      "mtime_iso": "2026-05-12T16:47:45"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0000_ar1d000_Ox0580d00nm_Oy0580d00nm.fsp",
+      "name": "0000_ar1d000_Ox0580d00nm_Oy0580d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802670,
+      "mtime": 1778574170.3556027,
+      "mtime_iso": "2026-05-12T16:22:50"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0001_ar1d036_Ox0590d27nm_Oy0569d91nm.fsp",
+      "name": "0001_ar1d036_Ox0590d27nm_Oy0569d91nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802542,
+      "mtime": 1778574268.7260518,
+      "mtime_iso": "2026-05-12T16:24:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0002_ar1d071_Ox0600d36nm_Oy0560d33nm.fsp",
+      "name": "0002_ar1d071_Ox0600d36nm_Oy0560d33nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802510,
+      "mtime": 1778574349.7108111,
+      "mtime_iso": "2026-05-12T16:25:49"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0003_ar1d107_Ox0610d28nm_Oy0551d22nm.fsp",
+      "name": "0003_ar1d107_Ox0610d28nm_Oy0551d22nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802478,
+      "mtime": 1778574417.6199474,
+      "mtime_iso": "2026-05-12T16:26:57"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0004_ar1d143_Ox0620d05nm_Oy0542d54nm.fsp",
+      "name": "0004_ar1d143_Ox0620d05nm_Oy0542d54nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778574471.4532955,
+      "mtime_iso": "2026-05-12T16:27:51"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0005_ar1d179_Ox0629d66nm_Oy0534d26nm.fsp",
+      "name": "0005_ar1d179_Ox0629d66nm_Oy0534d26nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803678,
+      "mtime": 1778575116.961017,
+      "mtime_iso": "2026-05-12T16:38:36"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0006_ar1d214_Ox0639d13nm_Oy0526d34nm.fsp",
+      "name": "0006_ar1d214_Ox0639d13nm_Oy0526d34nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802446,
+      "mtime": 1778575169.7153096,
+      "mtime_iso": "2026-05-12T16:39:29"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0007_ar1d250_Ox0648d46nm_Oy0518d77nm.fsp",
+      "name": "0007_ar1d250_Ox0648d46nm_Oy0518d77nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802446,
+      "mtime": 1778575220.8870244,
+      "mtime_iso": "2026-05-12T16:40:20"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0008_ar1d286_Ox0657d66nm_Oy0511d51nm.fsp",
+      "name": "0008_ar1d286_Ox0657d66nm_Oy0511d51nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778575278.3846464,
+      "mtime_iso": "2026-05-12T16:41:18"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0009_ar1d321_Ox0666d73nm_Oy0504d55nm.fsp",
+      "name": "0009_ar1d321_Ox0666d73nm_Oy0504d55nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778575339.4519134,
+      "mtime_iso": "2026-05-12T16:42:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0010_ar1d357_Ox0675d68nm_Oy0497d87nm.fsp",
+      "name": "0010_ar1d357_Ox0675d68nm_Oy0497d87nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778575397.157903,
+      "mtime_iso": "2026-05-12T16:43:17"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0011_ar1d393_Ox0684d51nm_Oy0491d44nm.fsp",
+      "name": "0011_ar1d393_Ox0684d51nm_Oy0491d44nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778575448.6583312,
+      "mtime_iso": "2026-05-12T16:44:08"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0012_ar1d429_Ox0693d23nm_Oy0485d26nm.fsp",
+      "name": "0012_ar1d429_Ox0693d23nm_Oy0485d26nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802494,
+      "mtime": 1778575520.4976385,
+      "mtime_iso": "2026-05-12T16:45:20"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0013_ar1d464_Ox0701d84nm_Oy0479d31nm.fsp",
+      "name": "0013_ar1d464_Ox0701d84nm_Oy0479d31nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802414,
+      "mtime": 1778575582.9158418,
+      "mtime_iso": "2026-05-12T16:46:22"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\01_fsp_files\\0014_ar1d500_Ox0710d35nm_Oy0473d57nm.fsp",
+      "name": "0014_ar1d500_Ox0710d35nm_Oy0473d57nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802446,
+      "mtime": 1778575664.7343364,
+      "mtime_iso": "2026-05-12T16:47:44"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802590,
+      "mtime": 1777217134.799862,
+      "mtime_iso": "2026-04-26T23:25:34"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0000_ar1d000_Ox0580d00nm_Oy0580d00nm.fsp",
+      "name": "work_0000_ar1d000_Ox0580d00nm_Oy0580d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802670,
+      "mtime": 1778574170.3556027,
+      "mtime_iso": "2026-05-12T16:22:50"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0001_ar1d036_Ox0590d27nm_Oy0569d91nm.fsp",
+      "name": "work_0001_ar1d036_Ox0590d27nm_Oy0569d91nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802542,
+      "mtime": 1778574268.7260518,
+      "mtime_iso": "2026-05-12T16:24:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0002_ar1d071_Ox0600d36nm_Oy0560d33nm.fsp",
+      "name": "work_0002_ar1d071_Ox0600d36nm_Oy0560d33nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802510,
+      "mtime": 1778574349.7108111,
+      "mtime_iso": "2026-05-12T16:25:49"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0003_ar1d107_Ox0610d28nm_Oy0551d22nm.fsp",
+      "name": "work_0003_ar1d107_Ox0610d28nm_Oy0551d22nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802478,
+      "mtime": 1778574417.6199474,
+      "mtime_iso": "2026-05-12T16:26:57"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0004_ar1d143_Ox0620d05nm_Oy0542d54nm.fsp",
+      "name": "work_0004_ar1d143_Ox0620d05nm_Oy0542d54nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778574471.4532955,
+      "mtime_iso": "2026-05-12T16:27:51"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0005_ar1d179_Ox0629d66nm_Oy0534d26nm.fsp",
+      "name": "work_0005_ar1d179_Ox0629d66nm_Oy0534d26nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803678,
+      "mtime": 1778575116.961017,
+      "mtime_iso": "2026-05-12T16:38:36"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0006_ar1d214_Ox0639d13nm_Oy0526d34nm.fsp",
+      "name": "work_0006_ar1d214_Ox0639d13nm_Oy0526d34nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802446,
+      "mtime": 1778575169.7153096,
+      "mtime_iso": "2026-05-12T16:39:29"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0007_ar1d250_Ox0648d46nm_Oy0518d77nm.fsp",
+      "name": "work_0007_ar1d250_Ox0648d46nm_Oy0518d77nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802446,
+      "mtime": 1778575220.8870244,
+      "mtime_iso": "2026-05-12T16:40:20"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0008_ar1d286_Ox0657d66nm_Oy0511d51nm.fsp",
+      "name": "work_0008_ar1d286_Ox0657d66nm_Oy0511d51nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778575278.3846464,
+      "mtime_iso": "2026-05-12T16:41:18"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0009_ar1d321_Ox0666d73nm_Oy0504d55nm.fsp",
+      "name": "work_0009_ar1d321_Ox0666d73nm_Oy0504d55nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778575339.4519134,
+      "mtime_iso": "2026-05-12T16:42:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0010_ar1d357_Ox0675d68nm_Oy0497d87nm.fsp",
+      "name": "work_0010_ar1d357_Ox0675d68nm_Oy0497d87nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778575397.157903,
+      "mtime_iso": "2026-05-12T16:43:17"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0011_ar1d393_Ox0684d51nm_Oy0491d44nm.fsp",
+      "name": "work_0011_ar1d393_Ox0684d51nm_Oy0491d44nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802462,
+      "mtime": 1778575448.6583312,
+      "mtime_iso": "2026-05-12T16:44:08"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0012_ar1d429_Ox0693d23nm_Oy0485d26nm.fsp",
+      "name": "work_0012_ar1d429_Ox0693d23nm_Oy0485d26nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802494,
+      "mtime": 1778575520.4976385,
+      "mtime_iso": "2026-05-12T16:45:20"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0013_ar1d464_Ox0701d84nm_Oy0479d31nm.fsp",
+      "name": "work_0013_ar1d464_Ox0701d84nm_Oy0479d31nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802414,
+      "mtime": 1778575582.9158418,
+      "mtime_iso": "2026-05-12T16:46:22"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0014_ar1d500_Ox0710d35nm_Oy0473d57nm.fsp",
+      "name": "work_0014_ar1d500_Ox0710d35nm_Oy0473d57nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802446,
+      "mtime": 1778575664.7343364,
+      "mtime_iso": "2026-05-12T16:47:44"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0000_ar1d000_Ox0580d00nm_Oy0580d00nm_transmission_abs2.png",
+      "name": "0000_ar1d000_Ox0580d00nm_Oy0580d00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 85213,
+      "mtime": 1778574171.0575461,
+      "mtime_iso": "2026-05-12T16:22:51"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0001_ar1d036_Ox0590d27nm_Oy0569d91nm_transmission_abs2.png",
+      "name": "0001_ar1d036_Ox0590d27nm_Oy0569d91nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 86342,
+      "mtime": 1778574269.0561988,
+      "mtime_iso": "2026-05-12T16:24:29"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0002_ar1d071_Ox0600d36nm_Oy0560d33nm_transmission_abs2.png",
+      "name": "0002_ar1d071_Ox0600d36nm_Oy0560d33nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 84699,
+      "mtime": 1778574350.0357,
+      "mtime_iso": "2026-05-12T16:25:50"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0003_ar1d107_Ox0610d28nm_Oy0551d22nm_transmission_abs2.png",
+      "name": "0003_ar1d107_Ox0610d28nm_Oy0551d22nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80175,
+      "mtime": 1778574417.9062214,
+      "mtime_iso": "2026-05-12T16:26:57"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0004_ar1d143_Ox0620d05nm_Oy0542d54nm_transmission_abs2.png",
+      "name": "0004_ar1d143_Ox0620d05nm_Oy0542d54nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 79333,
+      "mtime": 1778574471.788894,
+      "mtime_iso": "2026-05-12T16:27:51"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0005_ar1d179_Ox0629d66nm_Oy0534d26nm_transmission_abs2.png",
+      "name": "0005_ar1d179_Ox0629d66nm_Oy0534d26nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 66998,
+      "mtime": 1778575117.287741,
+      "mtime_iso": "2026-05-12T16:38:37"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0006_ar1d214_Ox0639d13nm_Oy0526d34nm_transmission_abs2.png",
+      "name": "0006_ar1d214_Ox0639d13nm_Oy0526d34nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 83560,
+      "mtime": 1778575170.0720582,
+      "mtime_iso": "2026-05-12T16:39:30"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0007_ar1d250_Ox0648d46nm_Oy0518d77nm_transmission_abs2.png",
+      "name": "0007_ar1d250_Ox0648d46nm_Oy0518d77nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 85849,
+      "mtime": 1778575221.1865659,
+      "mtime_iso": "2026-05-12T16:40:21"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0008_ar1d286_Ox0657d66nm_Oy0511d51nm_transmission_abs2.png",
+      "name": "0008_ar1d286_Ox0657d66nm_Oy0511d51nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 87159,
+      "mtime": 1778575279.7275546,
+      "mtime_iso": "2026-05-12T16:41:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0009_ar1d321_Ox0666d73nm_Oy0504d55nm_transmission_abs2.png",
+      "name": "0009_ar1d321_Ox0666d73nm_Oy0504d55nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 88375,
+      "mtime": 1778575339.7735329,
+      "mtime_iso": "2026-05-12T16:42:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0010_ar1d357_Ox0675d68nm_Oy0497d87nm_transmission_abs2.png",
+      "name": "0010_ar1d357_Ox0675d68nm_Oy0497d87nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 88840,
+      "mtime": 1778575398.341219,
+      "mtime_iso": "2026-05-12T16:43:18"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0011_ar1d393_Ox0684d51nm_Oy0491d44nm_transmission_abs2.png",
+      "name": "0011_ar1d393_Ox0684d51nm_Oy0491d44nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 88543,
+      "mtime": 1778575448.9853816,
+      "mtime_iso": "2026-05-12T16:44:08"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0012_ar1d429_Ox0693d23nm_Oy0485d26nm_transmission_abs2.png",
+      "name": "0012_ar1d429_Ox0693d23nm_Oy0485d26nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 88116,
+      "mtime": 1778575520.8469758,
+      "mtime_iso": "2026-05-12T16:45:20"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0013_ar1d464_Ox0701d84nm_Oy0479d31nm_transmission_abs2.png",
+      "name": "0013_ar1d464_Ox0701d84nm_Oy0479d31nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 87701,
+      "mtime": 1778575583.2256815,
+      "mtime_iso": "2026-05-12T16:46:23"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\03_transmission_png_abs2\\0014_ar1d500_Ox0710d35nm_Oy0473d57nm_transmission_abs2.png",
+      "name": "0014_ar1d500_Ox0710d35nm_Oy0473d57nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 87008,
+      "mtime": 1778575665.052629,
+      "mtime_iso": "2026-05-12T16:47:45"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\04_logs\\automation_run.log",
+      "name": "automation_run.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5310,
+      "mtime": 1778575665.0536292,
+      "mtime_iso": "2026-05-12T16:47:45"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0000_ar1d000_Ox0580d00nm_Oy0580d00nm_p0.log",
+      "name": "work_0000_ar1d000_Ox0580d00nm_Oy0580d00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4559,
+      "mtime": 1778574169.474404,
+      "mtime_iso": "2026-05-12T16:22:49"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0001_ar1d036_Ox0590d27nm_Oy0569d91nm_p0.log",
+      "name": "work_0001_ar1d036_Ox0590d27nm_Oy0569d91nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3905,
+      "mtime": 1778574267.799958,
+      "mtime_iso": "2026-05-12T16:24:27"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0002_ar1d071_Ox0600d36nm_Oy0560d33nm_p0.log",
+      "name": "work_0002_ar1d071_Ox0600d36nm_Oy0560d33nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3742,
+      "mtime": 1778574348.6648715,
+      "mtime_iso": "2026-05-12T16:25:48"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0003_ar1d107_Ox0610d28nm_Oy0551d22nm_p0.log",
+      "name": "work_0003_ar1d107_Ox0610d28nm_Oy0551d22nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3575,
+      "mtime": 1778574416.702101,
+      "mtime_iso": "2026-05-12T16:26:56"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0004_ar1d143_Ox0620d05nm_Oy0542d54nm_p0.log",
+      "name": "work_0004_ar1d143_Ox0620d05nm_Oy0542d54nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3493,
+      "mtime": 1778574470.3369849,
+      "mtime_iso": "2026-05-12T16:27:50"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0005_ar1d179_Ox0629d66nm_Oy0534d26nm_p0.log",
+      "name": "work_0005_ar1d179_Ox0629d66nm_Oy0534d26nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 9592,
+      "mtime": 1778575116.0493376,
+      "mtime_iso": "2026-05-12T16:38:36"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0006_ar1d214_Ox0639d13nm_Oy0526d34nm_p0.log",
+      "name": "work_0006_ar1d214_Ox0639d13nm_Oy0526d34nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3402,
+      "mtime": 1778575168.7825422,
+      "mtime_iso": "2026-05-12T16:39:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0007_ar1d250_Ox0648d46nm_Oy0518d77nm_p0.log",
+      "name": "work_0007_ar1d250_Ox0648d46nm_Oy0518d77nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3412,
+      "mtime": 1778575219.996727,
+      "mtime_iso": "2026-05-12T16:40:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0008_ar1d286_Ox0657d66nm_Oy0511d51nm_p0.log",
+      "name": "work_0008_ar1d286_Ox0657d66nm_Oy0511d51nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3497,
+      "mtime": 1778575277.4967194,
+      "mtime_iso": "2026-05-12T16:41:17"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0009_ar1d321_Ox0666d73nm_Oy0504d55nm_p0.log",
+      "name": "work_0009_ar1d321_Ox0666d73nm_Oy0504d55nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3487,
+      "mtime": 1778575337.8935423,
+      "mtime_iso": "2026-05-12T16:42:17"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0010_ar1d357_Ox0675d68nm_Oy0497d87nm_p0.log",
+      "name": "work_0010_ar1d357_Ox0675d68nm_Oy0497d87nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3489,
+      "mtime": 1778575396.2299778,
+      "mtime_iso": "2026-05-12T16:43:16"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0011_ar1d393_Ox0684d51nm_Oy0491d44nm_p0.log",
+      "name": "work_0011_ar1d393_Ox0684d51nm_Oy0491d44nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3492,
+      "mtime": 1778575447.4026003,
+      "mtime_iso": "2026-05-12T16:44:07"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0012_ar1d429_Ox0693d23nm_Oy0485d26nm_p0.log",
+      "name": "work_0012_ar1d429_Ox0693d23nm_Oy0485d26nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3660,
+      "mtime": 1778575519.481552,
+      "mtime_iso": "2026-05-12T16:45:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0013_ar1d464_Ox0701d84nm_Oy0479d31nm_p0.log",
+      "name": "work_0013_ar1d464_Ox0701d84nm_Oy0479d31nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3491,
+      "mtime": 1778575581.5386462,
+      "mtime_iso": "2026-05-12T16:46:21"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\05_work_fsp\\work_0014_ar1d500_Ox0710d35nm_Oy0473d57nm_p0.log",
+      "name": "work_0014_ar1d500_Ox0710d35nm_Oy0473d57nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3657,
+      "mtime": 1778575663.8147595,
+      "mtime_iso": "2026-05-12T16:47:43"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1925,
+      "mtime": 1778574019.9731624,
+      "mtime_iso": "2026-05-12T16:20:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\00_scan_plan\\scan_summary.txt",
+      "name": "scan_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 650,
+      "mtime": 1778574019.9721625,
+      "mtime_iso": "2026-05-12T16:20:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0000_ar1d000_Ox0580d00nm_Oy0580d00nm_transmission_abs2.xlsx",
+      "name": "0000_ar1d000_Ox0580d00nm_Oy0580d00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35659,
+      "mtime": 1778574170.530087,
+      "mtime_iso": "2026-05-12T16:22:50"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0001_ar1d036_Ox0590d27nm_Oy0569d91nm_transmission_abs2.xlsx",
+      "name": "0001_ar1d036_Ox0590d27nm_Oy0569d91nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35650,
+      "mtime": 1778574268.9345818,
+      "mtime_iso": "2026-05-12T16:24:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0002_ar1d071_Ox0600d36nm_Oy0560d33nm_transmission_abs2.xlsx",
+      "name": "0002_ar1d071_Ox0600d36nm_Oy0560d33nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35642,
+      "mtime": 1778574349.9180548,
+      "mtime_iso": "2026-05-12T16:25:49"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0003_ar1d107_Ox0610d28nm_Oy0551d22nm_transmission_abs2.xlsx",
+      "name": "0003_ar1d107_Ox0610d28nm_Oy0551d22nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35648,
+      "mtime": 1778574417.7856414,
+      "mtime_iso": "2026-05-12T16:26:57"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0004_ar1d143_Ox0620d05nm_Oy0542d54nm_transmission_abs2.xlsx",
+      "name": "0004_ar1d143_Ox0620d05nm_Oy0542d54nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35632,
+      "mtime": 1778574471.633051,
+      "mtime_iso": "2026-05-12T16:27:51"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0005_ar1d179_Ox0629d66nm_Oy0534d26nm_transmission_abs2.xlsx",
+      "name": "0005_ar1d179_Ox0629d66nm_Oy0534d26nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35602,
+      "mtime": 1778575117.1549225,
+      "mtime_iso": "2026-05-12T16:38:37"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0006_ar1d214_Ox0639d13nm_Oy0526d34nm_transmission_abs2.xlsx",
+      "name": "0006_ar1d214_Ox0639d13nm_Oy0526d34nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35562,
+      "mtime": 1778575169.942719,
+      "mtime_iso": "2026-05-12T16:39:29"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0007_ar1d250_Ox0648d46nm_Oy0518d77nm_transmission_abs2.xlsx",
+      "name": "0007_ar1d250_Ox0648d46nm_Oy0518d77nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35685,
+      "mtime": 1778575221.0528605,
+      "mtime_iso": "2026-05-12T16:40:21"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0008_ar1d286_Ox0657d66nm_Oy0511d51nm_transmission_abs2.xlsx",
+      "name": "0008_ar1d286_Ox0657d66nm_Oy0511d51nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35608,
+      "mtime": 1778575279.5969055,
+      "mtime_iso": "2026-05-12T16:41:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0009_ar1d321_Ox0666d73nm_Oy0504d55nm_transmission_abs2.xlsx",
+      "name": "0009_ar1d321_Ox0666d73nm_Oy0504d55nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35654,
+      "mtime": 1778575339.636348,
+      "mtime_iso": "2026-05-12T16:42:19"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0010_ar1d357_Ox0675d68nm_Oy0497d87nm_transmission_abs2.xlsx",
+      "name": "0010_ar1d357_Ox0675d68nm_Oy0497d87nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35622,
+      "mtime": 1778575398.210675,
+      "mtime_iso": "2026-05-12T16:43:18"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0011_ar1d393_Ox0684d51nm_Oy0491d44nm_transmission_abs2.xlsx",
+      "name": "0011_ar1d393_Ox0684d51nm_Oy0491d44nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35604,
+      "mtime": 1778575448.853065,
+      "mtime_iso": "2026-05-12T16:44:08"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0012_ar1d429_Ox0693d23nm_Oy0485d26nm_transmission_abs2.xlsx",
+      "name": "0012_ar1d429_Ox0693d23nm_Oy0485d26nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35594,
+      "mtime": 1778575520.7075403,
+      "mtime_iso": "2026-05-12T16:45:20"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0013_ar1d464_Ox0701d84nm_Oy0479d31nm_transmission_abs2.xlsx",
+      "name": "0013_ar1d464_Ox0701d84nm_Oy0479d31nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35669,
+      "mtime": 1778575583.0954528,
+      "mtime_iso": "2026-05-12T16:46:23"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒\\02_transmission_excel\\0014_ar1d500_Ox0710d35nm_Oy0473d57nm_transmission_abs2.xlsx",
+      "name": "0014_ar1d500_Ox0710d35nm_Oy0473d57nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35649,
+      "mtime": 1778575664.924629,
+      "mtime_iso": "2026-05-12T16:47:44"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+  "relative_path": "C4对称结构\\方环\\results\\外框长宽差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_16时20分15秒",
+  "group": "C4",
+  "mother_structure": "方环",
+  "perturbation": "外框长宽差扰动",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 15,
+  "spectra_count": 15,
+  "sample_count": 15,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": 0.0017000000000000001,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": 1700.0,
+  "modified_at": "2026-05-12T16:20:19",
+  "mtime": 1778574019.9731624,
+  "fingerprint": {
+    "mtime_max": 1778575665.0536292,
+    "total_size": 806147486,
+    "file_count": 96,
+    "dir_count": 6,
+    "fingerprint": "1778575665.0536292-806147486-96-6"
+  },
+  "last_indexed_at": "2026-05-20T14:34:05",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1700",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_16时20分15秒_21523d56",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

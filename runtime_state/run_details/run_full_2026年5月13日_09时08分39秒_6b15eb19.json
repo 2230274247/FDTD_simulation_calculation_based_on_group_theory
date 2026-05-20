@@ -1,0 +1,743 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+    "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒",
+    "group": "近径向",
+    "mother_structure": "圆盘",
+    "perturbation": "单侧缺口扰动",
+    "reduction_path": "近径向 -> Cn",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 3,
+    "spectra_count": 3,
+    "sample_count": 9,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": null,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": null,
+    "modified_at": "2026-05-15T18:04:52",
+    "mtime": 1778839492.3984354,
+    "fingerprint": {
+      "mtime_max": 1778839492.416317,
+      "total_size": 259923869,
+      "file_count": 38,
+      "dir_count": 7,
+      "fingerprint": "1778839492.416317-259923869-38-7"
+    },
+    "last_indexed_at": "2026-05-20T14:34:11",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "采样不足",
+      "FWHM 不可靠",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+        "sample_id": null,
+        "flag": "采样不足",
+        "severity": "warning",
+        "detail": "主特征附近或谱线采样点不足",
+        "suggestion": "缩小区间并加密扫描"
+      },
+      {
+        "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "#1",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\01_fsp_files\\0000_notch_depth_0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#2",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\01_fsp_files\\0001_notch_depth_0005.00nm.fsp"
+    },
+    {
+      "sample_id": "#3",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\01_fsp_files\\0002_notch_depth_0010.00nm.fsp"
+    },
+    {
+      "sample_id": "#4",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\0000_notch_depth_0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#5",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\0001_notch_depth_0005.00nm.fsp"
+    },
+    {
+      "sample_id": "#6",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\0002_notch_depth_0010.00nm.fsp"
+    },
+    {
+      "sample_id": "#7",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\master_template.fsp"
+    },
+    {
+      "sample_id": "#8",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0000_notch_depth_0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#9",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0001_notch_depth_0005.00nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0000_notch_depth_0000.00nm.fsp.bak",
+      "name": "work_0000_notch_depth_0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 291472,
+      "mtime": 1778634722.7814596,
+      "mtime_iso": "2026-05-13T09:12:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0001_notch_depth_0005.00nm.fsp.bak",
+      "name": "work_0001_notch_depth_0005.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292313,
+      "mtime": 1778635382.504127,
+      "mtime_iso": "2026-05-13T09:23:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0002_notch_depth_0010.00nm.fsp.bak",
+      "name": "work_0002_notch_depth_0010.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292313,
+      "mtime": 1778635892.7345836,
+      "mtime_iso": "2026-05-13T09:31:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0003_notch_depth_0015.00nm.fsp.bak",
+      "name": "work_0003_notch_depth_0015.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292313,
+      "mtime": 1778636538.2793188,
+      "mtime_iso": "2026-05-13T09:42:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 252,
+      "mtime": 1778634524.6206183,
+      "mtime_iso": "2026-05-13T09:08:44"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 475,
+      "mtime": 1778635893.8481634,
+      "mtime_iso": "2026-05-13T09:31:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 954,
+      "mtime": 1778839492.4124713,
+      "mtime_iso": "2026-05-15T18:04:52"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 954,
+      "mtime": 1778839492.4133072,
+      "mtime_iso": "2026-05-15T18:04:52"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 795,
+      "mtime": 1778839492.3994155,
+      "mtime_iso": "2026-05-15T18:04:52"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\01_fsp_files\\0000_notch_depth_0000.00nm.fsp",
+      "name": "0000_notch_depth_0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25801815,
+      "mtime": 1778634723.8497705,
+      "mtime_iso": "2026-05-13T09:12:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\01_fsp_files\\0001_notch_depth_0005.00nm.fsp",
+      "name": "0001_notch_depth_0005.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803584,
+      "mtime": 1778635383.4417126,
+      "mtime_iso": "2026-05-13T09:23:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\01_fsp_files\\0002_notch_depth_0010.00nm.fsp",
+      "name": "0002_notch_depth_0010.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803488,
+      "mtime": 1778635893.6979344,
+      "mtime_iso": "2026-05-13T09:31:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\0000_notch_depth_0000.00nm.fsp",
+      "name": "0000_notch_depth_0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25801815,
+      "mtime": 1778634723.8497705,
+      "mtime_iso": "2026-05-13T09:12:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\0001_notch_depth_0005.00nm.fsp",
+      "name": "0001_notch_depth_0005.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803584,
+      "mtime": 1778635383.4417126,
+      "mtime_iso": "2026-05-13T09:23:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\0002_notch_depth_0010.00nm.fsp",
+      "name": "0002_notch_depth_0010.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803488,
+      "mtime": 1778635893.6979344,
+      "mtime_iso": "2026-05-13T09:31:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 291472,
+      "mtime": 1777346496.9137852,
+      "mtime_iso": "2026-04-28T11:21:36"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0000_notch_depth_0000.00nm.fsp",
+      "name": "work_0000_notch_depth_0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25801815,
+      "mtime": 1778634722.7914624,
+      "mtime_iso": "2026-05-13T09:12:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0001_notch_depth_0005.00nm.fsp",
+      "name": "work_0001_notch_depth_0005.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803584,
+      "mtime": 1778635382.5151236,
+      "mtime_iso": "2026-05-13T09:23:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0002_notch_depth_0010.00nm.fsp",
+      "name": "work_0002_notch_depth_0010.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803488,
+      "mtime": 1778635892.744767,
+      "mtime_iso": "2026-05-13T09:31:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0003_notch_depth_0015.00nm.fsp",
+      "name": "work_0003_notch_depth_0015.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803552,
+      "mtime": 1778636538.303671,
+      "mtime_iso": "2026-05-13T09:42:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\03_transmission_png_abs2\\0000_notch_depth_0000.00nm.png",
+      "name": "0000_notch_depth_0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80430,
+      "mtime": 1778634727.1858213,
+      "mtime_iso": "2026-05-13T09:12:07"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\03_transmission_png_abs2\\0001_notch_depth_0005.00nm.png",
+      "name": "0001_notch_depth_0005.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80236,
+      "mtime": 1778635383.5914142,
+      "mtime_iso": "2026-05-13T09:23:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\03_transmission_png_abs2\\0002_notch_depth_0010.00nm.png",
+      "name": "0002_notch_depth_0010.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80526,
+      "mtime": 1778635893.8481634,
+      "mtime_iso": "2026-05-13T09:31:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 674,
+      "mtime": 1778839492.4143133,
+      "mtime_iso": "2026-05-15T18:04:52"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839492.4143133,
+      "mtime_iso": "2026-05-15T18:04:52"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 46741,
+      "mtime": 1778839492.4014204,
+      "mtime_iso": "2026-05-15T18:04:52"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0000_notch_depth_0000.00nm_p0.log",
+      "name": "work_0000_notch_depth_0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5067,
+      "mtime": 1778634722.7934597,
+      "mtime_iso": "2026-05-13T09:12:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0001_notch_depth_0005.00nm_p0.log",
+      "name": "work_0001_notch_depth_0005.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 9716,
+      "mtime": 1778635382.5166633,
+      "mtime_iso": "2026-05-13T09:23:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0002_notch_depth_0010.00nm_p0.log",
+      "name": "work_0002_notch_depth_0010.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 9203,
+      "mtime": 1778635892.7467673,
+      "mtime_iso": "2026-05-13T09:31:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\05_work_fsp\\work_0003_notch_depth_0015.00nm_p0.log",
+      "name": "work_0003_notch_depth_0015.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 9551,
+      "mtime": 1778636538.3066654,
+      "mtime_iso": "2026-05-13T09:42:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2406,
+      "mtime": 1778839492.416317,
+      "mtime_iso": "2026-05-15T18:04:52"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1508,
+      "mtime": 1778839492.416317,
+      "mtime_iso": "2026-05-15T18:04:52"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1146,
+      "mtime": 1778634524.6216235,
+      "mtime_iso": "2026-05-13T09:08:44"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\00_scan_plan\\config_summary.txt",
+      "name": "config_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 615,
+      "mtime": 1778634524.6206183,
+      "mtime_iso": "2026-05-13T09:08:44"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\04_logs\\run_log.txt",
+      "name": "run_log.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 0,
+      "mtime": 1778634524.6226232,
+      "mtime_iso": "2026-05-13T09:08:44"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\02_transmission_excel\\0000_notch_depth_0000.00nm.xlsx",
+      "name": "0000_notch_depth_0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33764,
+      "mtime": 1778634724.0473006,
+      "mtime_iso": "2026-05-13T09:12:04"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\02_transmission_excel\\0001_notch_depth_0005.00nm.xlsx",
+      "name": "0001_notch_depth_0005.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33702,
+      "mtime": 1778635383.4792905,
+      "mtime_iso": "2026-05-13T09:23:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒\\02_transmission_excel\\0002_notch_depth_0010.00nm.xlsx",
+      "name": "0002_notch_depth_0010.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33699,
+      "mtime": 1778635893.7238352,
+      "mtime_iso": "2026-05-13T09:31:33"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "采样不足",
+    "FWHM 不可靠",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+  "relative_path": "近径向高对称结构\\圆盘\\results\\单侧缺口扰动\\run_full_2026年5月13日_09时08分39秒",
+  "group": "近径向",
+  "mother_structure": "圆盘",
+  "perturbation": "单侧缺口扰动",
+  "reduction_path": "近径向 -> Cn",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 3,
+  "spectra_count": 3,
+  "sample_count": 9,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": null,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": null,
+  "modified_at": "2026-05-15T18:04:52",
+  "mtime": 1778839492.3984354,
+  "fingerprint": {
+    "mtime_max": 1778839492.416317,
+    "total_size": 259923869,
+    "file_count": 38,
+    "dir_count": 7,
+    "fingerprint": "1778839492.416317-259923869-38-7"
+  },
+  "last_indexed_at": "2026-05-20T14:34:11",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+      "sample_id": null,
+      "flag": "采样不足",
+      "severity": "warning",
+      "detail": "主特征附近或谱线采样点不足",
+      "suggestion": "缩小区间并加密扫描"
+    },
+    {
+      "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月13日_09时08分39秒_6b15eb19",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

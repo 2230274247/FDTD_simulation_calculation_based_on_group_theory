@@ -1,0 +1,517 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+    "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒",
+    "group": "C2",
+    "mother_structure": "双梁",
+    "perturbation": "梁长差扰动",
+    "reduction_path": "C2 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 6,
+    "spectra_count": 6,
+    "sample_count": 6,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 5.827883065234678,
+    "score": 5.827883065234678,
+    "lambda0_nm": 1066.6480758505297,
+    "Q": 7.026929226109745,
+    "q": 7.026929226109745,
+    "FWHM_nm": 151.79433882544572,
+    "fwhm_nm": 151.79433882544572,
+    "max_t": 1.0002707809050104,
+    "modified_at": "2026-05-12T01:56:24",
+    "mtime": 1778522184.2092738,
+    "fingerprint": {
+      "mtime_max": 1778522824.3837886,
+      "total_size": 126814284,
+      "file_count": 22,
+      "dir_count": 6,
+      "fingerprint": "1778522824.3837886-126814284-22-6"
+    },
+    "last_indexed_at": "2026-05-20T14:33:57",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "0.0",
+      "lambda0_nm": 1066.6480758505297,
+      "score": 5.827883065234678,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0000_beam_length_difference_beam_length_difference_0.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "1e-08",
+      "lambda0_nm": 1066.6480758505297,
+      "score": 5.827883065234678,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0001_beam_length_difference_beam_length_difference_10.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "2e-08",
+      "lambda0_nm": 1066.6480758505297,
+      "score": 5.827883065234678,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0002_beam_length_difference_beam_length_difference_20.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "3.0000000000000004e-08",
+      "lambda0_nm": 1066.6480758505297,
+      "score": 5.827883065234678,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0003_beam_length_difference_beam_length_difference_30.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "4e-08",
+      "lambda0_nm": 1066.6480758505297,
+      "score": 5.827883065234678,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0004_beam_length_difference_beam_length_difference_40.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "5e-08",
+      "lambda0_nm": 1066.6480758505297,
+      "score": 5.827883065234678,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0005_beam_length_difference_beam_length_difference_50.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 539,
+      "mtime": 1778522184.2077699,
+      "mtime_iso": "2026-05-12T01:56:24"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 4941,
+      "mtime": 1778522824.3837886,
+      "mtime_iso": "2026-05-12T02:07:04"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0000_beam_length_difference_beam_length_difference_0.000nm.fsp",
+      "name": "0000_beam_length_difference_beam_length_difference_0.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 18043377,
+      "mtime": 1778522224.5684946,
+      "mtime_iso": "2026-05-12T01:57:04"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0001_beam_length_difference_beam_length_difference_10.000nm.fsp",
+      "name": "0001_beam_length_difference_beam_length_difference_10.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 18043377,
+      "mtime": 1778522264.7007933,
+      "mtime_iso": "2026-05-12T01:57:44"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0002_beam_length_difference_beam_length_difference_20.000nm.fsp",
+      "name": "0002_beam_length_difference_beam_length_difference_20.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 18043393,
+      "mtime": 1778522311.6173527,
+      "mtime_iso": "2026-05-12T01:58:31"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0003_beam_length_difference_beam_length_difference_30.000nm.fsp",
+      "name": "0003_beam_length_difference_beam_length_difference_30.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 18043561,
+      "mtime": 1778522396.6092756,
+      "mtime_iso": "2026-05-12T01:59:56"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0004_beam_length_difference_beam_length_difference_40.000nm.fsp",
+      "name": "0004_beam_length_difference_beam_length_difference_40.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 18044217,
+      "mtime": 1778522656.8954608,
+      "mtime_iso": "2026-05-12T02:04:16"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\01_fsp\\0005_beam_length_difference_beam_length_difference_50.000nm.fsp",
+      "name": "0005_beam_length_difference_beam_length_difference_50.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 18043849,
+      "mtime": 1778522823.676369,
+      "mtime_iso": "2026-05-12T02:07:03"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 18043393,
+      "mtime": 1777258062.4114974,
+      "mtime_iso": "2026-04-27T10:47:42"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\03_transmission_abs2_png\\0000_beam_length_difference_beam_length_difference_0.000nm_transmission_abs2.png",
+      "name": "0000_beam_length_difference_beam_length_difference_0.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 59908,
+      "mtime": 1778522225.092306,
+      "mtime_iso": "2026-05-12T01:57:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\03_transmission_abs2_png\\0001_beam_length_difference_beam_length_difference_10.000nm_transmission_abs2.png",
+      "name": "0001_beam_length_difference_beam_length_difference_10.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 58933,
+      "mtime": 1778522264.8395014,
+      "mtime_iso": "2026-05-12T01:57:44"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\03_transmission_abs2_png\\0002_beam_length_difference_beam_length_difference_20.000nm_transmission_abs2.png",
+      "name": "0002_beam_length_difference_beam_length_difference_20.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63694,
+      "mtime": 1778522311.7712543,
+      "mtime_iso": "2026-05-12T01:58:31"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\03_transmission_abs2_png\\0003_beam_length_difference_beam_length_difference_30.000nm_transmission_abs2.png",
+      "name": "0003_beam_length_difference_beam_length_difference_30.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63947,
+      "mtime": 1778522396.7711415,
+      "mtime_iso": "2026-05-12T01:59:56"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\03_transmission_abs2_png\\0004_beam_length_difference_beam_length_difference_40.000nm_transmission_abs2.png",
+      "name": "0004_beam_length_difference_beam_length_difference_40.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 65190,
+      "mtime": 1778522657.0547347,
+      "mtime_iso": "2026-05-12T02:04:17"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\03_transmission_abs2_png\\0005_beam_length_difference_beam_length_difference_50.000nm_transmission_abs2.png",
+      "name": "0005_beam_length_difference_beam_length_difference_50.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 38968,
+      "mtime": 1778522823.826606,
+      "mtime_iso": "2026-05-12T02:07:03"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1312,
+      "mtime": 1778522184.2092738,
+      "mtime_iso": "2026-05-12T01:56:24"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\02_transmission_excel\\0000_beam_length_difference_beam_length_difference_0.000nm_transmission_abs2.xlsx",
+      "name": "0000_beam_length_difference_beam_length_difference_0.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25204,
+      "mtime": 1778522224.596745,
+      "mtime_iso": "2026-05-12T01:57:04"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\02_transmission_excel\\0001_beam_length_difference_beam_length_difference_10.000nm_transmission_abs2.xlsx",
+      "name": "0001_beam_length_difference_beam_length_difference_10.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25239,
+      "mtime": 1778522264.7167542,
+      "mtime_iso": "2026-05-12T01:57:44"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\02_transmission_excel\\0002_beam_length_difference_beam_length_difference_20.000nm_transmission_abs2.xlsx",
+      "name": "0002_beam_length_difference_beam_length_difference_20.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25202,
+      "mtime": 1778522311.6439998,
+      "mtime_iso": "2026-05-12T01:58:31"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\02_transmission_excel\\0003_beam_length_difference_beam_length_difference_30.000nm_transmission_abs2.xlsx",
+      "name": "0003_beam_length_difference_beam_length_difference_30.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25223,
+      "mtime": 1778522396.6346352,
+      "mtime_iso": "2026-05-12T01:59:56"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\02_transmission_excel\\0004_beam_length_difference_beam_length_difference_40.000nm_transmission_abs2.xlsx",
+      "name": "0004_beam_length_difference_beam_length_difference_40.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25160,
+      "mtime": 1778522656.9306946,
+      "mtime_iso": "2026-05-12T02:04:16"
+    },
+    {
+      "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒\\02_transmission_excel\\0005_beam_length_difference_beam_length_difference_50.000nm_transmission_abs2.xlsx",
+      "name": "0005_beam_length_difference_beam_length_difference_50.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25657,
+      "mtime": 1778522823.703782,
+      "mtime_iso": "2026-05-12T02:07:03"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "T > 1",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+  "relative_path": "C2对称结构\\双梁\\results\\梁长差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_01时56分19秒",
+  "group": "C2",
+  "mother_structure": "双梁",
+  "perturbation": "梁长差扰动",
+  "reduction_path": "C2 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 6,
+  "spectra_count": 6,
+  "sample_count": 6,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 5.827883065234678,
+  "score": 5.827883065234678,
+  "lambda0_nm": 1066.6480758505297,
+  "Q": 7.026929226109745,
+  "q": 7.026929226109745,
+  "FWHM_nm": 151.79433882544572,
+  "fwhm_nm": 151.79433882544572,
+  "max_t": 1.0002707809050104,
+  "modified_at": "2026-05-12T01:56:24",
+  "mtime": 1778522184.2092738,
+  "fingerprint": {
+    "mtime_max": 1778522824.3837886,
+    "total_size": 126814284,
+    "file_count": 22,
+    "dir_count": 6,
+    "fingerprint": "1778522824.3837886-126814284-22-6"
+  },
+  "last_indexed_at": "2026-05-20T14:33:57",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_01时56分19秒_7f6c295b",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

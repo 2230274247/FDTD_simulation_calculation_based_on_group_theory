@@ -1,0 +1,1906 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+    "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒",
+    "group": "近径向",
+    "mother_structure": "圆环",
+    "perturbation": "偏心内孔扰动",
+    "reduction_path": "近径向 -> Cn",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 21,
+    "spectra_count": 21,
+    "sample_count": 21,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": null,
+    "score": null,
+    "lambda0_nm": null,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": null,
+    "modified_at": "2026-04-29T13:36:37",
+    "mtime": 1777440997.9634037,
+    "fingerprint": {
+      "mtime_max": 1777443091.936854,
+      "total_size": 1660000166,
+      "file_count": 153,
+      "dir_count": 15,
+      "fingerprint": "1777443091.936854-1660000166-153-15"
+    },
+    "last_indexed_at": "2026-05-20T14:34:09",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "FWHM 不可靠",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "#1",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#2",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#3",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#4",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#5",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#6",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#7",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#8",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#9",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#10",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#11",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#12",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#13",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#14",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#15",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#16",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#17",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#18",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#19",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#20",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp"
+    },
+    {
+      "sample_id": "#21",
+      "delta": null,
+      "lambda0_nm": null,
+      "score": null,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441171.1507995,
+      "mtime_iso": "2026-04-29T13:39:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441395.0600145,
+      "mtime_iso": "2026-04-29T13:43:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441473.8199315,
+      "mtime_iso": "2026-04-29T13:44:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441575.077503,
+      "mtime_iso": "2026-04-29T13:46:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441651.1395152,
+      "mtime_iso": "2026-04-29T13:47:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441747.901217,
+      "mtime_iso": "2026-04-29T13:49:07"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441830.9248247,
+      "mtime_iso": "2026-04-29T13:50:30"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441882.0334964,
+      "mtime_iso": "2026-04-29T13:51:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777441956.0931232,
+      "mtime_iso": "2026-04-29T13:52:36"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442061.61894,
+      "mtime_iso": "2026-04-29T13:54:21"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442117.4935207,
+      "mtime_iso": "2026-04-29T13:55:17"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442325.9371316,
+      "mtime_iso": "2026-04-29T13:58:45"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442402.8634725,
+      "mtime_iso": "2026-04-29T14:00:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442520.05214,
+      "mtime_iso": "2026-04-29T14:02:00"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442598.7029483,
+      "mtime_iso": "2026-04-29T14:03:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442696.89479,
+      "mtime_iso": "2026-04-29T14:04:56"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442778.8920455,
+      "mtime_iso": "2026-04-29T14:06:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442829.4451036,
+      "mtime_iso": "2026-04-29T14:07:09"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777442900.8563676,
+      "mtime_iso": "2026-04-29T14:08:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp.bak",
+      "name": "work_0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777443022.8800209,
+      "mtime_iso": "2026-04-29T14:10:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp.bak",
+      "name": "work_0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777443090.82454,
+      "mtime_iso": "2026-04-29T14:11:30"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 1145,
+      "mtime": 1777440997.9508395,
+      "mtime_iso": "2026-04-29T13:36:37"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 4196,
+      "mtime": 1777443091.935844,
+      "mtime_iso": "2026-04-29T14:11:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
+      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802562,
+      "mtime": 1777441172.0697148,
+      "mtime_iso": "2026-04-29T13:39:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp",
+      "name": "0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802642,
+      "mtime": 1777442326.8548706,
+      "mtime_iso": "2026-04-29T13:58:46"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
+      "name": "0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777442403.7808545,
+      "mtime_iso": "2026-04-29T14:00:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp",
+      "name": "0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802402,
+      "mtime": 1777442520.9548538,
+      "mtime_iso": "2026-04-29T14:02:00"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
+      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777442599.6388717,
+      "mtime_iso": "2026-04-29T14:03:19"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp",
+      "name": "0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802370,
+      "mtime": 1777442697.802585,
+      "mtime_iso": "2026-04-29T14:04:57"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
+      "name": "0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802338,
+      "mtime": 1777442780.2337506,
+      "mtime_iso": "2026-04-29T14:06:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp",
+      "name": "0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802258,
+      "mtime": 1777442830.3548765,
+      "mtime_iso": "2026-04-29T14:07:10"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
+      "name": "0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802306,
+      "mtime": 1777442901.758549,
+      "mtime_iso": "2026-04-29T14:08:21"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp",
+      "name": "0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802402,
+      "mtime": 1777443023.8176517,
+      "mtime_iso": "2026-04-29T14:10:23"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\negx\\0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
+      "name": "0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802274,
+      "mtime": 1777443091.7458985,
+      "mtime_iso": "2026-04-29T14:11:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp",
+      "name": "0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802658,
+      "mtime": 1777441396.4609652,
+      "mtime_iso": "2026-04-29T13:43:16"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
+      "name": "0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777441474.7399254,
+      "mtime_iso": "2026-04-29T13:44:34"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp",
+      "name": "0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802386,
+      "mtime": 1777441576.0016534,
+      "mtime_iso": "2026-04-29T13:46:16"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
+      "name": "0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777441652.4858358,
+      "mtime_iso": "2026-04-29T13:47:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp",
+      "name": "0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802370,
+      "mtime": 1777441748.8093781,
+      "mtime_iso": "2026-04-29T13:49:08"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
+      "name": "0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802338,
+      "mtime": 1777441832.3309624,
+      "mtime_iso": "2026-04-29T13:50:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp",
+      "name": "0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802258,
+      "mtime": 1777441882.9323719,
+      "mtime_iso": "2026-04-29T13:51:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
+      "name": "0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802306,
+      "mtime": 1777441957.0126853,
+      "mtime_iso": "2026-04-29T13:52:37"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp",
+      "name": "0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802386,
+      "mtime": 1777442062.5400207,
+      "mtime_iso": "2026-04-29T13:54:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\01_fsp_files\\posx\\0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
+      "name": "0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802274,
+      "mtime": 1777442118.4246266,
+      "mtime_iso": "2026-04-29T13:55:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
+      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802562,
+      "mtime": 1777441172.0697148,
+      "mtime_iso": "2026-04-29T13:39:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp",
+      "name": "0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802658,
+      "mtime": 1777441396.4609652,
+      "mtime_iso": "2026-04-29T13:43:16"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
+      "name": "0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777441474.7399254,
+      "mtime_iso": "2026-04-29T13:44:34"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp",
+      "name": "0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802386,
+      "mtime": 1777441576.0016534,
+      "mtime_iso": "2026-04-29T13:46:16"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
+      "name": "0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777441652.4858358,
+      "mtime_iso": "2026-04-29T13:47:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp",
+      "name": "0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802370,
+      "mtime": 1777441748.8093781,
+      "mtime_iso": "2026-04-29T13:49:08"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
+      "name": "0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802338,
+      "mtime": 1777441832.3309624,
+      "mtime_iso": "2026-04-29T13:50:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp",
+      "name": "0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802258,
+      "mtime": 1777441882.9323719,
+      "mtime_iso": "2026-04-29T13:51:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
+      "name": "0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802306,
+      "mtime": 1777441957.0126853,
+      "mtime_iso": "2026-04-29T13:52:37"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp",
+      "name": "0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802386,
+      "mtime": 1777442062.5400207,
+      "mtime_iso": "2026-04-29T13:54:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
+      "name": "0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802274,
+      "mtime": 1777442118.4246266,
+      "mtime_iso": "2026-04-29T13:55:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp",
+      "name": "0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802642,
+      "mtime": 1777442326.8548706,
+      "mtime_iso": "2026-04-29T13:58:46"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
+      "name": "0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777442403.7808545,
+      "mtime_iso": "2026-04-29T14:00:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp",
+      "name": "0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802402,
+      "mtime": 1777442520.9548538,
+      "mtime_iso": "2026-04-29T14:02:00"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
+      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777442599.6388717,
+      "mtime_iso": "2026-04-29T14:03:19"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp",
+      "name": "0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802370,
+      "mtime": 1777442697.802585,
+      "mtime_iso": "2026-04-29T14:04:57"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
+      "name": "0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802338,
+      "mtime": 1777442780.2337506,
+      "mtime_iso": "2026-04-29T14:06:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp",
+      "name": "0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802258,
+      "mtime": 1777442830.3548765,
+      "mtime_iso": "2026-04-29T14:07:10"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
+      "name": "0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802306,
+      "mtime": 1777442901.758549,
+      "mtime_iso": "2026-04-29T14:08:21"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp",
+      "name": "0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802402,
+      "mtime": 1777443023.8176517,
+      "mtime_iso": "2026-04-29T14:10:23"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
+      "name": "0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802274,
+      "mtime": 1777443091.7458985,
+      "mtime_iso": "2026-04-29T14:11:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802562,
+      "mtime": 1777266223.4591837,
+      "mtime_iso": "2026-04-27T13:03:43"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
+      "name": "work_0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802562,
+      "mtime": 1777441171.1721776,
+      "mtime_iso": "2026-04-29T13:39:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp",
+      "name": "work_0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802658,
+      "mtime": 1777441395.0710523,
+      "mtime_iso": "2026-04-29T13:43:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
+      "name": "work_0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777441473.8299353,
+      "mtime_iso": "2026-04-29T13:44:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp",
+      "name": "work_0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802386,
+      "mtime": 1777441575.0874703,
+      "mtime_iso": "2026-04-29T13:46:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
+      "name": "work_0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777441651.1517568,
+      "mtime_iso": "2026-04-29T13:47:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp",
+      "name": "work_0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802370,
+      "mtime": 1777441747.911214,
+      "mtime_iso": "2026-04-29T13:49:07"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
+      "name": "work_0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802338,
+      "mtime": 1777441830.9348223,
+      "mtime_iso": "2026-04-29T13:50:30"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp",
+      "name": "work_0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802258,
+      "mtime": 1777441882.0454962,
+      "mtime_iso": "2026-04-29T13:51:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
+      "name": "work_0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802306,
+      "mtime": 1777441956.103124,
+      "mtime_iso": "2026-04-29T13:52:36"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp",
+      "name": "work_0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802386,
+      "mtime": 1777442061.628975,
+      "mtime_iso": "2026-04-29T13:54:21"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
+      "name": "work_0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802274,
+      "mtime": 1777442117.5025206,
+      "mtime_iso": "2026-04-29T13:55:17"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp",
+      "name": "work_0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802642,
+      "mtime": 1777442325.9481273,
+      "mtime_iso": "2026-04-29T13:58:45"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
+      "name": "work_0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777442402.8759797,
+      "mtime_iso": "2026-04-29T14:00:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp",
+      "name": "work_0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802402,
+      "mtime": 1777442520.064138,
+      "mtime_iso": "2026-04-29T14:02:00"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
+      "name": "work_0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802322,
+      "mtime": 1777442598.7139535,
+      "mtime_iso": "2026-04-29T14:03:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp",
+      "name": "work_0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802370,
+      "mtime": 1777442696.9047925,
+      "mtime_iso": "2026-04-29T14:04:56"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
+      "name": "work_0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802338,
+      "mtime": 1777442778.9013708,
+      "mtime_iso": "2026-04-29T14:06:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp",
+      "name": "work_0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802258,
+      "mtime": 1777442829.4541056,
+      "mtime_iso": "2026-04-29T14:07:09"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
+      "name": "work_0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802306,
+      "mtime": 1777442900.86737,
+      "mtime_iso": "2026-04-29T14:08:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp",
+      "name": "work_0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802402,
+      "mtime": 1777443022.9071486,
+      "mtime_iso": "2026-04-29T14:10:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
+      "name": "work_0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802274,
+      "mtime": 1777443090.8355632,
+      "mtime_iso": "2026-04-29T14:11:30"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.png",
+      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 74796,
+      "mtime": 1777441172.4654822,
+      "mtime_iso": "2026-04-29T13:39:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.png",
+      "name": "0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78589,
+      "mtime": 1777442327.0643587,
+      "mtime_iso": "2026-04-29T13:58:47"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.png",
+      "name": "0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 79274,
+      "mtime": 1777442403.964077,
+      "mtime_iso": "2026-04-29T14:00:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.png",
+      "name": "0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 77392,
+      "mtime": 1777442521.1377237,
+      "mtime_iso": "2026-04-29T14:02:01"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.png",
+      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 79195,
+      "mtime": 1777442599.8162317,
+      "mtime_iso": "2026-04-29T14:03:19"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.png",
+      "name": "0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 81965,
+      "mtime": 1777442697.972648,
+      "mtime_iso": "2026-04-29T14:04:57"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.png",
+      "name": "0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 83190,
+      "mtime": 1777442780.3934495,
+      "mtime_iso": "2026-04-29T14:06:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.png",
+      "name": "0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 83447,
+      "mtime": 1777442830.539249,
+      "mtime_iso": "2026-04-29T14:07:10"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.png",
+      "name": "0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80691,
+      "mtime": 1777442901.948329,
+      "mtime_iso": "2026-04-29T14:08:21"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.png",
+      "name": "0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 81774,
+      "mtime": 1777443024.0083005,
+      "mtime_iso": "2026-04-29T14:10:24"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\negx\\0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.png",
+      "name": "0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 87227,
+      "mtime": 1777443091.933849,
+      "mtime_iso": "2026-04-29T14:11:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.png",
+      "name": "0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78976,
+      "mtime": 1777441396.6475036,
+      "mtime_iso": "2026-04-29T13:43:16"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.png",
+      "name": "0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 79831,
+      "mtime": 1777441474.9211428,
+      "mtime_iso": "2026-04-29T13:44:34"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.png",
+      "name": "0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78324,
+      "mtime": 1777441576.1928222,
+      "mtime_iso": "2026-04-29T13:46:16"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.png",
+      "name": "0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 79823,
+      "mtime": 1777441652.6427815,
+      "mtime_iso": "2026-04-29T13:47:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.png",
+      "name": "0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 82292,
+      "mtime": 1777441748.9751136,
+      "mtime_iso": "2026-04-29T13:49:08"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.png",
+      "name": "0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 83694,
+      "mtime": 1777441832.9742026,
+      "mtime_iso": "2026-04-29T13:50:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.png",
+      "name": "0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 84104,
+      "mtime": 1777441883.1183376,
+      "mtime_iso": "2026-04-29T13:51:23"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.png",
+      "name": "0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 81014,
+      "mtime": 1777441957.186151,
+      "mtime_iso": "2026-04-29T13:52:37"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.png",
+      "name": "0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 82366,
+      "mtime": 1777442062.7169952,
+      "mtime_iso": "2026-04-29T13:54:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\03_transmission_png_abs2\\posx\\0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.png",
+      "name": "0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 87854,
+      "mtime": 1777442118.5917926,
+      "mtime_iso": "2026-04-29T13:55:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm_p0.log",
+      "name": "work_0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5162,
+      "mtime": 1777441171.1761758,
+      "mtime_iso": "2026-04-29T13:39:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm_p0.log",
+      "name": "work_0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5650,
+      "mtime": 1777441395.0740168,
+      "mtime_iso": "2026-04-29T13:43:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm_p0.log",
+      "name": "work_0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3925,
+      "mtime": 1777441473.8319354,
+      "mtime_iso": "2026-04-29T13:44:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm_p0.log",
+      "name": "work_0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4248,
+      "mtime": 1777441575.0894694,
+      "mtime_iso": "2026-04-29T13:46:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm_p0.log",
+      "name": "work_0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3917,
+      "mtime": 1777441651.1547592,
+      "mtime_iso": "2026-04-29T13:47:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm_p0.log",
+      "name": "work_0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4166,
+      "mtime": 1777441747.9132168,
+      "mtime_iso": "2026-04-29T13:49:07"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm_p0.log",
+      "name": "work_0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4004,
+      "mtime": 1777441830.936824,
+      "mtime_iso": "2026-04-29T13:50:30"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm_p0.log",
+      "name": "work_0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3581,
+      "mtime": 1777441882.0475001,
+      "mtime_iso": "2026-04-29T13:51:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm_p0.log",
+      "name": "work_0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3830,
+      "mtime": 1777441956.1051247,
+      "mtime_iso": "2026-04-29T13:52:36"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm_p0.log",
+      "name": "work_0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4250,
+      "mtime": 1777442061.6319778,
+      "mtime_iso": "2026-04-29T13:54:21"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm_p0.log",
+      "name": "work_0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3672,
+      "mtime": 1777442117.5055203,
+      "mtime_iso": "2026-04-29T13:55:17"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm_p0.log",
+      "name": "work_0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5568,
+      "mtime": 1777442325.951134,
+      "mtime_iso": "2026-04-29T13:58:45"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm_p0.log",
+      "name": "work_0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3915,
+      "mtime": 1777442402.8779843,
+      "mtime_iso": "2026-04-29T14:00:02"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm_p0.log",
+      "name": "work_0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4334,
+      "mtime": 1777442520.0661411,
+      "mtime_iso": "2026-04-29T14:02:00"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm_p0.log",
+      "name": "work_0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3917,
+      "mtime": 1777442598.715947,
+      "mtime_iso": "2026-04-29T14:03:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm_p0.log",
+      "name": "work_0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4161,
+      "mtime": 1777442696.9067917,
+      "mtime_iso": "2026-04-29T14:04:56"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm_p0.log",
+      "name": "work_0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3999,
+      "mtime": 1777442778.9033704,
+      "mtime_iso": "2026-04-29T14:06:18"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm_p0.log",
+      "name": "work_0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3583,
+      "mtime": 1777442829.456104,
+      "mtime_iso": "2026-04-29T14:07:09"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm_p0.log",
+      "name": "work_0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3833,
+      "mtime": 1777442900.8693688,
+      "mtime_iso": "2026-04-29T14:08:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm_p0.log",
+      "name": "work_0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4342,
+      "mtime": 1777443022.909148,
+      "mtime_iso": "2026-04-29T14:10:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\05_work_fsp\\work_0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm_p0.log",
+      "name": "work_0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3671,
+      "mtime": 1777443090.8380673,
+      "mtime_iso": "2026-04-29T14:11:30"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1355,
+      "mtime": 1777440997.9634037,
+      "mtime_iso": "2026-04-29T13:36:37"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\00_scan_plan\\config_summary.txt",
+      "name": "config_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 570,
+      "mtime": 1777440997.9623911,
+      "mtime_iso": "2026-04-29T13:36:37"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\04_logs\\run_log.txt",
+      "name": "run_log.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 4927,
+      "mtime": 1777443091.936854,
+      "mtime_iso": "2026-04-29T14:11:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.xlsx",
+      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33639,
+      "mtime": 1777441172.1353812,
+      "mtime_iso": "2026-04-29T13:39:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.xlsx",
+      "name": "0011_negx_d0012.50nm_x-0012.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33671,
+      "mtime": 1777442326.9162526,
+      "mtime_iso": "2026-04-29T13:58:46"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.xlsx",
+      "name": "0012_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33639,
+      "mtime": 1777442403.8347938,
+      "mtime_iso": "2026-04-29T14:00:03"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.xlsx",
+      "name": "0013_negx_d0037.50nm_x-0037.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33575,
+      "mtime": 1777442521.0188508,
+      "mtime_iso": "2026-04-29T14:02:01"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.xlsx",
+      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33616,
+      "mtime": 1777442599.6989572,
+      "mtime_iso": "2026-04-29T14:03:19"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.xlsx",
+      "name": "0015_negx_d0062.50nm_x-0062.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33613,
+      "mtime": 1777442697.8634171,
+      "mtime_iso": "2026-04-29T14:04:57"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.xlsx",
+      "name": "0016_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33580,
+      "mtime": 1777442780.2926438,
+      "mtime_iso": "2026-04-29T14:06:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.xlsx",
+      "name": "0017_negx_d0087.50nm_x-0087.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33635,
+      "mtime": 1777442830.4208944,
+      "mtime_iso": "2026-04-29T14:07:10"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.xlsx",
+      "name": "0018_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33620,
+      "mtime": 1777442901.822611,
+      "mtime_iso": "2026-04-29T14:08:21"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.xlsx",
+      "name": "0019_negx_d0112.50nm_x-0112.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33616,
+      "mtime": 1777443023.887148,
+      "mtime_iso": "2026-04-29T14:10:23"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\negx\\0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.xlsx",
+      "name": "0020_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33603,
+      "mtime": 1777443091.8039153,
+      "mtime_iso": "2026-04-29T14:11:31"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.xlsx",
+      "name": "0001_posx_d0012.50nm_x+0012.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33650,
+      "mtime": 1777441396.5244074,
+      "mtime_iso": "2026-04-29T13:43:16"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.xlsx",
+      "name": "0002_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33625,
+      "mtime": 1777441474.8000762,
+      "mtime_iso": "2026-04-29T13:44:34"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.xlsx",
+      "name": "0003_posx_d0037.50nm_x+0037.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33544,
+      "mtime": 1777441576.0758233,
+      "mtime_iso": "2026-04-29T13:46:16"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.xlsx",
+      "name": "0004_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33625,
+      "mtime": 1777441652.5361478,
+      "mtime_iso": "2026-04-29T13:47:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.xlsx",
+      "name": "0005_posx_d0062.50nm_x+0062.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33639,
+      "mtime": 1777441748.8606014,
+      "mtime_iso": "2026-04-29T13:49:08"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.xlsx",
+      "name": "0006_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33633,
+      "mtime": 1777441832.5882647,
+      "mtime_iso": "2026-04-29T13:50:32"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.xlsx",
+      "name": "0007_posx_d0087.50nm_x+0087.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33684,
+      "mtime": 1777441882.9833722,
+      "mtime_iso": "2026-04-29T13:51:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.xlsx",
+      "name": "0008_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33645,
+      "mtime": 1777441957.070686,
+      "mtime_iso": "2026-04-29T13:52:37"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.xlsx",
+      "name": "0009_posx_d0112.50nm_x+0112.50nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33660,
+      "mtime": 1777442062.604318,
+      "mtime_iso": "2026-04-29T13:54:22"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒\\02_transmission_excel\\posx\\0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.xlsx",
+      "name": "0010_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 33636,
+      "mtime": 1777442118.4796622,
+      "mtime_iso": "2026-04-29T13:55:18"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "FWHM 不可靠",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+  "relative_path": "近径向高对称结构\\圆环\\results\\偏心内孔扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时36分28秒",
+  "group": "近径向",
+  "mother_structure": "圆环",
+  "perturbation": "偏心内孔扰动",
+  "reduction_path": "近径向 -> Cn",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 21,
+  "spectra_count": 21,
+  "sample_count": 21,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": null,
+  "score": null,
+  "lambda0_nm": null,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": null,
+  "modified_at": "2026-04-29T13:36:37",
+  "mtime": 1777440997.9634037,
+  "fingerprint": {
+    "mtime_max": 1777443091.936854,
+    "total_size": 1660000166,
+    "file_count": 153,
+    "dir_count": 15,
+    "fingerprint": "1777443091.936854-1660000166-153-15"
+  },
+  "last_indexed_at": "2026-05-20T14:34:09",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时36分28秒_a23ca9ba",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

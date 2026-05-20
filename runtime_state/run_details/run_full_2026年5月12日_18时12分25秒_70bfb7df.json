@@ -1,0 +1,734 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+    "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒",
+    "group": "C6",
+    "mother_structure": "六柱环",
+    "perturbation": "交替两组柱子扰动",
+    "reduction_path": "C6 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 8,
+    "spectra_count": 8,
+    "sample_count": 7,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 1645.6183044425811,
+    "score": 1645.6183044425811,
+    "lambda0_nm": 1700.0,
+    "Q": 1218.7084,
+    "q": 1218.7084,
+    "FWHM_nm": 0.74057781,
+    "fwhm_nm": 0.74057781,
+    "max_t": 0.9718527763965404,
+    "modified_at": "2026-05-15T18:04:56",
+    "mtime": 1778839496.8742843,
+    "fingerprint": {
+      "mtime_max": 1779166744.179781,
+      "total_size": 335790633,
+      "file_count": 39,
+      "dir_count": 8,
+      "fingerprint": "1779166744.179781-335790633-39-8"
+    },
+    "last_indexed_at": "2026-05-20T14:34:06",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "4.5000000000000006e-08",
+      "lambda0_nm": 1700.0,
+      "score": 1645.6183044425811,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0000_alternating_pillar_radius_pillar_radius_45.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "5.5e-08",
+      "lambda0_nm": 1700.0,
+      "score": 1645.6183044425811,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0001_alternating_pillar_radius_pillar_radius_55.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "6.5e-08",
+      "lambda0_nm": 1700.0,
+      "score": 1645.6183044425811,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0002_alternating_pillar_radius_pillar_radius_65.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "7.5e-08",
+      "lambda0_nm": 1700.0,
+      "score": 1645.6183044425811,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0003_75.000nm - 副本.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "8.5e-08",
+      "lambda0_nm": 1700.0,
+      "score": 1645.6183044425811,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0003_alternating_pillar_radius_pillar_radius_75.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "9.499999999999999e-08",
+      "lambda0_nm": 1700.0,
+      "score": 1645.6183044425811,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0004_alternating_pillar_radius_pillar_radius_85.000nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "1.0499999999999999e-07",
+      "lambda0_nm": 1700.0,
+      "score": 1645.6183044425811,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0005_alternating_pillar_radius_pillar_radius_95.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0003_75.000nm - 副本.fsp.bak",
+      "name": "0003_75.000nm - 副本.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 295102,
+      "mtime": 1779166744.1643848,
+      "mtime_iso": "2026-05-19T12:59:04"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\test\\0004_alternating_pillar_radius_pillar_radius_85.000nm.fsp.bak",
+      "name": "0004_alternating_pillar_radius_pillar_radius_85.000nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 313179,
+      "mtime": 1778814362.6878247,
+      "mtime_iso": "2026-05-15T11:06:02"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 739,
+      "mtime": 1778580750.4620128,
+      "mtime_iso": "2026-05-12T18:12:30"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2707,
+      "mtime": 1779089652.4988618,
+      "mtime_iso": "2026-05-18T15:34:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2716,
+      "mtime": 1779089652.4998598,
+      "mtime_iso": "2026-05-18T15:34:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2366,
+      "mtime": 1779089652.485861,
+      "mtime_iso": "2026-05-18T15:34:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 5874,
+      "mtime": 1778581120.1419535,
+      "mtime_iso": "2026-05-12T18:18:40"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0000_alternating_pillar_radius_pillar_radius_45.000nm.fsp",
+      "name": "0000_alternating_pillar_radius_pillar_radius_45.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805141,
+      "mtime": 1778580778.3489833,
+      "mtime_iso": "2026-05-12T18:12:58"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0001_alternating_pillar_radius_pillar_radius_55.000nm.fsp",
+      "name": "0001_alternating_pillar_radius_pillar_radius_55.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805141,
+      "mtime": 1778580811.6830873,
+      "mtime_iso": "2026-05-12T18:13:31"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0002_alternating_pillar_radius_pillar_radius_65.000nm.fsp",
+      "name": "0002_alternating_pillar_radius_pillar_radius_65.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805141,
+      "mtime": 1778580859.0829847,
+      "mtime_iso": "2026-05-12T18:14:19"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0003_75.000nm - 副本.fsp",
+      "name": "0003_75.000nm - 副本.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805237,
+      "mtime": 1779166744.1764345,
+      "mtime_iso": "2026-05-19T12:59:04"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0003_alternating_pillar_radius_pillar_radius_75.000nm.fsp",
+      "name": "0003_alternating_pillar_radius_pillar_radius_75.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805221,
+      "mtime": 1778580942.4686322,
+      "mtime_iso": "2026-05-12T18:15:42"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0004_alternating_pillar_radius_pillar_radius_85.000nm.fsp",
+      "name": "0004_alternating_pillar_radius_pillar_radius_85.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805157,
+      "mtime": 1778580996.466647,
+      "mtime_iso": "2026-05-12T18:16:36"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0005_alternating_pillar_radius_pillar_radius_95.000nm.fsp",
+      "name": "0005_alternating_pillar_radius_pillar_radius_95.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805141,
+      "mtime": 1778581045.9435182,
+      "mtime_iso": "2026-05-12T18:17:25"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0006_alternating_pillar_radius_pillar_radius_105.000nm.fsp",
+      "name": "0006_alternating_pillar_radius_pillar_radius_105.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805205,
+      "mtime": 1778581119.8062267,
+      "mtime_iso": "2026-05-12T18:18:39"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\test\\0004_alternating_pillar_radius_pillar_radius_85.000nm.fsp",
+      "name": "0004_alternating_pillar_radius_pillar_radius_85.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 102190273,
+      "mtime": 1778814362.735447,
+      "mtime_iso": "2026-05-15T11:06:02"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805285,
+      "mtime": 1777253764.6620145,
+      "mtime_iso": "2026-04-27T09:36:04"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\03_transmission_abs2_png\\0000_alternating_pillar_radius_pillar_radius_45.000nm_transmission_abs2.png",
+      "name": "0000_alternating_pillar_radius_pillar_radius_45.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 70126,
+      "mtime": 1778580779.205057,
+      "mtime_iso": "2026-05-12T18:12:59"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\03_transmission_abs2_png\\0001_alternating_pillar_radius_pillar_radius_55.000nm_transmission_abs2.png",
+      "name": "0001_alternating_pillar_radius_pillar_radius_55.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 74705,
+      "mtime": 1778580811.990879,
+      "mtime_iso": "2026-05-12T18:13:31"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\03_transmission_abs2_png\\0002_alternating_pillar_radius_pillar_radius_65.000nm_transmission_abs2.png",
+      "name": "0002_alternating_pillar_radius_pillar_radius_65.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 67976,
+      "mtime": 1778580859.4150684,
+      "mtime_iso": "2026-05-12T18:14:19"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\03_transmission_abs2_png\\0003_alternating_pillar_radius_pillar_radius_75.000nm_transmission_abs2.png",
+      "name": "0003_alternating_pillar_radius_pillar_radius_75.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 47624,
+      "mtime": 1778580942.7811127,
+      "mtime_iso": "2026-05-12T18:15:42"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\03_transmission_abs2_png\\0004_alternating_pillar_radius_pillar_radius_85.000nm_transmission_abs2.png",
+      "name": "0004_alternating_pillar_radius_pillar_radius_85.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 52377,
+      "mtime": 1778580996.7954416,
+      "mtime_iso": "2026-05-12T18:16:36"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\03_transmission_abs2_png\\0005_alternating_pillar_radius_pillar_radius_95.000nm_transmission_abs2.png",
+      "name": "0005_alternating_pillar_radius_pillar_radius_95.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 52445,
+      "mtime": 1778581046.354121,
+      "mtime_iso": "2026-05-12T18:17:26"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\03_transmission_abs2_png\\0006_alternating_pillar_radius_pillar_radius_105.000nm_transmission_abs2.png",
+      "name": "0006_alternating_pillar_radius_pillar_radius_105.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 60797,
+      "mtime": 1778581120.14092,
+      "mtime_iso": "2026-05-12T18:18:40"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1741,
+      "mtime": 1779089652.4998598,
+      "mtime_iso": "2026-05-18T15:34:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1779089652.5008585,
+      "mtime_iso": "2026-05-18T15:34:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 116036,
+      "mtime": 1779089652.4968593,
+      "mtime_iso": "2026-05-18T15:34:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\0003_75.000nm - 副本_p0.log",
+      "name": "0003_75.000nm - 副本_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3969,
+      "mtime": 1779166744.179781,
+      "mtime_iso": "2026-05-19T12:59:04"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\01_fsp\\test\\0004_alternating_pillar_radius_pillar_radius_85.000nm_p0.log",
+      "name": "0004_alternating_pillar_radius_pillar_radius_85.000nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3830,
+      "mtime": 1778814362.7414432,
+      "mtime_iso": "2026-05-15T11:06:02"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2555,
+      "mtime": 1779089652.5008585,
+      "mtime_iso": "2026-05-18T15:34:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1505,
+      "mtime": 1779089652.5008585,
+      "mtime_iso": "2026-05-18T15:34:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1302,
+      "mtime": 1778580750.4620128,
+      "mtime_iso": "2026-05-12T18:12:30"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\02_transmission_excel\\0000_alternating_pillar_radius_pillar_radius_45.000nm_transmission_abs2.xlsx",
+      "name": "0000_alternating_pillar_radius_pillar_radius_45.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24444,
+      "mtime": 1778580778.6628013,
+      "mtime_iso": "2026-05-12T18:12:58"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\02_transmission_excel\\0001_alternating_pillar_radius_pillar_radius_55.000nm_transmission_abs2.xlsx",
+      "name": "0001_alternating_pillar_radius_pillar_radius_55.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24472,
+      "mtime": 1778580811.8694544,
+      "mtime_iso": "2026-05-12T18:13:31"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\02_transmission_excel\\0002_alternating_pillar_radius_pillar_radius_65.000nm_transmission_abs2.xlsx",
+      "name": "0002_alternating_pillar_radius_pillar_radius_65.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24494,
+      "mtime": 1778580859.2747889,
+      "mtime_iso": "2026-05-12T18:14:19"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\02_transmission_excel\\0003_alternating_pillar_radius_pillar_radius_75.000nm_transmission_abs2.xlsx",
+      "name": "0003_alternating_pillar_radius_pillar_radius_75.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24510,
+      "mtime": 1778580942.6547556,
+      "mtime_iso": "2026-05-12T18:15:42"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\02_transmission_excel\\0004_alternating_pillar_radius_pillar_radius_85.000nm_transmission_abs2.xlsx",
+      "name": "0004_alternating_pillar_radius_pillar_radius_85.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24564,
+      "mtime": 1778580996.658755,
+      "mtime_iso": "2026-05-12T18:16:36"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\02_transmission_excel\\0005_alternating_pillar_radius_pillar_radius_95.000nm_transmission_abs2.xlsx",
+      "name": "0005_alternating_pillar_radius_pillar_radius_95.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24896,
+      "mtime": 1778581046.2420876,
+      "mtime_iso": "2026-05-12T18:17:26"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒\\02_transmission_excel\\0006_alternating_pillar_radius_pillar_radius_105.000nm_transmission_abs2.xlsx",
+      "name": "0006_alternating_pillar_radius_pillar_radius_105.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25281,
+      "mtime": 1778581120.020731,
+      "mtime_iso": "2026-05-12T18:18:40"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 436.472,
+      "fwhm_nm": 2.1035643,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 477.00206,
+      "fwhm_nm": 2.7219393,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 1134.877,
+      "fwhm_nm": 0.79528302,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 1218.7084,
+      "fwhm_nm": 0.74057781,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 452.05283,
+      "fwhm_nm": 3.0111746,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 271.45837,
+      "fwhm_nm": 5.1238394,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+  "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\旧文件\\full\\待考察\\run_full_2026年5月12日_18时12分25秒",
+  "group": "C6",
+  "mother_structure": "六柱环",
+  "perturbation": "交替两组柱子扰动",
+  "reduction_path": "C6 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 8,
+  "spectra_count": 8,
+  "sample_count": 7,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 1645.6183044425811,
+  "score": 1645.6183044425811,
+  "lambda0_nm": 1700.0,
+  "Q": 1218.7084,
+  "q": 1218.7084,
+  "FWHM_nm": 0.74057781,
+  "fwhm_nm": 0.74057781,
+  "max_t": 0.9718527763965404,
+  "modified_at": "2026-05-15T18:04:56",
+  "mtime": 1778839496.8742843,
+  "fingerprint": {
+    "mtime_max": 1779166744.179781,
+    "total_size": 335790633,
+    "file_count": 39,
+    "dir_count": 8,
+    "fingerprint": "1779166744.179781-335790633-39-8"
+  },
+  "last_indexed_at": "2026-05-20T14:34:06",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_18时12分25秒_70bfb7df",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

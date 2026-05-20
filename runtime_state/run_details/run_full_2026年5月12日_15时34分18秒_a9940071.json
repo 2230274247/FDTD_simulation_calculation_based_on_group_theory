@@ -1,0 +1,1345 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+    "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒",
+    "group": "C4",
+    "mother_structure": "方环",
+    "perturbation": "内孔尺寸扫描扰动",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 15,
+    "spectra_count": 15,
+    "sample_count": 15,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": 0.0017000000000000001,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": 1700.0,
+    "modified_at": "2026-05-12T15:34:22",
+    "mtime": 1778571262.915264,
+    "fingerprint": {
+      "mtime_max": 1778574015.0134718,
+      "total_size": 806103229,
+      "file_count": 96,
+      "dir_count": 6,
+      "fingerprint": "1778574015.0134718-806103229-96-6"
+    },
+    "last_indexed_at": "2026-05-20T14:34:05",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1700",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "#1",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0000_inner0100d00nm_edge0240d00nm.fsp"
+    },
+    {
+      "sample_id": "#2",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0001_inner0121d43nm_edge0229d29nm.fsp"
+    },
+    {
+      "sample_id": "#3",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0002_inner0142d86nm_edge0218d57nm.fsp"
+    },
+    {
+      "sample_id": "#4",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0003_inner0164d29nm_edge0207d86nm.fsp"
+    },
+    {
+      "sample_id": "#5",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0004_inner0185d71nm_edge0197d14nm.fsp"
+    },
+    {
+      "sample_id": "#6",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0005_inner0207d14nm_edge0186d43nm.fsp"
+    },
+    {
+      "sample_id": "#7",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0006_inner0228d57nm_edge0175d71nm.fsp"
+    },
+    {
+      "sample_id": "#8",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0007_inner0250d00nm_edge0165d00nm.fsp"
+    },
+    {
+      "sample_id": "#9",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0008_inner0271d43nm_edge0154d29nm.fsp"
+    },
+    {
+      "sample_id": "#10",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0009_inner0292d86nm_edge0143d57nm.fsp"
+    },
+    {
+      "sample_id": "#11",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0010_inner0314d29nm_edge0132d86nm.fsp"
+    },
+    {
+      "sample_id": "#12",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0011_inner0335d71nm_edge0122d14nm.fsp"
+    },
+    {
+      "sample_id": "#13",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0012_inner0357d14nm_edge0111d43nm.fsp"
+    },
+    {
+      "sample_id": "#14",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0013_inner0378d57nm_edge0100d71nm.fsp"
+    },
+    {
+      "sample_id": "#15",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0014_inner0400d00nm_edge0090d00nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0000_inner0100d00nm_edge0240d00nm.fsp.bak",
+      "name": "work_0000_inner0100d00nm_edge0240d00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778571336.6579227,
+      "mtime_iso": "2026-05-12T15:35:36"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0001_inner0121d43nm_edge0229d29nm.fsp.bak",
+      "name": "work_0001_inner0121d43nm_edge0229d29nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778571403.6953914,
+      "mtime_iso": "2026-05-12T15:36:43"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0002_inner0142d86nm_edge0218d57nm.fsp.bak",
+      "name": "work_0002_inner0142d86nm_edge0218d57nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778571475.8950071,
+      "mtime_iso": "2026-05-12T15:37:55"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0003_inner0164d29nm_edge0207d86nm.fsp.bak",
+      "name": "work_0003_inner0164d29nm_edge0207d86nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778571592.423082,
+      "mtime_iso": "2026-05-12T15:39:52"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0004_inner0185d71nm_edge0197d14nm.fsp.bak",
+      "name": "work_0004_inner0185d71nm_edge0197d14nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778571718.2254846,
+      "mtime_iso": "2026-05-12T15:41:58"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0005_inner0207d14nm_edge0186d43nm.fsp.bak",
+      "name": "work_0005_inner0207d14nm_edge0186d43nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778571792.2373114,
+      "mtime_iso": "2026-05-12T15:43:12"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0006_inner0228d57nm_edge0175d71nm.fsp.bak",
+      "name": "work_0006_inner0228d57nm_edge0175d71nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778571871.3954923,
+      "mtime_iso": "2026-05-12T15:44:31"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0007_inner0250d00nm_edge0165d00nm.fsp.bak",
+      "name": "work_0007_inner0250d00nm_edge0165d00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778572001.354085,
+      "mtime_iso": "2026-05-12T15:46:41"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0008_inner0271d43nm_edge0154d29nm.fsp.bak",
+      "name": "work_0008_inner0271d43nm_edge0154d29nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778572090.7233317,
+      "mtime_iso": "2026-05-12T15:48:10"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0009_inner0292d86nm_edge0143d57nm.fsp.bak",
+      "name": "work_0009_inner0292d86nm_edge0143d57nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778572230.8153267,
+      "mtime_iso": "2026-05-12T15:50:30"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0010_inner0314d29nm_edge0132d86nm.fsp.bak",
+      "name": "work_0010_inner0314d29nm_edge0132d86nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778572344.6045096,
+      "mtime_iso": "2026-05-12T15:52:24"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0011_inner0335d71nm_edge0122d14nm.fsp.bak",
+      "name": "work_0011_inner0335d71nm_edge0122d14nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778572554.3543782,
+      "mtime_iso": "2026-05-12T15:55:54"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0012_inner0357d14nm_edge0111d43nm.fsp.bak",
+      "name": "work_0012_inner0357d14nm_edge0111d43nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778572948.0257392,
+      "mtime_iso": "2026-05-12T16:02:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0013_inner0378d57nm_edge0100d71nm.fsp.bak",
+      "name": "work_0013_inner0378d57nm_edge0100d71nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778573443.969065,
+      "mtime_iso": "2026-05-12T16:10:43"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0014_inner0400d00nm_edge0090d00nm.fsp.bak",
+      "name": "work_0014_inner0400d00nm_edge0090d00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292423,
+      "mtime": 1778574012.7119384,
+      "mtime_iso": "2026-05-12T16:20:12"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 636,
+      "mtime": 1778571262.9130173,
+      "mtime_iso": "2026-05-12T15:34:22"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 9824,
+      "mtime": 1778574015.0134718,
+      "mtime_iso": "2026-05-12T16:20:15"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0000_inner0100d00nm_edge0240d00nm.fsp",
+      "name": "0000_inner0100d00nm_edge0240d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802510,
+      "mtime": 1778571337.549491,
+      "mtime_iso": "2026-05-12T15:35:37"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0001_inner0121d43nm_edge0229d29nm.fsp",
+      "name": "0001_inner0121d43nm_edge0229d29nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802494,
+      "mtime": 1778571404.599544,
+      "mtime_iso": "2026-05-12T15:36:44"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0002_inner0142d86nm_edge0218d57nm.fsp",
+      "name": "0002_inner0142d86nm_edge0218d57nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802494,
+      "mtime": 1778571476.80398,
+      "mtime_iso": "2026-05-12T15:37:56"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0003_inner0164d29nm_edge0207d86nm.fsp",
+      "name": "0003_inner0164d29nm_edge0207d86nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802590,
+      "mtime": 1778571593.3192923,
+      "mtime_iso": "2026-05-12T15:39:53"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0004_inner0185d71nm_edge0197d14nm.fsp",
+      "name": "0004_inner0185d71nm_edge0197d14nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802606,
+      "mtime": 1778571719.6436405,
+      "mtime_iso": "2026-05-12T15:41:59"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0005_inner0207d14nm_edge0186d43nm.fsp",
+      "name": "0005_inner0207d14nm_edge0186d43nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802494,
+      "mtime": 1778571793.1701512,
+      "mtime_iso": "2026-05-12T15:43:13"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0006_inner0228d57nm_edge0175d71nm.fsp",
+      "name": "0006_inner0228d57nm_edge0175d71nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802510,
+      "mtime": 1778571872.3425238,
+      "mtime_iso": "2026-05-12T15:44:32"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0007_inner0250d00nm_edge0165d00nm.fsp",
+      "name": "0007_inner0250d00nm_edge0165d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802606,
+      "mtime": 1778572002.2588198,
+      "mtime_iso": "2026-05-12T15:46:42"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0008_inner0271d43nm_edge0154d29nm.fsp",
+      "name": "0008_inner0271d43nm_edge0154d29nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802558,
+      "mtime": 1778572091.6334856,
+      "mtime_iso": "2026-05-12T15:48:11"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0009_inner0292d86nm_edge0143d57nm.fsp",
+      "name": "0009_inner0292d86nm_edge0143d57nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802638,
+      "mtime": 1778572231.7161486,
+      "mtime_iso": "2026-05-12T15:50:31"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0010_inner0314d29nm_edge0132d86nm.fsp",
+      "name": "0010_inner0314d29nm_edge0132d86nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802574,
+      "mtime": 1778572345.5374594,
+      "mtime_iso": "2026-05-12T15:52:25"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0011_inner0335d71nm_edge0122d14nm.fsp",
+      "name": "0011_inner0335d71nm_edge0122d14nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802782,
+      "mtime": 1778572555.2552936,
+      "mtime_iso": "2026-05-12T15:55:55"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0012_inner0357d14nm_edge0111d43nm.fsp",
+      "name": "0012_inner0357d14nm_edge0111d43nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803182,
+      "mtime": 1778572948.9900627,
+      "mtime_iso": "2026-05-12T16:02:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0013_inner0378d57nm_edge0100d71nm.fsp",
+      "name": "0013_inner0378d57nm_edge0100d71nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803598,
+      "mtime": 1778573444.890941,
+      "mtime_iso": "2026-05-12T16:10:44"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\01_fsp_files\\0014_inner0400d00nm_edge0090d00nm.fsp",
+      "name": "0014_inner0400d00nm_edge0090d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803534,
+      "mtime": 1778574014.1732671,
+      "mtime_iso": "2026-05-12T16:20:14"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802590,
+      "mtime": 1777217134.799862,
+      "mtime_iso": "2026-04-26T23:25:34"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0000_inner0100d00nm_edge0240d00nm.fsp",
+      "name": "work_0000_inner0100d00nm_edge0240d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802510,
+      "mtime": 1778571337.549491,
+      "mtime_iso": "2026-05-12T15:35:37"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0001_inner0121d43nm_edge0229d29nm.fsp",
+      "name": "work_0001_inner0121d43nm_edge0229d29nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802494,
+      "mtime": 1778571404.599544,
+      "mtime_iso": "2026-05-12T15:36:44"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0002_inner0142d86nm_edge0218d57nm.fsp",
+      "name": "work_0002_inner0142d86nm_edge0218d57nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802494,
+      "mtime": 1778571476.80398,
+      "mtime_iso": "2026-05-12T15:37:56"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0003_inner0164d29nm_edge0207d86nm.fsp",
+      "name": "work_0003_inner0164d29nm_edge0207d86nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802590,
+      "mtime": 1778571593.3192923,
+      "mtime_iso": "2026-05-12T15:39:53"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0004_inner0185d71nm_edge0197d14nm.fsp",
+      "name": "work_0004_inner0185d71nm_edge0197d14nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802606,
+      "mtime": 1778571719.6436405,
+      "mtime_iso": "2026-05-12T15:41:59"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0005_inner0207d14nm_edge0186d43nm.fsp",
+      "name": "work_0005_inner0207d14nm_edge0186d43nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802494,
+      "mtime": 1778571793.1701512,
+      "mtime_iso": "2026-05-12T15:43:13"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0006_inner0228d57nm_edge0175d71nm.fsp",
+      "name": "work_0006_inner0228d57nm_edge0175d71nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802510,
+      "mtime": 1778571872.3425238,
+      "mtime_iso": "2026-05-12T15:44:32"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0007_inner0250d00nm_edge0165d00nm.fsp",
+      "name": "work_0007_inner0250d00nm_edge0165d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802606,
+      "mtime": 1778572002.2588198,
+      "mtime_iso": "2026-05-12T15:46:42"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0008_inner0271d43nm_edge0154d29nm.fsp",
+      "name": "work_0008_inner0271d43nm_edge0154d29nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802558,
+      "mtime": 1778572091.6334856,
+      "mtime_iso": "2026-05-12T15:48:11"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0009_inner0292d86nm_edge0143d57nm.fsp",
+      "name": "work_0009_inner0292d86nm_edge0143d57nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802638,
+      "mtime": 1778572231.7161486,
+      "mtime_iso": "2026-05-12T15:50:31"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0010_inner0314d29nm_edge0132d86nm.fsp",
+      "name": "work_0010_inner0314d29nm_edge0132d86nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802574,
+      "mtime": 1778572345.5374594,
+      "mtime_iso": "2026-05-12T15:52:25"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0011_inner0335d71nm_edge0122d14nm.fsp",
+      "name": "work_0011_inner0335d71nm_edge0122d14nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802782,
+      "mtime": 1778572555.2552936,
+      "mtime_iso": "2026-05-12T15:55:55"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0012_inner0357d14nm_edge0111d43nm.fsp",
+      "name": "work_0012_inner0357d14nm_edge0111d43nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803182,
+      "mtime": 1778572948.9900627,
+      "mtime_iso": "2026-05-12T16:02:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0013_inner0378d57nm_edge0100d71nm.fsp",
+      "name": "work_0013_inner0378d57nm_edge0100d71nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803598,
+      "mtime": 1778573444.890941,
+      "mtime_iso": "2026-05-12T16:10:44"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0014_inner0400d00nm_edge0090d00nm.fsp",
+      "name": "work_0014_inner0400d00nm_edge0090d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803534,
+      "mtime": 1778574014.1732671,
+      "mtime_iso": "2026-05-12T16:20:14"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0000_inner0100d00nm_edge0240d00nm_transmission_abs2.png",
+      "name": "0000_inner0100d00nm_edge0240d00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 91523,
+      "mtime": 1778571338.2638721,
+      "mtime_iso": "2026-05-12T15:35:38"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0001_inner0121d43nm_edge0229d29nm_transmission_abs2.png",
+      "name": "0001_inner0121d43nm_edge0229d29nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 91957,
+      "mtime": 1778571404.912946,
+      "mtime_iso": "2026-05-12T15:36:44"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0002_inner0142d86nm_edge0218d57nm_transmission_abs2.png",
+      "name": "0002_inner0142d86nm_edge0218d57nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 91815,
+      "mtime": 1778571477.1370437,
+      "mtime_iso": "2026-05-12T15:37:57"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0003_inner0164d29nm_edge0207d86nm_transmission_abs2.png",
+      "name": "0003_inner0164d29nm_edge0207d86nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 92967,
+      "mtime": 1778571593.62546,
+      "mtime_iso": "2026-05-12T15:39:53"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0004_inner0185d71nm_edge0197d14nm_transmission_abs2.png",
+      "name": "0004_inner0185d71nm_edge0197d14nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 91198,
+      "mtime": 1778571720.445812,
+      "mtime_iso": "2026-05-12T15:42:00"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0005_inner0207d14nm_edge0186d43nm_transmission_abs2.png",
+      "name": "0005_inner0207d14nm_edge0186d43nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 91050,
+      "mtime": 1778571794.3514926,
+      "mtime_iso": "2026-05-12T15:43:14"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0006_inner0228d57nm_edge0175d71nm_transmission_abs2.png",
+      "name": "0006_inner0228d57nm_edge0175d71nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 89320,
+      "mtime": 1778571872.7562816,
+      "mtime_iso": "2026-05-12T15:44:32"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0007_inner0250d00nm_edge0165d00nm_transmission_abs2.png",
+      "name": "0007_inner0250d00nm_edge0165d00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 82069,
+      "mtime": 1778572002.839997,
+      "mtime_iso": "2026-05-12T15:46:42"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0008_inner0271d43nm_edge0154d29nm_transmission_abs2.png",
+      "name": "0008_inner0271d43nm_edge0154d29nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80518,
+      "mtime": 1778572091.9605665,
+      "mtime_iso": "2026-05-12T15:48:11"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0009_inner0292d86nm_edge0143d57nm_transmission_abs2.png",
+      "name": "0009_inner0292d86nm_edge0143d57nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 82709,
+      "mtime": 1778572232.0396824,
+      "mtime_iso": "2026-05-12T15:50:32"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0010_inner0314d29nm_edge0132d86nm_transmission_abs2.png",
+      "name": "0010_inner0314d29nm_edge0132d86nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 83996,
+      "mtime": 1778572345.860917,
+      "mtime_iso": "2026-05-12T15:52:25"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0011_inner0335d71nm_edge0122d14nm_transmission_abs2.png",
+      "name": "0011_inner0335d71nm_edge0122d14nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80160,
+      "mtime": 1778572555.5773408,
+      "mtime_iso": "2026-05-12T15:55:55"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0012_inner0357d14nm_edge0111d43nm_transmission_abs2.png",
+      "name": "0012_inner0357d14nm_edge0111d43nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78820,
+      "mtime": 1778572949.330169,
+      "mtime_iso": "2026-05-12T16:02:29"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0013_inner0378d57nm_edge0100d71nm_transmission_abs2.png",
+      "name": "0013_inner0378d57nm_edge0100d71nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 42040,
+      "mtime": 1778573446.0196385,
+      "mtime_iso": "2026-05-12T16:10:46"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\03_transmission_png_abs2\\0014_inner0400d00nm_edge0090d00nm_transmission_abs2.png",
+      "name": "0014_inner0400d00nm_edge0090d00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 35831,
+      "mtime": 1778574015.0124664,
+      "mtime_iso": "2026-05-12T16:20:15"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\04_logs\\automation_run.log",
+      "name": "automation_run.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5394,
+      "mtime": 1778574015.0134718,
+      "mtime_iso": "2026-05-12T16:20:15"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0000_inner0100d00nm_edge0240d00nm_p0.log",
+      "name": "work_0000_inner0100d00nm_edge0240d00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3739,
+      "mtime": 1778571336.6699636,
+      "mtime_iso": "2026-05-12T15:35:36"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0001_inner0121d43nm_edge0229d29nm_p0.log",
+      "name": "work_0001_inner0121d43nm_edge0229d29nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3659,
+      "mtime": 1778571403.7063951,
+      "mtime_iso": "2026-05-12T15:36:43"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0002_inner0142d86nm_edge0218d57nm_p0.log",
+      "name": "work_0002_inner0142d86nm_edge0218d57nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3663,
+      "mtime": 1778571475.906973,
+      "mtime_iso": "2026-05-12T15:37:55"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0003_inner0164d29nm_edge0207d86nm_p0.log",
+      "name": "work_0003_inner0164d29nm_edge0207d86nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4163,
+      "mtime": 1778571592.436057,
+      "mtime_iso": "2026-05-12T15:39:52"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0004_inner0185d71nm_edge0197d14nm_p0.log",
+      "name": "work_0004_inner0185d71nm_edge0197d14nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4244,
+      "mtime": 1778571718.2444706,
+      "mtime_iso": "2026-05-12T15:41:58"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0005_inner0207d14nm_edge0186d43nm_p0.log",
+      "name": "work_0005_inner0207d14nm_edge0186d43nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3657,
+      "mtime": 1778571792.2502768,
+      "mtime_iso": "2026-05-12T15:43:12"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0006_inner0228d57nm_edge0175d71nm_p0.log",
+      "name": "work_0006_inner0228d57nm_edge0175d71nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3736,
+      "mtime": 1778571871.4084916,
+      "mtime_iso": "2026-05-12T15:44:31"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0007_inner0250d00nm_edge0165d00nm_p0.log",
+      "name": "work_0007_inner0250d00nm_edge0165d00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4231,
+      "mtime": 1778572001.3650844,
+      "mtime_iso": "2026-05-12T15:46:41"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0008_inner0271d43nm_edge0154d29nm_p0.log",
+      "name": "work_0008_inner0271d43nm_edge0154d29nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3988,
+      "mtime": 1778572090.7342975,
+      "mtime_iso": "2026-05-12T15:48:10"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0009_inner0292d86nm_edge0143d57nm_p0.log",
+      "name": "work_0009_inner0292d86nm_edge0143d57nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4402,
+      "mtime": 1778572230.8263319,
+      "mtime_iso": "2026-05-12T15:50:30"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0010_inner0314d29nm_edge0132d86nm_p0.log",
+      "name": "work_0010_inner0314d29nm_edge0132d86nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4070,
+      "mtime": 1778572344.6164792,
+      "mtime_iso": "2026-05-12T15:52:24"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0011_inner0335d71nm_edge0122d14nm_p0.log",
+      "name": "work_0011_inner0335d71nm_edge0122d14nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5147,
+      "mtime": 1778572554.366377,
+      "mtime_iso": "2026-05-12T15:55:54"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0012_inner0357d14nm_edge0111d43nm_p0.log",
+      "name": "work_0012_inner0357d14nm_edge0111d43nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 7221,
+      "mtime": 1778572948.037815,
+      "mtime_iso": "2026-05-12T16:02:28"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0013_inner0378d57nm_edge0100d71nm_p0.log",
+      "name": "work_0013_inner0378d57nm_edge0100d71nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 9132,
+      "mtime": 1778573443.980065,
+      "mtime_iso": "2026-05-12T16:10:43"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\05_work_fsp\\work_0014_inner0400d00nm_edge0090d00nm_p0.log",
+      "name": "work_0014_inner0400d00nm_edge0090d00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 9051,
+      "mtime": 1778574012.7234485,
+      "mtime_iso": "2026-05-12T16:20:12"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1751,
+      "mtime": 1778571262.915264,
+      "mtime_iso": "2026-05-12T15:34:22"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\00_scan_plan\\scan_summary.txt",
+      "name": "scan_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 648,
+      "mtime": 1778571262.9140167,
+      "mtime_iso": "2026-05-12T15:34:22"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0000_inner0100d00nm_edge0240d00nm_transmission_abs2.xlsx",
+      "name": "0000_inner0100d00nm_edge0240d00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35560,
+      "mtime": 1778571337.7509615,
+      "mtime_iso": "2026-05-12T15:35:37"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0001_inner0121d43nm_edge0229d29nm_transmission_abs2.xlsx",
+      "name": "0001_inner0121d43nm_edge0229d29nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35619,
+      "mtime": 1778571404.7828505,
+      "mtime_iso": "2026-05-12T15:36:44"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0002_inner0142d86nm_edge0218d57nm_transmission_abs2.xlsx",
+      "name": "0002_inner0142d86nm_edge0218d57nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35580,
+      "mtime": 1778571477.0032742,
+      "mtime_iso": "2026-05-12T15:37:57"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0003_inner0164d29nm_edge0207d86nm_transmission_abs2.xlsx",
+      "name": "0003_inner0164d29nm_edge0207d86nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35631,
+      "mtime": 1778571593.494835,
+      "mtime_iso": "2026-05-12T15:39:53"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0004_inner0185d71nm_edge0197d14nm_transmission_abs2.xlsx",
+      "name": "0004_inner0185d71nm_edge0197d14nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35603,
+      "mtime": 1778571720.2265334,
+      "mtime_iso": "2026-05-12T15:42:00"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0005_inner0207d14nm_edge0186d43nm_transmission_abs2.xlsx",
+      "name": "0005_inner0207d14nm_edge0186d43nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35607,
+      "mtime": 1778571794.2228284,
+      "mtime_iso": "2026-05-12T15:43:14"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0006_inner0228d57nm_edge0175d71nm_transmission_abs2.xlsx",
+      "name": "0006_inner0228d57nm_edge0175d71nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35559,
+      "mtime": 1778571872.5332687,
+      "mtime_iso": "2026-05-12T15:44:32"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0007_inner0250d00nm_edge0165d00nm_transmission_abs2.xlsx",
+      "name": "0007_inner0250d00nm_edge0165d00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35588,
+      "mtime": 1778572002.7229948,
+      "mtime_iso": "2026-05-12T15:46:42"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0008_inner0271d43nm_edge0154d29nm_transmission_abs2.xlsx",
+      "name": "0008_inner0271d43nm_edge0154d29nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35564,
+      "mtime": 1778572091.8331778,
+      "mtime_iso": "2026-05-12T15:48:11"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0009_inner0292d86nm_edge0143d57nm_transmission_abs2.xlsx",
+      "name": "0009_inner0292d86nm_edge0143d57nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35597,
+      "mtime": 1778572231.9038084,
+      "mtime_iso": "2026-05-12T15:50:31"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0010_inner0314d29nm_edge0132d86nm_transmission_abs2.xlsx",
+      "name": "0010_inner0314d29nm_edge0132d86nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35612,
+      "mtime": 1778572345.7291622,
+      "mtime_iso": "2026-05-12T15:52:25"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0011_inner0335d71nm_edge0122d14nm_transmission_abs2.xlsx",
+      "name": "0011_inner0335d71nm_edge0122d14nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35548,
+      "mtime": 1778572555.4484403,
+      "mtime_iso": "2026-05-12T15:55:55"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0012_inner0357d14nm_edge0111d43nm_transmission_abs2.xlsx",
+      "name": "0012_inner0357d14nm_edge0111d43nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35501,
+      "mtime": 1778572949.1915357,
+      "mtime_iso": "2026-05-12T16:02:29"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0013_inner0378d57nm_edge0100d71nm_transmission_abs2.xlsx",
+      "name": "0013_inner0378d57nm_edge0100d71nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35381,
+      "mtime": 1778573445.8912897,
+      "mtime_iso": "2026-05-12T16:10:45"
+    },
+    {
+      "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒\\02_transmission_excel\\0014_inner0400d00nm_edge0090d00nm_transmission_abs2.xlsx",
+      "name": "0014_inner0400d00nm_edge0090d00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35675,
+      "mtime": 1778574014.8842494,
+      "mtime_iso": "2026-05-12T16:20:14"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+  "relative_path": "C4对称结构\\方环\\results\\内孔尺寸扫描扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_15时34分18秒",
+  "group": "C4",
+  "mother_structure": "方环",
+  "perturbation": "内孔尺寸扫描扰动",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 15,
+  "spectra_count": 15,
+  "sample_count": 15,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": 0.0017000000000000001,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": 1700.0,
+  "modified_at": "2026-05-12T15:34:22",
+  "mtime": 1778571262.915264,
+  "fingerprint": {
+    "mtime_max": 1778574015.0134718,
+    "total_size": 806103229,
+    "file_count": 96,
+    "dir_count": 6,
+    "fingerprint": "1778574015.0134718-806103229-96-6"
+  },
+  "last_indexed_at": "2026-05-20T14:34:05",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1700",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_15时34分18秒_a9940071",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "finished_at": "2026-05-20T16:14:55",
+  "created_files": [
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\00_scan_plan\\scan_points.csv",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\05_work_fsp\\master_template.fsp",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\结构状态说明.md"
+  ],
+  "modified_files": [],
+  "deleted_files": [],
+  "created_dirs": [
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\00_scan_plan",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\01_fsp",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\02_transmission_excel",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\03_transmission_abs2_png",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\04_logs",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\05_work_fsp"
+  ],
+  "modified_dirs": [
+    "C2对称结构\\双圆盘\\results\\半径差扰动"
+  ],
+  "dirty_paths": [
+    "C2对称结构\\双圆盘\\results\\半径差扰动",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\00_scan_plan",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\00_scan_plan\\scan_points.csv",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\01_fsp",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\02_transmission_excel",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\03_transmission_abs2_png",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\04_logs",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\05_work_fsp",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\05_work_fsp\\master_template.fsp",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月20日_16时14分39秒\\结构状态说明.md"
+  ],
+  "job_id": "job_20260520_161434_356a19"
+}

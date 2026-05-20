@@ -1,0 +1,757 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+    "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒",
+    "group": "controller_logs",
+    "mother_structure": "C4对称结构",
+    "perturbation": "单臂开槽扰动",
+    "reduction_path": "",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 1,
+    "spectra_count": 1,
+    "sample_count": 20,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": 0.0017000000000000001,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": 1700.0,
+    "modified_at": "2026-05-15T18:04:57",
+    "mtime": 1778839497.0428119,
+    "fingerprint": {
+      "mtime_max": 1778839497.0568116,
+      "total_size": 103947244,
+      "file_count": 22,
+      "dir_count": 7,
+      "fingerprint": "1778839497.0568116-103947244-22-7"
+    },
+    "last_indexed_at": "2026-05-20T14:34:09",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1700",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "#1",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\01_fsp_files\\0000_slot0000d00nm.fsp"
+    },
+    {
+      "sample_id": "#2",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\master_template.fsp"
+    },
+    {
+      "sample_id": "#3",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0000_slot0000d00nm.fsp"
+    },
+    {
+      "sample_id": "#4",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#5",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#6",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#7",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#8",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#9",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#10",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#11",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#12",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#13",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#14",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#15",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#16",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#17",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#18",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#19",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    },
+    {
+      "sample_id": "#20",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0000_slot0000d00nm.fsp.bak",
+      "name": "work_0000_slot0000d00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292428,
+      "mtime": 1778511084.5172076,
+      "mtime_iso": "2026-05-11T22:51:24"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp.bak",
+      "name": "work_0001_slot0010d53nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 293260,
+      "mtime": 1778512187.58137,
+      "mtime_iso": "2026-05-11T23:09:47"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 779,
+      "mtime": 1778510946.3368578,
+      "mtime_iso": "2026-05-11T22:49:06"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 824,
+      "mtime": 1778511086.8097677,
+      "mtime_iso": "2026-05-11T22:51:26"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 452,
+      "mtime": 1778839497.0468106,
+      "mtime_iso": "2026-05-15T18:04:57"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 452,
+      "mtime": 1778839497.0498111,
+      "mtime_iso": "2026-05-15T18:04:57"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 385,
+      "mtime": 1778839497.0438125,
+      "mtime_iso": "2026-05-15T18:04:57"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\01_fsp_files\\0000_slot0000d00nm.fsp",
+      "name": "0000_slot0000d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802499,
+      "mtime": 1778511085.5197165,
+      "mtime_iso": "2026-05-11T22:51:25"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802515,
+      "mtime": 1778311389.878584,
+      "mtime_iso": "2026-05-09T15:23:09"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0000_slot0000d00nm.fsp",
+      "name": "work_0000_slot0000d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802499,
+      "mtime": 1778511085.5197165,
+      "mtime_iso": "2026-05-11T22:51:25"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm.fsp",
+      "name": "work_0001_slot0010d53nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804627,
+      "mtime": 1778512187.5973637,
+      "mtime_iso": "2026-05-11T23:09:47"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\03_transmission_png_abs2\\0000_slot0000d00nm.png",
+      "name": "0000_slot0000d00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69175,
+      "mtime": 1778511086.8082592,
+      "mtime_iso": "2026-05-11T22:51:26"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 674,
+      "mtime": 1778839497.0508115,
+      "mtime_iso": "2026-05-15T18:04:57"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839497.052812,
+      "mtime_iso": "2026-05-15T18:04:57"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 20458,
+      "mtime": 1778839497.0458107,
+      "mtime_iso": "2026-05-15T18:04:57"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\04_logs\\automation_run.log",
+      "name": "automation_run.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 751,
+      "mtime": 1778511086.8107765,
+      "mtime_iso": "2026-05-11T22:51:26"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0000_slot0000d00nm_p0.log",
+      "name": "work_0000_slot0000d00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3715,
+      "mtime": 1778511084.5382428,
+      "mtime_iso": "2026-05-11T22:51:24"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\05_work_fsp\\work_0001_slot0010d53nm_p0.log",
+      "name": "work_0001_slot0010d53nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 10314,
+      "mtime": 1778512187.6003656,
+      "mtime_iso": "2026-05-11T23:09:47"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2466,
+      "mtime": 1778839497.0568116,
+      "mtime_iso": "2026-05-15T18:04:57"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1508,
+      "mtime": 1778839497.0548134,
+      "mtime_iso": "2026-05-15T18:04:57"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 699,
+      "mtime": 1778510946.3378487,
+      "mtime_iso": "2026-05-11T22:49:06"
+    },
+    {
+      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒\\02_transmission_excel\\0000_slot0000d00nm.xlsx",
+      "name": "0000_slot0000d00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35405,
+      "mtime": 1778511085.7781086,
+      "mtime_iso": "2026-05-11T22:51:25"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+  "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\results\\单臂开槽扰动\\run_full_2026年5月11日_22时48分46秒",
+  "group": "controller_logs",
+  "mother_structure": "C4对称结构",
+  "perturbation": "单臂开槽扰动",
+  "reduction_path": "",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 1,
+  "spectra_count": 1,
+  "sample_count": 20,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": 0.0017000000000000001,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": 1700.0,
+  "modified_at": "2026-05-15T18:04:57",
+  "mtime": 1778839497.0428119,
+  "fingerprint": {
+    "mtime_max": 1778839497.0568116,
+    "total_size": 103947244,
+    "file_count": 22,
+    "dir_count": 7,
+    "fingerprint": "1778839497.0568116-103947244-22-7"
+  },
+  "last_indexed_at": "2026-05-20T14:34:09",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1700",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月11日_22时48分46秒_150a0f7c",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

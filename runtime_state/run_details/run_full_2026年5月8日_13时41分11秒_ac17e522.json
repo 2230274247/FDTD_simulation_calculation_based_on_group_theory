@@ -1,0 +1,830 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+    "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒",
+    "group": "C4",
+    "mother_structure": "四裂缝环",
+    "perturbation": "裂缝角度差扰动",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 9,
+    "spectra_count": 9,
+    "sample_count": 9,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": 0.0017000000000000001,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": 1700.0,
+    "modified_at": "2026-05-15T18:04:58",
+    "mtime": 1778839498.6328936,
+    "fingerprint": {
+      "mtime_max": 1778839498.6768947,
+      "total_size": 258975695,
+      "file_count": 41,
+      "dir_count": 7,
+      "fingerprint": "1778839498.6768947-258975695-41-7"
+    },
+    "last_indexed_at": "2026-05-20T14:34:04",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1700",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0000_single_slit_angle_delta_angle_delta_0.000_deg.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0001_single_slit_angle_delta_angle_delta_5.000_deg.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0002_single_slit_angle_delta_angle_delta_10.000_deg.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0003_single_slit_angle_delta_angle_delta_15.000_deg.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0004_single_slit_angle_delta_angle_delta_20.000_deg.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0005_single_slit_angle_delta_angle_delta_25.000_deg.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0006_single_slit_angle_delta_angle_delta_30.000_deg.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0007_single_slit_angle_delta_angle_delta_35.000_deg.fsp"
+    },
+    {
+      "sample_id": "8",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0008_single_slit_angle_delta_angle_delta_40.000_deg.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 529,
+      "mtime": 1778218878.9394534,
+      "mtime_iso": "2026-05-08T13:41:18"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 6807,
+      "mtime": 1778221637.4107583,
+      "mtime_iso": "2026-05-08T14:27:17"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2901,
+      "mtime": 1778839498.6639059,
+      "mtime_iso": "2026-05-15T18:04:58"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2901,
+      "mtime": 1778839498.6698928,
+      "mtime_iso": "2026-05-15T18:04:58"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2466,
+      "mtime": 1778839498.64589,
+      "mtime_iso": "2026-05-15T18:04:58"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0000_single_slit_angle_delta_angle_delta_0.000_deg.fsp",
+      "name": "0000_single_slit_angle_delta_angle_delta_0.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805558,
+      "mtime": 1778218920.1491132,
+      "mtime_iso": "2026-05-08T13:42:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0001_single_slit_angle_delta_angle_delta_5.000_deg.fsp",
+      "name": "0001_single_slit_angle_delta_angle_delta_5.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25806726,
+      "mtime": 1778219457.4933631,
+      "mtime_iso": "2026-05-08T13:50:57"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0002_single_slit_angle_delta_angle_delta_10.000_deg.fsp",
+      "name": "0002_single_slit_angle_delta_angle_delta_10.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25806726,
+      "mtime": 1778219962.4852664,
+      "mtime_iso": "2026-05-08T13:59:22"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0003_single_slit_angle_delta_angle_delta_15.000_deg.fsp",
+      "name": "0003_single_slit_angle_delta_angle_delta_15.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25806470,
+      "mtime": 1778220360.7626271,
+      "mtime_iso": "2026-05-08T14:06:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0004_single_slit_angle_delta_angle_delta_20.000_deg.fsp",
+      "name": "0004_single_slit_angle_delta_angle_delta_20.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25806710,
+      "mtime": 1778220852.9722798,
+      "mtime_iso": "2026-05-08T14:14:12"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0005_single_slit_angle_delta_angle_delta_25.000_deg.fsp",
+      "name": "0005_single_slit_angle_delta_angle_delta_25.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25806726,
+      "mtime": 1778221354.1053646,
+      "mtime_iso": "2026-05-08T14:22:34"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0006_single_slit_angle_delta_angle_delta_30.000_deg.fsp",
+      "name": "0006_single_slit_angle_delta_angle_delta_30.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805734,
+      "mtime": 1778221459.6369376,
+      "mtime_iso": "2026-05-08T14:24:19"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0007_single_slit_angle_delta_angle_delta_35.000_deg.fsp",
+      "name": "0007_single_slit_angle_delta_angle_delta_35.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805686,
+      "mtime": 1778221547.73835,
+      "mtime_iso": "2026-05-08T14:25:47"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\01_fsp\\0008_single_slit_angle_delta_angle_delta_40.000_deg.fsp",
+      "name": "0008_single_slit_angle_delta_angle_delta_40.000_deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805686,
+      "mtime": 1778221636.668003,
+      "mtime_iso": "2026-05-08T14:27:16"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805654,
+      "mtime": 1777217597.5635574,
+      "mtime_iso": "2026-04-26T23:33:17"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0000_single_slit_angle_delta_angle_delta_0.000_deg.png",
+      "name": "0000_single_slit_angle_delta_angle_delta_0.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 62190,
+      "mtime": 1778218920.5203424,
+      "mtime_iso": "2026-05-08T13:42:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0001_single_slit_angle_delta_angle_delta_5.000_deg.png",
+      "name": "0001_single_slit_angle_delta_angle_delta_5.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 62206,
+      "mtime": 1778219457.8282614,
+      "mtime_iso": "2026-05-08T13:50:57"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0002_single_slit_angle_delta_angle_delta_10.000_deg.png",
+      "name": "0002_single_slit_angle_delta_angle_delta_10.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63375,
+      "mtime": 1778219963.2879322,
+      "mtime_iso": "2026-05-08T13:59:23"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0003_single_slit_angle_delta_angle_delta_15.000_deg.png",
+      "name": "0003_single_slit_angle_delta_angle_delta_15.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 62824,
+      "mtime": 1778220361.095712,
+      "mtime_iso": "2026-05-08T14:06:01"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0004_single_slit_angle_delta_angle_delta_20.000_deg.png",
+      "name": "0004_single_slit_angle_delta_angle_delta_20.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 32455,
+      "mtime": 1778220853.3025813,
+      "mtime_iso": "2026-05-08T14:14:13"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0005_single_slit_angle_delta_angle_delta_25.000_deg.png",
+      "name": "0005_single_slit_angle_delta_angle_delta_25.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 33085,
+      "mtime": 1778221354.4299843,
+      "mtime_iso": "2026-05-08T14:22:34"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0006_single_slit_angle_delta_angle_delta_30.000_deg.png",
+      "name": "0006_single_slit_angle_delta_angle_delta_30.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63966,
+      "mtime": 1778221459.9573257,
+      "mtime_iso": "2026-05-08T14:24:19"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0007_single_slit_angle_delta_angle_delta_35.000_deg.png",
+      "name": "0007_single_slit_angle_delta_angle_delta_35.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 64551,
+      "mtime": 1778221548.6730838,
+      "mtime_iso": "2026-05-08T14:25:48"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\03_transmission_abs2_png\\0008_single_slit_angle_delta_angle_delta_40.000_deg.png",
+      "name": "0008_single_slit_angle_delta_angle_delta_40.000_deg.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 65168,
+      "mtime": 1778221637.4097452,
+      "mtime_iso": "2026-05-08T14:27:17"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 674,
+      "mtime": 1778839498.6708922,
+      "mtime_iso": "2026-05-15T18:04:58"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839498.6728897,
+      "mtime_iso": "2026-05-15T18:04:58"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 134287,
+      "mtime": 1778839498.6568937,
+      "mtime_iso": "2026-05-15T18:04:58"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\04_logs\\automation_run.log",
+      "name": "automation_run.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 1466,
+      "mtime": 1778221637.4107583,
+      "mtime_iso": "2026-05-08T14:27:17"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2423,
+      "mtime": 1778839498.6768947,
+      "mtime_iso": "2026-05-15T18:04:58"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1512,
+      "mtime": 1778839498.674891,
+      "mtime_iso": "2026-05-15T18:04:58"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1400,
+      "mtime": 1778218878.9401226,
+      "mtime_iso": "2026-05-08T13:41:18"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\00_scan_plan\\scan_summary.txt",
+      "name": "scan_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 252,
+      "mtime": 1778218878.9401226,
+      "mtime_iso": "2026-05-08T13:41:18"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0000_single_slit_angle_delta_angle_delta_0.000_deg.xlsx",
+      "name": "0000_single_slit_angle_delta_angle_delta_0.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27157,
+      "mtime": 1778218920.3760922,
+      "mtime_iso": "2026-05-08T13:42:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0001_single_slit_angle_delta_angle_delta_5.000_deg.xlsx",
+      "name": "0001_single_slit_angle_delta_angle_delta_5.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27155,
+      "mtime": 1778219457.7088182,
+      "mtime_iso": "2026-05-08T13:50:57"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0002_single_slit_angle_delta_angle_delta_10.000_deg.xlsx",
+      "name": "0002_single_slit_angle_delta_angle_delta_10.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27132,
+      "mtime": 1778219963.1629343,
+      "mtime_iso": "2026-05-08T13:59:23"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0003_single_slit_angle_delta_angle_delta_15.000_deg.xlsx",
+      "name": "0003_single_slit_angle_delta_angle_delta_15.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27083,
+      "mtime": 1778220360.9874618,
+      "mtime_iso": "2026-05-08T14:06:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0004_single_slit_angle_delta_angle_delta_20.000_deg.xlsx",
+      "name": "0004_single_slit_angle_delta_angle_delta_20.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 28099,
+      "mtime": 1778220853.188301,
+      "mtime_iso": "2026-05-08T14:14:13"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0005_single_slit_angle_delta_angle_delta_25.000_deg.xlsx",
+      "name": "0005_single_slit_angle_delta_angle_delta_25.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27371,
+      "mtime": 1778221354.3247695,
+      "mtime_iso": "2026-05-08T14:22:34"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0006_single_slit_angle_delta_angle_delta_30.000_deg.xlsx",
+      "name": "0006_single_slit_angle_delta_angle_delta_30.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27075,
+      "mtime": 1778221459.8482907,
+      "mtime_iso": "2026-05-08T14:24:19"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0007_single_slit_angle_delta_angle_delta_35.000_deg.xlsx",
+      "name": "0007_single_slit_angle_delta_angle_delta_35.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27109,
+      "mtime": 1778221548.5521917,
+      "mtime_iso": "2026-05-08T14:25:48"
+    },
+    {
+      "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒\\02_transmission_excel\\0008_single_slit_angle_delta_angle_delta_40.000_deg.xlsx",
+      "name": "0008_single_slit_angle_delta_angle_delta_40.000_deg.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27041,
+      "mtime": 1778221637.293098,
+      "mtime_iso": "2026-05-08T14:27:17"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 8,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+  "relative_path": "C4对称结构\\四裂缝环\\results\\裂缝角度差扰动\\不收敛结果\\run_full_2026年5月8日_13时41分11秒",
+  "group": "C4",
+  "mother_structure": "四裂缝环",
+  "perturbation": "裂缝角度差扰动",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 9,
+  "spectra_count": 9,
+  "sample_count": 9,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": 0.0017000000000000001,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": 1700.0,
+  "modified_at": "2026-05-15T18:04:58",
+  "mtime": 1778839498.6328936,
+  "fingerprint": {
+    "mtime_max": 1778839498.6768947,
+    "total_size": 258975695,
+    "file_count": 41,
+    "dir_count": 7,
+    "fingerprint": "1778839498.6768947-258975695-41-7"
+  },
+  "last_indexed_at": "2026-05-20T14:34:04",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1700",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_13时41分11秒_ac17e522",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

@@ -1,0 +1,1931 @@
+{
+  "taken_at": "2026-05-20T16:14:35",
+  "items": [
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动",
+      "mtime": 1779175141.0489392,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒",
+      "mtime": 1779156546.4010944,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\00_scan_plan",
+      "mtime": 1779156546.4000955,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1779156546.4010944,
+      "size": 464,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\01_fsp",
+      "mtime": 1779156534.1399474,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\02_transmission_excel",
+      "mtime": 1779156534.1409476,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\03_transmission_abs2_png",
+      "mtime": 1779156534.1409476,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\04_logs",
+      "mtime": 1779156534.1409476,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\05_work_fsp",
+      "mtime": 1779156534.1439536,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1779155316.2275968,
+      "size": 298120,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月19日_10时08分54秒\\结构状态说明.md",
+      "mtime": 1779156546.402096,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件",
+      "mtime": 1778127810.856673,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full",
+      "mtime": 1778127810.8556733,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察",
+      "mtime": 1779175141.0459714,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒",
+      "mtime": 1778839488.8348577,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\00_scan_plan",
+      "mtime": 1778780343.8321354,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778780343.8321354,
+      "size": 2335,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp",
+      "mtime": 1778783886.3829753,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0000_disk_radius_difference_0.000nm.fsp",
+      "mtime": 1778780401.9992788,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0001_disk_radius_difference_1.000nm.fsp",
+      "mtime": 1778781051.6457655,
+      "size": 51265114,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0002_disk_radius_difference_2.000nm.fsp",
+      "mtime": 1778781607.728585,
+      "size": 51264906,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0003_disk_radius_difference_3.000nm.fsp",
+      "mtime": 1778781982.584951,
+      "size": 51264522,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0004_disk_radius_difference_4.000nm.fsp",
+      "mtime": 1778782242.3294597,
+      "size": 51264266,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0005_disk_radius_difference_5.000nm.fsp",
+      "mtime": 1778782413.255994,
+      "size": 51264074,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0006_disk_radius_difference_6.000nm.fsp",
+      "mtime": 1778782555.233166,
+      "size": 51264010,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0007_disk_radius_difference_7.000nm.fsp",
+      "mtime": 1778782660.6208344,
+      "size": 51263930,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0008_disk_radius_difference_8.000nm.fsp",
+      "mtime": 1778782744.715162,
+      "size": 51263882,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0009_disk_radius_difference_9.000nm.fsp",
+      "mtime": 1778782816.772867,
+      "size": 51263866,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0010_disk_radius_difference_10.000nm.fsp",
+      "mtime": 1778782877.9552321,
+      "size": 51263834,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0011_disk_radius_difference_11.000nm.fsp",
+      "mtime": 1778782934.232463,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0012_disk_radius_difference_12.000nm.fsp",
+      "mtime": 1778782987.1430492,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0013_disk_radius_difference_13.000nm.fsp",
+      "mtime": 1778783039.3808963,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0014_disk_radius_difference_14.000nm.fsp",
+      "mtime": 1778783091.0283167,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0015_disk_radius_difference_15.000nm.fsp",
+      "mtime": 1778783144.9844904,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0016_disk_radius_difference_16.000nm.fsp",
+      "mtime": 1778783196.865944,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0017_disk_radius_difference_17.000nm.fsp",
+      "mtime": 1778783251.395223,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0018_disk_radius_difference_18.000nm.fsp",
+      "mtime": 1778783302.2869215,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0019_disk_radius_difference_19.000nm.fsp",
+      "mtime": 1778783355.6873267,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0020_disk_radius_difference_20.000nm.fsp",
+      "mtime": 1778783407.9088974,
+      "size": 51263818,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0021_disk_radius_difference_21.000nm.fsp",
+      "mtime": 1778783457.9770405,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0022_disk_radius_difference_22.000nm.fsp",
+      "mtime": 1778783506.688346,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0023_disk_radius_difference_23.000nm.fsp",
+      "mtime": 1778783558.5702934,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0024_disk_radius_difference_24.000nm.fsp",
+      "mtime": 1778783606.7350743,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0025_disk_radius_difference_25.000nm.fsp",
+      "mtime": 1778783654.6727538,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0026_disk_radius_difference_26.000nm.fsp",
+      "mtime": 1778783701.8282251,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0027_disk_radius_difference_27.000nm.fsp",
+      "mtime": 1778783748.387912,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0028_disk_radius_difference_28.000nm.fsp",
+      "mtime": 1778783795.0531018,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0029_disk_radius_difference_29.000nm.fsp",
+      "mtime": 1778783841.036326,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\01_fsp\\0030_disk_radius_difference_30.000nm.fsp",
+      "mtime": 1778783886.3799398,
+      "size": 51263802,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel",
+      "mtime": 1778783886.4052055,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0000_disk_radius_difference_0.000nm_transmission_abs2.xlsx",
+      "mtime": 1778780402.0262437,
+      "size": 25409,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0001_disk_radius_difference_1.000nm_transmission_abs2.xlsx",
+      "mtime": 1778781051.676972,
+      "size": 25436,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0002_disk_radius_difference_2.000nm_transmission_abs2.xlsx",
+      "mtime": 1778781607.7562869,
+      "size": 25368,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0003_disk_radius_difference_3.000nm_transmission_abs2.xlsx",
+      "mtime": 1778781982.618858,
+      "size": 25407,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0004_disk_radius_difference_4.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782242.3741977,
+      "size": 25403,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0005_disk_radius_difference_5.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782413.2820427,
+      "size": 25413,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0006_disk_radius_difference_6.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782555.2714732,
+      "size": 25431,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0007_disk_radius_difference_7.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782660.6475825,
+      "size": 25412,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0008_disk_radius_difference_8.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782744.7553928,
+      "size": 25400,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0009_disk_radius_difference_9.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782816.814203,
+      "size": 25409,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0010_disk_radius_difference_10.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782878.0037706,
+      "size": 25340,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0011_disk_radius_difference_11.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782934.2592487,
+      "size": 25417,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0012_disk_radius_difference_12.000nm_transmission_abs2.xlsx",
+      "mtime": 1778782987.1726196,
+      "size": 25380,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0013_disk_radius_difference_13.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783039.4185398,
+      "size": 25359,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0014_disk_radius_difference_14.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783091.0561087,
+      "size": 25397,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0015_disk_radius_difference_15.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783145.011487,
+      "size": 25401,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0016_disk_radius_difference_16.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783196.9047678,
+      "size": 25350,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0017_disk_radius_difference_17.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783251.424878,
+      "size": 25366,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0018_disk_radius_difference_18.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783302.325775,
+      "size": 25361,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0019_disk_radius_difference_19.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783355.712853,
+      "size": 25335,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0020_disk_radius_difference_20.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783407.9342132,
+      "size": 25392,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0021_disk_radius_difference_21.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783458.0200412,
+      "size": 25357,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0022_disk_radius_difference_22.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783506.7143126,
+      "size": 25356,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0023_disk_radius_difference_23.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783558.6005156,
+      "size": 25320,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0024_disk_radius_difference_24.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783606.7859275,
+      "size": 25362,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0025_disk_radius_difference_25.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783654.7007742,
+      "size": 25324,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0026_disk_radius_difference_26.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783701.8562253,
+      "size": 25316,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0027_disk_radius_difference_27.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783748.4146025,
+      "size": 25344,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0028_disk_radius_difference_28.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783795.0807397,
+      "size": 25321,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0029_disk_radius_difference_29.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783841.1440172,
+      "size": 25319,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\02_transmission_excel\\0030_disk_radius_difference_30.000nm_transmission_abs2.xlsx",
+      "mtime": 1778783886.407873,
+      "size": 25243,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png",
+      "mtime": 1778783886.508022,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0000_disk_radius_difference_0.000nm_transmission_abs2.png",
+      "mtime": 1778780402.5396297,
+      "size": 68917,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0001_disk_radius_difference_1.000nm_transmission_abs2.png",
+      "mtime": 1778781051.7944758,
+      "size": 68041,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0002_disk_radius_difference_2.000nm_transmission_abs2.png",
+      "mtime": 1778781607.882735,
+      "size": 68504,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0003_disk_radius_difference_3.000nm_transmission_abs2.png",
+      "mtime": 1778781982.7467523,
+      "size": 70211,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0004_disk_radius_difference_4.000nm_transmission_abs2.png",
+      "mtime": 1778782242.5108316,
+      "size": 68747,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0005_disk_radius_difference_5.000nm_transmission_abs2.png",
+      "mtime": 1778782413.4064953,
+      "size": 72538,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0006_disk_radius_difference_6.000nm_transmission_abs2.png",
+      "mtime": 1778782555.3857017,
+      "size": 70473,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0007_disk_radius_difference_7.000nm_transmission_abs2.png",
+      "mtime": 1778782660.7738874,
+      "size": 72420,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0008_disk_radius_difference_8.000nm_transmission_abs2.png",
+      "mtime": 1778782744.8775232,
+      "size": 72426,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0009_disk_radius_difference_9.000nm_transmission_abs2.png",
+      "mtime": 1778782816.9340794,
+      "size": 73534,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0010_disk_radius_difference_10.000nm_transmission_abs2.png",
+      "mtime": 1778782878.1457589,
+      "size": 73145,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0011_disk_radius_difference_11.000nm_transmission_abs2.png",
+      "mtime": 1778782934.3868675,
+      "size": 73255,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0012_disk_radius_difference_12.000nm_transmission_abs2.png",
+      "mtime": 1778782987.3031244,
+      "size": 72721,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0013_disk_radius_difference_13.000nm_transmission_abs2.png",
+      "mtime": 1778783039.5438747,
+      "size": 72316,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0014_disk_radius_difference_14.000nm_transmission_abs2.png",
+      "mtime": 1778783091.1715834,
+      "size": 73137,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0015_disk_radius_difference_15.000nm_transmission_abs2.png",
+      "mtime": 1778783145.1377034,
+      "size": 72667,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0016_disk_radius_difference_16.000nm_transmission_abs2.png",
+      "mtime": 1778783197.0321982,
+      "size": 73484,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0017_disk_radius_difference_17.000nm_transmission_abs2.png",
+      "mtime": 1778783251.542713,
+      "size": 72669,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0018_disk_radius_difference_18.000nm_transmission_abs2.png",
+      "mtime": 1778783302.4547608,
+      "size": 72643,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0019_disk_radius_difference_19.000nm_transmission_abs2.png",
+      "mtime": 1778783355.8400488,
+      "size": 72370,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0020_disk_radius_difference_20.000nm_transmission_abs2.png",
+      "mtime": 1778783408.064327,
+      "size": 71527,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0021_disk_radius_difference_21.000nm_transmission_abs2.png",
+      "mtime": 1778783458.147076,
+      "size": 70731,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0022_disk_radius_difference_22.000nm_transmission_abs2.png",
+      "mtime": 1778783506.8323152,
+      "size": 70608,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0023_disk_radius_difference_23.000nm_transmission_abs2.png",
+      "mtime": 1778783558.727937,
+      "size": 70096,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0024_disk_radius_difference_24.000nm_transmission_abs2.png",
+      "mtime": 1778783606.9229069,
+      "size": 70055,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0025_disk_radius_difference_25.000nm_transmission_abs2.png",
+      "mtime": 1778783654.8311234,
+      "size": 69510,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0026_disk_radius_difference_26.000nm_transmission_abs2.png",
+      "mtime": 1778783701.9782255,
+      "size": 69807,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0027_disk_radius_difference_27.000nm_transmission_abs2.png",
+      "mtime": 1778783748.5417998,
+      "size": 68534,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0028_disk_radius_difference_28.000nm_transmission_abs2.png",
+      "mtime": 1778783795.2073176,
+      "size": 68230,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0029_disk_radius_difference_29.000nm_transmission_abs2.png",
+      "mtime": 1778783841.2948713,
+      "size": 68281,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\03_transmission_abs2_png\\0030_disk_radius_difference_30.000nm_transmission_abs2.png",
+      "mtime": 1778783886.5373566,
+      "size": 67444,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\04_logs",
+      "mtime": 1778780402.705315,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\04_logs\\manifest.csv",
+      "mtime": 1778783886.7144454,
+      "size": 22607,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\05_work_fsp",
+      "mtime": 1778780330.0410666,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1778735141.6649637,
+      "size": 51263946,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary",
+      "mtime": 1778839488.8598595,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary\\diagnostic_summary.md",
+      "mtime": 1778839488.8598595,
+      "size": 2539,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary\\mechanism_guess.json",
+      "mtime": 1778839488.857858,
+      "size": 1740,
+      "kind": "json"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary\\missing_data_report.json",
+      "mtime": 1778839488.8588588,
+      "size": 1359,
+      "kind": "json"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary\\next_actions.md",
+      "mtime": 1778839488.8588588,
+      "size": 1496,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary\\ranking_notch.csv",
+      "mtime": 1778839488.855894,
+      "size": 9203,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary\\ranking_passband.csv",
+      "mtime": 1778839488.857858,
+      "size": 9204,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary\\spectral_metrics.csv",
+      "mtime": 1778839488.8368573,
+      "size": 7667,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\12_analysis_summary\\spectral_metrics.json",
+      "mtime": 1778839488.8548565,
+      "size": 440331,
+      "kind": "json"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_01时38分50秒\\结构状态说明.md",
+      "mtime": 1778780343.8331356,
+      "size": 1328,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒",
+      "mtime": 1778132175.0558333,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\00_scan_plan",
+      "mtime": 1778132175.0528333,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778132175.054834,
+      "size": 625,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\01_fsp",
+      "mtime": 1778132635.2513893,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\01_fsp\\0000_disk_radius_difference_disk_radius_difference_0.000nm.fsp",
+      "mtime": 1778132239.0053718,
+      "size": 25802249,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\01_fsp\\0001_disk_radius_difference_disk_radius_difference_5.000nm.fsp",
+      "mtime": 1778132382.422168,
+      "size": 25802457,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\01_fsp\\0002_disk_radius_difference_disk_radius_difference_10.000nm.fsp",
+      "mtime": 1778132436.6177845,
+      "size": 25802233,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\01_fsp\\0003_disk_radius_difference_disk_radius_difference_15.000nm.fsp",
+      "mtime": 1778132481.429204,
+      "size": 25802217,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\01_fsp\\0004_disk_radius_difference_disk_radius_difference_20.000nm.fsp",
+      "mtime": 1778132538.1543052,
+      "size": 25802233,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\01_fsp\\0005_disk_radius_difference_disk_radius_difference_25.000nm.fsp",
+      "mtime": 1778132594.0699232,
+      "size": 25802217,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\01_fsp\\0006_disk_radius_difference_disk_radius_difference_30.000nm.fsp",
+      "mtime": 1778132635.2473884,
+      "size": 25802217,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\02_transmission_excel",
+      "mtime": 1778132635.2865245,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\02_transmission_excel\\0000_disk_radius_difference_disk_radius_difference_0.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132239.0578742,
+      "size": 25409,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\02_transmission_excel\\0001_disk_radius_difference_disk_radius_difference_5.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132382.4647357,
+      "size": 25413,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\02_transmission_excel\\0002_disk_radius_difference_disk_radius_difference_10.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132436.6608245,
+      "size": 25340,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\02_transmission_excel\\0003_disk_radius_difference_disk_radius_difference_15.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132481.4825895,
+      "size": 25401,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\02_transmission_excel\\0004_disk_radius_difference_disk_radius_difference_20.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132538.215816,
+      "size": 25392,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\02_transmission_excel\\0005_disk_radius_difference_disk_radius_difference_25.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132594.1235816,
+      "size": 25324,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\02_transmission_excel\\0006_disk_radius_difference_disk_radius_difference_30.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132635.2895648,
+      "size": 25243,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\03_transmission_abs2_png",
+      "mtime": 1778132635.3645642,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\03_transmission_abs2_png\\0000_disk_radius_difference_disk_radius_difference_0.000nm_transmission_abs2.png",
+      "mtime": 1778132239.4442048,
+      "size": 79497,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\03_transmission_abs2_png\\0001_disk_radius_difference_disk_radius_difference_5.000nm_transmission_abs2.png",
+      "mtime": 1778132382.5995188,
+      "size": 82918,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\03_transmission_abs2_png\\0002_disk_radius_difference_disk_radius_difference_10.000nm_transmission_abs2.png",
+      "mtime": 1778132436.7898214,
+      "size": 83492,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\03_transmission_abs2_png\\0003_disk_radius_difference_disk_radius_difference_15.000nm_transmission_abs2.png",
+      "mtime": 1778132481.617491,
+      "size": 83682,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\03_transmission_abs2_png\\0004_disk_radius_difference_disk_radius_difference_20.000nm_transmission_abs2.png",
+      "mtime": 1778132538.363159,
+      "size": 82767,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\03_transmission_abs2_png\\0005_disk_radius_difference_disk_radius_difference_25.000nm_transmission_abs2.png",
+      "mtime": 1778132594.2637284,
+      "size": 80606,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\03_transmission_abs2_png\\0006_disk_radius_difference_disk_radius_difference_30.000nm_transmission_abs2.png",
+      "mtime": 1778132635.4136472,
+      "size": 78658,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\04_logs",
+      "mtime": 1778132239.7317986,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\04_logs\\manifest.csv",
+      "mtime": 1778132635.6063638,
+      "size": 5799,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\05_work_fsp",
+      "mtime": 1778132161.8013268,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1777217420.249899,
+      "size": 25802313,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒\\结构状态说明.md",
+      "mtime": 1778132175.0558333,
+      "size": 1327,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001",
+      "mtime": 1778839511.0871894,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\00_scan_plan",
+      "mtime": 1778679794.196021,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\01_fsp",
+      "mtime": 1778679794.2106943,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\02_transmission_excel",
+      "mtime": 1778679794.2146645,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\02_transmission_excel\\0005_disk_radius_difference_disk_radius_difference_25.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132594.1235816,
+      "size": 25324,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\02_transmission_excel\\0006_disk_radius_difference_disk_radius_difference_30.000nm_transmission_abs2.xlsx",
+      "mtime": 1778132635.2895648,
+      "size": 25243,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\03_transmission_abs2_png",
+      "mtime": 1778132635.3645642,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\03_transmission_abs2_png\\0000_disk_radius_difference_disk_radius_difference_0.000nm_transmission_abs2.png",
+      "mtime": 1778132239.4442048,
+      "size": 79497,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\03_transmission_abs2_png\\0001_disk_radius_difference_disk_radius_difference_5.000nm_transmission_abs2.png",
+      "mtime": 1778132382.5995188,
+      "size": 82918,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\03_transmission_abs2_png\\0002_disk_radius_difference_disk_radius_difference_10.000nm_transmission_abs2.png",
+      "mtime": 1778132436.7898214,
+      "size": 83492,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\03_transmission_abs2_png\\0003_disk_radius_difference_disk_radius_difference_15.000nm_transmission_abs2.png",
+      "mtime": 1778132481.617491,
+      "size": 83682,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\03_transmission_abs2_png\\0004_disk_radius_difference_disk_radius_difference_20.000nm_transmission_abs2.png",
+      "mtime": 1778132538.363159,
+      "size": 82767,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\03_transmission_abs2_png\\0005_disk_radius_difference_disk_radius_difference_25.000nm_transmission_abs2.png",
+      "mtime": 1778132594.2637284,
+      "size": 80606,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\03_transmission_abs2_png\\0006_disk_radius_difference_disk_radius_difference_30.000nm_transmission_abs2.png",
+      "mtime": 1778132635.4136472,
+      "size": 78658,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\04_logs",
+      "mtime": 1778132239.7317986,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\04_logs\\manifest.csv",
+      "mtime": 1778132635.6063638,
+      "size": 5799,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\05_work_fsp",
+      "mtime": 1778132161.8013268,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\05_work_fsp\\master_template.fsp",
+      "mtime": 1777217420.249899,
+      "size": 25802313,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary",
+      "mtime": 1778839511.1061954,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary\\diagnostic_summary.md",
+      "mtime": 1779078934.2645793,
+      "size": 2533,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary\\mechanism_guess.json",
+      "mtime": 1779078934.262579,
+      "size": 1740,
+      "kind": "json"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary\\missing_data_report.json",
+      "mtime": 1779078934.263579,
+      "size": 1359,
+      "kind": "json"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary\\next_actions.md",
+      "mtime": 1779078934.263579,
+      "size": 1495,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary\\ranking_notch.csv",
+      "mtime": 1779078934.2615776,
+      "size": 894,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary\\ranking_passband.csv",
+      "mtime": 1779078934.262579,
+      "size": 894,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary\\spectral_metrics.csv",
+      "mtime": 1779078934.2576096,
+      "size": 775,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\12_analysis_summary\\spectral_metrics.json",
+      "mtime": 1779078934.2606125,
+      "size": 37377,
+      "kind": "json"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\待考察\\run_full_2026年5月7日_13时36分01秒_001\\结构状态说明.md",
+      "mtime": 1778132175.0558333,
+      "size": 1327,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\无效",
+      "mtime": 1778127810.8556733,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\full\\良好",
+      "mtime": 1778127810.8546748,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview",
+      "mtime": 1778127810.856673,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察",
+      "mtime": 1779175141.0489392,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒",
+      "mtime": 1778511615.422686,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\00_scan_plan",
+      "mtime": 1778511615.4196825,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778511615.420686,
+      "size": 625,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\01_fsp",
+      "mtime": 1778511607.2676885,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\02_transmission_excel",
+      "mtime": 1778511607.2676885,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\03_transmission_abs2_png",
+      "mtime": 1778511607.268688,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\04_logs",
+      "mtime": 1778511607.268688,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\05_work_fsp",
+      "mtime": 1778511607.2707024,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1778315939.6778734,
+      "size": 51263946,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时00分07秒\\结构状态说明.md",
+      "mtime": 1778511615.422686,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒",
+      "mtime": 1778512343.522462,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\00_scan_plan",
+      "mtime": 1778512343.520455,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778512343.521455,
+      "size": 625,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\01_fsp",
+      "mtime": 1778512328.877383,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\02_transmission_excel",
+      "mtime": 1778512328.877383,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\03_transmission_abs2_png",
+      "mtime": 1778512328.8783882,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\04_logs",
+      "mtime": 1778512328.8783882,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\05_work_fsp",
+      "mtime": 1778512328.8803818,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1778315939.6778734,
+      "size": 51263946,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月11日_23时12分08秒\\结构状态说明.md",
+      "mtime": 1778512343.5234523,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒",
+      "mtime": 1778754829.8507001,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\00_scan_plan",
+      "mtime": 1778754829.849703,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778754829.8507001,
+      "size": 464,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\01_fsp",
+      "mtime": 1778754818.6765237,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\02_transmission_excel",
+      "mtime": 1778754818.6773105,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\03_transmission_abs2_png",
+      "mtime": 1778754818.6773105,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\04_logs",
+      "mtime": 1778754818.6773105,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\05_work_fsp",
+      "mtime": 1778754818.6780736,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1778735141.6649637,
+      "size": 51263946,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_18时33分38秒\\结构状态说明.md",
+      "mtime": 1778754829.8507001,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒",
+      "mtime": 1778758029.7176192,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\00_scan_plan",
+      "mtime": 1778758029.7166274,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778758029.7166274,
+      "size": 464,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\01_fsp",
+      "mtime": 1778758017.105549,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\02_transmission_excel",
+      "mtime": 1778758017.105549,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\03_transmission_abs2_png",
+      "mtime": 1778758017.106336,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\04_logs",
+      "mtime": 1778758017.106336,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\05_work_fsp",
+      "mtime": 1778758017.107584,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1778735141.6649637,
+      "size": 51263946,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月14日_19时26分57秒\\结构状态说明.md",
+      "mtime": 1778758029.7176192,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒",
+      "mtime": 1779156249.3657966,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\00_scan_plan",
+      "mtime": 1779156249.3648033,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1779156249.3657966,
+      "size": 464,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\01_fsp",
+      "mtime": 1779156235.936802,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\02_transmission_excel",
+      "mtime": 1779156235.936802,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\03_transmission_abs2_png",
+      "mtime": 1779156235.936802,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\04_logs",
+      "mtime": 1779156235.9378088,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\05_work_fsp",
+      "mtime": 1779156235.9388041,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1779155316.2275968,
+      "size": 298120,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月19日_10时03分55秒\\结构状态说明.md",
+      "mtime": 1779156249.366795,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒",
+      "mtime": 1778122952.7689364,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\00_scan_plan",
+      "mtime": 1778122952.7679336,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778122952.7689364,
+      "size": 188,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\01_fsp",
+      "mtime": 1778122946.9824803,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\02_transmission_excel",
+      "mtime": 1778122946.9824803,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\03_transmission_abs2_png",
+      "mtime": 1778122946.983477,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\04_logs",
+      "mtime": 1778122946.983477,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\05_work_fsp",
+      "mtime": 1778122946.9844768,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1777217420.249899,
+      "size": 25802313,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时02分26秒\\结构状态说明.md",
+      "mtime": 1778122952.7699335,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒",
+      "mtime": 1778125956.0348315,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\00_scan_plan",
+      "mtime": 1778125956.0328398,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778125956.0338333,
+      "size": 625,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\01_fsp",
+      "mtime": 1778125942.5109615,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\02_transmission_excel",
+      "mtime": 1778125942.5109615,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\03_transmission_abs2_png",
+      "mtime": 1778125942.5109615,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\04_logs",
+      "mtime": 1778125942.5119627,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\05_work_fsp",
+      "mtime": 1778125942.5139623,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1777217420.249899,
+      "size": 25802313,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时52分22秒\\结构状态说明.md",
+      "mtime": 1778125956.0348315,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒",
+      "mtime": 1778126050.3633955,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\00_scan_plan",
+      "mtime": 1778126050.3603413,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778126050.3623855,
+      "size": 625,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\01_fsp",
+      "mtime": 1778126036.9110277,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\02_transmission_excel",
+      "mtime": 1778126036.911493,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\03_transmission_abs2_png",
+      "mtime": 1778126036.911493,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\04_logs",
+      "mtime": 1778126036.9124954,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\05_work_fsp",
+      "mtime": 1778126036.9144938,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1777217420.249899,
+      "size": 25802313,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时53分56秒\\结构状态说明.md",
+      "mtime": 1778126050.3633955,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒",
+      "mtime": 1778126140.9377356,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\00_scan_plan",
+      "mtime": 1778126140.934235,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778126140.9352303,
+      "size": 625,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\01_fsp",
+      "mtime": 1778126125.8102713,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\02_transmission_excel",
+      "mtime": 1778126125.8112721,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\03_transmission_abs2_png",
+      "mtime": 1778126125.8122644,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\04_logs",
+      "mtime": 1778126125.8122644,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\05_work_fsp",
+      "mtime": 1778126125.8154752,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1777217420.249899,
+      "size": 25802313,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_11时55分25秒\\结构状态说明.md",
+      "mtime": 1778126140.9382873,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒",
+      "mtime": 1778128272.692729,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\00_scan_plan",
+      "mtime": 1778128272.6907291,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778128272.6917305,
+      "size": 625,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\01_fsp",
+      "mtime": 1778128256.1619554,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\02_transmission_excel",
+      "mtime": 1778128256.1619554,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\03_transmission_abs2_png",
+      "mtime": 1778128256.162954,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\04_logs",
+      "mtime": 1778128256.162954,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\05_work_fsp",
+      "mtime": 1778128256.1639524,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1777217420.249899,
+      "size": 25802313,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\待考察\\run_preview_2026年5月7日_12时30分56秒\\结构状态说明.md",
+      "mtime": 1778128272.692729,
+      "size": 1330,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\无效",
+      "mtime": 1778127810.856673,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\preview\\良好",
+      "mtime": 1778127810.8556733,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test",
+      "mtime": 1778127810.8546748,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察",
+      "mtime": 1778132075.3661976,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒",
+      "mtime": 1778128321.4878552,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\00_scan_plan",
+      "mtime": 1778128321.4858553,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\00_scan_plan\\scan_points.csv",
+      "mtime": 1778128321.4868894,
+      "size": 266,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\01_fsp",
+      "mtime": 1778128615.7830422,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\01_fsp\\0000_disk_radius_difference_disk_radius_difference_0.000nm.fsp",
+      "mtime": 1778128383.4989698,
+      "size": 25802233,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\01_fsp\\0001_disk_radius_difference_disk_radius_difference_5.000nm.fsp",
+      "mtime": 1778128554.6808894,
+      "size": 25802473,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\01_fsp\\0002_disk_radius_difference_disk_radius_difference_10.000nm.fsp",
+      "mtime": 1778128615.769048,
+      "size": 25802233,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\02_transmission_excel",
+      "mtime": 1778128615.8210423,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\02_transmission_excel\\0000_disk_radius_difference_disk_radius_difference_0.000nm_transmission_abs2.xlsx",
+      "mtime": 1778128383.5569701,
+      "size": 25409,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\02_transmission_excel\\0001_disk_radius_difference_disk_radius_difference_5.000nm_transmission_abs2.xlsx",
+      "mtime": 1778128554.7428882,
+      "size": 25413,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\02_transmission_excel\\0002_disk_radius_difference_disk_radius_difference_10.000nm_transmission_abs2.xlsx",
+      "mtime": 1778128615.8250425,
+      "size": 25340,
+      "kind": "xlsx"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\03_transmission_abs2_png",
+      "mtime": 1778128615.9281652,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\03_transmission_abs2_png\\0000_disk_radius_difference_disk_radius_difference_0.000nm_transmission_abs2.png",
+      "mtime": 1778128384.0215185,
+      "size": 79497,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\03_transmission_abs2_png\\0001_disk_radius_difference_disk_radius_difference_5.000nm_transmission_abs2.png",
+      "mtime": 1778128554.8934007,
+      "size": 82918,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\03_transmission_abs2_png\\0002_disk_radius_difference_disk_radius_difference_10.000nm_transmission_abs2.png",
+      "mtime": 1778128615.9912024,
+      "size": 83492,
+      "kind": "image"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\04_logs",
+      "mtime": 1778128385.188631,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\04_logs\\manifest.csv",
+      "mtime": 1778128617.0338416,
+      "size": 2539,
+      "kind": "csv"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\05_work_fsp",
+      "mtime": 1778128309.7836971,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\05_work_fsp\\master_template.fsp",
+      "mtime": 1777217420.249899,
+      "size": 25802313,
+      "kind": "fsp"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\待考察\\run_test_2026年5月7日_12时31分49秒\\结构状态说明.md",
+      "mtime": 1778128321.4878552,
+      "size": 1327,
+      "kind": "md"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\无效",
+      "mtime": 1778127810.8546748,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\test\\良好",
+      "mtime": 1778127810.8536737,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\unknown",
+      "mtime": 1778127810.8576734,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\unknown\\待考察",
+      "mtime": 1778127810.8576734,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\unknown\\无效",
+      "mtime": 1778127810.8576734,
+      "size": 0,
+      "kind": "dir"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\旧文件\\unknown\\良好",
+      "mtime": 1778127810.856673,
+      "size": 0,
+      "kind": "dir"
+    }
+  ]
+}

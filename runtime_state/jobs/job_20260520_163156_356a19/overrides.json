@@ -1,0 +1,10 @@
+{
+  "*": {
+    "START_NM": 0,
+    "END_NM": 10,
+    "STEP_NM": 5,
+    "MESH_ACCURACY": 1,
+    "DT_STABILITY_FACTOR": -1,
+    "AUTO_SHUTOFF_MIN": 1e-07
+  }
+}

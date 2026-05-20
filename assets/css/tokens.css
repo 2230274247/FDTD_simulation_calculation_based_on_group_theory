@@ -1,0 +1,35 @@
+:root {
+  --color-primary: #0B7B6B;
+  --color-primary-2: #00746F;
+  --color-primary-dark: #075E54;
+  --color-primary-soft: #E6F4F1;
+  --color-bg: #F8FAFB;
+  --color-bg-alt: #F6F8FB;
+  --color-surface: #FFFFFF;
+  --color-sidebar: #182B2A;
+  --color-sidebar-soft: rgba(255, 255, 255, 0.07);
+  --color-border: #E4ECEA;
+  --color-border-strong: #CBDAD7;
+  --color-text: #111827;
+  --color-text-2: #4B5563;
+  --color-muted: #7A8793;
+  --color-muted-2: #A3ADB8;
+  --color-danger: #D92D20;
+  --color-danger-soft: #FEEDEC;
+  --color-warning: #D97706;
+  --color-warning-soft: #FFF7E8;
+  --color-success: #059669;
+  --color-success-soft: #E8F7EF;
+  --color-info: #2563EB;
+  --color-info-soft: #EAF1FF;
+  --color-terminal: #0F172A;
+  --shadow-card: 0 10px 24px rgba(15, 23, 42, 0.045);
+  --shadow-float: 0 18px 46px rgba(15, 23, 42, 0.18);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --sidebar-w: 236px;
+  --topbar-h: 56px;
+  --font-ui: "Microsoft YaHei", "PingFang SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}

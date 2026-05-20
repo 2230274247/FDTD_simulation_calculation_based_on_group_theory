@@ -1,0 +1,535 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+    "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒",
+    "group": "C2",
+    "mother_structure": "双椭圆",
+    "perturbation": "短轴差扰动",
+    "reduction_path": "C2 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 6,
+    "spectra_count": 6,
+    "sample_count": 6,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 186.3890506261838,
+    "score": 186.3890506261838,
+    "lambda0_nm": 1369.0050107372942,
+    "Q": 205.55840343329314,
+    "q": 205.55840343329314,
+    "FWHM_nm": 6.659932106261749,
+    "fwhm_nm": 6.659932106261749,
+    "max_t": 1.0115519510164552,
+    "modified_at": "2026-05-12T02:07:09",
+    "mtime": 1778522829.3666668,
+    "fingerprint": {
+      "mtime_max": 1778523793.8174784,
+      "total_size": 181188800,
+      "file_count": 22,
+      "dir_count": 6,
+      "fingerprint": "1778523793.8174784-181188800-22-6"
+    },
+    "last_indexed_at": "2026-05-20T14:33:57",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1.012",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "0.0",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 186.3890506261838,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0000_ellipse_short_axis_difference_short_axis_difference_0.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "5e-09",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 186.3890506261838,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0001_ellipse_short_axis_difference_short_axis_difference_5.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "1e-08",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 186.3890506261838,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0002_ellipse_short_axis_difference_short_axis_difference_10.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "1.5000000000000002e-08",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 186.3890506261838,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0003_ellipse_short_axis_difference_short_axis_difference_15.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "2e-08",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 186.3890506261838,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0004_ellipse_short_axis_difference_short_axis_difference_20.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "2.5e-08",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 186.3890506261838,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0005_ellipse_short_axis_difference_short_axis_difference_25.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 569,
+      "mtime": 1778522829.2591867,
+      "mtime_iso": "2026-05-12T02:07:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 5142,
+      "mtime": 1778523793.8174784,
+      "mtime_iso": "2026-05-12T02:23:13"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0000_ellipse_short_axis_difference_short_axis_difference_0.000nm.fsp",
+      "name": "0000_ellipse_short_axis_difference_short_axis_difference_0.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802827,
+      "mtime": 1778523060.131649,
+      "mtime_iso": "2026-05-12T02:11:00"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0001_ellipse_short_axis_difference_short_axis_difference_5.000nm.fsp",
+      "name": "0001_ellipse_short_axis_difference_short_axis_difference_5.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802747,
+      "mtime": 1778523253.2259676,
+      "mtime_iso": "2026-05-12T02:14:13"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0002_ellipse_short_axis_difference_short_axis_difference_10.000nm.fsp",
+      "name": "0002_ellipse_short_axis_difference_short_axis_difference_10.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802683,
+      "mtime": 1778523413.6514013,
+      "mtime_iso": "2026-05-12T02:16:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0003_ellipse_short_axis_difference_short_axis_difference_15.000nm.fsp",
+      "name": "0003_ellipse_short_axis_difference_short_axis_difference_15.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802635,
+      "mtime": 1778523558.3445058,
+      "mtime_iso": "2026-05-12T02:19:18"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0004_ellipse_short_axis_difference_short_axis_difference_20.000nm.fsp",
+      "name": "0004_ellipse_short_axis_difference_short_axis_difference_20.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802603,
+      "mtime": 1778523680.517286,
+      "mtime_iso": "2026-05-12T02:21:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\01_fsp\\0005_ellipse_short_axis_difference_short_axis_difference_25.000nm.fsp",
+      "name": "0005_ellipse_short_axis_difference_short_axis_difference_25.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802571,
+      "mtime": 1778523793.5095167,
+      "mtime_iso": "2026-05-12T02:23:13"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802827,
+      "mtime": 1777259076.1984816,
+      "mtime_iso": "2026-04-27T11:04:36"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\03_transmission_abs2_png\\0000_ellipse_short_axis_difference_short_axis_difference_0.000nm_transmission_abs2.png",
+      "name": "0000_ellipse_short_axis_difference_short_axis_difference_0.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 71477,
+      "mtime": 1778523060.675781,
+      "mtime_iso": "2026-05-12T02:11:00"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\03_transmission_abs2_png\\0001_ellipse_short_axis_difference_short_axis_difference_5.000nm_transmission_abs2.png",
+      "name": "0001_ellipse_short_axis_difference_short_axis_difference_5.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 70599,
+      "mtime": 1778523253.395069,
+      "mtime_iso": "2026-05-12T02:14:13"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\03_transmission_abs2_png\\0002_ellipse_short_axis_difference_short_axis_difference_10.000nm_transmission_abs2.png",
+      "name": "0002_ellipse_short_axis_difference_short_axis_difference_10.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 70172,
+      "mtime": 1778523413.79636,
+      "mtime_iso": "2026-05-12T02:16:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\03_transmission_abs2_png\\0003_ellipse_short_axis_difference_short_axis_difference_15.000nm_transmission_abs2.png",
+      "name": "0003_ellipse_short_axis_difference_short_axis_difference_15.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 67799,
+      "mtime": 1778523558.4981053,
+      "mtime_iso": "2026-05-12T02:19:18"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\03_transmission_abs2_png\\0004_ellipse_short_axis_difference_short_axis_difference_20.000nm_transmission_abs2.png",
+      "name": "0004_ellipse_short_axis_difference_short_axis_difference_20.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 67272,
+      "mtime": 1778523680.680071,
+      "mtime_iso": "2026-05-12T02:21:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\03_transmission_abs2_png\\0005_ellipse_short_axis_difference_short_axis_difference_25.000nm_transmission_abs2.png",
+      "name": "0005_ellipse_short_axis_difference_short_axis_difference_25.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 64592,
+      "mtime": 1778523793.652799,
+      "mtime_iso": "2026-05-12T02:23:13"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1418,
+      "mtime": 1778522829.3677397,
+      "mtime_iso": "2026-05-12T02:07:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\02_transmission_excel\\0000_ellipse_short_axis_difference_short_axis_difference_0.000nm_transmission_abs2.xlsx",
+      "name": "0000_ellipse_short_axis_difference_short_axis_difference_0.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25161,
+      "mtime": 1778523060.1516106,
+      "mtime_iso": "2026-05-12T02:11:00"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\02_transmission_excel\\0001_ellipse_short_axis_difference_short_axis_difference_5.000nm_transmission_abs2.xlsx",
+      "name": "0001_ellipse_short_axis_difference_short_axis_difference_5.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25212,
+      "mtime": 1778523253.2679112,
+      "mtime_iso": "2026-05-12T02:14:13"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\02_transmission_excel\\0002_ellipse_short_axis_difference_short_axis_difference_10.000nm_transmission_abs2.xlsx",
+      "name": "0002_ellipse_short_axis_difference_short_axis_difference_10.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25156,
+      "mtime": 1778523413.6703653,
+      "mtime_iso": "2026-05-12T02:16:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\02_transmission_excel\\0003_ellipse_short_axis_difference_short_axis_difference_15.000nm_transmission_abs2.xlsx",
+      "name": "0003_ellipse_short_axis_difference_short_axis_difference_15.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25114,
+      "mtime": 1778523558.3737514,
+      "mtime_iso": "2026-05-12T02:19:18"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\02_transmission_excel\\0004_ellipse_short_axis_difference_short_axis_difference_20.000nm_transmission_abs2.xlsx",
+      "name": "0004_ellipse_short_axis_difference_short_axis_difference_20.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25117,
+      "mtime": 1778523680.5477972,
+      "mtime_iso": "2026-05-12T02:21:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒\\02_transmission_excel\\0005_ellipse_short_axis_difference_short_axis_difference_25.000nm_transmission_abs2.xlsx",
+      "name": "0005_ellipse_short_axis_difference_short_axis_difference_25.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25107,
+      "mtime": 1778523793.527517,
+      "mtime_iso": "2026-05-12T02:23:13"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+  "relative_path": "C2对称结构\\双椭圆\\results\\短轴差扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_02时07分04秒",
+  "group": "C2",
+  "mother_structure": "双椭圆",
+  "perturbation": "短轴差扰动",
+  "reduction_path": "C2 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 6,
+  "spectra_count": 6,
+  "sample_count": 6,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 186.3890506261838,
+  "score": 186.3890506261838,
+  "lambda0_nm": 1369.0050107372942,
+  "Q": 205.55840343329314,
+  "q": 205.55840343329314,
+  "FWHM_nm": 6.659932106261749,
+  "fwhm_nm": 6.659932106261749,
+  "max_t": 1.0115519510164552,
+  "modified_at": "2026-05-12T02:07:09",
+  "mtime": 1778522829.3666668,
+  "fingerprint": {
+    "mtime_max": 1778523793.8174784,
+    "total_size": 181188800,
+    "file_count": 22,
+    "dir_count": 6,
+    "fingerprint": "1778523793.8174784-181188800-22-6"
+  },
+  "last_indexed_at": "2026-05-20T14:33:57",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1.012",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_02时07分04秒_8140b47f",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

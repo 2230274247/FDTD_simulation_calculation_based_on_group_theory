@@ -1,0 +1,520 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+    "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒",
+    "group": "C4",
+    "mother_structure": "十字",
+    "perturbation": "单臂长度变化扰动",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "test",
+    "spectrum_count": 3,
+    "spectra_count": 3,
+    "sample_count": 3,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": 0.0017000000000000001,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": 1700.0,
+    "modified_at": "2026-05-04T12:38:29",
+    "mtime": 1777869509.3732955,
+    "fingerprint": {
+      "mtime_max": 1777869625.044464,
+      "total_size": 157446420,
+      "file_count": 23,
+      "dir_count": 6,
+      "fingerprint": "1777869625.044464-157446420-23-6"
+    },
+    "last_indexed_at": "2026-05-20T14:34:01",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1700",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "#1",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\01_fsp_files\\0000_Hx0200d00nm_deltam0380d00nm.fsp"
+    },
+    {
+      "sample_id": "#2",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\01_fsp_files\\0001_Hx0226d32nm_deltam0353d68nm.fsp"
+    },
+    {
+      "sample_id": "#3",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\01_fsp_files\\0002_Hx0252d63nm_deltam0327d37nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0000_Hx0200d00nm_deltam0380d00nm.fsp.bak",
+      "name": "work_0000_Hx0200d00nm_deltam0380d00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292388,
+      "mtime": 1777869542.2271633,
+      "mtime_iso": "2026-05-04T12:39:02"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0001_Hx0226d32nm_deltam0353d68nm.fsp.bak",
+      "name": "work_0001_Hx0226d32nm_deltam0353d68nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292380,
+      "mtime": 1777869572.31625,
+      "mtime_iso": "2026-05-04T12:39:32"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0002_Hx0252d63nm_deltam0327d37nm.fsp.bak",
+      "name": "work_0002_Hx0252d63nm_deltam0327d37nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292428,
+      "mtime": 1777869623.7681704,
+      "mtime_iso": "2026-05-04T12:40:23"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 125,
+      "mtime": 1777869509.3732955,
+      "mtime_iso": "2026-05-04T12:38:29"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 1869,
+      "mtime": 1777869625.044464,
+      "mtime_iso": "2026-05-04T12:40:25"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\01_fsp_files\\0000_Hx0200d00nm_deltam0380d00nm.fsp",
+      "name": "0000_Hx0200d00nm_deltam0380d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 20260251,
+      "mtime": 1777869543.1402779,
+      "mtime_iso": "2026-05-04T12:39:03"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\01_fsp_files\\0001_Hx0226d32nm_deltam0353d68nm.fsp",
+      "name": "0001_Hx0226d32nm_deltam0353d68nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 19151811,
+      "mtime": 1777869573.7028399,
+      "mtime_iso": "2026-05-04T12:39:33"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\01_fsp_files\\0002_Hx0252d63nm_deltam0327d37nm.fsp",
+      "name": "0002_Hx0252d63nm_deltam0327d37nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802467,
+      "mtime": 1777869624.6913795,
+      "mtime_iso": "2026-05-04T12:40:24"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802595,
+      "mtime": 1777217113.9559307,
+      "mtime_iso": "2026-04-26T23:25:13"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0000_Hx0200d00nm_deltam0380d00nm.fsp",
+      "name": "work_0000_Hx0200d00nm_deltam0380d00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 20260251,
+      "mtime": 1777869543.1402779,
+      "mtime_iso": "2026-05-04T12:39:03"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0001_Hx0226d32nm_deltam0353d68nm.fsp",
+      "name": "work_0001_Hx0226d32nm_deltam0353d68nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 19151811,
+      "mtime": 1777869573.7028399,
+      "mtime_iso": "2026-05-04T12:39:33"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0002_Hx0252d63nm_deltam0327d37nm.fsp",
+      "name": "work_0002_Hx0252d63nm_deltam0327d37nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802467,
+      "mtime": 1777869624.6913795,
+      "mtime_iso": "2026-05-04T12:40:24"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\03_transmission_png_abs2\\0000_Hx0200d00nm_deltam0380d00nm.png",
+      "name": "0000_Hx0200d00nm_deltam0380d00nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 71833,
+      "mtime": 1777869544.494108,
+      "mtime_iso": "2026-05-04T12:39:04"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\03_transmission_png_abs2\\0001_Hx0226d32nm_deltam0353d68nm.png",
+      "name": "0001_Hx0226d32nm_deltam0353d68nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 75840,
+      "mtime": 1777869574.065716,
+      "mtime_iso": "2026-05-04T12:39:34"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\03_transmission_png_abs2\\0002_Hx0252d63nm_deltam0327d37nm.png",
+      "name": "0002_Hx0252d63nm_deltam0327d37nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 70675,
+      "mtime": 1777869625.0434463,
+      "mtime_iso": "2026-05-04T12:40:25"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\04_logs\\automation_run.log",
+      "name": "automation_run.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 1233,
+      "mtime": 1777869625.044464,
+      "mtime_iso": "2026-05-04T12:40:25"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0000_Hx0200d00nm_deltam0380d00nm_p0.log",
+      "name": "work_0000_Hx0200d00nm_deltam0380d00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3410,
+      "mtime": 1777869542.2360663,
+      "mtime_iso": "2026-05-04T12:39:02"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0001_Hx0226d32nm_deltam0353d68nm_p0.log",
+      "name": "work_0001_Hx0226d32nm_deltam0353d68nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3407,
+      "mtime": 1777869572.3252506,
+      "mtime_iso": "2026-05-04T12:39:32"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\05_work_fsp\\work_0002_Hx0252d63nm_deltam0327d37nm_p0.log",
+      "name": "work_0002_Hx0252d63nm_deltam0327d37nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 3484,
+      "mtime": 1777869623.789795,
+      "mtime_iso": "2026-05-04T12:40:23"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 584,
+      "mtime": 1777869509.3742957,
+      "mtime_iso": "2026-05-04T12:38:29"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\02_transmission_excel\\0000_Hx0200d00nm_deltam0380d00nm.xlsx",
+      "name": "0000_Hx0200d00nm_deltam0380d00nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35009,
+      "mtime": 1777869544.179242,
+      "mtime_iso": "2026-05-04T12:39:04"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\02_transmission_excel\\0001_Hx0226d32nm_deltam0353d68nm.xlsx",
+      "name": "0001_Hx0226d32nm_deltam0353d68nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35090,
+      "mtime": 1777869573.9250011,
+      "mtime_iso": "2026-05-04T12:39:33"
+    },
+    {
+      "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒\\02_transmission_excel\\0002_Hx0252d63nm_deltam0327d37nm.xlsx",
+      "name": "0002_Hx0252d63nm_deltam0327d37nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35012,
+      "mtime": 1777869624.9097216,
+      "mtime_iso": "2026-05-04T12:40:24"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+  "relative_path": "C4对称结构\\十字\\results\\单臂长度变化扰动\\旧文件\\test\\待考察\\run_test_2026年5月4日_12时38分16秒",
+  "group": "C4",
+  "mother_structure": "十字",
+  "perturbation": "单臂长度变化扰动",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "test",
+  "spectrum_count": 3,
+  "spectra_count": 3,
+  "sample_count": 3,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": 0.0017000000000000001,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": 1700.0,
+  "modified_at": "2026-05-04T12:38:29",
+  "mtime": 1777869509.3732955,
+  "fingerprint": {
+    "mtime_max": 1777869625.044464,
+    "total_size": 157446420,
+    "file_count": 23,
+    "dir_count": 6,
+    "fingerprint": "1777869625.044464-157446420-23-6"
+  },
+  "last_indexed_at": "2026-05-20T14:34:01",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1700",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_test_2026年5月4日_12时38分16秒_fd643860",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

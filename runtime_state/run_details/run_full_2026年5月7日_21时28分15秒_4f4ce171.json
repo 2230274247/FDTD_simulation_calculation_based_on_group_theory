@@ -1,0 +1,758 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+    "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒",
+    "group": "C2",
+    "mother_structure": "双脊",
+    "perturbation": "脊高差扰动",
+    "reduction_path": "C2 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 9,
+    "spectra_count": 9,
+    "sample_count": 9,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 790.9062349409181,
+    "score": 790.9062349409181,
+    "lambda0_nm": 1455.4794520547946,
+    "Q": 1031.694,
+    "q": 1031.694,
+    "FWHM_nm": 1.3044454,
+    "fwhm_nm": 1.3044454,
+    "max_t": 0.7913543362989529,
+    "modified_at": "2026-05-15T18:05:05",
+    "mtime": 1778839505.957329,
+    "fingerprint": {
+      "mtime_max": 1778839505.9699092,
+      "total_size": 216498430,
+      "file_count": 39,
+      "dir_count": 7,
+      "fingerprint": "1778839505.9699092-216498430-39-7"
+    },
+    "last_indexed_at": "2026-05-20T14:33:58",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "0.0",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0000_ridge_height_difference_ridge_height_difference_0.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "5e-09",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0001_ridge_height_difference_ridge_height_difference_5.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "1e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0002_ridge_height_difference_ridge_height_difference_10.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "1.5000000000000002e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0003_ridge_height_difference_ridge_height_difference_15.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "2e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0004_ridge_height_difference_ridge_height_difference_20.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "2.5e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0005_ridge_height_difference_ridge_height_difference_25.000nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "3e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0006_ridge_height_difference_ridge_height_difference_30.000nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "3.4999999999999996e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0007_ridge_height_difference_ridge_height_difference_35.000nm.fsp"
+    },
+    {
+      "sample_id": "8",
+      "delta": "3.9999999999999994e-08",
+      "lambda0_nm": 1455.4794520547946,
+      "score": 790.9062349409181,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0008_ridge_height_difference_ridge_height_difference_40.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 859,
+      "mtime": 1778160500.283102,
+      "mtime_iso": "2026-05-07T21:28:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 7395,
+      "mtime": 1778162294.5851471,
+      "mtime_iso": "2026-05-07T21:58:14"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3562,
+      "mtime": 1778839505.9658773,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3567,
+      "mtime": 1778839505.9669158,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3113,
+      "mtime": 1778839505.9583306,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0000_ridge_height_difference_ridge_height_difference_0.000nm.fsp",
+      "name": "0000_ridge_height_difference_ridge_height_difference_0.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562266,
+      "mtime": 1778160560.5549228,
+      "mtime_iso": "2026-05-07T21:29:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0001_ridge_height_difference_ridge_height_difference_5.000nm.fsp",
+      "name": "0001_ridge_height_difference_ridge_height_difference_5.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562826,
+      "mtime": 1778160764.5221584,
+      "mtime_iso": "2026-05-07T21:32:44"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0002_ridge_height_difference_ridge_height_difference_10.000nm.fsp",
+      "name": "0002_ridge_height_difference_ridge_height_difference_10.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562826,
+      "mtime": 1778160968.7650497,
+      "mtime_iso": "2026-05-07T21:36:08"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0003_ridge_height_difference_ridge_height_difference_15.000nm.fsp",
+      "name": "0003_ridge_height_difference_ridge_height_difference_15.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562842,
+      "mtime": 1778161177.9673414,
+      "mtime_iso": "2026-05-07T21:39:37"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0004_ridge_height_difference_ridge_height_difference_20.000nm.fsp",
+      "name": "0004_ridge_height_difference_ridge_height_difference_20.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562858,
+      "mtime": 1778161388.9605505,
+      "mtime_iso": "2026-05-07T21:43:08"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0005_ridge_height_difference_ridge_height_difference_25.000nm.fsp",
+      "name": "0005_ridge_height_difference_ridge_height_difference_25.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562874,
+      "mtime": 1778161608.8350687,
+      "mtime_iso": "2026-05-07T21:46:48"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0006_ridge_height_difference_ridge_height_difference_30.000nm.fsp",
+      "name": "0006_ridge_height_difference_ridge_height_difference_30.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562906,
+      "mtime": 1778161833.2298439,
+      "mtime_iso": "2026-05-07T21:50:33"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0007_ridge_height_difference_ridge_height_difference_35.000nm.fsp",
+      "name": "0007_ridge_height_difference_ridge_height_difference_35.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562922,
+      "mtime": 1778162062.3842902,
+      "mtime_iso": "2026-05-07T21:54:22"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\01_fsp\\0008_ridge_height_difference_ridge_height_difference_40.000nm.fsp",
+      "name": "0008_ridge_height_difference_ridge_height_difference_40.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562922,
+      "mtime": 1778162294.2375329,
+      "mtime_iso": "2026-05-07T21:58:14"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 21562234,
+      "mtime": 1777340590.609325,
+      "mtime_iso": "2026-04-28T09:43:10"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0000_ridge_height_difference_ridge_height_difference_0.000nm_transmission_abs2.png",
+      "name": "0000_ridge_height_difference_ridge_height_difference_0.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78194,
+      "mtime": 1778160560.9312997,
+      "mtime_iso": "2026-05-07T21:29:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0001_ridge_height_difference_ridge_height_difference_5.000nm_transmission_abs2.png",
+      "name": "0001_ridge_height_difference_ridge_height_difference_5.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 48112,
+      "mtime": 1778160764.6919782,
+      "mtime_iso": "2026-05-07T21:32:44"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0002_ridge_height_difference_ridge_height_difference_10.000nm_transmission_abs2.png",
+      "name": "0002_ridge_height_difference_ridge_height_difference_10.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 47304,
+      "mtime": 1778160968.9236636,
+      "mtime_iso": "2026-05-07T21:36:08"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0003_ridge_height_difference_ridge_height_difference_15.000nm_transmission_abs2.png",
+      "name": "0003_ridge_height_difference_ridge_height_difference_15.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 48555,
+      "mtime": 1778161178.1318192,
+      "mtime_iso": "2026-05-07T21:39:38"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0004_ridge_height_difference_ridge_height_difference_20.000nm_transmission_abs2.png",
+      "name": "0004_ridge_height_difference_ridge_height_difference_20.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 48586,
+      "mtime": 1778161389.1320336,
+      "mtime_iso": "2026-05-07T21:43:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0005_ridge_height_difference_ridge_height_difference_25.000nm_transmission_abs2.png",
+      "name": "0005_ridge_height_difference_ridge_height_difference_25.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 48330,
+      "mtime": 1778161609.0061233,
+      "mtime_iso": "2026-05-07T21:46:49"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0006_ridge_height_difference_ridge_height_difference_30.000nm_transmission_abs2.png",
+      "name": "0006_ridge_height_difference_ridge_height_difference_30.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 50001,
+      "mtime": 1778161833.3978448,
+      "mtime_iso": "2026-05-07T21:50:33"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0007_ridge_height_difference_ridge_height_difference_35.000nm_transmission_abs2.png",
+      "name": "0007_ridge_height_difference_ridge_height_difference_35.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 49715,
+      "mtime": 1778162062.5436513,
+      "mtime_iso": "2026-05-07T21:54:22"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\03_transmission_abs2_png\\0008_ridge_height_difference_ridge_height_difference_40.000nm_transmission_abs2.png",
+      "name": "0008_ridge_height_difference_ridge_height_difference_40.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 44725,
+      "mtime": 1778162294.3924491,
+      "mtime_iso": "2026-05-07T21:58:14"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1739,
+      "mtime": 1778839505.9679086,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839505.968917,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 150436,
+      "mtime": 1778839505.9648778,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2542,
+      "mtime": 1778839505.9699092,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1491,
+      "mtime": 1778839505.968917,
+      "mtime_iso": "2026-05-15T18:05:05"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1456,
+      "mtime": 1778160500.284131,
+      "mtime_iso": "2026-05-07T21:28:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0000_ridge_height_difference_ridge_height_difference_0.000nm_transmission_abs2.xlsx",
+      "name": "0000_ridge_height_difference_ridge_height_difference_0.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25205,
+      "mtime": 1778160560.6066878,
+      "mtime_iso": "2026-05-07T21:29:20"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0001_ridge_height_difference_ridge_height_difference_5.000nm_transmission_abs2.xlsx",
+      "name": "0001_ridge_height_difference_ridge_height_difference_5.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25362,
+      "mtime": 1778160764.5705926,
+      "mtime_iso": "2026-05-07T21:32:44"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0002_ridge_height_difference_ridge_height_difference_10.000nm_transmission_abs2.xlsx",
+      "name": "0002_ridge_height_difference_ridge_height_difference_10.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25361,
+      "mtime": 1778160968.8133938,
+      "mtime_iso": "2026-05-07T21:36:08"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0003_ridge_height_difference_ridge_height_difference_15.000nm_transmission_abs2.xlsx",
+      "name": "0003_ridge_height_difference_ridge_height_difference_15.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25695,
+      "mtime": 1778161178.0109904,
+      "mtime_iso": "2026-05-07T21:39:38"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0004_ridge_height_difference_ridge_height_difference_20.000nm_transmission_abs2.xlsx",
+      "name": "0004_ridge_height_difference_ridge_height_difference_20.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25698,
+      "mtime": 1778161389.0088282,
+      "mtime_iso": "2026-05-07T21:43:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0005_ridge_height_difference_ridge_height_difference_25.000nm_transmission_abs2.xlsx",
+      "name": "0005_ridge_height_difference_ridge_height_difference_25.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25827,
+      "mtime": 1778161608.8821585,
+      "mtime_iso": "2026-05-07T21:46:48"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0006_ridge_height_difference_ridge_height_difference_30.000nm_transmission_abs2.xlsx",
+      "name": "0006_ridge_height_difference_ridge_height_difference_30.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25716,
+      "mtime": 1778161833.2667704,
+      "mtime_iso": "2026-05-07T21:50:33"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0007_ridge_height_difference_ridge_height_difference_35.000nm_transmission_abs2.xlsx",
+      "name": "0007_ridge_height_difference_ridge_height_difference_35.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25621,
+      "mtime": 1778162062.4189959,
+      "mtime_iso": "2026-05-07T21:54:22"
+    },
+    {
+      "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒\\02_transmission_excel\\0008_ridge_height_difference_ridge_height_difference_40.000nm_transmission_abs2.xlsx",
+      "name": "0008_ridge_height_difference_ridge_height_difference_40.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25428,
+      "mtime": 1778162294.284719,
+      "mtime_iso": "2026-05-07T21:58:14"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 51.534487,
+      "fwhm_nm": 28.209012,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 836.06984,
+      "fwhm_nm": 1.5364387,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 838.17007,
+      "fwhm_nm": 1.5325888,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 1031.694,
+      "fwhm_nm": 1.3044454,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 941.59548,
+      "fwhm_nm": 1.4292639,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 851.45695,
+      "fwhm_nm": 1.5086729,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 857.12684,
+      "fwhm_nm": 1.4986931,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 863.21372,
+      "fwhm_nm": 1.4881252,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 8,
+      "score": 0,
+      "q": 866.7341,
+      "fwhm_nm": 1.4820809,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+  "relative_path": "C2对称结构\\双脊\\results\\脊高差扰动\\不收敛结果\\run_full_2026年5月7日_21时28分15秒",
+  "group": "C2",
+  "mother_structure": "双脊",
+  "perturbation": "脊高差扰动",
+  "reduction_path": "C2 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 9,
+  "spectra_count": 9,
+  "sample_count": 9,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 790.9062349409181,
+  "score": 790.9062349409181,
+  "lambda0_nm": 1455.4794520547946,
+  "Q": 1031.694,
+  "q": 1031.694,
+  "FWHM_nm": 1.3044454,
+  "fwhm_nm": 1.3044454,
+  "max_t": 0.7913543362989529,
+  "modified_at": "2026-05-15T18:05:05",
+  "mtime": 1778839505.957329,
+  "fingerprint": {
+    "mtime_max": 1778839505.9699092,
+    "total_size": 216498430,
+    "file_count": 39,
+    "dir_count": 7,
+    "fingerprint": "1778839505.9699092-216498430-39-7"
+  },
+  "last_indexed_at": "2026-05-20T14:33:58",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_21时28分15秒_4f4ce171",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

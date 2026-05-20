@@ -1,0 +1,581 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+    "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒",
+    "group": "C6",
+    "mother_structure": "六裂缝环",
+    "perturbation": "对裂缝变化扰动",
+    "reduction_path": "C6 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 9,
+    "spectra_count": 9,
+    "sample_count": 8,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 22.74470716573976,
+    "score": 22.74470716573976,
+    "lambda0_nm": 1417.7168272794665,
+    "Q": 22.991706171041155,
+    "q": 22.991706171041155,
+    "FWHM_nm": 61.662097485619825,
+    "fwhm_nm": 61.662097485619825,
+    "max_t": 0.9893636207043088,
+    "modified_at": "2026-05-12T22:35:06",
+    "mtime": 1778596506.0001328,
+    "fingerprint": {
+      "mtime_max": 1778600092.4359472,
+      "total_size": 232876264,
+      "file_count": 28,
+      "dir_count": 6,
+      "fingerprint": "1778600092.4359472-232876264-28-6"
+    },
+    "last_indexed_at": "2026-05-20T14:34:08",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "2e-08",
+      "lambda0_nm": 1417.7168272794665,
+      "score": 22.74470716573976,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0000_opposite_slit_width_slit_width_20.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "2.785714285714286e-08",
+      "lambda0_nm": 1417.7168272794665,
+      "score": 22.74470716573976,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0001_opposite_slit_width_slit_width_27.857nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "3.571428571428572e-08",
+      "lambda0_nm": 1417.7168272794665,
+      "score": 22.74470716573976,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0002_opposite_slit_width_slit_width_35.714nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "4.3571428571428574e-08",
+      "lambda0_nm": 1417.7168272794665,
+      "score": 22.74470716573976,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0003_opposite_slit_width_slit_width_43.571nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "5.142857142857143e-08",
+      "lambda0_nm": 1417.7168272794665,
+      "score": 22.74470716573976,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0004_opposite_slit_width_slit_width_51.429nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "5.9285714285714285e-08",
+      "lambda0_nm": 1417.7168272794665,
+      "score": 22.74470716573976,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0005_opposite_slit_width_slit_width_59.286nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "6.714285714285714e-08",
+      "lambda0_nm": 1417.7168272794665,
+      "score": 22.74470716573976,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0006_opposite_slit_width_slit_width_67.143nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "7.5e-08",
+      "lambda0_nm": 1417.7168272794665,
+      "score": 22.74470716573976,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0007_opposite_slit_width_slit_width_75.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 843,
+      "mtime": 1778595994.6775718,
+      "mtime_iso": "2026-05-12T22:26:34"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 6419,
+      "mtime": 1778600092.4359472,
+      "mtime_iso": "2026-05-12T23:34:52"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0000_opposite_slit_width_slit_width_20.000nm.fsp",
+      "name": "0000_opposite_slit_width_slit_width_20.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25808374,
+      "mtime": 1778596505.27934,
+      "mtime_iso": "2026-05-12T22:35:05"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0001_opposite_slit_width_slit_width_27.857nm.fsp",
+      "name": "0001_opposite_slit_width_slit_width_27.857nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25808374,
+      "mtime": 1778597021.9467876,
+      "mtime_iso": "2026-05-12T22:43:41"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0002_opposite_slit_width_slit_width_35.714nm.fsp",
+      "name": "0002_opposite_slit_width_slit_width_35.714nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25808374,
+      "mtime": 1778597531.9397678,
+      "mtime_iso": "2026-05-12T22:52:11"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0003_opposite_slit_width_slit_width_43.571nm.fsp",
+      "name": "0003_opposite_slit_width_slit_width_43.571nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25808390,
+      "mtime": 1778598052.1240392,
+      "mtime_iso": "2026-05-12T23:00:52"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0004_opposite_slit_width_slit_width_51.429nm.fsp",
+      "name": "0004_opposite_slit_width_slit_width_51.429nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25808374,
+      "mtime": 1778598571.6805868,
+      "mtime_iso": "2026-05-12T23:09:31"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0005_opposite_slit_width_slit_width_59.286nm.fsp",
+      "name": "0005_opposite_slit_width_slit_width_59.286nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25808374,
+      "mtime": 1778599084.7822168,
+      "mtime_iso": "2026-05-12T23:18:04"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0006_opposite_slit_width_slit_width_67.143nm.fsp",
+      "name": "0006_opposite_slit_width_slit_width_67.143nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25808310,
+      "mtime": 1778599573.6032145,
+      "mtime_iso": "2026-05-12T23:26:13"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\01_fsp\\0007_opposite_slit_width_slit_width_75.000nm.fsp",
+      "name": "0007_opposite_slit_width_slit_width_75.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25808390,
+      "mtime": 1778600092.1077585,
+      "mtime_iso": "2026-05-12T23:34:52"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25807366,
+      "mtime": 1777217708.0545065,
+      "mtime_iso": "2026-04-26T23:35:08"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\03_transmission_abs2_png\\0000_opposite_slit_width_slit_width_20.000nm_transmission_abs2.png",
+      "name": "0000_opposite_slit_width_slit_width_20.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 66980,
+      "mtime": 1778596505.9991314,
+      "mtime_iso": "2026-05-12T22:35:05"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\03_transmission_abs2_png\\0001_opposite_slit_width_slit_width_27.857nm_transmission_abs2.png",
+      "name": "0001_opposite_slit_width_slit_width_27.857nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 66118,
+      "mtime": 1778597022.2772677,
+      "mtime_iso": "2026-05-12T22:43:42"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\03_transmission_abs2_png\\0002_opposite_slit_width_slit_width_35.714nm_transmission_abs2.png",
+      "name": "0002_opposite_slit_width_slit_width_35.714nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 64495,
+      "mtime": 1778597532.2939763,
+      "mtime_iso": "2026-05-12T22:52:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\03_transmission_abs2_png\\0003_opposite_slit_width_slit_width_43.571nm_transmission_abs2.png",
+      "name": "0003_opposite_slit_width_slit_width_43.571nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 39485,
+      "mtime": 1778598052.4462907,
+      "mtime_iso": "2026-05-12T23:00:52"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\03_transmission_abs2_png\\0004_opposite_slit_width_slit_width_51.429nm_transmission_abs2.png",
+      "name": "0004_opposite_slit_width_slit_width_51.429nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 40011,
+      "mtime": 1778598572.009726,
+      "mtime_iso": "2026-05-12T23:09:32"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\03_transmission_abs2_png\\0005_opposite_slit_width_slit_width_59.286nm_transmission_abs2.png",
+      "name": "0005_opposite_slit_width_slit_width_59.286nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 38177,
+      "mtime": 1778599085.07049,
+      "mtime_iso": "2026-05-12T23:18:05"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\03_transmission_abs2_png\\0006_opposite_slit_width_slit_width_67.143nm_transmission_abs2.png",
+      "name": "0006_opposite_slit_width_slit_width_67.143nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 38970,
+      "mtime": 1778599573.9277458,
+      "mtime_iso": "2026-05-12T23:26:13"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\03_transmission_abs2_png\\0007_opposite_slit_width_slit_width_75.000nm_transmission_abs2.png",
+      "name": "0007_opposite_slit_width_slit_width_75.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 35441,
+      "mtime": 1778600092.4349215,
+      "mtime_iso": "2026-05-12T23:34:52"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1589,
+      "mtime": 1778595994.6855724,
+      "mtime_iso": "2026-05-12T22:26:34"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\02_transmission_excel\\0000_opposite_slit_width_slit_width_20.000nm_transmission_abs2.xlsx",
+      "name": "0000_opposite_slit_width_slit_width_20.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25282,
+      "mtime": 1778596505.4898953,
+      "mtime_iso": "2026-05-12T22:35:05"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\02_transmission_excel\\0001_opposite_slit_width_slit_width_27.857nm_transmission_abs2.xlsx",
+      "name": "0001_opposite_slit_width_slit_width_27.857nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25250,
+      "mtime": 1778597022.1501687,
+      "mtime_iso": "2026-05-12T22:43:42"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\02_transmission_excel\\0002_opposite_slit_width_slit_width_35.714nm_transmission_abs2.xlsx",
+      "name": "0002_opposite_slit_width_slit_width_35.714nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25268,
+      "mtime": 1778597532.165548,
+      "mtime_iso": "2026-05-12T22:52:12"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\02_transmission_excel\\0003_opposite_slit_width_slit_width_43.571nm_transmission_abs2.xlsx",
+      "name": "0003_opposite_slit_width_slit_width_43.571nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25305,
+      "mtime": 1778598052.311428,
+      "mtime_iso": "2026-05-12T23:00:52"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\02_transmission_excel\\0004_opposite_slit_width_slit_width_51.429nm_transmission_abs2.xlsx",
+      "name": "0004_opposite_slit_width_slit_width_51.429nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25544,
+      "mtime": 1778598571.885462,
+      "mtime_iso": "2026-05-12T23:09:31"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\02_transmission_excel\\0005_opposite_slit_width_slit_width_59.286nm_transmission_abs2.xlsx",
+      "name": "0005_opposite_slit_width_slit_width_59.286nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25556,
+      "mtime": 1778599084.9509077,
+      "mtime_iso": "2026-05-12T23:18:04"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\02_transmission_excel\\0006_opposite_slit_width_slit_width_67.143nm_transmission_abs2.xlsx",
+      "name": "0006_opposite_slit_width_slit_width_67.143nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25633,
+      "mtime": 1778599573.8109658,
+      "mtime_iso": "2026-05-12T23:26:13"
+    },
+    {
+      "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒\\02_transmission_excel\\0007_opposite_slit_width_slit_width_75.000nm_transmission_abs2.xlsx",
+      "name": "0007_opposite_slit_width_slit_width_75.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25572,
+      "mtime": 1778600092.2913606,
+      "mtime_iso": "2026-05-12T23:34:52"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+  "relative_path": "C6对称结构\\六裂缝环\\results\\对裂缝变化扰动\\旧文件\\full\\不收敛\\run_full_2026年5月12日_22时26分28秒",
+  "group": "C6",
+  "mother_structure": "六裂缝环",
+  "perturbation": "对裂缝变化扰动",
+  "reduction_path": "C6 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 9,
+  "spectra_count": 9,
+  "sample_count": 8,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 22.74470716573976,
+  "score": 22.74470716573976,
+  "lambda0_nm": 1417.7168272794665,
+  "Q": 22.991706171041155,
+  "q": 22.991706171041155,
+  "FWHM_nm": 61.662097485619825,
+  "fwhm_nm": 61.662097485619825,
+  "max_t": 0.9893636207043088,
+  "modified_at": "2026-05-12T22:35:06",
+  "mtime": 1778596506.0001328,
+  "fingerprint": {
+    "mtime_max": 1778600092.4359472,
+    "total_size": 232876264,
+    "file_count": 28,
+    "dir_count": 6,
+    "fingerprint": "1778600092.4359472-232876264-28-6"
+  },
+  "last_indexed_at": "2026-05-20T14:34:08",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_22时26分28秒_a7ae7c29",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

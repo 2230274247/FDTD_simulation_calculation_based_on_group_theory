@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "built_at": "2026-05-20T16:32:57",
+  "jobs": [
+    {
+      "job_id": "job_20260520_163156_356a19",
+      "pid": 19992,
+      "status": "stopped",
+      "started_at": "2026-05-20T16:31:56",
+      "completed_at": "2026-05-20T16:32:55",
+      "returncode": 1,
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+        "H:\\FDTD outcome\\struct\\群论_struct\\fdtd_master_controller.py",
+        "--mode",
+        "test",
+        "--style",
+        "sequential",
+        "--max-parallel",
+        "1",
+        "--ids",
+        "1",
+        "--overrides-json",
+        "H:\\FDTD outcome\\struct\\群论_struct\\结果查看器_html_v2\\runtime_state\\jobs\\job_20260520_163156_356a19\\overrides.json",
+        "--child-timeout-s",
+        "3600",
+        "--yes"
+      ],
+      "stdout": "runtime_state\\jobs\\job_20260520_163156_356a19\\stdout.log",
+      "stderr": "runtime_state\\jobs\\job_20260520_163156_356a19\\stderr.log",
+      "manifest_path": "runtime_state\\jobs\\job_20260520_163156_356a19\\job_manifest.json",
+      "created_at": "2026-05-20T16:31:56",
+      "mode": "test",
+      "style": "sequential",
+      "ids": [
+        "1"
+      ],
+      "probable_output_parents": [
+        "C2对称结构\\双圆盘\\results\\半径差扰动"
+      ]
+    },
+    {
+      "job_id": "job_20260520_161434_356a19",
+      "pid": 9056,
+      "status": "success",
+      "started_at": "2026-05-20T16:14:35",
+      "completed_at": "2026-05-20T16:14:55",
+      "returncode": 0,
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+        "H:\\FDTD outcome\\struct\\群论_struct\\fdtd_master_controller.py",
+        "--mode",
+        "preview",
+        "--style",
+        "sequential",
+        "--max-parallel",
+        "1",
+        "--ids",
+        "1",
+        "--overrides-json",
+        "H:\\FDTD outcome\\struct\\群论_struct\\结果查看器_html_v2\\runtime_state\\jobs\\job_20260520_161434_356a19\\overrides.json",
+        "--child-timeout-s",
+        "120",
+        "--yes"
+      ],
+      "stdout": "runtime_state\\jobs\\job_20260520_161434_356a19\\stdout.log",
+      "stderr": "runtime_state\\jobs\\job_20260520_161434_356a19\\stderr.log",
+      "manifest_path": "runtime_state\\jobs\\job_20260520_161434_356a19\\job_manifest.json",
+      "created_at": "2026-05-20T16:14:34",
+      "mode": "preview",
+      "style": "sequential",
+      "ids": [
+        "1"
+      ],
+      "probable_output_parents": [
+        "C2对称结构\\双圆盘\\results\\半径差扰动"
+      ]
+    }
+  ]
+}

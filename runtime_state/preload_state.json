@@ -1,0 +1,26 @@
+{
+  "running": true,
+  "started_at": "2026-05-20T16:29:21",
+  "completed_at": "",
+  "progress": 50,
+  "queue": [
+    "run_index",
+    "script_registry",
+    "quality_cache",
+    "supplement_index",
+    "resource_index_light",
+    "recent_run_details",
+    "top_candidate_spectra",
+    "resource_index_full",
+    "remaining_spectrum_cache"
+  ],
+  "current": "spectra",
+  "counts": {
+    "runs": 467,
+    "scripts": 129,
+    "spectra": 1327,
+    "files": 9732,
+    "run_details_built": 0,
+    "spectra_built": 40
+  }
+}

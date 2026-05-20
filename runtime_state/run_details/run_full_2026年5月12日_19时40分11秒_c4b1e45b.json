@@ -1,0 +1,758 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+    "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒",
+    "group": "C6",
+    "mother_structure": "六臂星",
+    "perturbation": "交替两组臂变化扰动",
+    "reduction_path": "C6 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 10,
+    "spectra_count": 10,
+    "sample_count": 9,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.03854463437918826,
+    "score": 0.03854463437918826,
+    "lambda0_nm": 1312.6286890871656,
+    "Q": 5.9980724,
+    "q": 5.9980724,
+    "FWHM_nm": 155.61368,
+    "fwhm_nm": 155.61368,
+    "max_t": 0.9624534246770543,
+    "modified_at": "2026-05-15T18:04:56",
+    "mtime": 1778839496.1423433,
+    "fingerprint": {
+      "mtime_max": 1778839496.1883602,
+      "total_size": 259006816,
+      "file_count": 39,
+      "dir_count": 7,
+      "fingerprint": "1778839496.1883602-259006816-39-7"
+    },
+    "last_indexed_at": "2026-05-20T14:34:07",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "7e-08",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0000_alternating_arm_width_arm_width_70.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "8e-08",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0001_alternating_arm_width_arm_width_80.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "9e-08",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0002_alternating_arm_width_arm_width_90.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "1e-07",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0003_alternating_arm_width_arm_width_100.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "1.0999999999999999e-07",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0004_alternating_arm_width_arm_width_110.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "1.2e-07",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0005_alternating_arm_width_arm_width_120.000nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "1.3e-07",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0006_alternating_arm_width_arm_width_130.000nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "1.4e-07",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0007_alternating_arm_width_arm_width_140.000nm.fsp"
+    },
+    {
+      "sample_id": "8",
+      "delta": "1.5000000000000002e-07",
+      "lambda0_nm": 1312.6286890871656,
+      "score": 0.03854463437918826,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0008_alternating_arm_width_arm_width_150.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 840,
+      "mtime": 1778586016.329764,
+      "mtime_iso": "2026-05-12T19:40:16"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3038,
+      "mtime": 1778839496.1773422,
+      "mtime_iso": "2026-05-15T18:04:56"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3045,
+      "mtime": 1778839496.181345,
+      "mtime_iso": "2026-05-15T18:04:56"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2594,
+      "mtime": 1778839496.1443431,
+      "mtime_iso": "2026-05-15T18:04:56"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 7336,
+      "mtime": 1778586440.9486325,
+      "mtime_iso": "2026-05-12T19:47:20"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0000_alternating_arm_width_arm_width_70.000nm.fsp",
+      "name": "0000_alternating_arm_width_arm_width_70.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803257,
+      "mtime": 1778586062.1853704,
+      "mtime_iso": "2026-05-12T19:41:02"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0001_alternating_arm_width_arm_width_80.000nm.fsp",
+      "name": "0001_alternating_arm_width_arm_width_80.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803257,
+      "mtime": 1778586108.7014484,
+      "mtime_iso": "2026-05-12T19:41:48"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0002_alternating_arm_width_arm_width_90.000nm.fsp",
+      "name": "0002_alternating_arm_width_arm_width_90.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803257,
+      "mtime": 1778586153.9635522,
+      "mtime_iso": "2026-05-12T19:42:33"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0003_alternating_arm_width_arm_width_100.000nm.fsp",
+      "name": "0003_alternating_arm_width_arm_width_100.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803289,
+      "mtime": 1778586212.4498167,
+      "mtime_iso": "2026-05-12T19:43:32"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0004_alternating_arm_width_arm_width_110.000nm.fsp",
+      "name": "0004_alternating_arm_width_arm_width_110.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803257,
+      "mtime": 1778586257.7559934,
+      "mtime_iso": "2026-05-12T19:44:17"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0005_alternating_arm_width_arm_width_120.000nm.fsp",
+      "name": "0005_alternating_arm_width_arm_width_120.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803273,
+      "mtime": 1778586306.7539682,
+      "mtime_iso": "2026-05-12T19:45:06"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0006_alternating_arm_width_arm_width_130.000nm.fsp",
+      "name": "0006_alternating_arm_width_arm_width_130.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803257,
+      "mtime": 1778586351.3391995,
+      "mtime_iso": "2026-05-12T19:45:51"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0007_alternating_arm_width_arm_width_140.000nm.fsp",
+      "name": "0007_alternating_arm_width_arm_width_140.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803257,
+      "mtime": 1778586395.4485736,
+      "mtime_iso": "2026-05-12T19:46:35"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\01_fsp\\0008_alternating_arm_width_arm_width_150.000nm.fsp",
+      "name": "0008_alternating_arm_width_arm_width_150.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803257,
+      "mtime": 1778586440.6351,
+      "mtime_iso": "2026-05-12T19:47:20"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25803401,
+      "mtime": 1777217205.5324945,
+      "mtime_iso": "2026-04-26T23:26:45"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0000_alternating_arm_width_arm_width_70.000nm_transmission_abs2.png",
+      "name": "0000_alternating_arm_width_arm_width_70.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 64902,
+      "mtime": 1778586063.3525722,
+      "mtime_iso": "2026-05-12T19:41:03"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0001_alternating_arm_width_arm_width_80.000nm_transmission_abs2.png",
+      "name": "0001_alternating_arm_width_arm_width_80.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 65488,
+      "mtime": 1778586109.8779635,
+      "mtime_iso": "2026-05-12T19:41:49"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0002_alternating_arm_width_arm_width_90.000nm_transmission_abs2.png",
+      "name": "0002_alternating_arm_width_arm_width_90.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 64660,
+      "mtime": 1778586154.2758422,
+      "mtime_iso": "2026-05-12T19:42:34"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0003_alternating_arm_width_arm_width_100.000nm_transmission_abs2.png",
+      "name": "0003_alternating_arm_width_arm_width_100.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 65042,
+      "mtime": 1778586213.2152328,
+      "mtime_iso": "2026-05-12T19:43:33"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0004_alternating_arm_width_arm_width_110.000nm_transmission_abs2.png",
+      "name": "0004_alternating_arm_width_arm_width_110.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 65630,
+      "mtime": 1778586258.059786,
+      "mtime_iso": "2026-05-12T19:44:18"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0005_alternating_arm_width_arm_width_120.000nm_transmission_abs2.png",
+      "name": "0005_alternating_arm_width_arm_width_120.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 66228,
+      "mtime": 1778586307.6563854,
+      "mtime_iso": "2026-05-12T19:45:07"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0006_alternating_arm_width_arm_width_130.000nm_transmission_abs2.png",
+      "name": "0006_alternating_arm_width_arm_width_130.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63842,
+      "mtime": 1778586351.6417236,
+      "mtime_iso": "2026-05-12T19:45:51"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0007_alternating_arm_width_arm_width_140.000nm_transmission_abs2.png",
+      "name": "0007_alternating_arm_width_arm_width_140.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 61594,
+      "mtime": 1778586395.7689173,
+      "mtime_iso": "2026-05-12T19:46:35"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\03_transmission_abs2_png\\0008_alternating_arm_width_arm_width_150.000nm_transmission_abs2.png",
+      "name": "0008_alternating_arm_width_arm_width_150.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 63853,
+      "mtime": 1778586440.9475694,
+      "mtime_iso": "2026-05-12T19:47:20"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1698,
+      "mtime": 1778839496.1833591,
+      "mtime_iso": "2026-05-15T18:04:56"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839496.1853426,
+      "mtime_iso": "2026-05-15T18:04:56"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 138304,
+      "mtime": 1778839496.175345,
+      "mtime_iso": "2026-05-15T18:04:56"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2572,
+      "mtime": 1778839496.1883602,
+      "mtime_iso": "2026-05-15T18:04:56"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1492,
+      "mtime": 1778839496.186343,
+      "mtime_iso": "2026-05-15T18:04:56"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1203,
+      "mtime": 1778586016.329764,
+      "mtime_iso": "2026-05-12T19:40:16"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0000_alternating_arm_width_arm_width_70.000nm_transmission_abs2.xlsx",
+      "name": "0000_alternating_arm_width_arm_width_70.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25384,
+      "mtime": 1778586062.8427322,
+      "mtime_iso": "2026-05-12T19:41:02"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0001_alternating_arm_width_arm_width_80.000nm_transmission_abs2.xlsx",
+      "name": "0001_alternating_arm_width_arm_width_80.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25411,
+      "mtime": 1778586109.7557955,
+      "mtime_iso": "2026-05-12T19:41:49"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0002_alternating_arm_width_arm_width_90.000nm_transmission_abs2.xlsx",
+      "name": "0002_alternating_arm_width_arm_width_90.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25475,
+      "mtime": 1778586154.1540105,
+      "mtime_iso": "2026-05-12T19:42:34"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0003_alternating_arm_width_arm_width_100.000nm_transmission_abs2.xlsx",
+      "name": "0003_alternating_arm_width_arm_width_100.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25505,
+      "mtime": 1778586213.0917704,
+      "mtime_iso": "2026-05-12T19:43:33"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0004_alternating_arm_width_arm_width_110.000nm_transmission_abs2.xlsx",
+      "name": "0004_alternating_arm_width_arm_width_110.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25540,
+      "mtime": 1778586257.933918,
+      "mtime_iso": "2026-05-12T19:44:17"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0005_alternating_arm_width_arm_width_120.000nm_transmission_abs2.xlsx",
+      "name": "0005_alternating_arm_width_arm_width_120.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25543,
+      "mtime": 1778586307.533102,
+      "mtime_iso": "2026-05-12T19:45:07"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0006_alternating_arm_width_arm_width_130.000nm_transmission_abs2.xlsx",
+      "name": "0006_alternating_arm_width_arm_width_130.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25508,
+      "mtime": 1778586351.5190609,
+      "mtime_iso": "2026-05-12T19:45:51"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0007_alternating_arm_width_arm_width_140.000nm_transmission_abs2.xlsx",
+      "name": "0007_alternating_arm_width_arm_width_140.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25457,
+      "mtime": 1778586395.6484842,
+      "mtime_iso": "2026-05-12T19:46:35"
+    },
+    {
+      "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒\\02_transmission_excel\\0008_alternating_arm_width_arm_width_150.000nm_transmission_abs2.xlsx",
+      "name": "0008_alternating_arm_width_arm_width_150.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25511,
+      "mtime": 1778586440.8260424,
+      "mtime_iso": "2026-05-12T19:47:20"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 5.9858897,
+      "fwhm_nm": 217.79235,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 5.3787681,
+      "fwhm_nm": 242.37538,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 5.9980724,
+      "fwhm_nm": 155.61368,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 4.2847862,
+      "fwhm_nm": 304.25811,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 4.2883,
+      "fwhm_nm": 304.00881,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 4.0238279,
+      "fwhm_nm": 323.99024,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 3.5397102,
+      "fwhm_nm": 342.69702,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 3.5386994,
+      "fwhm_nm": 389.09489,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 8,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+  "relative_path": "C6对称结构\\六臂星\\results\\交替两组臂变化扰动\\run_full_2026年5月12日_19时40分11秒",
+  "group": "C6",
+  "mother_structure": "六臂星",
+  "perturbation": "交替两组臂变化扰动",
+  "reduction_path": "C6 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 10,
+  "spectra_count": 10,
+  "sample_count": 9,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.03854463437918826,
+  "score": 0.03854463437918826,
+  "lambda0_nm": 1312.6286890871656,
+  "Q": 5.9980724,
+  "q": 5.9980724,
+  "FWHM_nm": 155.61368,
+  "fwhm_nm": 155.61368,
+  "max_t": 0.9624534246770543,
+  "modified_at": "2026-05-15T18:04:56",
+  "mtime": 1778839496.1423433,
+  "fingerprint": {
+    "mtime_max": 1778839496.1883602,
+    "total_size": 259006816,
+    "file_count": 39,
+    "dir_count": 7,
+    "fingerprint": "1778839496.1883602-259006816-39-7"
+  },
+  "last_indexed_at": "2026-05-20T14:34:07",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月12日_19时40分11秒_c4b1e45b",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

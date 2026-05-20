@@ -1,0 +1,1202 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+    "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒",
+    "group": "C2",
+    "mother_structure": "双圆盘",
+    "perturbation": "单盘开孔扰动",
+    "reduction_path": "C2 -> 待识别",
+    "status": "done",
+    "risk": "medium",
+    "risk_level": "medium",
+    "risk_label": "中",
+    "mode": "full",
+    "spectrum_count": 13,
+    "spectra_count": 13,
+    "sample_count": 31,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 4.9963825358467835,
+    "score": 4.9963825358467835,
+    "lambda0_nm": 1443.3962264150946,
+    "Q": 84.92208,
+    "q": 84.92208,
+    "FWHM_nm": 16.996713,
+    "fwhm_nm": 16.996713,
+    "max_t": 0.9895405229649533,
+    "modified_at": "2026-05-15T18:04:47",
+    "mtime": 1778839487.7190797,
+    "fingerprint": {
+      "mtime_max": 1778839487.7360942,
+      "total_size": 719159530,
+      "file_count": 51,
+      "dir_count": 7,
+      "fingerprint": "1778839487.7360942-719159530-51-7"
+    },
+    "last_indexed_at": "2026-05-20T14:33:55",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "0.0",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0000_single_disk_hole_hole_radius_0.000nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "1e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0001_single_disk_hole_hole_radius_1.000nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "2e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0002_single_disk_hole_hole_radius_2.000nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "3.0000000000000004e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0003_single_disk_hole_hole_radius_3.000nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "4e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0004_single_disk_hole_hole_radius_4.000nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "5e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0005_single_disk_hole_hole_radius_5.000nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "6e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0006_single_disk_hole_hole_radius_6.000nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": "7e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0007_single_disk_hole_hole_radius_7.000nm.fsp"
+    },
+    {
+      "sample_id": "8",
+      "delta": "8e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0008_single_disk_hole_hole_radius_8.000nm.fsp"
+    },
+    {
+      "sample_id": "9",
+      "delta": "9.000000000000001e-09",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0009_single_disk_hole_hole_radius_9.000nm.fsp"
+    },
+    {
+      "sample_id": "10",
+      "delta": "1.0000000000000002e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0010_single_disk_hole_hole_radius_10.000nm.fsp"
+    },
+    {
+      "sample_id": "11",
+      "delta": "1.1000000000000003e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0011_single_disk_hole_hole_radius_11.000nm.fsp"
+    },
+    {
+      "sample_id": "12",
+      "delta": "1.2000000000000003e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "13",
+      "delta": "1.3000000000000004e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "14",
+      "delta": "1.4000000000000005e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "15",
+      "delta": "1.5000000000000005e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "16",
+      "delta": "1.6000000000000004e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "17",
+      "delta": "1.7000000000000003e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "18",
+      "delta": "1.8000000000000002e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "19",
+      "delta": "1.9e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "20",
+      "delta": "2e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "21",
+      "delta": "2.1e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "22",
+      "delta": "2.2e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "23",
+      "delta": "2.2999999999999998e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "24",
+      "delta": "2.3999999999999997e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "25",
+      "delta": "2.4999999999999996e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "26",
+      "delta": "2.5999999999999995e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "27",
+      "delta": "2.6999999999999994e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "28",
+      "delta": "2.7999999999999993e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "29",
+      "delta": "2.8999999999999992e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    },
+    {
+      "sample_id": "30",
+      "delta": "2.999999999999999e-08",
+      "lambda0_nm": 1443.3962264150946,
+      "score": 4.9963825358467835,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2521,
+      "mtime": 1778783892.0386388,
+      "mtime_iso": "2026-05-15T02:38:12"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 9955,
+      "mtime": 1778787280.5759356,
+      "mtime_iso": "2026-05-15T03:34:40"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 4167,
+      "mtime": 1778839487.732091,
+      "mtime_iso": "2026-05-15T18:04:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 4167,
+      "mtime": 1778839487.733091,
+      "mtime_iso": "2026-05-15T18:04:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3510,
+      "mtime": 1778839487.7200792,
+      "mtime_iso": "2026-05-15T18:04:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0000_single_disk_hole_hole_radius_0.000nm.fsp",
+      "name": "0000_single_disk_hole_hole_radius_0.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51263834,
+      "mtime": 1778783948.789858,
+      "mtime_iso": "2026-05-15T02:39:08"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0001_single_disk_hole_hole_radius_1.000nm.fsp",
+      "name": "0001_single_disk_hole_hole_radius_1.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51264557,
+      "mtime": 1778784008.9829664,
+      "mtime_iso": "2026-05-15T02:40:08"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0002_single_disk_hole_hole_radius_2.000nm.fsp",
+      "name": "0002_single_disk_hole_hole_radius_2.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51264573,
+      "mtime": 1778784066.5213213,
+      "mtime_iso": "2026-05-15T02:41:06"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0003_single_disk_hole_hole_radius_3.000nm.fsp",
+      "name": "0003_single_disk_hole_hole_radius_3.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51264573,
+      "mtime": 1778784124.3769515,
+      "mtime_iso": "2026-05-15T02:42:04"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0004_single_disk_hole_hole_radius_4.000nm.fsp",
+      "name": "0004_single_disk_hole_hole_radius_4.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51264557,
+      "mtime": 1778784180.357758,
+      "mtime_iso": "2026-05-15T02:43:00"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0005_single_disk_hole_hole_radius_5.000nm.fsp",
+      "name": "0005_single_disk_hole_hole_radius_5.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265261,
+      "mtime": 1778784566.5284355,
+      "mtime_iso": "2026-05-15T02:49:26"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0006_single_disk_hole_hole_radius_6.000nm.fsp",
+      "name": "0006_single_disk_hole_hole_radius_6.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265293,
+      "mtime": 1778784955.7378008,
+      "mtime_iso": "2026-05-15T02:55:55"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0007_single_disk_hole_hole_radius_7.000nm.fsp",
+      "name": "0007_single_disk_hole_hole_radius_7.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265277,
+      "mtime": 1778785344.8110795,
+      "mtime_iso": "2026-05-15T03:02:24"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0008_single_disk_hole_hole_radius_8.000nm.fsp",
+      "name": "0008_single_disk_hole_hole_radius_8.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265277,
+      "mtime": 1778785734.0685718,
+      "mtime_iso": "2026-05-15T03:08:54"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0009_single_disk_hole_hole_radius_9.000nm.fsp",
+      "name": "0009_single_disk_hole_hole_radius_9.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265293,
+      "mtime": 1778786129.2915962,
+      "mtime_iso": "2026-05-15T03:15:29"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0010_single_disk_hole_hole_radius_10.000nm.fsp",
+      "name": "0010_single_disk_hole_hole_radius_10.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265277,
+      "mtime": 1778786509.3737211,
+      "mtime_iso": "2026-05-15T03:21:49"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0011_single_disk_hole_hole_radius_11.000nm.fsp",
+      "name": "0011_single_disk_hole_hole_radius_11.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265261,
+      "mtime": 1778786896.1454036,
+      "mtime_iso": "2026-05-15T03:28:16"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\01_fsp\\0012_single_disk_hole_hole_radius_12.000nm.fsp",
+      "name": "0012_single_disk_hole_hole_radius_12.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51265261,
+      "mtime": 1778787280.2288823,
+      "mtime_iso": "2026-05-15T03:34:40"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 51263946,
+      "mtime": 1778735141.6649637,
+      "mtime_iso": "2026-05-14T13:05:41"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0000_single_disk_hole_hole_radius_0.000nm_transmission_abs2.png",
+      "name": "0000_single_disk_hole_hole_radius_0.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68665,
+      "mtime": 1778783949.446361,
+      "mtime_iso": "2026-05-15T02:39:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0001_single_disk_hole_hole_radius_1.000nm_transmission_abs2.png",
+      "name": "0001_single_disk_hole_hole_radius_1.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68376,
+      "mtime": 1778784009.1640904,
+      "mtime_iso": "2026-05-15T02:40:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0002_single_disk_hole_hole_radius_2.000nm_transmission_abs2.png",
+      "name": "0002_single_disk_hole_hole_radius_2.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69444,
+      "mtime": 1778784066.6941626,
+      "mtime_iso": "2026-05-15T02:41:06"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0003_single_disk_hole_hole_radius_3.000nm_transmission_abs2.png",
+      "name": "0003_single_disk_hole_hole_radius_3.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69573,
+      "mtime": 1778784124.5322728,
+      "mtime_iso": "2026-05-15T02:42:04"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0004_single_disk_hole_hole_radius_4.000nm_transmission_abs2.png",
+      "name": "0004_single_disk_hole_hole_radius_4.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68742,
+      "mtime": 1778784180.5278025,
+      "mtime_iso": "2026-05-15T02:43:00"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0005_single_disk_hole_hole_radius_5.000nm_transmission_abs2.png",
+      "name": "0005_single_disk_hole_hole_radius_5.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69266,
+      "mtime": 1778784566.6902645,
+      "mtime_iso": "2026-05-15T02:49:26"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0006_single_disk_hole_hole_radius_6.000nm_transmission_abs2.png",
+      "name": "0006_single_disk_hole_hole_radius_6.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68549,
+      "mtime": 1778784955.889223,
+      "mtime_iso": "2026-05-15T02:55:55"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0007_single_disk_hole_hole_radius_7.000nm_transmission_abs2.png",
+      "name": "0007_single_disk_hole_hole_radius_7.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68447,
+      "mtime": 1778785344.9637868,
+      "mtime_iso": "2026-05-15T03:02:24"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0008_single_disk_hole_hole_radius_8.000nm_transmission_abs2.png",
+      "name": "0008_single_disk_hole_hole_radius_8.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 69542,
+      "mtime": 1778785734.2275739,
+      "mtime_iso": "2026-05-15T03:08:54"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0009_single_disk_hole_hole_radius_9.000nm_transmission_abs2.png",
+      "name": "0009_single_disk_hole_hole_radius_9.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68758,
+      "mtime": 1778786129.459145,
+      "mtime_iso": "2026-05-15T03:15:29"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0010_single_disk_hole_hole_radius_10.000nm_transmission_abs2.png",
+      "name": "0010_single_disk_hole_hole_radius_10.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68362,
+      "mtime": 1778786509.53761,
+      "mtime_iso": "2026-05-15T03:21:49"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0011_single_disk_hole_hole_radius_11.000nm_transmission_abs2.png",
+      "name": "0011_single_disk_hole_hole_radius_11.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 67805,
+      "mtime": 1778786896.31055,
+      "mtime_iso": "2026-05-15T03:28:16"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\03_transmission_abs2_png\\0012_single_disk_hole_hole_radius_12.000nm_transmission_abs2.png",
+      "name": "0012_single_disk_hole_hole_radius_12.000nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 68754,
+      "mtime": 1778787280.3920996,
+      "mtime_iso": "2026-05-15T03:34:40"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1779,
+      "mtime": 1778839487.7340913,
+      "mtime_iso": "2026-05-15T18:04:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839487.7340913,
+      "mtime_iso": "2026-05-15T18:04:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 193969,
+      "mtime": 1778839487.731084,
+      "mtime_iso": "2026-05-15T18:04:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2599,
+      "mtime": 1778839487.7360942,
+      "mtime_iso": "2026-05-15T18:04:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1513,
+      "mtime": 1778839487.7350907,
+      "mtime_iso": "2026-05-15T18:04:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1321,
+      "mtime": 1778783892.0396264,
+      "mtime_iso": "2026-05-15T02:38:12"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0000_single_disk_hole_hole_radius_0.000nm_transmission_abs2.xlsx",
+      "name": "0000_single_disk_hole_hole_radius_0.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25409,
+      "mtime": 1778783948.8170898,
+      "mtime_iso": "2026-05-15T02:39:08"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0001_single_disk_hole_hole_radius_1.000nm_transmission_abs2.xlsx",
+      "name": "0001_single_disk_hole_hole_radius_1.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25409,
+      "mtime": 1778784009.0285146,
+      "mtime_iso": "2026-05-15T02:40:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0002_single_disk_hole_hole_radius_2.000nm_transmission_abs2.xlsx",
+      "name": "0002_single_disk_hole_hole_radius_2.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25409,
+      "mtime": 1778784066.5583215,
+      "mtime_iso": "2026-05-15T02:41:06"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0003_single_disk_hole_hole_radius_3.000nm_transmission_abs2.xlsx",
+      "name": "0003_single_disk_hole_hole_radius_3.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25409,
+      "mtime": 1778784124.4040837,
+      "mtime_iso": "2026-05-15T02:42:04"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0004_single_disk_hole_hole_radius_4.000nm_transmission_abs2.xlsx",
+      "name": "0004_single_disk_hole_hole_radius_4.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25409,
+      "mtime": 1778784180.3959787,
+      "mtime_iso": "2026-05-15T02:43:00"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0005_single_disk_hole_hole_radius_5.000nm_transmission_abs2.xlsx",
+      "name": "0005_single_disk_hole_hole_radius_5.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25388,
+      "mtime": 1778784566.5574336,
+      "mtime_iso": "2026-05-15T02:49:26"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0006_single_disk_hole_hole_radius_6.000nm_transmission_abs2.xlsx",
+      "name": "0006_single_disk_hole_hole_radius_6.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25403,
+      "mtime": 1778784955.775691,
+      "mtime_iso": "2026-05-15T02:55:55"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0007_single_disk_hole_hole_radius_7.000nm_transmission_abs2.xlsx",
+      "name": "0007_single_disk_hole_hole_radius_7.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25387,
+      "mtime": 1778785344.8393636,
+      "mtime_iso": "2026-05-15T03:02:24"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0008_single_disk_hole_hole_radius_8.000nm_transmission_abs2.xlsx",
+      "name": "0008_single_disk_hole_hole_radius_8.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25410,
+      "mtime": 1778785734.098571,
+      "mtime_iso": "2026-05-15T03:08:54"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0009_single_disk_hole_hole_radius_9.000nm_transmission_abs2.xlsx",
+      "name": "0009_single_disk_hole_hole_radius_9.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25411,
+      "mtime": 1778786129.3295925,
+      "mtime_iso": "2026-05-15T03:15:29"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0010_single_disk_hole_hole_radius_10.000nm_transmission_abs2.xlsx",
+      "name": "0010_single_disk_hole_hole_radius_10.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25341,
+      "mtime": 1778786509.409474,
+      "mtime_iso": "2026-05-15T03:21:49"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0011_single_disk_hole_hole_radius_11.000nm_transmission_abs2.xlsx",
+      "name": "0011_single_disk_hole_hole_radius_11.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25394,
+      "mtime": 1778786896.1850593,
+      "mtime_iso": "2026-05-15T03:28:16"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒\\02_transmission_excel\\0012_single_disk_hole_hole_radius_12.000nm_transmission_abs2.xlsx",
+      "name": "0012_single_disk_hole_hole_radius_12.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25368,
+      "mtime": 1778787280.2598808,
+      "mtime_iso": "2026-05-15T03:34:40"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 79.396735,
+      "fwhm_nm": 18.179541,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 79.396735,
+      "fwhm_nm": 18.179541,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 79.396735,
+      "fwhm_nm": 18.179541,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 79.396735,
+      "fwhm_nm": 18.179541,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 79.396735,
+      "fwhm_nm": 18.179541,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 84.908752,
+      "fwhm_nm": 16.999381,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 84.910798,
+      "fwhm_nm": 16.998971,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 84.906951,
+      "fwhm_nm": 16.999742,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 8,
+      "score": 0,
+      "q": 84.914732,
+      "fwhm_nm": 16.998184,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 9,
+      "score": 0,
+      "q": 84.91102,
+      "fwhm_nm": 16.998927,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 10,
+      "score": 0,
+      "q": 84.918501,
+      "fwhm_nm": 16.997429,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 11,
+      "score": 0,
+      "q": 84.92208,
+      "fwhm_nm": 16.996713,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 12,
+      "score": 0,
+      "q": 84.918095,
+      "fwhm_nm": 16.997511,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+  "relative_path": "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\旧文件\\full\\待考察\\run_full_2026年5月15日_02时38分07秒",
+  "group": "C2",
+  "mother_structure": "双圆盘",
+  "perturbation": "单盘开孔扰动",
+  "reduction_path": "C2 -> 待识别",
+  "status": "done",
+  "risk": "medium",
+  "risk_level": "medium",
+  "risk_label": "中",
+  "mode": "full",
+  "spectrum_count": 13,
+  "spectra_count": 13,
+  "sample_count": 31,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 4.9963825358467835,
+  "score": 4.9963825358467835,
+  "lambda0_nm": 1443.3962264150946,
+  "Q": 84.92208,
+  "q": 84.92208,
+  "FWHM_nm": 16.996713,
+  "fwhm_nm": 16.996713,
+  "max_t": 0.9895405229649533,
+  "modified_at": "2026-05-15T18:04:47",
+  "mtime": 1778839487.7190797,
+  "fingerprint": {
+    "mtime_max": 1778839487.7360942,
+    "total_size": 719159530,
+    "file_count": 51,
+    "dir_count": 7,
+    "fingerprint": "1778839487.7360942-719159530-51-7"
+  },
+  "last_indexed_at": "2026-05-20T14:33:55",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月15日_02时38分07秒_1dc4d4a8",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

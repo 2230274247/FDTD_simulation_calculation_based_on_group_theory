@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "job_id": "job_20260520_163156_356a19",
+  "created_at": "2026-05-20T16:31:56",
+  "finished_at": "2026-05-20T16:32:55",
+  "status": "stopped",
+  "trigger": "web_ui",
+  "mode": "test",
+  "style": "sequential",
+  "script_ids": [
+    "1"
+  ],
+  "scripts": [
+    {
+      "id": 1,
+      "script_id": "run_fdtd_disk_radius_difference_sweep_6d231ca4",
+      "relative_path": "C2对称结构\\双圆盘\\coding\\半径差扰动\\run_fdtd_disk_radius_difference_sweep.py",
+      "group": "C2",
+      "mother_structure": "双圆盘",
+      "perturbation": "半径差扰动",
+      "reduction_path": "C2 -> 待识别",
+      "status": "has_full",
+      "recommended_mode": "preview",
+      "default_start_nm": "",
+      "default_end_nm": 30.0,
+      "default_step_nm": 5.0,
+      "estimated_points": "3,"
+    }
+  ],
+  "overrides": {
+    "*": {
+      "START_NM": 0,
+      "END_NM": 10,
+      "STEP_NM": 5,
+      "MESH_ACCURACY": 1,
+      "DT_STABILITY_FACTOR": -1,
+      "AUTO_SHUTOFF_MIN": 1e-07
+    }
+  },
+  "command": "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe \"H:\\FDTD outcome\\struct\\群论_struct\\fdtd_master_controller.py\" --mode test --style sequential --max-parallel 1 --ids 1 --overrides-json \"H:\\FDTD outcome\\struct\\群论_struct\\结果查看器_html_v2\\runtime_state\\jobs\\job_20260520_163156_356a19\\overrides.json\" --child-timeout-s 3600 --yes",
+  "expected_outputs": [
+    {
+      "kind": "run_root",
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_20260520_163156"
+    },
+    {
+      "kind": "T",
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_20260520_163156\\02_transmission_excel"
+    },
+    {
+      "kind": "T_png",
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_20260520_163156\\03_transmission_abs2_png"
+    },
+    {
+      "kind": "logs",
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_20260520_163156\\04_logs"
+    },
+    {
+      "kind": "analysis",
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_20260520_163156\\12_analysis_summary"
+    }
+  ],
+  "probable_output_parents": [
+    "C2对称结构\\双圆盘\\results\\半径差扰动"
+  ],
+  "dirty_paths": [
+    "C2对称结构\\双圆盘\\results\\半径差扰动",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_2026年5月20日_16时31分58秒"
+  ],
+  "created_files": [
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_2026年5月20日_16时31分58秒\\00_scan_plan\\scan_points.csv",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_2026年5月20日_16时31分58秒\\05_work_fsp\\master_template.fsp",
+    "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_2026年5月20日_16时31分58秒\\结构状态说明.md"
+  ],
+  "modified_files": [],
+  "deleted_files": [],
+  "cache_update_status": "done",
+  "returncode": 1,
+  "updated_runs": [
+    "run_test_2026年5月20日_16时31分58秒_cd277010"
+  ]
+}

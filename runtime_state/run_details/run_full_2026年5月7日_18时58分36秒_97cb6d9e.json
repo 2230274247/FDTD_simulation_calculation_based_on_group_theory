@@ -1,0 +1,698 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+    "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒",
+    "group": "C2",
+    "mother_structure": "双椭圆",
+    "perturbation": "转角差扰动",
+    "reduction_path": "C2 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 7,
+    "spectra_count": 7,
+    "sample_count": 7,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 598.959636665881,
+    "score": 598.959636665881,
+    "lambda0_nm": 1369.0050107372942,
+    "Q": 735.24829,
+    "q": 735.24829,
+    "FWHM_nm": 1.2275423,
+    "fwhm_nm": 1.2275423,
+    "max_t": 1.0115519510164552,
+    "modified_at": "2026-05-15T18:05:07",
+    "mtime": 1778839507.1504092,
+    "fingerprint": {
+      "mtime_max": 1778839507.1733794,
+      "total_size": 207295272,
+      "file_count": 33,
+      "dir_count": 7,
+      "fingerprint": "1778839507.1733794-207295272-33-7"
+    },
+    "last_indexed_at": "2026-05-20T14:33:57",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1.012",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": "0.0",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 598.959636665881,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0000_ellipse_angle_difference_right_ellipse_angle_delta_+0.000deg.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": "5.0",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 598.959636665881,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0001_ellipse_angle_difference_right_ellipse_angle_delta_+5.000deg.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": "10.0",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 598.959636665881,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0002_ellipse_angle_difference_right_ellipse_angle_delta_+10.000deg.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": "15.0",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 598.959636665881,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0003_ellipse_angle_difference_right_ellipse_angle_delta_+15.000deg.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": "20.0",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 598.959636665881,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0004_ellipse_angle_difference_right_ellipse_angle_delta_+20.000deg.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": "25.0",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 598.959636665881,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0005_ellipse_angle_difference_right_ellipse_angle_delta_+25.000deg.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": "30.0",
+      "lambda0_nm": 1369.0050107372942,
+      "score": 598.959636665881,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0006_ellipse_angle_difference_right_ellipse_angle_delta_+30.000deg.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 622,
+      "mtime": 1778151521.1582172,
+      "mtime_iso": "2026-05-07T18:58:41"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 5987,
+      "mtime": 1778152670.4341342,
+      "mtime_iso": "2026-05-07T19:17:50"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2859,
+      "mtime": 1778839507.1683812,
+      "mtime_iso": "2026-05-15T18:05:07"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2885,
+      "mtime": 1778839507.170381,
+      "mtime_iso": "2026-05-15T18:05:07"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2526,
+      "mtime": 1778839507.1513765,
+      "mtime_iso": "2026-05-15T18:05:07"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0000_ellipse_angle_difference_right_ellipse_angle_delta_+0.000deg.fsp",
+      "name": "0000_ellipse_angle_difference_right_ellipse_angle_delta_+0.000deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802811,
+      "mtime": 1778151767.488116,
+      "mtime_iso": "2026-05-07T19:02:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0001_ellipse_angle_difference_right_ellipse_angle_delta_+5.000deg.fsp",
+      "name": "0001_ellipse_angle_difference_right_ellipse_angle_delta_+5.000deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802747,
+      "mtime": 1778151969.286446,
+      "mtime_iso": "2026-05-07T19:06:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0002_ellipse_angle_difference_right_ellipse_angle_delta_+10.000deg.fsp",
+      "name": "0002_ellipse_angle_difference_right_ellipse_angle_delta_+10.000deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802627,
+      "mtime": 1778152114.1960025,
+      "mtime_iso": "2026-05-07T19:08:34"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0003_ellipse_angle_difference_right_ellipse_angle_delta_+15.000deg.fsp",
+      "name": "0003_ellipse_angle_difference_right_ellipse_angle_delta_+15.000deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802611,
+      "mtime": 1778152253.8070204,
+      "mtime_iso": "2026-05-07T19:10:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0004_ellipse_angle_difference_right_ellipse_angle_delta_+20.000deg.fsp",
+      "name": "0004_ellipse_angle_difference_right_ellipse_angle_delta_+20.000deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802563,
+      "mtime": 1778152376.7007332,
+      "mtime_iso": "2026-05-07T19:12:56"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0005_ellipse_angle_difference_right_ellipse_angle_delta_+25.000deg.fsp",
+      "name": "0005_ellipse_angle_difference_right_ellipse_angle_delta_+25.000deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802563,
+      "mtime": 1778152514.6566048,
+      "mtime_iso": "2026-05-07T19:15:14"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\01_fsp\\0006_ellipse_angle_difference_right_ellipse_angle_delta_+30.000deg.fsp",
+      "name": "0006_ellipse_angle_difference_right_ellipse_angle_delta_+30.000deg.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802563,
+      "mtime": 1778152670.0069356,
+      "mtime_iso": "2026-05-07T19:17:50"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802827,
+      "mtime": 1777259076.1984816,
+      "mtime_iso": "2026-04-27T11:04:36"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\03_transmission_abs2_png\\0000_ellipse_angle_difference_right_ellipse_angle_delta_+0.000deg_transmission_abs2.png",
+      "name": "0000_ellipse_angle_difference_right_ellipse_angle_delta_+0.000deg_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80114,
+      "mtime": 1778151767.858701,
+      "mtime_iso": "2026-05-07T19:02:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\03_transmission_abs2_png\\0001_ellipse_angle_difference_right_ellipse_angle_delta_+5.000deg_transmission_abs2.png",
+      "name": "0001_ellipse_angle_difference_right_ellipse_angle_delta_+5.000deg_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80635,
+      "mtime": 1778151969.4731648,
+      "mtime_iso": "2026-05-07T19:06:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\03_transmission_abs2_png\\0002_ellipse_angle_difference_right_ellipse_angle_delta_+10.000deg_transmission_abs2.png",
+      "name": "0002_ellipse_angle_difference_right_ellipse_angle_delta_+10.000deg_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 80884,
+      "mtime": 1778152114.368472,
+      "mtime_iso": "2026-05-07T19:08:34"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\03_transmission_abs2_png\\0003_ellipse_angle_difference_right_ellipse_angle_delta_+15.000deg_transmission_abs2.png",
+      "name": "0003_ellipse_angle_difference_right_ellipse_angle_delta_+15.000deg_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 81580,
+      "mtime": 1778152253.9945865,
+      "mtime_iso": "2026-05-07T19:10:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\03_transmission_abs2_png\\0004_ellipse_angle_difference_right_ellipse_angle_delta_+20.000deg_transmission_abs2.png",
+      "name": "0004_ellipse_angle_difference_right_ellipse_angle_delta_+20.000deg_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78301,
+      "mtime": 1778152376.8684597,
+      "mtime_iso": "2026-05-07T19:12:56"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\03_transmission_abs2_png\\0005_ellipse_angle_difference_right_ellipse_angle_delta_+25.000deg_transmission_abs2.png",
+      "name": "0005_ellipse_angle_difference_right_ellipse_angle_delta_+25.000deg_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 77428,
+      "mtime": 1778152514.8512597,
+      "mtime_iso": "2026-05-07T19:15:14"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\03_transmission_abs2_png\\0006_ellipse_angle_difference_right_ellipse_angle_delta_+30.000deg_transmission_abs2.png",
+      "name": "0006_ellipse_angle_difference_right_ellipse_angle_delta_+30.000deg_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78994,
+      "mtime": 1778152670.228602,
+      "mtime_iso": "2026-05-07T19:17:50"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1154,
+      "mtime": 1778839507.170381,
+      "mtime_iso": "2026-05-15T18:05:07"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839507.1714087,
+      "mtime_iso": "2026-05-15T18:05:07"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 116303,
+      "mtime": 1778839507.1673813,
+      "mtime_iso": "2026-05-15T18:05:07"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2448,
+      "mtime": 1778839507.1733794,
+      "mtime_iso": "2026-05-15T18:05:07"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1487,
+      "mtime": 1778839507.1723773,
+      "mtime_iso": "2026-05-15T18:05:07"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1418,
+      "mtime": 1778151521.1592174,
+      "mtime_iso": "2026-05-07T18:58:41"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\02_transmission_excel\\0000_ellipse_angle_difference_right_ellipse_angle_delta_+0.000deg_transmission_abs2.xlsx",
+      "name": "0000_ellipse_angle_difference_right_ellipse_angle_delta_+0.000deg_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25161,
+      "mtime": 1778151767.5411937,
+      "mtime_iso": "2026-05-07T19:02:47"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\02_transmission_excel\\0001_ellipse_angle_difference_right_ellipse_angle_delta_+5.000deg_transmission_abs2.xlsx",
+      "name": "0001_ellipse_angle_difference_right_ellipse_angle_delta_+5.000deg_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25237,
+      "mtime": 1778151969.3401935,
+      "mtime_iso": "2026-05-07T19:06:09"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\02_transmission_excel\\0002_ellipse_angle_difference_right_ellipse_angle_delta_+10.000deg_transmission_abs2.xlsx",
+      "name": "0002_ellipse_angle_difference_right_ellipse_angle_delta_+10.000deg_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25316,
+      "mtime": 1778152114.2512631,
+      "mtime_iso": "2026-05-07T19:08:34"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\02_transmission_excel\\0003_ellipse_angle_difference_right_ellipse_angle_delta_+15.000deg_transmission_abs2.xlsx",
+      "name": "0003_ellipse_angle_difference_right_ellipse_angle_delta_+15.000deg_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25298,
+      "mtime": 1778152253.8773124,
+      "mtime_iso": "2026-05-07T19:10:53"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\02_transmission_excel\\0004_ellipse_angle_difference_right_ellipse_angle_delta_+20.000deg_transmission_abs2.xlsx",
+      "name": "0004_ellipse_angle_difference_right_ellipse_angle_delta_+20.000deg_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25341,
+      "mtime": 1778152376.7541466,
+      "mtime_iso": "2026-05-07T19:12:56"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\02_transmission_excel\\0005_ellipse_angle_difference_right_ellipse_angle_delta_+25.000deg_transmission_abs2.xlsx",
+      "name": "0005_ellipse_angle_difference_right_ellipse_angle_delta_+25.000deg_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25289,
+      "mtime": 1778152514.7136056,
+      "mtime_iso": "2026-05-07T19:15:14"
+    },
+    {
+      "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒\\02_transmission_excel\\0006_ellipse_angle_difference_right_ellipse_angle_delta_+30.000deg_transmission_abs2.xlsx",
+      "name": "0006_ellipse_angle_difference_right_ellipse_angle_delta_+30.000deg_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25334,
+      "mtime": 1778152670.0705543,
+      "mtime_iso": "2026-05-07T19:17:50"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 558.28327,
+      "fwhm_nm": 2.341545,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 668.77079,
+      "fwhm_nm": 1.3495631,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 217.55316,
+      "fwhm_nm": 6.3017599,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 162.6157,
+      "fwhm_nm": 8.4428262,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 520.34136,
+      "fwhm_nm": 1.7345313,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 708.40955,
+      "fwhm_nm": 1.2740488,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 735.24829,
+      "fwhm_nm": 1.2275423,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+  "relative_path": "C2对称结构\\双椭圆\\results\\转角差扰动\\不收敛结果\\run_full_2026年5月7日_18时58分36秒",
+  "group": "C2",
+  "mother_structure": "双椭圆",
+  "perturbation": "转角差扰动",
+  "reduction_path": "C2 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 7,
+  "spectra_count": 7,
+  "sample_count": 7,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 598.959636665881,
+  "score": 598.959636665881,
+  "lambda0_nm": 1369.0050107372942,
+  "Q": 735.24829,
+  "q": 735.24829,
+  "FWHM_nm": 1.2275423,
+  "fwhm_nm": 1.2275423,
+  "max_t": 1.0115519510164552,
+  "modified_at": "2026-05-15T18:05:07",
+  "mtime": 1778839507.1504092,
+  "fingerprint": {
+    "mtime_max": 1778839507.1733794,
+    "total_size": 207295272,
+    "file_count": 33,
+    "dir_count": 7,
+    "fingerprint": "1778839507.1733794-207295272-33-7"
+  },
+  "last_indexed_at": "2026-05-20T14:33:57",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1.012",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月7日_18时58分36秒_97cb6d9e",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

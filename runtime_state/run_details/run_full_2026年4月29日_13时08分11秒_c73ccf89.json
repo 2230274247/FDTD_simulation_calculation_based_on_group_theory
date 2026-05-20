@@ -1,0 +1,937 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+    "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒",
+    "group": "近径向",
+    "mother_structure": "圆环",
+    "perturbation": "环宽不均扰动",
+    "reduction_path": "近径向 -> Cn",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 9,
+    "spectra_count": 9,
+    "sample_count": 9,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": 0.0017000000000000001,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": 1700.0,
+    "modified_at": "2026-04-29T13:08:20",
+    "mtime": 1777439300.976592,
+    "fingerprint": {
+      "mtime_max": 1777440706.9379528,
+      "total_size": 494031177,
+      "file_count": 60,
+      "dir_count": 6,
+      "fingerprint": "1777440706.9379528-494031177-60-6"
+    },
+    "last_indexed_at": "2026-05-20T14:34:10",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1700",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "#1",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm.fsp"
+    },
+    {
+      "sample_id": "#2",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm.fsp"
+    },
+    {
+      "sample_id": "#3",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm.fsp"
+    },
+    {
+      "sample_id": "#4",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm.fsp"
+    },
+    {
+      "sample_id": "#5",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm.fsp"
+    },
+    {
+      "sample_id": "#6",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm.fsp"
+    },
+    {
+      "sample_id": "#7",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm.fsp"
+    },
+    {
+      "sample_id": "#8",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm.fsp"
+    },
+    {
+      "sample_id": "#9",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm.fsp.bak",
+      "name": "work_0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777439474.5212104,
+      "mtime_iso": "2026-04-29T13:11:14"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm.fsp.bak",
+      "name": "work_0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777439652.250563,
+      "mtime_iso": "2026-04-29T13:14:12"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm.fsp.bak",
+      "name": "work_0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777439877.6252294,
+      "mtime_iso": "2026-04-29T13:17:57"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm.fsp.bak",
+      "name": "work_0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777440073.6124995,
+      "mtime_iso": "2026-04-29T13:21:13"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm.fsp.bak",
+      "name": "work_0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777440213.4986057,
+      "mtime_iso": "2026-04-29T13:23:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm.fsp.bak",
+      "name": "work_0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777440342.2552602,
+      "mtime_iso": "2026-04-29T13:25:42"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm.fsp.bak",
+      "name": "work_0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777440473.4651375,
+      "mtime_iso": "2026-04-29T13:27:53"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm.fsp.bak",
+      "name": "work_0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777440598.8127308,
+      "mtime_iso": "2026-04-29T13:29:58"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm.fsp.bak",
+      "name": "work_0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm.fsp.bak",
+      "extension": "bak",
+      "kind": "bak",
+      "size": 292203,
+      "mtime": 1777440705.7097929,
+      "mtime_iso": "2026-04-29T13:31:45"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 585,
+      "mtime": 1777439300.9754975,
+      "mtime_iso": "2026-04-29T13:08:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 6603,
+      "mtime": 1777440706.9379528,
+      "mtime_iso": "2026-04-29T13:31:46"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm.fsp",
+      "name": "0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802562,
+      "mtime": 1777439475.436762,
+      "mtime_iso": "2026-04-29T13:11:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm.fsp",
+      "name": "0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802578,
+      "mtime": 1777439653.163754,
+      "mtime_iso": "2026-04-29T13:14:13"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm.fsp",
+      "name": "0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802690,
+      "mtime": 1777439878.8932436,
+      "mtime_iso": "2026-04-29T13:17:58"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm.fsp",
+      "name": "0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802594,
+      "mtime": 1777440074.5382643,
+      "mtime_iso": "2026-04-29T13:21:14"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm.fsp",
+      "name": "0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802482,
+      "mtime": 1777440214.4268043,
+      "mtime_iso": "2026-04-29T13:23:34"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm.fsp",
+      "name": "0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802450,
+      "mtime": 1777440343.5943081,
+      "mtime_iso": "2026-04-29T13:25:43"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm.fsp",
+      "name": "0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802466,
+      "mtime": 1777440474.3966808,
+      "mtime_iso": "2026-04-29T13:27:54"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm.fsp",
+      "name": "0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802434,
+      "mtime": 1777440599.7448814,
+      "mtime_iso": "2026-04-29T13:29:59"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\01_fsp_files\\0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm.fsp",
+      "name": "0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802386,
+      "mtime": 1777440706.612256,
+      "mtime_iso": "2026-04-29T13:31:46"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802562,
+      "mtime": 1777266223.4591837,
+      "mtime_iso": "2026-04-27T13:03:43"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm.fsp",
+      "name": "work_0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802562,
+      "mtime": 1777439475.436762,
+      "mtime_iso": "2026-04-29T13:11:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm.fsp",
+      "name": "work_0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802578,
+      "mtime": 1777439653.163754,
+      "mtime_iso": "2026-04-29T13:14:13"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm.fsp",
+      "name": "work_0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802690,
+      "mtime": 1777439878.8932436,
+      "mtime_iso": "2026-04-29T13:17:58"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm.fsp",
+      "name": "work_0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802594,
+      "mtime": 1777440074.5382643,
+      "mtime_iso": "2026-04-29T13:21:14"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm.fsp",
+      "name": "work_0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802482,
+      "mtime": 1777440214.4268043,
+      "mtime_iso": "2026-04-29T13:23:34"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm.fsp",
+      "name": "work_0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802450,
+      "mtime": 1777440343.5943081,
+      "mtime_iso": "2026-04-29T13:25:43"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm.fsp",
+      "name": "work_0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802466,
+      "mtime": 1777440474.3966808,
+      "mtime_iso": "2026-04-29T13:27:54"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm.fsp",
+      "name": "work_0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802434,
+      "mtime": 1777440599.7448814,
+      "mtime_iso": "2026-04-29T13:29:59"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm.fsp",
+      "name": "work_0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25802386,
+      "mtime": 1777440706.612256,
+      "mtime_iso": "2026-04-29T13:31:46"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm_transmission_abs2.png",
+      "name": "0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 83959,
+      "mtime": 1777439475.9979303,
+      "mtime_iso": "2026-04-29T13:11:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm_transmission_abs2.png",
+      "name": "0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 85902,
+      "mtime": 1777439653.5285153,
+      "mtime_iso": "2026-04-29T13:14:13"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm_transmission_abs2.png",
+      "name": "0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 84844,
+      "mtime": 1777439879.2276256,
+      "mtime_iso": "2026-04-29T13:17:59"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm_transmission_abs2.png",
+      "name": "0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 85424,
+      "mtime": 1777440074.8920095,
+      "mtime_iso": "2026-04-29T13:21:14"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm_transmission_abs2.png",
+      "name": "0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 85492,
+      "mtime": 1777440214.893285,
+      "mtime_iso": "2026-04-29T13:23:34"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm_transmission_abs2.png",
+      "name": "0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 87700,
+      "mtime": 1777440343.974677,
+      "mtime_iso": "2026-04-29T13:25:43"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm_transmission_abs2.png",
+      "name": "0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 86916,
+      "mtime": 1777440474.9589918,
+      "mtime_iso": "2026-04-29T13:27:54"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm_transmission_abs2.png",
+      "name": "0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 87540,
+      "mtime": 1777440600.0889435,
+      "mtime_iso": "2026-04-29T13:30:00"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\03_transmission_png_abs2\\0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm_transmission_abs2.png",
+      "name": "0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm_transmission_abs2.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 87562,
+      "mtime": 1777440706.9359522,
+      "mtime_iso": "2026-04-29T13:31:46"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\04_logs\\automation_run.log",
+      "name": "automation_run.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4043,
+      "mtime": 1777440706.9379528,
+      "mtime_iso": "2026-04-29T13:31:46"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm_p0.log",
+      "name": "work_0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5165,
+      "mtime": 1777439474.5356913,
+      "mtime_iso": "2026-04-29T13:11:14"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm_p0.log",
+      "name": "work_0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5243,
+      "mtime": 1777439652.2635648,
+      "mtime_iso": "2026-04-29T13:14:12"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm_p0.log",
+      "name": "work_0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5818,
+      "mtime": 1777439877.6372285,
+      "mtime_iso": "2026-04-29T13:17:57"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm_p0.log",
+      "name": "work_0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 5325,
+      "mtime": 1777440073.6255023,
+      "mtime_iso": "2026-04-29T13:21:13"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm_p0.log",
+      "name": "work_0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4742,
+      "mtime": 1777440213.5095742,
+      "mtime_iso": "2026-04-29T13:23:33"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm_p0.log",
+      "name": "work_0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4578,
+      "mtime": 1777440342.2672617,
+      "mtime_iso": "2026-04-29T13:25:42"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm_p0.log",
+      "name": "work_0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4663,
+      "mtime": 1777440473.4771733,
+      "mtime_iso": "2026-04-29T13:27:53"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm_p0.log",
+      "name": "work_0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4500,
+      "mtime": 1777440598.8247006,
+      "mtime_iso": "2026-04-29T13:29:58"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\05_work_fsp\\work_0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm_p0.log",
+      "name": "work_0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm_p0.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 4248,
+      "mtime": 1777440705.720789,
+      "mtime_iso": "2026-04-29T13:31:45"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1948,
+      "mtime": 1777439300.976592,
+      "mtime_iso": "2026-04-29T13:08:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\00_scan_plan\\scan_summary.txt",
+      "name": "scan_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 756,
+      "mtime": 1777439300.976592,
+      "mtime_iso": "2026-04-29T13:08:20"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm_transmission_abs2.xlsx",
+      "name": "0000_delta0000p00nm_Rinx0180p00nm_Riny0180p00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35513,
+      "mtime": 1777439475.651258,
+      "mtime_iso": "2026-04-29T13:11:15"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm_transmission_abs2.xlsx",
+      "name": "0001_delta0005p00nm_Rinx0182p50nm_Riny0177p50nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35619,
+      "mtime": 1777439653.3769767,
+      "mtime_iso": "2026-04-29T13:14:13"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm_transmission_abs2.xlsx",
+      "name": "0002_delta0010p00nm_Rinx0185p00nm_Riny0175p00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35539,
+      "mtime": 1777439879.104906,
+      "mtime_iso": "2026-04-29T13:17:59"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm_transmission_abs2.xlsx",
+      "name": "0003_delta0015p00nm_Rinx0187p50nm_Riny0172p50nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35551,
+      "mtime": 1777440074.7594366,
+      "mtime_iso": "2026-04-29T13:21:14"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm_transmission_abs2.xlsx",
+      "name": "0004_delta0020p00nm_Rinx0190p00nm_Riny0170p00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35520,
+      "mtime": 1777440214.749529,
+      "mtime_iso": "2026-04-29T13:23:34"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm_transmission_abs2.xlsx",
+      "name": "0005_delta0025p00nm_Rinx0192p50nm_Riny0167p50nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35579,
+      "mtime": 1777440343.8357334,
+      "mtime_iso": "2026-04-29T13:25:43"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm_transmission_abs2.xlsx",
+      "name": "0006_delta0030p00nm_Rinx0195p00nm_Riny0165p00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35541,
+      "mtime": 1777440474.819061,
+      "mtime_iso": "2026-04-29T13:27:54"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm_transmission_abs2.xlsx",
+      "name": "0007_delta0035p00nm_Rinx0197p50nm_Riny0162p50nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35525,
+      "mtime": 1777440599.9603863,
+      "mtime_iso": "2026-04-29T13:29:59"
+    },
+    {
+      "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒\\02_transmission_excel\\0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm_transmission_abs2.xlsx",
+      "name": "0008_delta0040p00nm_Rinx0200p00nm_Riny0160p00nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 35561,
+      "mtime": 1777440706.799856,
+      "mtime_iso": "2026-04-29T13:31:46"
+    }
+  ],
+  "metrics": [],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+  "relative_path": "近径向高对称结构\\圆环\\results\\环宽不均扰动\\旧文件\\full\\待考察\\run_full_2026年4月29日_13时08分11秒",
+  "group": "近径向",
+  "mother_structure": "圆环",
+  "perturbation": "环宽不均扰动",
+  "reduction_path": "近径向 -> Cn",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 9,
+  "spectra_count": 9,
+  "sample_count": 9,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": 0.0017000000000000001,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": 1700.0,
+  "modified_at": "2026-04-29T13:08:20",
+  "mtime": 1777439300.976592,
+  "fingerprint": {
+    "mtime_max": 1777440706.9379528,
+    "total_size": 494031177,
+    "file_count": 60,
+    "dir_count": 6,
+    "fingerprint": "1777440706.9379528-494031177-60-6"
+  },
+  "last_indexed_at": "2026-05-20T14:34:10",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1700",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年4月29日_13时08分11秒_c73ccf89",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}

@@ -1,0 +1,926 @@
+{
+  "schema_version": 2,
+  "run": {
+    "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+    "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒",
+    "group": "C4",
+    "mother_structure": "四孔方块",
+    "perturbation": "对角成对变化扰动",
+    "reduction_path": "C4 -> 待识别",
+    "status": "done",
+    "risk": "high",
+    "risk_level": "high",
+    "risk_label": "高",
+    "mode": "full",
+    "spectrum_count": 11,
+    "spectra_count": 11,
+    "sample_count": 11,
+    "has_T": true,
+    "has_R": false,
+    "has_A": false,
+    "has_field": false,
+    "has_phase": false,
+    "has_poynting": false,
+    "best_score": 0.0,
+    "score": 0.0,
+    "lambda0_nm": 0.0017000000000000001,
+    "Q": null,
+    "q": null,
+    "FWHM_nm": null,
+    "fwhm_nm": null,
+    "max_t": 1700.0,
+    "modified_at": "2026-05-15T18:05:00",
+    "mtime": 1778839500.812776,
+    "fingerprint": {
+      "mtime_max": 1778839500.8257744,
+      "total_size": 310958843,
+      "file_count": 47,
+      "dir_count": 7,
+      "fingerprint": "1778839500.8257744-310958843-47-7"
+    },
+    "last_indexed_at": "2026-05-20T14:34:03",
+    "source_job_id": null,
+    "missing_evidence": [
+      "R",
+      "A",
+      "Field",
+      "Phase",
+      "Poynting"
+    ],
+    "quality_flags": [
+      "T > 1",
+      "FWHM 不可靠",
+      "主特征靠边界",
+      "缺 R",
+      "缺 A",
+      "缺 Field",
+      "缺 Phase",
+      "缺 Poynting"
+    ],
+    "evidence": {
+      "T": true,
+      "R": false,
+      "A": false,
+      "Field": false,
+      "Phase": false,
+      "Poynting": false
+    },
+    "quality_flag_records": [
+      {
+        "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+        "sample_id": null,
+        "flag": "T > 1",
+        "severity": "fail",
+        "detail": "max(T)=1700",
+        "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+        "sample_id": null,
+        "flag": "FWHM 不可靠",
+        "severity": "warning",
+        "detail": "半高宽点数不足或无法闭合",
+        "suggestion": "加密 λ 或参数采样后复算"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+        "sample_id": null,
+        "flag": "主特征靠边界",
+        "severity": "warning",
+        "detail": "lambda0 距离扫描边界 0.00 nm",
+        "suggestion": "扩大波长扫描范围"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+        "sample_id": null,
+        "flag": "缺 R",
+        "severity": "warning",
+        "detail": "缺少 R 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+        "sample_id": null,
+        "flag": "缺 A",
+        "severity": "warning",
+        "detail": "缺少 A 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+        "sample_id": null,
+        "flag": "缺 Field",
+        "severity": "warning",
+        "detail": "缺少 Field 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+        "sample_id": null,
+        "flag": "缺 Phase",
+        "severity": "warning",
+        "detail": "缺少 Phase 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      },
+      {
+        "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+        "sample_id": null,
+        "flag": "缺 Poynting",
+        "severity": "warning",
+        "detail": "缺少 Poynting 补证数据",
+        "suggestion": "进入补做实验生成任务包"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample_id": "0",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0000_diagonal_pair_radius_radius_35.000_nm.fsp"
+    },
+    {
+      "sample_id": "1",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0001_diagonal_pair_radius_radius_40.000_nm.fsp"
+    },
+    {
+      "sample_id": "2",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0002_diagonal_pair_radius_radius_45.000_nm.fsp"
+    },
+    {
+      "sample_id": "3",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0003_diagonal_pair_radius_radius_50.000_nm.fsp"
+    },
+    {
+      "sample_id": "4",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0004_diagonal_pair_radius_radius_55.000_nm.fsp"
+    },
+    {
+      "sample_id": "5",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0005_diagonal_pair_radius_radius_60.000_nm.fsp"
+    },
+    {
+      "sample_id": "6",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0006_diagonal_pair_radius_radius_65.000_nm.fsp"
+    },
+    {
+      "sample_id": "7",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0007_diagonal_pair_radius_radius_70.000_nm.fsp"
+    },
+    {
+      "sample_id": "8",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0008_diagonal_pair_radius_radius_75.000_nm.fsp"
+    },
+    {
+      "sample_id": "9",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0009_diagonal_pair_radius_radius_80.000_nm.fsp"
+    },
+    {
+      "sample_id": "10",
+      "delta": null,
+      "lambda0_nm": 0.0017000000000000001,
+      "score": 0.0,
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "source_fsp": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0010_diagonal_pair_radius_radius_85.000_nm.fsp"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 600,
+      "mtime": 1778204862.8847835,
+      "mtime_iso": "2026-05-08T09:47:42"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\04_logs\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 7136,
+      "mtime": 1778207494.8910503,
+      "mtime_iso": "2026-05-08T10:31:34"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\12_analysis_summary\\ranking_notch.csv",
+      "name": "ranking_notch.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3306,
+      "mtime": 1778839500.8218079,
+      "mtime_iso": "2026-05-15T18:05:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\12_analysis_summary\\ranking_passband.csv",
+      "name": "ranking_passband.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 3306,
+      "mtime": 1778839500.8228087,
+      "mtime_iso": "2026-05-15T18:05:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\12_analysis_summary\\spectral_metrics.csv",
+      "name": "spectral_metrics.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 2779,
+      "mtime": 1778839500.8148096,
+      "mtime_iso": "2026-05-15T18:05:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0000_diagonal_pair_radius_radius_35.000_nm.fsp",
+      "name": "0000_diagonal_pair_radius_radius_35.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804761,
+      "mtime": 1778205007.890135,
+      "mtime_iso": "2026-05-08T09:50:07"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0001_diagonal_pair_radius_radius_40.000_nm.fsp",
+      "name": "0001_diagonal_pair_radius_radius_40.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805673,
+      "mtime": 1778205554.9400356,
+      "mtime_iso": "2026-05-08T09:59:14"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0002_diagonal_pair_radius_radius_45.000_nm.fsp",
+      "name": "0002_diagonal_pair_radius_radius_45.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804745,
+      "mtime": 1778205695.574535,
+      "mtime_iso": "2026-05-08T10:01:35"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0003_diagonal_pair_radius_radius_50.000_nm.fsp",
+      "name": "0003_diagonal_pair_radius_radius_50.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804713,
+      "mtime": 1778205822.2285953,
+      "mtime_iso": "2026-05-08T10:03:42"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0004_diagonal_pair_radius_radius_55.000_nm.fsp",
+      "name": "0004_diagonal_pair_radius_radius_55.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804681,
+      "mtime": 1778205939.429356,
+      "mtime_iso": "2026-05-08T10:05:39"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0005_diagonal_pair_radius_radius_60.000_nm.fsp",
+      "name": "0005_diagonal_pair_radius_radius_60.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804665,
+      "mtime": 1778206047.4986608,
+      "mtime_iso": "2026-05-08T10:07:27"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0006_diagonal_pair_radius_radius_65.000_nm.fsp",
+      "name": "0006_diagonal_pair_radius_radius_65.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804633,
+      "mtime": 1778206142.8123505,
+      "mtime_iso": "2026-05-08T10:09:02"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0007_diagonal_pair_radius_radius_70.000_nm.fsp",
+      "name": "0007_diagonal_pair_radius_radius_70.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804649,
+      "mtime": 1778206249.0504642,
+      "mtime_iso": "2026-05-08T10:10:49"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0008_diagonal_pair_radius_radius_75.000_nm.fsp",
+      "name": "0008_diagonal_pair_radius_radius_75.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805689,
+      "mtime": 1778206803.6109526,
+      "mtime_iso": "2026-05-08T10:20:03"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0009_diagonal_pair_radius_radius_80.000_nm.fsp",
+      "name": "0009_diagonal_pair_radius_radius_80.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804633,
+      "mtime": 1778206927.8416092,
+      "mtime_iso": "2026-05-08T10:22:07"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\01_fsp\\0010_diagonal_pair_radius_radius_85.000_nm.fsp",
+      "name": "0010_diagonal_pair_radius_radius_85.000_nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805689,
+      "mtime": 1778207494.1123693,
+      "mtime_iso": "2026-05-08T10:31:34"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25804537,
+      "mtime": 1777254204.3492599,
+      "mtime_iso": "2026-04-27T09:43:24"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0000_diagonal_pair_radius_radius_35.000_nm.png",
+      "name": "0000_diagonal_pair_radius_radius_35.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 75878,
+      "mtime": 1778205008.261636,
+      "mtime_iso": "2026-05-08T09:50:08"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0001_diagonal_pair_radius_radius_40.000_nm.png",
+      "name": "0001_diagonal_pair_radius_radius_40.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 76923,
+      "mtime": 1778205555.3171272,
+      "mtime_iso": "2026-05-08T09:59:15"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0002_diagonal_pair_radius_radius_45.000_nm.png",
+      "name": "0002_diagonal_pair_radius_radius_45.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 77231,
+      "mtime": 1778205695.9149175,
+      "mtime_iso": "2026-05-08T10:01:35"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0003_diagonal_pair_radius_radius_50.000_nm.png",
+      "name": "0003_diagonal_pair_radius_radius_50.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 79328,
+      "mtime": 1778205822.5548713,
+      "mtime_iso": "2026-05-08T10:03:42"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0004_diagonal_pair_radius_radius_55.000_nm.png",
+      "name": "0004_diagonal_pair_radius_radius_55.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 79538,
+      "mtime": 1778205939.7486691,
+      "mtime_iso": "2026-05-08T10:05:39"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0005_diagonal_pair_radius_radius_60.000_nm.png",
+      "name": "0005_diagonal_pair_radius_radius_60.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78414,
+      "mtime": 1778206047.8230991,
+      "mtime_iso": "2026-05-08T10:07:27"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0006_diagonal_pair_radius_radius_65.000_nm.png",
+      "name": "0006_diagonal_pair_radius_radius_65.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 76598,
+      "mtime": 1778206143.144507,
+      "mtime_iso": "2026-05-08T10:09:03"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0007_diagonal_pair_radius_radius_70.000_nm.png",
+      "name": "0007_diagonal_pair_radius_radius_70.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 75785,
+      "mtime": 1778206249.920046,
+      "mtime_iso": "2026-05-08T10:10:49"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0008_diagonal_pair_radius_radius_75.000_nm.png",
+      "name": "0008_diagonal_pair_radius_radius_75.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 38975,
+      "mtime": 1778206803.9647174,
+      "mtime_iso": "2026-05-08T10:20:03"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0009_diagonal_pair_radius_radius_80.000_nm.png",
+      "name": "0009_diagonal_pair_radius_radius_80.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 72949,
+      "mtime": 1778206928.9626331,
+      "mtime_iso": "2026-05-08T10:22:08"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\03_transmission_abs2_png\\0010_diagonal_pair_radius_radius_85.000_nm.png",
+      "name": "0010_diagonal_pair_radius_radius_85.000_nm.png",
+      "extension": "png",
+      "kind": "image",
+      "size": 78080,
+      "mtime": 1778207494.889048,
+      "mtime_iso": "2026-05-08T10:31:34"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\12_analysis_summary\\mechanism_guess.json",
+      "name": "mechanism_guess.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 674,
+      "mtime": 1778839500.8228087,
+      "mtime_iso": "2026-05-15T18:05:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\12_analysis_summary\\missing_data_report.json",
+      "name": "missing_data_report.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 1359,
+      "mtime": 1778839500.8238084,
+      "mtime_iso": "2026-05-15T18:05:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\12_analysis_summary\\spectral_metrics.json",
+      "name": "spectral_metrics.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 160045,
+      "mtime": 1778839500.8197756,
+      "mtime_iso": "2026-05-15T18:05:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\04_logs\\automation_run.log",
+      "name": "automation_run.log",
+      "extension": "log",
+      "kind": "log",
+      "size": 2652,
+      "mtime": 1778207494.8910503,
+      "mtime_iso": "2026-05-08T10:31:34"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\12_analysis_summary\\diagnostic_summary.md",
+      "name": "diagnostic_summary.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 2430,
+      "mtime": 1778839500.8257744,
+      "mtime_iso": "2026-05-15T18:05:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\12_analysis_summary\\next_actions.md",
+      "name": "next_actions.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1513,
+      "mtime": 1778839500.8248086,
+      "mtime_iso": "2026-05-15T18:05:00"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1438,
+      "mtime": 1778204862.8867843,
+      "mtime_iso": "2026-05-08T09:47:42"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\00_scan_plan\\scan_summary.txt",
+      "name": "scan_summary.txt",
+      "extension": "txt",
+      "kind": "txt",
+      "size": 482,
+      "mtime": 1778204862.885785,
+      "mtime_iso": "2026-05-08T09:47:42"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0000_diagonal_pair_radius_radius_35.000_nm.xlsx",
+      "name": "0000_diagonal_pair_radius_radius_35.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27480,
+      "mtime": 1778205008.128989,
+      "mtime_iso": "2026-05-08T09:50:08"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0001_diagonal_pair_radius_radius_40.000_nm.xlsx",
+      "name": "0001_diagonal_pair_radius_radius_40.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27510,
+      "mtime": 1778205555.2057018,
+      "mtime_iso": "2026-05-08T09:59:15"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0002_diagonal_pair_radius_radius_45.000_nm.xlsx",
+      "name": "0002_diagonal_pair_radius_radius_45.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27528,
+      "mtime": 1778205695.8082945,
+      "mtime_iso": "2026-05-08T10:01:35"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0003_diagonal_pair_radius_radius_50.000_nm.xlsx",
+      "name": "0003_diagonal_pair_radius_radius_50.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27482,
+      "mtime": 1778205822.4429057,
+      "mtime_iso": "2026-05-08T10:03:42"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0004_diagonal_pair_radius_radius_55.000_nm.xlsx",
+      "name": "0004_diagonal_pair_radius_radius_55.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27493,
+      "mtime": 1778205939.6389437,
+      "mtime_iso": "2026-05-08T10:05:39"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0005_diagonal_pair_radius_radius_60.000_nm.xlsx",
+      "name": "0005_diagonal_pair_radius_radius_60.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27486,
+      "mtime": 1778206047.7148087,
+      "mtime_iso": "2026-05-08T10:07:27"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0006_diagonal_pair_radius_radius_65.000_nm.xlsx",
+      "name": "0006_diagonal_pair_radius_radius_65.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27508,
+      "mtime": 1778206143.0253325,
+      "mtime_iso": "2026-05-08T10:09:03"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0007_diagonal_pair_radius_radius_70.000_nm.xlsx",
+      "name": "0007_diagonal_pair_radius_radius_70.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27537,
+      "mtime": 1778206249.813699,
+      "mtime_iso": "2026-05-08T10:10:49"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0008_diagonal_pair_radius_radius_75.000_nm.xlsx",
+      "name": "0008_diagonal_pair_radius_radius_75.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27423,
+      "mtime": 1778206803.8355546,
+      "mtime_iso": "2026-05-08T10:20:03"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0009_diagonal_pair_radius_radius_80.000_nm.xlsx",
+      "name": "0009_diagonal_pair_radius_radius_80.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27462,
+      "mtime": 1778206928.8155894,
+      "mtime_iso": "2026-05-08T10:22:08"
+    },
+    {
+      "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒\\02_transmission_excel\\0010_diagonal_pair_radius_radius_85.000_nm.xlsx",
+      "name": "0010_diagonal_pair_radius_radius_85.000_nm.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 27447,
+      "mtime": 1778207494.6554673,
+      "mtime_iso": "2026-05-08T10:31:34"
+    }
+  ],
+  "metrics": [
+    {
+      "delta": 0,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 1,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 2,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 3,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 4,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 5,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 6,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 7,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 8,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 9,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    },
+    {
+      "delta": 10,
+      "score": 0,
+      "q": 0,
+      "fwhm_nm": 0,
+      "lambda0_nm": null
+    }
+  ],
+  "quality_flags": [
+    "T > 1",
+    "FWHM 不可靠",
+    "主特征靠边界",
+    "缺 R",
+    "缺 A",
+    "缺 Field",
+    "缺 Phase",
+    "缺 Poynting"
+  ],
+  "missing_evidence": [
+    "R",
+    "A",
+    "Field",
+    "Phase",
+    "Poynting"
+  ],
+  "linked_supplements": [],
+  "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+  "relative_path": "C4对称结构\\四孔方块\\results\\对角成对变化扰动\\不收敛结果\\run_full_2026年5月8日_09时47分37秒",
+  "group": "C4",
+  "mother_structure": "四孔方块",
+  "perturbation": "对角成对变化扰动",
+  "reduction_path": "C4 -> 待识别",
+  "status": "done",
+  "risk": "high",
+  "risk_level": "high",
+  "risk_label": "高",
+  "mode": "full",
+  "spectrum_count": 11,
+  "spectra_count": 11,
+  "sample_count": 11,
+  "has_T": true,
+  "has_R": false,
+  "has_A": false,
+  "has_field": false,
+  "has_phase": false,
+  "has_poynting": false,
+  "best_score": 0.0,
+  "score": 0.0,
+  "lambda0_nm": 0.0017000000000000001,
+  "Q": null,
+  "q": null,
+  "FWHM_nm": null,
+  "fwhm_nm": null,
+  "max_t": 1700.0,
+  "modified_at": "2026-05-15T18:05:00",
+  "mtime": 1778839500.812776,
+  "fingerprint": {
+    "mtime_max": 1778839500.8257744,
+    "total_size": 310958843,
+    "file_count": 47,
+    "dir_count": 7,
+    "fingerprint": "1778839500.8257744-310958843-47-7"
+  },
+  "last_indexed_at": "2026-05-20T14:34:03",
+  "source_job_id": null,
+  "evidence": {
+    "T": true,
+    "R": false,
+    "A": false,
+    "Field": false,
+    "Phase": false,
+    "Poynting": false
+  },
+  "quality_flag_records": [
+    {
+      "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=1700",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+      "sample_id": null,
+      "flag": "FWHM 不可靠",
+      "severity": "warning",
+      "detail": "半高宽点数不足或无法闭合",
+      "suggestion": "加密 λ 或参数采样后复算"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+      "sample_id": null,
+      "flag": "主特征靠边界",
+      "severity": "warning",
+      "detail": "lambda0 距离扫描边界 0.00 nm",
+      "suggestion": "扩大波长扫描范围"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+      "sample_id": null,
+      "flag": "缺 R",
+      "severity": "warning",
+      "detail": "缺少 R 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+      "sample_id": null,
+      "flag": "缺 A",
+      "severity": "warning",
+      "detail": "缺少 A 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+      "sample_id": null,
+      "flag": "缺 Field",
+      "severity": "warning",
+      "detail": "缺少 Field 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+      "sample_id": null,
+      "flag": "缺 Phase",
+      "severity": "warning",
+      "detail": "缺少 Phase 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    },
+    {
+      "run_id": "run_full_2026年5月8日_09时47分37秒_18f862a4",
+      "sample_id": null,
+      "flag": "缺 Poynting",
+      "severity": "warning",
+      "detail": "缺少 Poynting 补证数据",
+      "suggestion": "进入补做实验生成任务包"
+    }
+  ]
+}
