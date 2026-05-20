@@ -97,7 +97,7 @@ export function drawHeatmap(canvas, matrix) {
   if (!p) return;
   const { ctx, width, height } = p;
   const box = { x: 52, y: 24, w: width - 86, h: height - 66 };
-  drawAxes(ctx, box, "扰动 δ", "λ (nm)");
+  drawAxes(ctx, box, "λ (nm)", "扰动 δ");
   const rows = matrix?.values || [];
   if (!rows.length) {
     ctx.fillStyle = palette.text;

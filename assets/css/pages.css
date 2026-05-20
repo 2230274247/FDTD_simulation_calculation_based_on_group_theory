@@ -376,6 +376,245 @@
   white-space: nowrap;
 }
 
+.results-layout {
+  display: grid;
+  grid-template-columns: 380px minmax(520px, 1fr) 420px;
+  gap: 16px;
+  align-items: start;
+}
+
+.results-layout > *,
+.results-main {
+  min-width: 0;
+}
+
+.filter-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.run-tree.hierarchical {
+  max-height: 640px;
+}
+
+.tree-level {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tree-level span {
+  color: var(--color-muted-2);
+  font-weight: 700;
+}
+
+.tree-level.level-0 {
+  padding: 10px 12px 4px;
+  color: var(--color-text);
+  font-size: 13px;
+}
+
+.tree-level.level-1 {
+  padding: 7px 12px 3px 24px;
+}
+
+.tree-level.level-2 {
+  padding: 6px 12px 3px 38px;
+  color: var(--color-text-2);
+}
+
+.tree-row.run-leaf {
+  margin-left: 50px;
+}
+
+.sample-table-wrap {
+  max-height: 420px;
+  overflow: auto;
+}
+
+.sample-table {
+  min-width: 880px;
+}
+
+.sample-row {
+  cursor: pointer;
+}
+
+.sample-row.active,
+.sample-row:hover {
+  background: #F0F8F6;
+}
+
+.flag-text {
+  font-weight: 800;
+}
+
+.flag-text.ok {
+  color: var(--color-success);
+}
+
+.flag-text.warn {
+  color: var(--color-warning);
+}
+
+.flag-text.bad {
+  color: var(--color-danger);
+}
+
+.trend-resource-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+  gap: 12px;
+}
+
+.chart-box.small {
+  min-height: 210px;
+}
+
+.chart-box.small canvas {
+  height: 210px;
+}
+
+.resource-strip {
+  max-height: 210px;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #FBFDFD;
+  color: var(--color-muted);
+}
+
+.resource-chip {
+  max-width: 260px;
+  height: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  padding: 0 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #FFFFFF;
+  color: var(--color-text-2);
+  font-size: 12px;
+}
+
+.resource-chip:hover {
+  color: var(--color-primary);
+  border-color: #B7D3CE;
+  background: var(--color-primary-soft);
+}
+
+.spectrum-preview {
+  display: grid;
+  gap: 10px;
+}
+
+.preview-toolbar,
+.peak-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.peak-tools .input {
+  max-width: 130px;
+}
+
+.preview-stage {
+  min-height: 240px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+.preview-stage img,
+.preview-pane img {
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.image-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 10px;
+}
+
+.thumb {
+  position: relative;
+  height: 92px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb span {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  min-width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, .78);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.package-list {
+  display: grid;
+  gap: 10px;
+}
+
+.package-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 76px 132px auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+}
+
+.package-row strong,
+.package-row .muted {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.supplement-table {
+  min-width: 900px;
+}
+
 @media (max-width: 1120px) {
   .stat-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -383,7 +622,9 @@
 
   .overview-grid,
   .layout-3,
-  .layout-2 {
+  .layout-2,
+  .results-layout,
+  .trend-resource-grid {
     grid-template-columns: 1fr;
     grid-template-areas: none;
   }
