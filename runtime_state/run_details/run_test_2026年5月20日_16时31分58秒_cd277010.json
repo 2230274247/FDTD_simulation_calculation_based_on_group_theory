@@ -2,6 +2,7 @@
   "schema_version": 2,
   "run": {
     "run_id": "run_test_2026年5月20日_16时31分58秒_cd277010",
+    "run_name": "run_test_2026年5月20日_16时31分58秒",
     "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_2026年5月20日_16时31分58秒",
     "group": "C2",
     "mother_structure": "双圆盘",
@@ -12,6 +13,7 @@
     "risk_level": "medium",
     "risk_label": "中",
     "mode": "test",
+    "archive_state": "",
     "spectrum_count": 1,
     "spectra_count": 1,
     "sample_count": 3,
@@ -33,12 +35,11 @@
     "mtime": 1779265929.3376136,
     "fingerprint": {
       "mtime_max": 1779265929.3376136,
-      "total_size": 293758,
-      "file_count": 3,
-      "dir_count": 6,
-      "fingerprint": "1779265929.3376136-293758-3-6"
+      "total_size": 4096,
+      "file_count": 0,
+      "fingerprint": "8c3fb4acf8b7951481ab604cd6511b8d0e97468e"
     },
-    "last_indexed_at": "2026-05-20T16:32:56",
+    "last_indexed_at": "2026-05-21T18:26:09",
     "source_job_id": "job_20260520_163156_356a19",
     "missing_evidence": [
       "R",
@@ -128,7 +129,22 @@
       "sample_id": "0",
       "delta": "0.0",
       "lambda0_nm": null,
+      "Q": null,
+      "q": null,
+      "FWHM_nm": null,
+      "fwhm_nm": null,
+      "max_T": null,
+      "max_t": null,
       "score": null,
+      "quality_flags": [
+        "采样不足",
+        "FWHM 不可靠",
+        "缺 R",
+        "缺 A",
+        "缺 Field",
+        "缺 Phase",
+        "缺 Poynting"
+      ],
       "missing_evidence": [
         "R",
         "A",
@@ -142,7 +158,22 @@
       "sample_id": "1",
       "delta": "5e-09",
       "lambda0_nm": null,
+      "Q": null,
+      "q": null,
+      "FWHM_nm": null,
+      "fwhm_nm": null,
+      "max_T": null,
+      "max_t": null,
       "score": null,
+      "quality_flags": [
+        "采样不足",
+        "FWHM 不可靠",
+        "缺 R",
+        "缺 A",
+        "缺 Field",
+        "缺 Phase",
+        "缺 Poynting"
+      ],
       "missing_evidence": [
         "R",
         "A",
@@ -156,7 +187,22 @@
       "sample_id": "2",
       "delta": "1e-08",
       "lambda0_nm": null,
+      "Q": null,
+      "q": null,
+      "FWHM_nm": null,
+      "fwhm_nm": null,
+      "max_T": null,
+      "max_t": null,
       "score": null,
+      "quality_flags": [
+        "采样不足",
+        "FWHM 不可靠",
+        "缺 R",
+        "缺 A",
+        "缺 Field",
+        "缺 Phase",
+        "缺 Poynting"
+      ],
       "missing_evidence": [
         "R",
         "A",
@@ -215,6 +261,7 @@
   ],
   "linked_supplements": [],
   "run_id": "run_test_2026年5月20日_16时31分58秒_cd277010",
+  "run_name": "run_test_2026年5月20日_16时31分58秒",
   "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_test_2026年5月20日_16时31分58秒",
   "group": "C2",
   "mother_structure": "双圆盘",
@@ -225,6 +272,7 @@
   "risk_level": "medium",
   "risk_label": "中",
   "mode": "test",
+  "archive_state": "",
   "spectrum_count": 1,
   "spectra_count": 1,
   "sample_count": 3,
@@ -246,12 +294,11 @@
   "mtime": 1779265929.3376136,
   "fingerprint": {
     "mtime_max": 1779265929.3376136,
-    "total_size": 293758,
-    "file_count": 3,
-    "dir_count": 6,
-    "fingerprint": "1779265929.3376136-293758-3-6"
+    "total_size": 4096,
+    "file_count": 0,
+    "fingerprint": "8c3fb4acf8b7951481ab604cd6511b8d0e97468e"
   },
-  "last_indexed_at": "2026-05-20T16:32:56",
+  "last_indexed_at": "2026-05-21T18:26:09",
   "source_job_id": "job_20260520_163156_356a19",
   "evidence": {
     "T": true,
