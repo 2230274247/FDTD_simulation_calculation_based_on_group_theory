@@ -771,9 +771,9 @@ function renderStructureNavigator() {
     run_id: state.selectedRunId || "",
   });
   const openKeys = new Set(nav.expanded || []);
-  [state.selectedStructure, ...(nav.recent || []), ...(nav.favorites || [])]
-    .filter(Boolean)
-    .forEach((record) => structureAncestorKeys(record).forEach((key) => openKeys.add(key)));
+  if (state.selectedStructure) {
+    structureAncestorKeys(state.selectedStructure).forEach((key) => openKeys.add(key));
+  }
   return `
     <div class="structure-nav">
       <div class="card-title">StructureNavigator <span class="muted">${fmt(state.structureTree?.run_count || state.runsPage?.total || 0)} 个</span></div>
@@ -1342,10 +1342,14 @@ function invalidateRunPreview(root, reason = "参数已变化，请重新预览"
 
 function bindRun(root) {
   const invalidate = () => invalidateRunPreview(root);
+  const sortSelectedScriptIds = () => {
+    state.selectedScriptIds = new Set(Array.from(state.selectedScriptIds).sort((a, b) => String(a).localeCompare(String(b), "zh-CN", { numeric: true })));
+  };
   $$(".tree-row[data-script-id]", root).forEach((row) => row.addEventListener("click", () => {
     const id = row.dataset.scriptId;
     if (state.selectedScriptIds.has(id)) state.selectedScriptIds.delete(id);
     else state.selectedScriptIds.add(id);
+    sortSelectedScriptIds();
     row.classList.toggle("active");
     $("#selected-script-count", root).textContent = state.selectedScriptIds.size;
     invalidate();
@@ -1872,6 +1876,19 @@ function evidenceAdvice(missing) {
 }
 
 function bindResults(root) {
+  const refreshNavigator = () => {
+    const pane = $("#structure-navigator", root);
+    if (!pane) return;
+    const scrollHost = $(".structure-tree", pane);
+    const scrollTop = scrollHost ? scrollHost.scrollTop : 0;
+    pane.innerHTML = renderStructureNavigator();
+    const nextHost = $(".structure-tree", pane);
+    if (nextHost) {
+      requestAnimationFrame(() => {
+        nextHost.scrollTop = scrollTop;
+      });
+    }
+  };
   root.__resultsInputHandler && root.removeEventListener("input", root.__resultsInputHandler);
   root.__resultsInputHandler = (event) => {
     const search = event.target.closest("#structure-search");
@@ -1879,8 +1896,7 @@ function bindResults(root) {
     const nav = ensureStructureNavigatorState();
     nav.query = search.value || "";
     saveStructureNavigatorState();
-    const pane = $("#structure-navigator", root);
-    if (pane) pane.innerHTML = renderStructureNavigator();
+    refreshNavigator();
     return;
   };
   root.addEventListener("input", root.__resultsInputHandler);
@@ -1897,7 +1913,7 @@ function bindResults(root) {
     }
   });
 
-  setRouteClickHandler(root, "results", (event) => {
+  setRouteClickHandler(root, "results", async (event) => {
     if (routeName() !== "results") return;
     const featureBtn = event.target.closest("[data-peak-feature]");
     if (featureBtn) {
@@ -1961,22 +1977,22 @@ function bindResults(root) {
     const scopeBtn = event.target.closest("[data-structure-scope]");
     if (scopeBtn) {
       setStructureScope(scopeBtn.dataset.structureScope);
-      renderRoute();
+      const scrollY = window.scrollY;
+      await renderRoute();
+      window.scrollTo({ top: scrollY, left: 0, behavior: "auto" });
       return;
     }
     const toggleBtn = event.target.closest("[data-structure-toggle]");
     if (toggleBtn) {
       toggleStructureExpanded(toggleBtn.dataset.structureToggle);
-      const pane = $("#structure-navigator", root);
-      if (pane) pane.innerHTML = renderStructureNavigator();
+      refreshNavigator();
       return;
     }
     const favoriteBtn = event.target.closest("[data-structure-favorite]");
     if (favoriteBtn) {
       const record = recordFromStructureElement(favoriteBtn);
       if (record) toggleStructureFavorite(record);
-      const pane = $("#structure-navigator", root);
-      if (pane) pane.innerHTML = renderStructureNavigator();
+      refreshNavigator();
       return;
     }
     const pinBtn = event.target.closest("[data-structure-pin]");
@@ -1985,7 +2001,8 @@ function bindResults(root) {
       if (record) {
         selectStructurePath(record, record.run_id || "");
         state.selectedRunId = record.run_id || state.selectedRunId;
-        renderRoute();
+        await loadRunInResults(root, state.selectedRunId || record.run_id || "");
+        refreshNavigator();
       }
       return;
     }
@@ -1995,7 +2012,8 @@ function bindResults(root) {
       if (record) {
         selectStructurePath(record, record.kind === "run" ? (selectBtn.dataset.structureRun || record.run_id || "") : "");
         if (selectBtn.dataset.structureRun) state.selectedRunId = selectBtn.dataset.structureRun;
-        renderRoute();
+        await loadRunInResults(root, state.selectedRunId || selectBtn.dataset.structureRun || record.run_id || "");
+        refreshNavigator();
       }
       return;
     }
