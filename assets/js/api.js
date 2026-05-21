@@ -1,9 +1,23 @@
 const JSON_HEADERS = { "Content-Type": "application/json; charset=utf-8" };
+let localToken = "";
+
+function setLocalToken(token) {
+  localToken = typeof token === "string" ? token : "";
+}
 
 async function request(path, options = {}) {
+  const method = String(options.method || "GET").toUpperCase();
+  const headers = { ...(options.headers || {}) };
+  if (localToken && ["POST", "PUT", "DELETE", "PATCH"].includes(method)) {
+    headers["X-FDTD-Workbench-Token"] = localToken;
+  }
+  if (options.body) {
+    Object.assign(headers, JSON_HEADERS);
+  }
   const response = await fetch(path, {
     ...options,
-    headers: options.body ? { ...JSON_HEADERS, ...(options.headers || {}) } : options.headers,
+    method,
+    headers,
   });
   const text = await response.text();
   let data = null;
@@ -20,6 +34,7 @@ async function request(path, options = {}) {
 }
 
 export const api = {
+  setLocalToken,
   bootstrap: () => request("/api/v2/bootstrap"),
   refreshIndex: (payload = {}) => request("/api/v2/index/refresh", { method: "POST", body: JSON.stringify(payload) }),
   refreshDelta: (payload = {}) => request("/api/v2/index/refresh-delta", { method: "POST", body: JSON.stringify(payload) }),
@@ -36,11 +51,16 @@ export const api = {
   resources: (params = {}) => request(`/api/v2/resources?${new URLSearchParams(params).toString()}`),
   scripts: (params = {}) => request(`/api/v2/scripts?${new URLSearchParams(params).toString()}`),
   refreshScripts: () => request("/api/v2/scripts/refresh", { method: "POST", body: "{}" }),
+  structureTree: (scope = "current") => request(`/api/v2/structure-tree?scope=${encodeURIComponent(scope || "current")}`),
   controllerPreview: (payload) => request("/api/v2/controller/preview", { method: "POST", body: JSON.stringify(payload) }),
   controllerStart: (payload) => request("/api/v2/controller/start", { method: "POST", body: JSON.stringify(payload) }),
+  peakCalc: (payload) => request("/api/v2/diagnostics/peak-calc", { method: "POST", body: JSON.stringify(payload) }),
   jobs: () => request("/api/v2/jobs"),
   job: (jobId) => request(`/api/v2/jobs/${encodeURIComponent(jobId)}`),
-  jobLog: (jobId) => request(`/api/v2/jobs/${encodeURIComponent(jobId)}/log`),
+  jobLog: (jobId, params = {}) => {
+    const query = new URLSearchParams(params || {}).toString();
+    return request(`/api/v2/jobs/${encodeURIComponent(jobId)}/log${query ? `?${query}` : ""}`);
+  },
   stopJob: (jobId) => request(`/api/v2/jobs/${encodeURIComponent(jobId)}/stop`, { method: "POST", body: "{}" }),
   diagnosticsRun: (runId) => request(`/api/v2/diagnostics/run/${encodeURIComponent(runId)}`),
   diagnosticsSpectrum: (runId, sampleId = "", kind = "T") => request(`/api/v2/diagnostics/spectrum?run_id=${encodeURIComponent(runId)}&sample_id=${encodeURIComponent(sampleId)}&kind=${encodeURIComponent(kind)}`),
@@ -52,7 +72,7 @@ export const api = {
   modeRelayCandidates: (group = "C6") => request(`/api/v2/mode-relay/candidates?group=${encodeURIComponent(group)}`),
   supplementMissing: () => request("/api/v2/supplement/missing"),
   createSupplementPackage: (payload) => request("/api/v2/supplement/create-package", { method: "POST", body: JSON.stringify(payload) }),
-  deleteSupplementPackage: (packageId) => request(`/api/v2/supplement/packages/${encodeURIComponent(packageId)}/delete`, { method: "POST", body: "{}" }),
+  deleteSupplementPackage: (packageId, payload = {}) => request(`/api/v2/supplement/packages/${encodeURIComponent(packageId)}/delete`, { method: "POST", body: JSON.stringify(payload) }),
   supplementPackages: () => request("/api/v2/supplement/packages"),
   supplementPackage: (packageId) => request(`/api/v2/supplement/packages/${encodeURIComponent(packageId)}`),
   resultManagerDryRun: () => request("/api/v2/results-manager/dry-run", { method: "POST", body: "{}" }),

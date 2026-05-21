@@ -1,4 +1,4 @@
-import { api } from "./api.js";
+﻿import { api } from "./api.js";
 import { drawLine, drawTrend, drawHeatmap } from "./charts.js";
 
 const routes = {
@@ -32,11 +32,20 @@ const state = {
   missing: null,
   packages: null,
   activeJobId: "",
+  runPreview: { payloadHash: "", previewHash: "", executionPlan: null, valid: false, warnings: [], dirtyReason: "" },
+  jobLog: { mode: "all", search: "", autoScroll: true, data: null, jobId: "" },
+  sampleSpectrum: { controller: null, data: null, sampleId: "", featureType: "auto", selection: null, lastResult: null, requestSeq: 0, lastSavedManual: false },
   resultFilters: { scope: "current", group: "", mother: "", perturbation: "", risk: "" },
+  selectedStructure: null,
+  structureTree: null,
+  structureNavigator: null,
   selectedSampleId: "",
+  supplementUI: { selectedKeys: new Set(), focusedKey: "", expandedRuns: new Set(), step: 1, lastCreatedPackageId: "" },
   resultPreviewImages: [],
   resultPreviewIndex: 0,
   resultAutoplayTimer: null,
+  supplementSearch: "",
+  supplementVisibleLimit: 420,
   indexStatus: { running: false, progress: 0 },
   preloadStatus: null,
   warmupStarted: false,
@@ -46,6 +55,7 @@ const state = {
 
 let warmupPausedUntil = 0;
 let renderSeq = 0;
+const actionLocks = new Map();
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -63,6 +73,159 @@ const fmt = (value, digits = 0) => {
 };
 const pct = (value) => `${Math.round((Number(value) || 0) * 100)}%`;
 const tagTone = (risk) => risk === "high" ? "red" : risk === "medium" ? "orange" : "green";
+const STRUCTURE_NAV_STORAGE_KEY = "fdtd.result-structure-navigator.v1";
+
+function structurePathKey(path) {
+  if (!path) return "";
+  return [path.group || "", path.mother || "", path.perturbation || "", path.run_id || ""].join("||");
+}
+
+function structurePathLabel(path) {
+  if (!path) return "";
+  const parts = [path.group, path.mother, path.perturbation, path.run_name || path.run_id].filter(Boolean);
+  return parts.join(" / ");
+}
+
+function loadStructureNavigatorState() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(STRUCTURE_NAV_STORAGE_KEY) || "{}");
+    return {
+      query: typeof parsed.query === "string" ? parsed.query : "",
+      scope: parsed.scope || "current",
+      favorites: Array.isArray(parsed.favorites) ? parsed.favorites : [],
+      recent: Array.isArray(parsed.recent) ? parsed.recent : [],
+      expanded: Array.isArray(parsed.expanded) ? parsed.expanded : [],
+    };
+  } catch {
+    return { query: "", scope: "current", favorites: [], recent: [], expanded: [] };
+  }
+}
+
+function ensureStructureNavigatorState() {
+  if (!state.structureNavigator) {
+    state.structureNavigator = loadStructureNavigatorState();
+  }
+  return state.structureNavigator;
+}
+
+function saveStructureNavigatorState() {
+  const nav = ensureStructureNavigatorState();
+  localStorage.setItem(STRUCTURE_NAV_STORAGE_KEY, JSON.stringify({
+    query: nav.query || "",
+    scope: nav.scope || "current",
+    favorites: nav.favorites || [],
+    recent: nav.recent || [],
+    expanded: nav.expanded || [],
+  }));
+}
+
+function normalizeStructureRecord(node, parent = {}) {
+  const kind = node.kind || parent.kind || "";
+  const group = kind === "group" ? (node.name || parent.group || node.group || "") : (node.group || parent.group || "");
+  const mother = kind === "mother" ? (node.name || parent.mother || node.mother_structure || "") : (node.mother_structure || parent.mother || "");
+  const perturbation = kind === "perturbation" ? (node.name || parent.perturbation || node.perturbation || "") : (node.perturbation || parent.perturbation || "");
+  const runId = kind === "run" ? (node.run_id || node.id || "") : (node.run_id || parent.run_id || "");
+  return {
+    key: structurePathKey({ group, mother, perturbation, run_id: runId }),
+    label: structurePathLabel({
+      group,
+      mother,
+      perturbation,
+      run_id: runId,
+      run_name: node.run_name || node.name || "",
+    }),
+    scope: ensureStructureNavigatorState().scope || "current",
+    group,
+    mother,
+    perturbation,
+    run_id: runId,
+    run_name: node.run_name || node.name || "",
+    kind: node.kind || parent.kind || "",
+  };
+}
+
+function pushStructureRecent(record) {
+  if (!record || !record.key) return;
+  const nav = ensureStructureNavigatorState();
+  const list = [record, ...(nav.recent || []).filter((item) => item.key !== record.key)];
+  nav.recent = list.slice(0, 12);
+  saveStructureNavigatorState();
+}
+
+function toggleStructureFavorite(record) {
+  if (!record || !record.key) return;
+  const nav = ensureStructureNavigatorState();
+  const favorites = nav.favorites || [];
+  const idx = favorites.findIndex((item) => item.key === record.key);
+  if (idx >= 0) favorites.splice(idx, 1);
+  else favorites.unshift(record);
+  nav.favorites = favorites.slice(0, 20);
+  saveStructureNavigatorState();
+}
+
+function toggleStructureExpanded(key, forceOpen = null) {
+  const nav = ensureStructureNavigatorState();
+  const expanded = new Set(nav.expanded || []);
+  const shouldOpen = forceOpen === null ? !expanded.has(key) : forceOpen;
+  if (shouldOpen) expanded.add(key);
+  else expanded.delete(key);
+  nav.expanded = Array.from(expanded);
+  saveStructureNavigatorState();
+}
+
+function setStructureScope(scope) {
+  const nav = ensureStructureNavigatorState();
+  nav.scope = scope || "current";
+  state.resultFilters.scope = nav.scope;
+  saveStructureNavigatorState();
+}
+
+function selectStructurePath(record, runId = "") {
+  const nav = ensureStructureNavigatorState();
+  const selected = {
+    ...record,
+    run_id: runId || record.run_id || "",
+    key: structurePathKey({ ...record, run_id: runId || record.run_id || "" }),
+  };
+  if (!selected.scope) selected.scope = nav.scope || "current";
+  state.selectedStructure = selected;
+  if (selected.scope) state.resultFilters.scope = selected.scope;
+  if (selected.group !== undefined) state.resultFilters.group = selected.group || "";
+  if (selected.mother !== undefined) state.resultFilters.mother = selected.mother || "";
+  if (selected.perturbation !== undefined) state.resultFilters.perturbation = selected.perturbation || "";
+  if (selected.scope) nav.scope = selected.scope;
+  pushStructureRecent(selected);
+  return selected;
+}
+
+function structureNodeMatchesQuery(node, query) {
+  if (!query) return true;
+  const haystack = [
+    node.name,
+    node.group,
+    node.mother_structure,
+    node.perturbation,
+    node.run_name,
+    node.run_id,
+    ...(node.runs || []).map((run) => [run.run_name, run.run_id, run.group, run.mother_structure, run.perturbation].filter(Boolean).join(" ")),
+  ].filter(Boolean).join(" ").toLowerCase();
+  return haystack.includes(query.toLowerCase());
+}
+
+function structureAncestorKeys(record) {
+  if (!record) return [];
+  const keys = [];
+  const group = record.group || "";
+  const mother = record.mother || "";
+  const perturbation = record.perturbation || "";
+  if (group) keys.push(structurePathKey({ group }));
+  if (group && mother) keys.push(structurePathKey({ group, mother }));
+  if (group && mother && perturbation) keys.push(structurePathKey({ group, mother, perturbation }));
+  if (group && mother && perturbation && record.run_id) {
+    keys.push(structurePathKey({ group, mother, perturbation, run_id: record.run_id }));
+  }
+  return keys;
+}
 
 export function scheduleIdleTask(fn) {
   if ("requestIdleCallback" in window) {
@@ -118,6 +281,155 @@ function closeModal() {
   root.innerHTML = "";
 }
 
+function setRouteClickHandler(root, key, handler) {
+  const prop = `__${key}ClickHandler`;
+  if (root[prop]) root.removeEventListener("click", root[prop]);
+  root[prop] = handler;
+  root.addEventListener("click", handler);
+}
+
+async function copyText(text) {
+  if (!text) throw new Error("没有可复制的路径");
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const area = document.createElement("textarea");
+  area.value = text;
+  area.style.position = "fixed";
+  area.style.left = "-9999px";
+  document.body.appendChild(area);
+  area.select();
+  document.execCommand("copy");
+  area.remove();
+}
+
+function downloadText(filename, text) {
+  const blob = new Blob([text || ""], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+function ensureJobLogState() {
+  if (!state.jobLog) {
+    state.jobLog = { mode: "all", search: "", autoScroll: true, data: null, jobId: "" };
+  }
+  if (state.jobLog.autoScroll === undefined) state.jobLog.autoScroll = true;
+  if (!state.jobLog.mode) state.jobLog.mode = "all";
+  if (state.jobLog.search === undefined) state.jobLog.search = "";
+  return state.jobLog;
+}
+
+function jobLogLineTone(level) {
+  return level === "error" ? "red" : level === "warning" ? "orange" : level === "progress" ? "blue" : "green";
+}
+
+function jobLogLineMatches(entry, mode, query) {
+  const level = String(entry?.level || "info");
+  if (mode === "progress" && level !== "progress") return false;
+  if (mode === "warn" && !(level === "warning" || level === "error")) return false;
+  if (mode === "raw") {
+    if (!query) return true;
+    return [entry?.raw, entry?.text, entry?.source, entry?.time].some((value) => String(value || "").toLowerCase().includes(query));
+  }
+  if (query && ![entry?.time, entry?.source, entry?.text, entry?.raw].some((value) => String(value || "").toLowerCase().includes(query))) {
+    return false;
+  }
+  return true;
+}
+
+function jobLogDisplayText(log) {
+  const data = log || {};
+  const mode = (ensureJobLogState().mode || "all").toLowerCase();
+  const query = ensureJobLogState().search.trim().toLowerCase();
+  const structured = Array.isArray(data.structured_lines) ? data.structured_lines : [];
+  const filtered = structured.filter((entry) => jobLogLineMatches(entry, mode, query));
+  const fallbackText = String(data.raw_text || data.text || "").trim();
+  const total = structured.length;
+  const collapsed = Number(data.collapsed_count || 0);
+  const warning = data.encoding_warning ? `<span class="tag orange">${esc(data.encoding_warning)}</span>` : "";
+  const summary = `<div class="muted" style="margin-bottom:8px">总计 ${fmt(total)} 行 · 折叠 ${fmt(collapsed)} 行${warning ? ` · ${warning}` : ""}</div>`;
+  const controls = `
+    <div class="toolbar" style="gap:8px;flex-wrap:wrap;margin-bottom:10px">
+      <div class="segmented" id="job-log-mode">
+        <button class="${mode === "all" ? "active" : ""}" data-job-log-mode="all" type="button">全部</button>
+        <button class="${mode === "progress" ? "active" : ""}" data-job-log-mode="progress" type="button">进度</button>
+        <button class="${mode === "warn" ? "active" : ""}" data-job-log-mode="warn" type="button">warning/error</button>
+        <button class="${mode === "raw" ? "active" : ""}" data-job-log-mode="raw" type="button">原始日志</button>
+      </div>
+      <label class="muted" style="display:flex;align-items:center;gap:6px"><input id="job-log-auto-scroll" type="checkbox" ${ensureJobLogState().autoScroll ? "checked" : ""}>自动滚动</label>
+      <input class="input" id="job-log-search" type="search" placeholder="搜索日志" value="${esc(ensureJobLogState().search || "")}" style="max-width:240px;flex:1 1 220px">
+      <button class="btn ghost" data-job-log-copy type="button">复制</button>
+      <button class="btn ghost" data-job-log-download type="button">下载</button>
+    </div>`;
+  const body = mode === "raw"
+    ? (() => {
+      const rawLines = fallbackText ? fallbackText.split(/\r?\n/) : [];
+      const displayText = query ? rawLines.filter((line) => line.toLowerCase().includes(query)).join("\n") : fallbackText;
+      if (query && !displayText) return `<div id="job-log-body" class="empty" style="max-height:40vh;overflow:auto">没有匹配的日志行。</div>`;
+      return `<pre class="terminal" id="job-log-body" style="margin:0;max-height:40vh;overflow:auto;white-space:pre-wrap;word-break:break-word">${esc(displayText || "暂无日志")}</pre>`;
+    })()
+    : (filtered.length ? `<div id="job-log-body" style="max-height:40vh;overflow:auto">${filtered.map((entry) => {
+      const repeated = Number(entry.repeated_count || 1);
+      const time = entry.time ? `<span class="muted">${esc(entry.time)}</span>` : "";
+      const source = entry.source ? `<span class="tag blue">${esc(entry.source)}</span>` : "";
+      const count = repeated > 1 ? ` <span class="tag green">x${repeated}</span>` : "";
+      return `<div style="padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06);display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap"><span class="tag ${jobLogLineTone(entry.level)}">${esc(String(entry.level || "info").toUpperCase())}</span>${time}${source}<span style="white-space:pre-wrap;word-break:break-word;flex:1 1 100%">${esc(entry.text || "")}${count}</span></div>`;
+    }).join("")}</div>` : (fallbackText ? `<pre class="terminal" id="job-log-body" style="margin:0;max-height:40vh;overflow:auto;white-space:pre-wrap;word-break:break-word">${esc(fallbackText)}</pre>` : `<div id="job-log-body" class="empty" style="max-height:40vh;overflow:auto">没有匹配的日志行。</div>`));
+  return `${controls}${summary}${body}`;
+}
+
+function jobLogPlainText(log) {
+  const data = log || {};
+  const mode = (ensureJobLogState().mode || "all").toLowerCase();
+  const query = ensureJobLogState().search.trim().toLowerCase();
+  const structured = Array.isArray(data.structured_lines) ? data.structured_lines : [];
+  const fallbackText = String(data.raw_text || data.text || "").trim();
+  if (mode === "raw") {
+    if (!query) return fallbackText || "暂无日志";
+    return fallbackText.split(/\r?\n/).filter((line) => line.toLowerCase().includes(query)).join("\n") || "暂无日志";
+  }
+  if (!structured.length) return fallbackText || "暂无日志";
+  const filtered = structured.filter((entry) => jobLogLineMatches(entry, mode, query));
+  if (!filtered.length) return "暂无日志";
+  return filtered.map((entry) => {
+    const parts = [];
+    if (entry.time) parts.push(`[${entry.time}]`);
+    if (entry.source) parts.push(`[${entry.source}]`);
+    parts.push(`[${String(entry.level || "info").toUpperCase()}] ${entry.text || ""}`);
+    return parts.join(" ");
+  }).join("\n");
+}
+
+function renderJobLogPanel(root, log = null) {
+  const panel = $("#job-log", root);
+  if (!panel) return;
+  const jobLog = ensureJobLogState();
+  if (log) jobLog.data = log;
+  panel.innerHTML = jobLogDisplayText(jobLog.data || {});
+  const body = $("#job-log-body", panel);
+  if (body && jobLog.autoScroll && body.scrollHeight > body.clientHeight) {
+    body.scrollTop = body.scrollHeight;
+  }
+}
+
+async function runActionOnce(key, fn, lockMs = 1200) {
+  const now = Date.now();
+  if (actionLocks.get(key) > now) return;
+  actionLocks.set(key, now + lockMs);
+  try {
+    await fn();
+  } finally {
+    setTimeout(() => {
+      if ((actionLocks.get(key) || 0) <= Date.now()) actionLocks.delete(key);
+    }, lockMs + 50);
+  }
+}
+
 function routeName() {
   const raw = window.location.hash.replace(/^#/, "");
   return routes[raw] ? raw : "overview";
@@ -159,6 +471,7 @@ async function bootstrap() {
   const started = performance.now();
   try {
     const data = await api.bootstrap();
+    api.setLocalToken(data.local_token || "");
     state.meta = data.meta || null;
     state.overview = data.overview || null;
     state.quality = data.quality_cache || null;
@@ -254,7 +567,16 @@ async function loadRouteData(route) {
   }
   if (["results", "diagnosis", "topology"].includes(route)) {
     const filters = route === "results" ? state.resultFilters : { scope: "current" };
-    state.runsPage = await api.runs({ page: 1, page_size: route === "results" ? 500 : 50, query: q, ...filters });
+    if (route === "results") {
+      const [runsPage, structureTree] = await Promise.all([
+        api.runs({ page: 1, page_size: 500, query: q, ...filters }),
+        api.structureTree(filters.scope || "current"),
+      ]);
+      state.runsPage = runsPage;
+      state.structureTree = structureTree;
+    } else {
+      state.runsPage = await api.runs({ page: 1, page_size: 50, query: q, ...filters });
+    }
     if (!state.selectedRunId && state.runsPage.runs?.[0]) state.selectedRunId = state.runsPage.runs[0].run_id;
   }
   if (route === "quality") {
@@ -309,16 +631,16 @@ function pageHead(title, subtitle, action = "") {
 function renderOverview() {
   const overview = state.overview || {};
   const s = overview.summary || {};
-  const groups = overview.groups || [];
   const candidates = overview.top_candidates || [];
+  const groups = overview.groups || [];
   const recent = overview.recent_runs || [];
   const risks = overview.risks || [];
   const noCache = !state.meta?.built_at;
   return `<section class="page active">
-    ${pageHead("研究总览", "首屏只读取轻量缓存；目录扫描必须由后台刷新显式触发。", `<button class="btn secondary" id="first-index" type="button">${noCache ? "开始首次索引" : "后台刷新索引"}</button>`)}
+    ${pageHead("研究总览", "首屏只读轻量缓存；目录扫描必须由后台刷新显式触发。", `<button class="btn secondary" id="first-index" type="button">${noCache ? "开始首次索引" : "后台刷新索引"}</button>`)}
     <div class="stat-grid">
       ${statCard("有效 run", s.valid_run_count, "存在 T 谱、manifest 或扫描点")}
-      ${statCard("异常 run", s.bad_run_count, "严重质量旗标")}
+      ${statCard("异常 run", s.bad_run_count, "严重质量标记")}
       ${statCard("已诊断谱线", s.spectra_count, "T/R/A 谱线索引")}
       ${statCard("缺失证据", s.missing_evidence_count, "R/A/Field/Phase/Poynting")}
       ${statCard("母结构覆盖率", pct(s.mother_coverage_rate), "按脚本与有效结果估算")}
@@ -326,14 +648,13 @@ function renderOverview() {
     ${noCache ? `<div class="empty">尚未建立索引。页面不会自动扫描真实目录，请点击“开始首次索引”。</div>` : ""}
     <div class="overview-grid">
       <div class="card pad coverage-card"><div class="card-title">群分类覆盖</div>${groups.length ? groups.map(groupProgress).join("") : emptySmall("暂无群分类缓存")}</div>
-      <div class="card pad candidate-card"><div class="card-title">高价值候选 <button class="link" data-go="diagnosis" type="button">进入诊断</button></div>${candidateTable(candidates)}</div>
       <div class="card pad advice-card"><div class="card-title">下一步建议</div>${adviceList(overview.next_actions || [])}</div>
+      <div class="card pad candidate-card"><div class="card-title">高价值候选<button class="link" data-go="diagnosis" type="button">进入诊断</button></div>${candidateTable(candidates)}</div>
       <div class="card pad recent-card"><div class="card-title">最近活跃 run</div>${runTable(recent.slice(0, 10))}</div>
       <div class="card pad risk-card"><div class="card-title">风险提醒</div>${riskList(risks)}</div>
     </div>
   </section>`;
 }
-
 function statCard(label, value, note) {
   return `<div class="card stat-card"><div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M13 16V8"/><path d="M18 16v-8"/></svg></div><div><div class="stat-label">${esc(label)}</div><div class="stat-value">${esc(value ?? "-")}</div><div class="stat-note">${esc(note)}</div></div></div>`;
 }
@@ -374,9 +695,9 @@ function renderRunControl() {
     <div class="layout-3">
       <div class="card pad"><div class="card-title">结构与脚本 <span class="muted">${fmt(state.scriptsPage?.total || scripts.length)} 个</span></div><div class="script-tree">${scripts.length ? scripts.map(scriptRow).join("") : emptySmall("暂无脚本缓存")}</div></div>
       <div class="card pad">${runForm()}</div>
-      <div><div class="card pad"><div class="card-title">启动摘要</div><table class="table"><tbody><tr><td>选择脚本</td><td id="selected-script-count">${state.selectedScriptIds.size}</td></tr><tr><td>扫描点数估算</td><td id="point-estimate">待预览</td></tr><tr><td>预计时长</td><td id="duration-estimate">待预览</td></tr><tr><td>安全状态</td><td>未启动</td></tr></tbody></table><div class="toolbar" style="margin-top:14px"><button class="btn secondary" id="preview-run" type="button">预览命令</button><button class="btn primary" id="start-run" type="button">启动</button></div></div><div class="terminal-head" style="margin-top:12px"><span>实时日志</span><button class="link" id="stop-job" type="button">停止任务</button></div><pre class="terminal" id="job-log">尚未启动任务。</pre></div>
+      <div><div class="card pad"><div class="card-title">启动摘要</div><table class="table"><tbody><tr><td>选择脚本</td><td id="selected-script-count">${state.selectedScriptIds.size}</td></tr><tr><td>扫描点数估算</td><td id="point-estimate">待预览</td></tr><tr><td>预计时长</td><td id="duration-estimate">待预览</td></tr><tr><td>安全状态</td><td id="run-preview-status">${state.runPreview?.valid ? "已预览，可启动" : (state.runPreview?.dirtyReason || "未预览")}</td></tr></tbody></table><div class="toolbar" style="margin-top:14px"><button class="btn secondary" id="preview-run" type="button">预览命令</button><button class="btn primary" id="start-run" type="button" ${state.runPreview?.valid ? "" : "disabled"}>启动</button></div></div><div class="terminal-head" style="margin-top:12px"><span>实时日志</span><button class="link" id="stop-job" type="button">停止任务</button></div><div class="card pad" id="job-log">${jobLogDisplayText(ensureJobLogState().data || { text: "尚未启动任务。", raw_text: "尚未启动任务。", structured_lines: [] })}</div></div>
     </div>
-    <div class="bottom-actions"><span class="muted">危险操作都需要二次确认；full + parallel 会触发高风险确认。</span><div class="toolbar"><button class="btn ghost" id="clear-selected" type="button">清空选择</button><button class="btn primary" id="bottom-start" type="button">确认启动</button></div></div>
+    <div class="bottom-actions"><span class="muted">危险操作都需要二次确认；full + parallel 会触发高风险确认。</span><div class="toolbar"><button class="btn ghost" id="clear-selected" type="button">清空选择</button><button class="btn primary" id="bottom-start" type="button" ${state.runPreview?.valid ? "" : "disabled"}>确认启动</button></div></div>
   </section>`;
 }
 
@@ -410,45 +731,157 @@ function inputField(id, label, value, unit) {
 
 function renderResults() {
   const runs = state.runsPage?.runs || [];
-  const filters = state.resultFilters;
-  const groupOptions = uniqueValues(runs, "group");
-  const motherOptions = uniqueValues(runs, "mother_structure");
-  const perturbOptions = uniqueValues(runs, "perturbation").slice(0, 80);
   return `<section class="page active">
-    ${pageHead("结果浏览", "按当前结果 / 旧文件分域加载；run 树使用 群类别 → 母结构 → 扰动 → run 的层级，点击样本后预览对应谱图。")}
+    ${pageHead("结果浏览", "按当前结果 / 历史结果分区加载；run 树使用 群类别 → 母结构 → 扰动 → run 的层级，点击样本后预览对应谱图。")}
     <div class="results-layout">
-      <div class="card pad">
-        <div class="card-title">run 树 <span class="muted">${fmt(state.runsPage?.total || runs.length)} 个</span></div>
-        <div class="filter-stack">
-          <select class="select" id="scope-filter"><option value="current" ${filters.scope === "current" ? "selected" : ""}>当前 results</option><option value="old" ${filters.scope === "old" ? "selected" : ""}>旧文件结果</option><option value="" ${!filters.scope ? "selected" : ""}>全部结果</option></select>
-          <select class="select" id="group-filter"><option value="">全部群类别</option>${groupOptions.map((x) => `<option ${x === filters.group ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
-          <select class="select" id="mother-filter"><option value="">全部母结构</option>${motherOptions.map((x) => `<option ${x === filters.mother ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
-          <select class="select" id="perturbation-filter"><option value="">全部扰动</option>${perturbOptions.map((x) => `<option ${x === filters.perturbation ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
-          <select class="select" id="risk-filter"><option value="">全部风险</option><option value="high" ${filters.risk === "high" ? "selected" : ""}>高风险</option><option value="medium" ${filters.risk === "medium" ? "selected" : ""}>中风险</option><option value="low" ${filters.risk === "low" ? "selected" : ""}>低风险</option></select>
-        </div>
-        <div class="run-tree hierarchical">${runs.length ? renderRunTree(runs) : emptySmall("暂无 run 缓存")}</div>
+      <div class="card pad results-sidebar">
+        <div id="structure-navigator">${renderStructureNavigator()}</div>
       </div>
       <div class="results-main">
         <div class="card pad">
           <div class="card-title">样本点 / 输出文件 <span id="run-title" class="muted">${esc(state.selectedRunId || "未选择")}</span></div>
           <div id="sample-table" class="empty">请选择 run。</div>
         </div>
-        <div class="card chart-card" style="margin-top:16px">
+        <div class="card chart-card">
           <div class="chart-head"><strong>参数趋势 / 相关资源</strong><span id="resource-hint" class="muted">选择 run 后按需加载</span></div>
           <div class="trend-resource-grid">
             <div class="chart-box small"><canvas id="result-trend-chart"></canvas></div>
             <div id="resource-strip" class="resource-strip">请选择 run。</div>
           </div>
         </div>
-      </div>
-      <div class="card pad">
-        <div class="card-title">谱图预览 <span class="muted">样本点联动</span></div>
-        <div id="preview-pane" class="preview-pane spectrum-preview">点击“样本点 / 输出文件”中的样本后显示透射谱图。</div>
+        <div class="card pad">
+          <div class="card-title">谱图预览 <span class="muted">样本点联动</span></div>
+          <div id="preview-pane" class="preview-pane spectrum-preview">点击“样本点 / 输出文件”中的样本后显示透射谱图。</div>
+        </div>
       </div>
     </div>
   </section>`;
 }
 
+function renderStructureNavigator() {
+  const nav = ensureStructureNavigatorState();
+  const scope = nav.scope || "current";
+  const query = (nav.query || "").trim();
+  const tree = Array.isArray(state.structureTree?.tree) ? state.structureTree.tree : [];
+  const filtered = filterStructureTree(tree, query);
+  const selectedKey = state.selectedStructure?.key || structurePathKey({
+    group: state.resultFilters.group || "",
+    mother: state.resultFilters.mother || "",
+    perturbation: state.resultFilters.perturbation || "",
+    run_id: state.selectedRunId || "",
+  });
+  const openKeys = new Set(nav.expanded || []);
+  [state.selectedStructure, ...(nav.recent || []), ...(nav.favorites || [])]
+    .filter(Boolean)
+    .forEach((record) => structureAncestorKeys(record).forEach((key) => openKeys.add(key)));
+  return `
+    <div class="structure-nav">
+      <div class="card-title">StructureNavigator <span class="muted">${fmt(state.structureTree?.run_count || state.runsPage?.total || 0)} 个</span></div>
+      <div class="structure-nav-bar">
+        <input class="input structure-search" id="structure-search" type="search" placeholder="搜索结构 / 扰动 / run" value="${esc(nav.query || "")}">
+        <div class="segmented structure-scope" id="structure-scope">
+          <button class="${scope === "current" ? "active" : ""}" data-structure-scope="current" type="button">当前 results</button>
+          <button class="${scope === "old" ? "active" : ""}" data-structure-scope="old" type="button">旧文件</button>
+          <button class="${scope === "all" ? "active" : ""}" data-structure-scope="all" type="button">全部</button>
+        </div>
+      </div>
+      <div class="structure-bands">
+        ${renderStructurePins("最近使用", nav.recent || [], "recent")}
+        ${renderStructurePins("收藏", nav.favorites || [], "favorite")}
+      </div>
+      <div class="structure-tree">${filtered.length ? filtered.map((node) => renderStructureNode(node, null, 0, openKeys, selectedKey, query)).join("") : emptySmall(query ? "未找到匹配结构" : "暂无结构树缓存")}</div>
+    </div>`;
+}
+
+function renderStructurePins(title, items, kind) {
+  if (!items.length) return `<div class="structure-band"><div class="structure-band-title">${esc(title)}</div><div class="muted structure-band-empty">暂无</div></div>`;
+  return `<div class="structure-band"><div class="structure-band-title">${esc(title)}</div><div class="structure-pin-row">${items.slice(0, 6).map((item) => `<button class="structure-pin" data-structure-pin="${esc(item.key)}" data-structure-pin-kind="${esc(kind)}" data-structure-label="${esc(item.label || "")}" data-structure-group="${esc(item.group || "")}" data-structure-mother="${esc(item.mother || "")}" data-structure-perturbation="${esc(item.perturbation || "")}" data-structure-run="${esc(item.run_id || "")}" data-structure-scope="${esc(item.scope || "")}" type="button" title="${esc(item.label || item.key)}"><span>${esc(item.label || item.key)}</span></button>`).join("")}</div></div>`;
+}
+
+function filterStructureTree(nodes, query) {
+  const q = (query || "").trim().toLowerCase();
+  if (!q) return nodes || [];
+  const walk = (node, parent = {}) => {
+    const current = {
+      ...node,
+      children: [],
+      runs: [],
+    };
+    current.children = (node.children || []).map((child) => walk(child, {
+      kind: node.kind || parent.kind || "",
+      group: node.group || parent.group || "",
+      mother: node.mother_structure || parent.mother || "",
+      perturbation: node.perturbation || parent.perturbation || "",
+      run_id: node.run_id || parent.run_id || "",
+    })).filter(Boolean);
+    current.runs = (node.runs || [])
+      .map((run) => ({
+        ...run,
+        kind: "run",
+        name: run.run_name || run.name || run.run_id,
+        group: node.group || parent.group || "",
+        mother_structure: node.mother_structure || parent.mother || "",
+        perturbation: node.perturbation || parent.perturbation || "",
+      }))
+      .filter((run) => structureNodeMatchesQuery(run, q));
+    const selfMatch = structureNodeMatchesQuery({
+      ...node,
+      group: node.group || parent.group || "",
+      mother_structure: node.mother_structure || parent.mother || "",
+      perturbation: node.perturbation || parent.perturbation || "",
+      runs: node.runs || [],
+    }, q);
+    if (!selfMatch && !current.children.length && !current.runs.length) return null;
+    return current;
+  };
+  return (nodes || []).map((node) => walk(node)).filter(Boolean);
+}
+
+function renderStructureNode(node, parent = null, level = 0, openKeys = new Set(), selectedKey = "", query = "") {
+  const record = normalizeStructureRecord(node, parent || {});
+  const key = record.key;
+  const isSelected = key && key === selectedKey;
+  const hasChildren = (node.children || []).length > 0;
+  const hasRuns = (node.runs || []).length > 0;
+  const canToggle = hasChildren || hasRuns;
+  const expanded = query ? true : openKeys.has(key);
+  const countTitle = [
+    `run ${fmt(node.run_count || 0)}`,
+    `full ${fmt(node.full_count || 0)}`,
+    `test ${fmt(node.test_count || 0)}`,
+    `high risk ${fmt(node.high_risk_count || 0)}`,
+    `missing ${fmt(node.missing_evidence_count || 0)}`,
+    `best ${fmt(node.best_score, 3)}`,
+    `latest ${esc(node.latest_mtime || "")}`,
+  ].join(" · ");
+  const metaTags = `
+    <span class="tag blue" title="run_count">${fmt(node.run_count || 0)}</span>
+    <span class="tag green" title="full_count">${fmt(node.full_count || 0)}</span>
+    <span class="tag orange" title="test_count">${fmt(node.test_count || 0)}</span>
+    <span class="tag red" title="high_risk_count">${fmt(node.high_risk_count || 0)}</span>
+  `;
+  const toggle = canToggle ? `<button class="icon-btn structure-toggle" data-structure-toggle="${esc(key)}" type="button" aria-label="${expanded ? "收起" : "展开"}">${expanded ? "▾" : "▸"}</button>` : `<span class="structure-toggle-spacer"></span>`;
+  const fav = `<button class="icon-btn structure-favorite ${isFavoriteRecord(record) ? "active" : ""}" data-structure-favorite="${esc(key)}" type="button" aria-label="收藏">${isFavoriteRecord(record) ? "★" : "☆"}</button>`;
+  const selectButton = (node.kind === "perturbation" || node.kind === "run")
+    ? `<button class="link structure-select" data-structure-select="${esc(key)}" data-structure-run="${esc(node.kind === "run" ? (node.run_id || "") : (node.runs?.[0]?.run_id || ""))}" title="${esc(countTitle)}">${esc(node.name || record.label || key)}</button>`
+    : `<span class="structure-name" title="${esc(countTitle)}">${esc(node.name || record.label || key)}</span>`;
+  return `
+    <div class="structure-node level-${level} ${isSelected ? "active" : ""}" data-structure-node="${esc(key)}" data-structure-group="${esc(record.group || "")}" data-structure-mother="${esc(record.mother || "")}" data-structure-perturbation="${esc(record.perturbation || "")}" data-structure-run="${esc(record.run_id || "")}" data-structure-label="${esc(record.label || "")}" data-structure-kind="${esc(node.kind || "")}">
+      <div class="structure-node-row">
+        ${toggle}
+        ${selectButton}
+        <div class="structure-node-meta" title="${esc(countTitle)}">${metaTags}</div>
+        ${fav}
+      </div>
+      ${expanded && hasRuns ? `<div class="structure-node-runs">${node.runs.map((run) => renderStructureNode(run, record, level + 1, openKeys, selectedKey, query)).join("")}</div>` : ""}
+      ${expanded && hasChildren ? `<div class="structure-node-children">${node.children.map((child) => renderStructureNode(child, record, level + 1, openKeys, selectedKey, query)).join("")}</div>` : ""}
+    </div>`;
+}
+
+function isFavoriteRecord(record) {
+  const nav = ensureStructureNavigatorState();
+  return (nav.favorites || []).some((item) => item.key === record.key);
+}
 function uniqueValues(rows, key) {
   return Array.from(new Set((rows || []).map((row) => row[key]).filter(Boolean))).sort((a, b) => String(a).localeCompare(String(b), "zh-CN"));
 }
@@ -504,7 +937,58 @@ function renderDiagnosis() {
 }
 
 function runSelector(runs) {
-  return `<div class="toolbar" style="margin-bottom:16px"><select class="select" id="run-select" style="max-width:520px">${runs.map((r) => `<option value="${esc(r.run_id)}" ${r.run_id === state.selectedRunId ? "selected" : ""}>${esc(r.group || "")} / ${esc(r.mother_structure || "")} / ${esc(r.run_name || r.run_id)}</option>`).join("")}</select><button class="btn secondary" id="load-run-diagnostics" type="button">加载当前 run</button></div>`;
+  const selected = runs.find((r) => r.run_id === state.selectedRunId) || runs[0] || {};
+  const group = selected.group || "";
+  const mother = selected.mother_structure || "";
+  const perturbation = selected.perturbation || "";
+  const groups = uniqueValues(runs, "group");
+  const mothers = uniqueValues(runs.filter((r) => !group || r.group === group), "mother_structure");
+  const perturbations = uniqueValues(runs.filter((r) => (!group || r.group === group) && (!mother || r.mother_structure === mother)), "perturbation");
+  const filteredRuns = runs.filter((r) =>
+    (!group || r.group === group) &&
+    (!mother || r.mother_structure === mother) &&
+    (!perturbation || r.perturbation === perturbation)
+  );
+  return `<div class="run-cascade">
+    <select class="select run-level-select" id="run-group-select" data-run-level="group"><option value="">全部群类别</option>${groups.map((x) => `<option value="${esc(x)}" ${x === group ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+    <select class="select run-level-select" id="run-mother-select" data-run-level="mother"><option value="">全部母结构</option>${mothers.map((x) => `<option value="${esc(x)}" ${x === mother ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+    <select class="select run-level-select" id="run-perturbation-select" data-run-level="perturbation"><option value="">全部扰动</option>${perturbations.map((x) => `<option value="${esc(x)}" ${x === perturbation ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+    <select class="select" id="run-select">${filteredRuns.map((r) => `<option value="${esc(r.run_id)}" ${r.run_id === state.selectedRunId ? "selected" : ""}>${esc(r.run_name || r.run_id)}</option>`).join("")}</select>
+    <button class="btn secondary" id="load-run-diagnostics" type="button">加载当前 run</button>
+  </div>`;
+}
+
+function bindRunCascade(root, onChange) {
+  const pickFirst = () => {
+    const runs = state.runsPage?.runs || [];
+    const group = $("#run-group-select", root)?.value || "";
+    const mother = $("#run-mother-select", root)?.value || "";
+    const perturbation = $("#run-perturbation-select", root)?.value || "";
+    const match = runs.find((r) =>
+      (!group || r.group === group) &&
+      (!mother || r.mother_structure === mother) &&
+      (!perturbation || r.perturbation === perturbation)
+    );
+    if (match) state.selectedRunId = match.run_id;
+  };
+  $$(".run-level-select", root).forEach((select) => select.addEventListener("change", async () => {
+    if (select.dataset.runLevel === "group") {
+      const mother = $("#run-mother-select", root);
+      const perturbation = $("#run-perturbation-select", root);
+      if (mother) mother.value = "";
+      if (perturbation) perturbation.value = "";
+    }
+    if (select.dataset.runLevel === "mother") {
+      const perturbation = $("#run-perturbation-select", root);
+      if (perturbation) perturbation.value = "";
+    }
+    pickFirst();
+    await onChange();
+  }));
+  $("#run-select", root)?.addEventListener("change", async (event) => {
+    state.selectedRunId = event.target.value;
+    await onChange();
+  });
 }
 
 function metric(label, value, unit = "") {
@@ -540,14 +1024,217 @@ function renderQuality() {
   </section>`;
 }
 
+function ensureSupplementUIState() {
+  if (!state.supplementUI) {
+    state.supplementUI = { selectedKeys: new Set(), focusedKey: "", expandedRuns: new Set(), step: 1, lastCreatedPackageId: "" };
+  }
+  if (!(state.supplementUI.selectedKeys instanceof Set)) state.supplementUI.selectedKeys = new Set(state.supplementUI.selectedKeys || []);
+  if (!(state.supplementUI.expandedRuns instanceof Set)) state.supplementUI.expandedRuns = new Set(state.supplementUI.expandedRuns || []);
+  if (!Number.isFinite(Number(state.supplementUI.step))) state.supplementUI.step = 1;
+  if (!state.supplementUI.lastCreatedPackageId) state.supplementUI.lastCreatedPackageId = "";
+  return state.supplementUI;
+}
+
+function setSupplementStep(step) {
+  const ui = ensureSupplementUIState();
+  ui.step = Math.max(1, Math.min(3, Number(step) || 1));
+}
+
+function supplementRunKey(runId) {
+  return safeDomKey(runId || "");
+}
+
+function supplementSelectedItems(items) {
+  const ui = ensureSupplementUIState();
+  return (items || []).filter((item) => ui.selectedKeys.has(supplementKey(item)));
+}
+
+function supplementRunStats(rows) {
+  const first = rows[0] || {};
+  const sampleCount = rows.length;
+  const missingTypes = Array.from(new Set(rows.flatMap((item) => item.missing_evidence || []))).filter(Boolean);
+  const hasMasterTemplate = rows.some((item) => !!item.has_master_template_fsp);
+  const risk = first.risk_level || first.risk || "medium";
+  return {
+    runId: first.run_id || "",
+    runName: first.run_name || first.run_id || "",
+    group: first.group || "",
+    mother: first.mother_structure || "",
+    perturbation: first.perturbation || "",
+    sampleCount,
+    missingTypes,
+    risk,
+    riskLabel: first.risk_label || first.risk || "",
+    hasMasterTemplate,
+  };
+}
+
+function supplementSummaryChips(item) {
+  const missing = (item.missing_evidence || []).slice(0, 3);
+  return [
+    `<span class="tag ${tagTone(item.risk_level || item.risk || "")}">${esc(item.risk_label || item.risk || "未知风险")}</span>`,
+    `<span class="tag blue">${fmt(item.sample_count || 1, 0)} 样本</span>`,
+    `<span class="tag ${item.has_master_template_fsp ? "green" : "orange"}">${item.has_master_template_fsp ? "master_template 已有" : "缺 master_template"}</span>`,
+    missing.length ? `<span class="tag">${esc(missing.join(" · "))}</span>` : "",
+  ].filter(Boolean).join(" ");
+}
+
 function renderSupplement() {
-  const items = state.missing?.items || [];
+  const allItems = state.missing?.items || [];
+  allItems.forEach((item, index) => { item.__sourceIndex = index; });
+  const q = state.supplementSearch.trim().toLowerCase();
+  const items = q ? allItems.filter((item) => JSON.stringify(item).toLowerCase().includes(q)) : allItems;
+  const visibleItems = items.slice(0, state.supplementVisibleLimit);
   const packages = state.packages?.packages || state.supplements || [];
+  const ui = ensureSupplementUIState();
+  const selectedItems = supplementSelectedItems(allItems);
+  const focusItem = selectedItems.find((item) => supplementKey(item) === ui.focusedKey) || selectedItems[0] || visibleItems[0] || items[0] || null;
+  const selectedCount = selectedItems.length;
   return `<section class="page active">
-    ${pageHead("补做实验", "从缺失证据和质量旗标生成 patch_request.json 与 patch_points.csv，不覆盖原 run。")}
-    <div class="notice">缺 Field/Phase/Poynting 时，建议打开对应 source_fsp 添加场、相位或能流监视器；缺 R/A 时补反射或吸收输出。任务包只记录计划，不覆盖原 run。</div>
-    <div class="layout-2"><div class="card pad"><div class="card-title">待补做样本 <span class="muted">${fmt(items.length)} 条</span></div><div class="toolbar" style="margin-bottom:12px"><select class="select" id="supplement-type" style="max-width:240px"><option value="field">Field</option><option value="phase">Phase</option><option value="poynting">Poynting</option><option value="R">R</option><option value="A">A</option><option value="angle-resolved">angle-resolved</option><option value="band sweep">band sweep</option></select><button class="btn primary" id="create-package" type="button">生成任务包</button></div>${items.length ? `<div style="overflow:auto"><table class="table supplement-table"><thead><tr><th>选择</th><th>样本</th><th>缺失与建议</th><th>指标</th><th>操作</th></tr></thead><tbody>${items.slice(0, 120).map((s, i) => `<tr><td><input type="checkbox" data-missing-index="${i}" ${i < 5 ? "checked" : ""}></td><td>${esc(s.group || "")} / ${esc(s.mother_structure || "")}<br><span class="muted">${esc(s.run_id || "")} ${esc(s.sample_id || "")}</span></td><td>${evidenceAdvice(s.missing_evidence || [])}<br><span class="muted">${esc(s.reason || "")}</span></td><td>λ0 ${fmt(s.lambda0_nm, 2)}<br>Q ${fmt(s.Q, 1)} / FWHM ${fmt(s.FWHM_nm, 3)}</td><td>${s.source_fsp ? `<button class="link" data-open-fsp="${esc(s.source_fsp)}" type="button">打开 FSP</button>` : `<span class="muted">无 FSP</span>`}</td></tr>`).join("")}</tbody></table></div>` : emptySmall("暂无待补做样本")}</div><div class="card pad"><div class="card-title">已有任务包</div>${packages.length ? `<div class="package-list">${packages.slice(0, 40).map((p) => `<div class="package-row"><div><strong>${esc(p.package_id)}</strong><br><span class="muted">${esc(p.relative_path || p.output_root || "")}</span></div><span>${esc(p.status || "")}</span><span>${esc(p.created_at || "")}</span><button class="btn danger" data-delete-package="${esc(p.package_id)}" type="button">删除</button></div>`).join("")}</div>` : emptySmall("暂无补做任务包")}</div></div>
+    ${pageHead("补做实验", "三步流程：先选目标，再确认母文件与监视器策略，最后生成任务包。")}
+    <div class="notice">Step 2 只修改任务包里复制出来的 <code>master_template.fsp</code>，不修改原始 run。任务包删除时也只会针对 V2 patch 包目录。</div>
+    <div class="stepper">
+      <button class="stepper-item ${ui.step === 1 ? "active" : ""}" data-supplement-step="1" type="button"><span>1</span><strong>选择补做目标</strong></button>
+      <button class="stepper-item ${ui.step === 2 ? "active" : ""}" data-supplement-step="2" type="button"><span>2</span><strong>确认母文件与监视器</strong></button>
+      <button class="stepper-item ${ui.step === 3 ? "active" : ""}" data-supplement-step="3" type="button"><span>3</span><strong>生成任务包 / 打开任务包</strong></button>
+    </div>
+    <div class="results-layout supplement-layout">
+      <div class="card pad supplement-tree-card">
+        <div class="card-title">Step 1 选择补做目标 <span class="muted">${fmt(selectedCount, 0)} 已选 · ${fmt(visibleItems.length)} / ${fmt(items.length)} / ${fmt(allItems.length)} 条</span></div>
+        <div class="toolbar supplement-toolbar">
+          <select class="select" id="supplement-type" style="max-width:220px">
+            <option value="field">Field</option>
+            <option value="phase">Phase</option>
+            <option value="poynting">Poynting</option>
+            <option value="R">R</option>
+            <option value="A">A</option>
+            <option value="angle-resolved">angle-resolved</option>
+            <option value="band sweep">band sweep</option>
+          </select>
+          <input class="input" id="supplement-search" placeholder="搜索 run、样本、缺失类型、风险" value="${esc(state.supplementSearch)}">
+        </div>
+        ${visibleItems.length ? `<div class="supplement-tree">${renderSupplementTree(visibleItems)}</div>${items.length > visibleItems.length ? `<div class="toolbar" style="margin-top:12px"><button class="btn secondary" id="load-more-supplement" type="button">加载更多 ${Math.min(420, items.length - visibleItems.length)} 条</button><span class="muted">搜索可缩小目标范围。</span></div>` : ""}` : emptySmall("暂无待补做样本")}
+      </div>
+      <div class="supplement-main">
+        <div class="card pad supplement-step-card">
+          <div class="card-title">Step 2 确认母文件与监视器策略</div>
+          <div class="notice">只会在任务包内部复制出来的 <code>master_template.fsp</code> 上修改监视器策略，不会直接改原始 run。</div>
+          ${renderSupplementDetailPanel(focusItem, selectedItems)}
+        </div>
+        <div class="card pad supplement-step-card">
+          <div class="card-title">Step 3 生成任务包 / 打开任务包</div>
+          <div class="toolbar" style="gap:8px;flex-wrap:wrap">
+            <button class="btn primary" id="create-package" type="button" ${selectedCount ? "" : "disabled"}>生成任务包</button>
+            ${ui.lastCreatedPackageId ? `<button class="btn secondary" data-show-package="${esc(ui.lastCreatedPackageId)}" type="button">打开上次任务包</button>` : ""}
+          </div>
+          <div class="muted" style="margin-top:8px">仅支持同一个 run；当前已选 ${fmt(selectedCount, 0)} 个样本。</div>
+          <div class="package-list" style="margin-top:12px">${packages.length ? packages.slice(0, 40).map((p) => renderSupplementPackageRow(p)).join("") : emptySmall("暂无补做任务包")}</div>
+        </div>
+      </div>
+    </div>
   </section>`;
+}
+
+function renderSupplementDetailPanel(focusItem, selectedItems) {
+  if (!focusItem) return emptySmall("先在左侧勾选一个补做目标。");
+  const templatePath = focusItem.master_template_fsp_path || "";
+  const sourceFsp = focusItem.source_fsp || focusItem.source_fsp_path || focusItem.work_fsp_dir || "";
+  const sourceRun = focusItem.source_run_dir || focusItem.source_run_path || focusItem.source_run_abs_path || "";
+  const missing = (focusItem.selected_missing_evidence || focusItem.missing_evidence || []).join("、") || "无";
+  const reason = focusItem.reason || "请选择补做目标后查看具体缺失原因。";
+  return `
+    <table class="table supplement-detail">
+      <tbody>
+        <tr><td>run</td><td>${esc(focusItem.run_name || focusItem.run_id || "")}</td></tr>
+        <tr><td>sample</td><td>${esc(focusItem.sample_id || "")} · δ ${esc(focusItem.delta ?? "-")}</td></tr>
+        <tr><td>λ0 / Q / FWHM</td><td>${fmt(focusItem.lambda0_nm, 2)} / ${fmt(focusItem.Q, 1)} / ${fmt(focusItem.FWHM_nm, 3)}</td></tr>
+        <tr><td>source_fsp</td><td>${sourceFsp ? `<span class="mono">${esc(sourceFsp)}</span>` : "无"}</td></tr>
+        <tr><td>master_template</td><td>${templatePath ? `<span class="mono">${esc(templatePath)}</span>` : "未找到"}</td></tr>
+        <tr><td>源 run 目录</td><td>${sourceRun ? `<span class="mono">${esc(sourceRun)}</span>` : "未知"}</td></tr>
+        <tr><td>缺失原因</td><td>${esc(missing)}<br><span class="muted">${esc(reason)}</span></td></tr>
+        <tr><td>已选样本</td><td>${fmt(selectedItems.length, 0)} 个</td></tr>
+      </tbody>
+    </table>
+    <div class="muted" style="margin-top:8px">Step 2 只改任务包内复制出来的母文件，原始 run 目录保持只读。</div>
+  `;
+}
+
+function renderSupplementPackageRow(p) {
+  return `<div class="package-row patch-package">
+    <div>
+      <strong>${esc(p.package_id)}</strong><br>
+      <span class="muted">${esc(p.source_run_id || "")}</span><br>
+      <span class="muted mono">${esc(p.output_root || p.relative_path || "")}</span>
+    </div>
+    <span>${esc(p.status || "")}</span>
+    <span>${esc(p.created_at || "")}</span>
+    <button class="btn ghost" data-show-package="${esc(p.package_id)}" type="button">详情</button>
+    <button class="btn danger" data-delete-package="${esc(p.package_id)}" type="button">删除</button>
+  </div>`;
+}
+
+function renderSupplementTree(items) {
+  const runs = new Map();
+  items.forEach((item, index) => {
+    item.__index = Number.isFinite(item.__sourceIndex) ? item.__sourceIndex : index;
+    const runId = item.run_id || "unknown_run";
+    if (!runs.has(runId)) runs.set(runId, []);
+    runs.get(runId).push(item);
+  });
+  const ui = ensureSupplementUIState();
+  const selectedKeys = ui.selectedKeys || new Set();
+  return Array.from(runs.entries()).map(([runId, rows]) => renderSupplementRunNode(runId, rows, selectedKeys, ui.expandedRuns || new Set())).join("");
+}
+
+function renderSupplementRunNode(runId, rows, selectedKeys, expandedRuns) {
+  const stats = supplementRunStats(rows);
+  const runKey = supplementRunKey(runId);
+  const isExpanded = expandedRuns.has(runKey) || rows.some((item) => selectedKeys.has(supplementKey(item)));
+  return `<div class="supplement-run ${isExpanded ? "open" : ""}" data-supplement-run="${esc(runKey)}" data-supplement-run-id="${esc(runId)}">
+    <button class="supplement-run-head" data-supplement-toggle-run="${esc(runKey)}" type="button">
+      <label class="supplement-run-check" title="选择该 run 下全部样本">
+        <input type="checkbox" data-supplement-run-check="${esc(runKey)}" data-run-id="${esc(runId)}" ${rows.every((item) => selectedKeys.has(supplementKey(item))) ? "checked" : ""}>
+      </label>
+      <div class="supplement-run-meta">
+        <strong>${esc(stats.runName || runId)}</strong>
+        <span>${esc(stats.group || "")} / ${esc(stats.mother || "")} / ${esc(stats.perturbation || "")}</span>
+      </div>
+      <div class="supplement-run-tags">
+        <span class="tag blue">${fmt(stats.sampleCount, 0)} 样本</span>
+        <span class="tag ${tagTone(stats.risk)}">${esc(stats.riskLabel || stats.risk || "")}</span>
+        <span class="tag ${stats.hasMasterTemplate ? "green" : "orange"}">${stats.hasMasterTemplate ? "master_template 有" : "缺 master_template"}</span>
+        ${stats.missingTypes.slice(0, 3).map((x) => `<span class="tag">${esc(x)}</span>`).join("")}
+      </div>
+    </button>
+    <div class="supplement-run-body">
+      ${rows.map((item) => renderSupplementSampleNode(runKey, item, selectedKeys)).join("")}
+    </div>
+  </div>`;
+}
+
+function renderSupplementSampleNode(runKey, item, selectedKeys) {
+  const key = supplementKey(item);
+  const missing = (item.missing_evidence || []).slice(0, 4);
+  const selected = selectedKeys.has(key);
+  return `<div class="supplement-sample ${selected ? "active" : ""}" data-supplement-sample="${esc(key)}" data-supplement-run-id="${esc(item.run_id || "")}" data-item-index="${esc(item.__index)}">
+    <label class="supplement-sample-head">
+      <input type="checkbox" data-supplement-sample-check="${esc(key)}" data-parent-run="${esc(runKey)}" data-item-index="${esc(item.__index)}" ${selected ? "checked" : ""}>
+      <span class="supplement-sample-title">样本 ${esc(item.sample_id || "")}</span>
+      <span class="supplement-sample-delta">δ ${esc(item.delta ?? "-")}</span>
+    </label>
+    <div class="supplement-sample-tags">
+      ${supplementSummaryChips(item)}
+      ${missing.length ? `<span class="tag">${esc(missing.join(" · "))}</span>` : ""}
+    </div>
+  </div>`;
+}
+
+function supplementKey(item) {
+  return [item.run_id, item.sample_id].map((x) => String(x ?? "").replaceAll("|", "_")).join("|");
+}
+
+function safeDomKey(value) {
+  return String(value ?? "").replace(/[^A-Za-z0-9_\-\u4e00-\u9fa5]+/g, "_");
 }
 
 function renderResources() {
@@ -602,19 +1289,80 @@ function collectRunPayload(root) {
   };
 }
 
+function stablePayloadString(value) {
+  if (Array.isArray(value)) return `[${value.map(stablePayloadString).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stablePayloadString(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function runPayloadHash(payload) {
+  return stablePayloadString({
+    ids: (payload.ids || []).map((x) => String(x)),
+    mode: payload.mode || "preview",
+    style: payload.style || "sequential",
+    max_parallel: Number(payload.max_parallel || 2),
+    overrides: payload.overrides || {},
+    child_timeout_s: Number(payload.child_timeout_s || 3600),
+  });
+}
+
+function runPreviewMatchesCurrent(root) {
+  return state.runPreview?.valid && state.runPreview.payloadHash === runPayloadHash(collectRunPayload(root));
+}
+
+function updateRunPreviewControls(root) {
+  const current = runPayloadHash(collectRunPayload(root));
+  const preview = state.runPreview || {};
+  if (preview.valid && preview.payloadHash !== current) {
+    state.runPreview.valid = false;
+    state.runPreview.dirtyReason = "参数已变化，请重新预览";
+  }
+  const startAllowed = !!(state.runPreview?.valid && state.runPreview.payloadHash === current);
+  [$("#start-run", root), $("#bottom-start", root)].filter(Boolean).forEach((btn) => {
+    btn.disabled = !startAllowed;
+  });
+  const status = $("#run-preview-status", root);
+  if (status) {
+    if (startAllowed) status.textContent = "已预览，可启动";
+    else if (state.runPreview?.dirtyReason) status.textContent = state.runPreview.dirtyReason;
+    else status.textContent = "未预览";
+  }
+}
+
+function invalidateRunPreview(root, reason = "参数已变化，请重新预览") {
+  state.runPreview = {
+    ...(state.runPreview || {}),
+    valid: false,
+    dirtyReason: reason,
+  };
+  updateRunPreviewControls(root);
+}
+
 function bindRun(root) {
+  const invalidate = () => invalidateRunPreview(root);
   $$(".tree-row[data-script-id]", root).forEach((row) => row.addEventListener("click", () => {
     const id = row.dataset.scriptId;
     if (state.selectedScriptIds.has(id)) state.selectedScriptIds.delete(id);
     else state.selectedScriptIds.add(id);
     row.classList.toggle("active");
     $("#selected-script-count", root).textContent = state.selectedScriptIds.size;
+    invalidate();
   }));
   $$(".segmented", root).forEach((seg) => seg.addEventListener("click", (event) => {
     const btn = event.target.closest("button");
     if (!btn) return;
     $$("button", seg).forEach((b) => b.classList.toggle("active", b === btn));
+    invalidate();
   }));
+  root.__runPreviewDirtyHandler && root.removeEventListener("input", root.__runPreviewDirtyHandler);
+  root.__runPreviewDirtyHandler = (event) => {
+    if (!event.target.closest("#mode-control, #style-control, #max-parallel, #start-value, #end-value, #step-value, #mesh-accuracy, #dt-factor, #runtime-fs, #auto-shutoff, #child-timeout")) return;
+    invalidate();
+  };
+  root.addEventListener("input", root.__runPreviewDirtyHandler);
+  root.addEventListener("change", root.__runPreviewDirtyHandler);
   $("#refresh-scripts", root)?.addEventListener("click", async () => {
     await api.refreshScripts();
     state.scriptsPage = null;
@@ -623,10 +1371,29 @@ function bindRun(root) {
   });
   $("#preview-run", root)?.addEventListener("click", async () => {
     try {
-      const preview = await api.controllerPreview(collectRunPayload(root));
-      $("#point-estimate", root).textContent = preview.estimated_points || preview.job_preview?.estimated_points || "按脚本默认";
-      $("#duration-estimate", root).textContent = preview.estimated_duration || preview.job_preview?.estimated_runtime || "无法估算";
-      $("#job-log", root).textContent = Array.isArray(preview.command) ? preview.command.join(" ") : preview.command;
+      const payload = collectRunPayload(root);
+      const preview = await api.controllerPreview(payload);
+      const plan = preview.resolved_execution_plan || preview.job_preview || {};
+      const command = preview.command || plan.command || [];
+      state.runPreview = {
+        payloadHash: preview.payload_hash || runPayloadHash(payload),
+        previewHash: preview.preview_hash || "",
+        executionPlan: plan,
+        valid: true,
+        warnings: preview.warnings || plan.warnings || [],
+        dirtyReason: "",
+      };
+      $("#point-estimate", root).textContent = plan.estimated_points || preview.estimated_points || "按脚本默认";
+      $("#duration-estimate", root).textContent = plan.estimated_runtime || preview.estimated_duration || "无法估算";
+      state.jobLog.data = {
+        text: Array.isArray(command) ? command.join(" ") : String(command || ""),
+        raw_text: Array.isArray(command) ? command.join(" ") : String(command || ""),
+        structured_lines: [],
+        collapsed_count: 0,
+        encoding_warning: "",
+      };
+      renderJobLogPanel(root);
+      updateRunPreviewControls(root);
     } catch (error) {
       toast(error.message, "error");
     }
@@ -634,16 +1401,44 @@ function bindRun(root) {
   const start = () => {
     const payload = collectRunPayload(root);
     if (!payload.ids.length) return toast("请先选择至少一个脚本。", "error");
+    if (!state.runPreview?.valid || state.runPreview.payloadHash !== runPayloadHash(payload)) {
+      return toast("参数已变化，请重新预览。", "error");
+    }
     const highRisk = payload.mode === "full" && payload.style === "parallel";
+    const plan = state.runPreview.executionPlan || {};
+    const accepted = Array.isArray(plan.overrides_accepted) ? plan.overrides_accepted : [];
+    const rejected = Array.isArray(plan.overrides_rejected) ? plan.overrides_rejected : [];
+    const warnings = Array.isArray(plan.warnings) ? plan.warnings : [];
+    const modalBody = `
+      <table class="table">
+        <tbody>
+          <tr><td>脚本数量</td><td>${fmt(plan.script_count ?? payload.ids.length)}</td></tr>
+          <tr><td>mode</td><td>${esc(payload.mode)}</td></tr>
+          <tr><td>style</td><td>${esc(payload.style)}</td></tr>
+          <tr><td>并发数</td><td>${fmt(payload.max_parallel, 0)}</td></tr>
+          <tr><td>overrides_accepted</td><td>${esc(accepted.length ? accepted.join(", ") : "无")}</td></tr>
+          <tr><td>overrides_rejected</td><td>${esc(rejected.length ? rejected.join(", ") : "无")}</td></tr>
+          <tr><td>risk_level</td><td>${esc(plan.risk_level || (highRisk ? "high" : "low"))}</td></tr>
+          <tr><td>warnings</td><td>${esc(warnings.length ? warnings.join("；") : "无")}</td></tr>
+        </tbody>
+      </table>
+    `;
     openModal({
       title: highRisk ? "高风险启动确认" : "启动确认",
       danger: highRisk,
       confirmText: highRisk ? "确认 full 并行启动" : "确认启动",
-      body: `<p>${highRisk ? "full + parallel 可能占用大量内存。" : "将通过 fdtd_master_controller.py 启动任务。"}</p><pre class="mono">${esc(JSON.stringify(payload, null, 2))}</pre>`,
+      body: `${highRisk ? "<p>full + parallel 可能占用大量内存。</p>" : "<p>将通过 fdtd_master_controller.py 启动任务。</p>"}${modalBody}<pre class=\"mono\">${esc(JSON.stringify({ preview_hash: state.runPreview.previewHash, payload_hash: state.runPreview.payloadHash, ids: payload.ids, mode: payload.mode, style: payload.style, max_parallel: payload.max_parallel }, null, 2))}</pre>`,
       onConfirm: async () => {
-        const job = await api.controllerStart({ ...payload, confirm: true, risk_ack: highRisk });
+        const job = await api.controllerStart({ ...payload, preview_hash: state.runPreview.previewHash, payload_hash: state.runPreview.payloadHash, confirm: true, risk_ack: highRisk });
         state.activeJobId = job.job_id;
-        $("#job-log", root).textContent = `任务已启动：${job.job_id}\n${Array.isArray(job.command) ? job.command.join(" ") : job.command}`;
+        state.jobLog.data = {
+          text: `任务已启动：${job.job_id}\n${Array.isArray(job.command) ? job.command.join(" ") : job.command}`,
+          raw_text: `任务已启动：${job.job_id}\n${Array.isArray(job.command) ? job.command.join(" ") : job.command}`,
+          structured_lines: [],
+          collapsed_count: 0,
+          encoding_warning: "",
+        };
+        renderJobLogPanel(root);
         pollJob(root);
       },
     });
@@ -654,12 +1449,48 @@ function bindRun(root) {
     state.selectedScriptIds.clear();
     $$(".tree-row.active", root).forEach((row) => row.classList.remove("active"));
     $("#selected-script-count", root).textContent = "0";
+    invalidate();
   });
   $("#stop-job", root)?.addEventListener("click", async () => {
     if (!state.activeJobId) return toast("当前没有可停止任务。", "error");
     await api.stopJob(state.activeJobId);
     toast("已发送停止请求。", "success");
   });
+  root.addEventListener("click", (event) => {
+    const modeBtn = event.target.closest("[data-job-log-mode]");
+    if (modeBtn) {
+      const jobLog = ensureJobLogState();
+      jobLog.mode = modeBtn.dataset.jobLogMode || "all";
+      renderJobLogPanel(root);
+      return;
+    }
+    const copyBtn = event.target.closest("[data-job-log-copy]");
+    if (copyBtn) {
+      const jobLog = ensureJobLogState();
+      const text = jobLogPlainText(jobLog.data || {});
+      copyText(String(text || "")).then(() => toast("日志已复制。", "success")).catch((error) => toast(error.message, "error"));
+      return;
+    }
+    const downloadBtn = event.target.closest("[data-job-log-download]");
+    if (downloadBtn) {
+      const jobLog = ensureJobLogState();
+      const text = jobLogPlainText(jobLog.data || {});
+      downloadText(`fdtd_job_log_${state.activeJobId || "current"}.txt`, String(text || ""));
+    }
+  });
+  root.addEventListener("input", (event) => {
+    if (event.target.id !== "job-log-search") return;
+    const jobLog = ensureJobLogState();
+    jobLog.search = event.target.value || "";
+    renderJobLogPanel(root);
+  });
+  root.addEventListener("change", (event) => {
+    if (event.target.id !== "job-log-auto-scroll") return;
+    const jobLog = ensureJobLogState();
+    jobLog.autoScroll = !!event.target.checked;
+    renderJobLogPanel(root);
+  });
+  updateRunPreviewControls(root);
 }
 
 function stopResultAutoplay() {
@@ -673,7 +1504,12 @@ async function pollJob(root) {
   if (!state.activeJobId) return;
   try {
     const [log, job] = await Promise.all([api.jobLog(state.activeJobId), api.job(state.activeJobId)]);
-    $("#job-log", root).textContent = log.text || `任务状态：${job.status}`;
+    state.jobLog = {
+      ...(ensureJobLogState()),
+      jobId: state.activeJobId,
+      data: log || {},
+    };
+    renderJobLogPanel(root, log);
     if (job.status === "running" || job.status === "stopping") {
       setTimeout(() => pollJob(root), 1500);
     } else {
@@ -682,7 +1518,14 @@ async function pollJob(root) {
       await bootstrap();
     }
   } catch (error) {
-    $("#job-log", root).textContent = error.message;
+    state.jobLog.data = {
+      text: error.message,
+      raw_text: error.message,
+      structured_lines: [],
+      collapsed_count: 0,
+      encoding_warning: "",
+    };
+    renderJobLogPanel(root);
   }
 }
 
@@ -694,26 +1537,75 @@ function sampleRiskTone(sample) {
   return "ok";
 }
 
+function sampleEvidenceText(sample) {
+  return [...(sample.quality_flags || []), ...(sample.missing_evidence || [])]
+    .map((value) => String(value || "").trim())
+    .filter(Boolean)
+    .join(" ");
+}
+
+function sampleMissingReason(sample, field) {
+  const text = sampleEvidenceText(sample);
+  const hasPeak = /peak|选峰|峰/.test(text);
+  const hasSpectrum = /spectrum|spectra|谱/.test(text);
+  const hasFailure = /识别|identify|fit|failed|error|失败/.test(text);
+  const lambdaValue = sample.lambda0_nm ?? sample.lambda0;
+  const hasLambda0 = lambdaValue !== null && lambdaValue !== undefined && lambdaValue !== "" && Number.isFinite(Number(lambdaValue));
+  if (field === "lambda0") {
+    if (hasPeak) return "需选择峰";
+    if (hasSpectrum) return "缺谱线";
+    if (hasFailure) return "识别失败";
+    return "未计算";
+  }
+  if (field === "q" || field === "fwhm") {
+    if (hasPeak || !hasLambda0) return "需选择峰";
+    if (hasSpectrum) return "缺谱线";
+    if (hasFailure) return "识别失败";
+    return "未计算";
+  }
+  if (field === "maxT") {
+    if (hasSpectrum) return "缺谱线";
+    if (hasFailure) return "识别失败";
+    return "未计算";
+  }
+  return "未计算";
+}
+
+function sampleMetricChip(label, value, digits, reason) {
+  const hasValue = value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
+  if (hasValue) {
+    const text = `${label} ${fmt(value, digits)}`;
+    return `<span class="sample-chip" title="${esc(text)}">${esc(text)}</span>`;
+  }
+  const text = `${label} ${reason}`;
+  return `<span class="sample-chip empty" title="${esc(text)}">${esc(text)}</span>`;
+}
+
 function sampleRow(sample, index) {
   const tone = sampleRiskTone(sample);
   const flags = sample.quality_flags || [];
   const missing = sample.missing_evidence || [];
   const maxT = Number(sample.max_T ?? sample.max_t);
-  const convergence = flags.includes("T > 1") || (Number.isFinite(maxT) && maxT > 1)
-    ? `<span class="flag-text bad">不收敛：T &gt; 1</span>`
-    : `<span class="flag-text ${tone}">${tone === "ok" ? "质量正常" : "需复核"}</span>`;
-  return `<tr class="sample-row ${state.selectedSampleId === String(sample.sample_id) ? "active" : ""}" data-sample-index="${index}" data-sample-id="${esc(sample.sample_id)}">
-    <td><button class="link" data-sample-index="${index}" type="button">${esc(sample.sample_id)}</button></td>
-    <td>${esc(sample.delta ?? "")}</td>
-    <td>${fmt(sample.lambda0_nm, 2)}</td>
-    <td>${fmt(sample.Q ?? sample.q, 1)}</td>
-    <td>${fmt(sample.FWHM_nm ?? sample.fwhm_nm, 3)}</td>
-    <td>${fmt(sample.max_T ?? sample.max_t, 3)}</td>
+  const status = flags.includes("T > 1") || (Number.isFinite(maxT) && maxT > 1)
+    ? { text: "不收敛：T > 1", tone: "bad" }
+    : { text: tone === "ok" ? "质量正常" : "需复核", tone };
+  const evidence = [...missing, ...flags].slice(0, 5).join(", ");
+  const tooltip = evidence ? `${status.text}｜${evidence}` : status.text;
+  const metrics = [
+    sampleMetricChip("λ0", sample.lambda0_nm ?? sample.lambda0, 2, sampleMissingReason(sample, "lambda0")),
+    sampleMetricChip("Q", sample.Q ?? sample.q, 1, sampleMissingReason(sample, "q")),
+    sampleMetricChip("FWHM", sample.FWHM_nm ?? sample.fwhm_nm, 3, sampleMissingReason(sample, "fwhm")),
+    sampleMetricChip("Tmax", sample.max_T ?? sample.max_t, 3, sampleMissingReason(sample, "maxT")),
+  ].join("");
+  const manualTag = sample.manual_verified ? `<span class="tag green" title="manual verified">manual verified</span>` : "";
+  return `<tr class="sample-row ${state.selectedSampleId === String(sample.sample_id) ? "active" : ""}" data-sample-index="${index}" data-sample-id="${esc(sample.sample_id)}" title="${esc(tooltip)}">
+    <td><button class="link sample-name" data-sample-index="${index}" type="button">${esc(sample.sample_id)}</button></td>
+    <td><div class="sample-delta">${esc(sample.delta ?? "未提供")}</div><div class="muted sample-params">${esc(sample.param_text || sample.perturbation || "")}</div></td>
+    <td><div class="sample-status"><span class="flag-text ${status.tone}" title="${esc(tooltip)}">${esc(status.text)}</span>${manualTag}${evidence ? `<span class="muted sample-status-note" title="${esc(evidence)}">${esc(evidence)}</span>` : ""}</div></td>
     <td>${fmt(sample.score, 3)}</td>
-    <td>${convergence}<br><span class="muted">${esc([...missing, ...flags].slice(0, 5).join(", "))}</span></td>
+    <td><div class="sample-actions">${metrics}<button class="link" data-sample-index="${index}" type="button">详情</button></div></td>
   </tr>`;
 }
-
 function getRunImages(detail) {
   const files = detail?.files || [];
   const images = files.filter((f) => f.kind === "image" || /\.(png|jpg|jpeg|webp)$/i.test(f.relative_path || ""));
@@ -732,13 +1624,152 @@ function resourceChips(files) {
   return wanted.map((f) => `<button class="resource-chip" data-file-path="${esc(f.relative_path)}" type="button">${esc(f.kind || f.extension)} · ${esc(f.name || f.relative_path)}</button>`).join("");
 }
 
+function normalizeSpectrumPoints(points) {
+  return (points || [])
+    .map((point) => {
+      if (Array.isArray(point)) {
+        return { x: Number(point[0]), y: Number(point[1]) };
+      }
+      return { x: Number(point?.x ?? point?.lambda_nm ?? point?.lambda), y: Number(point?.y ?? point?.T ?? point?.value) };
+    })
+    .filter((point) => Number.isFinite(point.x) && Number.isFinite(point.y));
+}
+
+function currentPeakFeatureType(root) {
+  const active = root.querySelector("[data-peak-feature].active");
+  return active?.dataset.peakFeature || ensureSampleSpectrumState().featureType || "auto";
+}
+
+function ensureSampleSpectrumState() {
+  if (!state.sampleSpectrum) {
+    state.sampleSpectrum = { controller: null, data: null, sampleId: "", featureType: "auto", selection: null, lastResult: null, requestSeq: 0, lastSavedManual: false };
+  }
+  if (!state.sampleSpectrum.featureType) state.sampleSpectrum.featureType = "auto";
+  return state.sampleSpectrum;
+}
+
+function setPeakFeatureType(root, featureType) {
+  const spec = ensureSampleSpectrumState();
+  spec.featureType = featureType || "auto";
+  $("#peak-feature-mode", root)?.querySelectorAll("button")?.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.peakFeature === spec.featureType);
+  });
+}
+
+function peakMarkersFromResult(result) {
+  const metrics = result?.metrics || result || {};
+  const markers = {
+    vertical: [],
+    horizontal: [],
+    selection: null,
+  };
+  if (Number.isFinite(Number(metrics.lambda0_nm))) {
+    markers.vertical.push({ x: Number(metrics.lambda0_nm), label: "λ0", color: "#D92D20" });
+  }
+  if (Number.isFinite(Number(metrics.left_boundary_nm))) {
+    markers.vertical.push({ x: Number(metrics.left_boundary_nm), label: "左 FWHM", color: "#D97706", dashed: [6, 4] });
+  }
+  if (Number.isFinite(Number(metrics.right_boundary_nm))) {
+    markers.vertical.push({ x: Number(metrics.right_boundary_nm), label: "右 FWHM", color: "#D97706", dashed: [6, 4] });
+  }
+  if (Number.isFinite(Number(metrics.half_level))) {
+    markers.horizontal.push({ y: Number(metrics.half_level), label: "half", color: "#2563EB", dashed: [6, 4] });
+  }
+  if (Number.isFinite(Number(metrics.lambda_min_nm)) && Number.isFinite(Number(metrics.lambda_max_nm))) {
+    markers.selection = { min: Number(metrics.lambda_min_nm), max: Number(metrics.lambda_max_nm) };
+  }
+  return markers;
+}
+
+function peakSummaryHtml(result, manualVerified = false) {
+  const metrics = result?.metrics || result || {};
+  const warnings = Array.isArray(result?.warnings) ? result.warnings : (Array.isArray(metrics.warnings) ? metrics.warnings : []);
+  const usedCount = Number(result?.used_points?.length ?? metrics.used_point_count ?? 0);
+  const featureType = metrics.feature_type || result?.resolved_feature_type || "auto";
+  return `
+    <div class="toolbar" style="gap:8px;flex-wrap:wrap;margin-bottom:10px">
+      <span class="tag ${manualVerified ? "green" : "blue"}">${manualVerified ? "manual verified" : "计算结果"}</span>
+      <span class="tag blue">${esc(featureType)}</span>
+      <span class="tag">${fmt(usedCount, 0)} 个原始点</span>
+      ${warnings.length ? `<span class="tag orange">${esc(warnings.join("；"))}</span>` : ""}
+    </div>
+    <table class="table">
+      <tbody>
+        <tr><td>λ0</td><td>${fmt(metrics.lambda0_nm, 3)} nm</td></tr>
+        <tr><td>FWHM</td><td>${fmt(metrics.FWHM_nm, 4)} nm</td></tr>
+        <tr><td>Q</td><td>${fmt(metrics.Q, 2)}</td></tr>
+        <tr><td>Tmax</td><td>${fmt(metrics.max_T, 4)}</td></tr>
+        <tr><td>Tmin</td><td>${fmt(metrics.min_T, 4)}</td></tr>
+        <tr><td>contrast</td><td>${fmt(metrics.contrast, 4)}</td></tr>
+        <tr><td>边界</td><td>${fmt(metrics.left_boundary_nm, 3)} / ${fmt(metrics.right_boundary_nm, 3)}</td></tr>
+      </tbody>
+    </table>
+  `;
+}
+
+async function recalcPeakSelection(root) {
+  const spec = ensureSampleSpectrumState();
+  if (!state.selectedRunId || !spec.sampleId) return null;
+  const lambdaMin = $("#peak-min", root)?.value;
+  const lambdaMax = $("#peak-max", root)?.value;
+  if (lambdaMin === undefined || lambdaMax === undefined || lambdaMin === "" || lambdaMax === "") {
+    $("#peak-result", root).textContent = "请先框选或填写 λ_min / λ_max。";
+    return null;
+  }
+  const requestSeq = ++spec.requestSeq;
+  const featureType = currentPeakFeatureType(root);
+  $("#peak-result", root).textContent = "正在计算峰值..."; 
+  try {
+    const result = await api.peakCalc({
+      run_id: state.selectedRunId,
+      sample_id: spec.sampleId,
+      kind: "T",
+      lambda_min: lambdaMin,
+      lambda_max: lambdaMax,
+      feature_type: featureType,
+    });
+    if (requestSeq !== spec.requestSeq) return result;
+    spec.lastResult = result;
+    spec.lastSavedManual = false;
+    spec.selection = { min: Number(lambdaMin), max: Number(lambdaMax) };
+    if (spec.controller) {
+      spec.controller.setSelection(spec.selection, true);
+      spec.controller.drawMarkers(peakMarkersFromResult(result));
+    }
+    $("#peak-result", root).innerHTML = peakSummaryHtml(result, !!spec.lastSavedManual);
+    return result;
+  } catch (error) {
+    if (requestSeq !== spec.requestSeq) return null;
+    $("#peak-result", root).textContent = `峰值计算失败：${error.message}`;
+    return null;
+  }
+}
+
+function applySelectionToInputs(root, selection) {
+  if (!selection) return;
+  const minInput = $("#peak-min", root);
+  const maxInput = $("#peak-max", root);
+  if (minInput) minInput.value = Number(selection.min).toFixed(3);
+  if (maxInput) maxInput.value = Number(selection.max).toFixed(3);
+}
+
 function renderSamplePreview(root, detail, sampleIndex) {
+  const spec = ensureSampleSpectrumState();
+  if (spec.controller) {
+    spec.controller.destroy();
+    spec.controller = null;
+  }
   const samples = detail.samples || [];
   const sample = samples[sampleIndex] || samples[0] || {};
   state.selectedSampleId = String(sample.sample_id || "");
+  spec.sampleId = state.selectedSampleId;
   state.resultPreviewImages = getRunImages(detail);
   state.resultPreviewIndex = Math.min(Math.max(sampleIndex, 0), Math.max(0, state.resultPreviewImages.length - 1));
   const image = state.resultPreviewImages[state.resultPreviewIndex];
+  const manualSelection = sample.manual_selection || null;
+  spec.featureType = manualSelection?.feature_type || "auto";
+  spec.selection = manualSelection ? { min: Number(manualSelection.lambda_min_nm), max: Number(manualSelection.lambda_max_nm) } : null;
+  spec.lastResult = manualSelection ? { metrics: manualSelection.metrics || {}, used_points: manualSelection.used_points || [], warnings: manualSelection.warnings || [] } : null;
   const pane = $("#preview-pane", root);
   if (!pane) return;
   pane.innerHTML = `
@@ -752,23 +1783,65 @@ function renderSamplePreview(root, detail, sampleIndex) {
       ${image ? `<img id="preview-image" src="/api/v2/files/raw?path=${encodeURIComponent(image.relative_path.replaceAll("\\", "/"))}" alt="${esc(image.name || image.relative_path)}">` : `<div class="empty">该样本没有找到谱图图片，将显示 T(λ) 曲线。</div>`}
     </div>
     <div id="preview-path" class="muted">${image ? esc(image.relative_path) : "无谱图图片"}</div>
-    <div class="peak-tools">
-      <input class="input" id="peak-min" type="number" step="0.001" placeholder="λ min nm" value="${esc(sample.lambda0_nm ? Number(sample.lambda0_nm).toFixed(3) : "")}">
-      <input class="input" id="peak-max" type="number" step="0.001" placeholder="λ max nm" value="${esc(sample.lambda0_nm ? (Number(sample.lambda0_nm) + 1).toFixed(3) : "")}">
-      <button class="btn primary" id="save-peak-selection" type="button">记录峰值区间</button>
+    <div class="peak-tools" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px">
+      <div class="segmented" id="peak-feature-mode">
+        <button class="${spec.featureType === "auto" ? "active" : ""}" data-peak-feature="auto" type="button">自动判断 peak/dip</button>
+        <button class="${spec.featureType === "peak" ? "active" : ""}" data-peak-feature="peak" type="button">按 peak 计算</button>
+        <button class="${spec.featureType === "dip" ? "active" : ""}" data-peak-feature="dip" type="button">按 dip 计算</button>
+      </div>
+      <input class="input" id="peak-min" type="number" step="0.001" placeholder="λ min nm" value="${esc(manualSelection ? Number(manualSelection.lambda_min_nm).toFixed(3) : sample.lambda0_nm ? (Number(sample.lambda0_nm) - 10).toFixed(3) : "")}">
+      <input class="input" id="peak-max" type="number" step="0.001" placeholder="λ max nm" value="${esc(manualSelection ? Number(manualSelection.lambda_max_nm).toFixed(3) : sample.lambda0_nm ? (Number(sample.lambda0_nm) + 10).toFixed(3) : "")}">
+      <button class="btn ghost" data-peak-clear type="button">清除选择</button>
+      <button class="btn primary" data-peak-save type="button">保存确认</button>
     </div>
-    <div class="chart-box small" style="margin-top:10px"><canvas id="sample-spectrum-canvas"></canvas></div>
-    <div id="peak-result" class="muted">框选峰区后会写入当前 run 的 12_analysis_summary/v2_peak_selections.json。</div>
+    <div class="chart-box small" style="margin-top:10px;position:relative"><canvas id="sample-spectrum-canvas"></canvas></div>
+    <div id="peak-result" class="muted">${manualSelection ? peakSummaryHtml(manualSelection, true) : "框选峰区后会自动计算 λ0 / FWHM / Q。"} </div>
   `;
-  loadSampleSpectrum(root, sample.sample_id);
+  loadSampleSpectrum(root, sample);
 }
 
-async function loadSampleSpectrum(root, sampleId = "") {
+async function loadSampleSpectrum(root, sample = {}) {
   if (!state.selectedRunId) return;
+  const spec = ensureSampleSpectrumState();
+  spec.sampleId = String(sample?.sample_id || state.selectedSampleId || "");
   try {
-    const data = await api.diagnosticsSpectrum(state.selectedRunId, sampleId || "", "T");
-    const points = (data.points || []).map((p) => ({ x: Number(p[0]), y: Number(p[1]) }));
-    drawLine($("#sample-spectrum-canvas", root), points, { xLabel: "λ (nm)", yLabel: "T" });
+    const data = await api.diagnosticsSpectrum(state.selectedRunId, spec.sampleId || "", "T");
+    spec.data = data;
+    const points = normalizeSpectrumPoints(data.points || []);
+    const canvas = $("#sample-spectrum-canvas", root);
+    if (!canvas) return;
+    spec.controller = drawLine(canvas, points, {
+      xLabel: "λ (nm)",
+      yLabel: "T",
+      interactive: true,
+      selection: spec.selection,
+      markers: peakMarkersFromResult(sample.manual_selection || spec.lastResult || {}),
+      onSelectionChange: (selection) => {
+        if (!selection) {
+          spec.selection = null;
+          $("#peak-result", root).textContent = "请重新框选峰区。";
+          return;
+        }
+        spec.selection = { min: Number(selection.min), max: Number(selection.max) };
+        applySelectionToInputs(root, spec.selection);
+        recalcPeakSelection(root);
+      },
+    });
+    if (spec.selection) {
+      spec.controller.setSelection(spec.selection, true);
+    }
+    if (spec.lastResult) {
+      spec.controller.drawMarkers(peakMarkersFromResult(spec.lastResult));
+    }
+    if (!spec.selection && sample.manual_selection) {
+      spec.selection = { min: Number(sample.manual_selection.lambda_min_nm), max: Number(sample.manual_selection.lambda_max_nm) };
+      applySelectionToInputs(root, spec.selection);
+      spec.controller.setSelection(spec.selection, true);
+      spec.controller.drawMarkers(peakMarkersFromResult(sample.manual_selection));
+    }
+    if (spec.lastResult) {
+      $("#peak-result", root).innerHTML = peakSummaryHtml(spec.lastResult, !!sample.manual_verified);
+    }
   } catch (error) {
     $("#peak-result", root).textContent = `谱线读取失败：${error.message}`;
   }
@@ -799,21 +1872,133 @@ function evidenceAdvice(missing) {
 }
 
 function bindResults(root) {
-  $$(".tree-row[data-run-id]", root).forEach((btn) => btn.addEventListener("click", () => loadRunInResults(root, btn.dataset.runId)));
-  [
-    ["scope-filter", "scope"],
-    ["group-filter", "group"],
-    ["mother-filter", "mother"],
-    ["perturbation-filter", "perturbation"],
-    ["risk-filter", "risk"],
-  ].forEach(([id, key]) => {
-    $(`#${id}`, root)?.addEventListener("change", async (event) => {
-      state.resultFilters[key] = event.target.value;
-      await renderRoute();
-    });
+  root.__resultsInputHandler && root.removeEventListener("input", root.__resultsInputHandler);
+  root.__resultsInputHandler = (event) => {
+    const search = event.target.closest("#structure-search");
+    if (!search) return;
+    const nav = ensureStructureNavigatorState();
+    nav.query = search.value || "";
+    saveStructureNavigatorState();
+    const pane = $("#structure-navigator", root);
+    if (pane) pane.innerHTML = renderStructureNavigator();
+    return;
+  };
+  root.addEventListener("input", root.__resultsInputHandler);
+  root.addEventListener("input", (event) => {
+    if (!event.target.closest("#peak-min, #peak-max")) return;
+    const spec = ensureSampleSpectrumState();
+    const minValue = $("#peak-min", root)?.value;
+    const maxValue = $("#peak-max", root)?.value;
+    if (minValue === "" || maxValue === "") return;
+    spec.selection = { min: Number(minValue), max: Number(maxValue) };
+    if (Number.isFinite(spec.selection.min) && Number.isFinite(spec.selection.max)) {
+      if (spec.controller) spec.controller.setSelection(spec.selection, true);
+      recalcPeakSelection(root);
+    }
   });
-  root.addEventListener("click", (event) => {
+
+  setRouteClickHandler(root, "results", (event) => {
     if (routeName() !== "results") return;
+    const featureBtn = event.target.closest("[data-peak-feature]");
+    if (featureBtn) {
+      event.preventDefault();
+      const featureType = featureBtn.dataset.peakFeature || "auto";
+      setPeakFeatureType(root, featureType);
+      const spec = ensureSampleSpectrumState();
+      if (spec.selection) recalcPeakSelection(root);
+      return;
+    }
+    if (event.target.closest("[data-peak-clear]")) {
+      event.preventDefault();
+      const spec = ensureSampleSpectrumState();
+      spec.selection = null;
+      spec.lastResult = null;
+      spec.lastSavedManual = false;
+      if (spec.controller) spec.controller.clearSelection();
+      if (spec.controller) spec.controller.drawMarkers({});
+      const minInput = $("#peak-min", root);
+      const maxInput = $("#peak-max", root);
+      if (minInput) minInput.value = "";
+      if (maxInput) maxInput.value = "";
+      $("#peak-result", root).textContent = "已清除选择，请重新框选峰区。";
+      return;
+    }
+    if (event.target.closest("[data-peak-save]")) {
+      event.preventDefault();
+      const spec = ensureSampleSpectrumState();
+      const result = spec.lastResult;
+      if (!result) {
+        toast("请先框选峰区并完成计算。", "error");
+        return;
+      }
+      const metrics = result.metrics || {};
+      openModal({
+        title: "保存峰值确认",
+        confirmText: "确认保存",
+        body: `
+          <p>将把手动选择写入当前 run 的 <code>12_analysis_summary/v2_peak_selections.json</code>，并标记 <code>manual_verified</code>。</p>
+          ${peakSummaryHtml(result, true)}
+        `,
+        onConfirm: async () => {
+          const payload = {
+            run_id: state.selectedRunId,
+            sample_id: spec.sampleId,
+            kind: "T",
+            lambda_min: $("#peak-min", root)?.value,
+            lambda_max: $("#peak-max", root)?.value,
+            feature_type: metrics.feature_type || currentPeakFeatureType(root),
+          };
+          const saved = await api.savePeakSelection(payload);
+          spec.lastSavedManual = true;
+          spec.lastResult = saved.selection || result;
+          $("#peak-result", root).innerHTML = peakSummaryHtml(saved.selection || result, true);
+          toast("峰值区间已写入 run 的分析摘要。", "success");
+          await loadRunInResults(root, state.selectedRunId);
+        },
+      });
+      return;
+    }
+    const scopeBtn = event.target.closest("[data-structure-scope]");
+    if (scopeBtn) {
+      setStructureScope(scopeBtn.dataset.structureScope);
+      renderRoute();
+      return;
+    }
+    const toggleBtn = event.target.closest("[data-structure-toggle]");
+    if (toggleBtn) {
+      toggleStructureExpanded(toggleBtn.dataset.structureToggle);
+      const pane = $("#structure-navigator", root);
+      if (pane) pane.innerHTML = renderStructureNavigator();
+      return;
+    }
+    const favoriteBtn = event.target.closest("[data-structure-favorite]");
+    if (favoriteBtn) {
+      const record = recordFromStructureElement(favoriteBtn);
+      if (record) toggleStructureFavorite(record);
+      const pane = $("#structure-navigator", root);
+      if (pane) pane.innerHTML = renderStructureNavigator();
+      return;
+    }
+    const pinBtn = event.target.closest("[data-structure-pin]");
+    if (pinBtn) {
+      const record = recordFromStructureElement(pinBtn);
+      if (record) {
+        selectStructurePath(record, record.run_id || "");
+        state.selectedRunId = record.run_id || state.selectedRunId;
+        renderRoute();
+      }
+      return;
+    }
+    const selectBtn = event.target.closest("[data-structure-select]");
+    if (selectBtn) {
+      const record = recordFromStructureElement(selectBtn);
+      if (record) {
+        selectStructurePath(record, record.kind === "run" ? (selectBtn.dataset.structureRun || record.run_id || "") : "");
+        if (selectBtn.dataset.structureRun) state.selectedRunId = selectBtn.dataset.structureRun;
+        renderRoute();
+      }
+      return;
+    }
     const sampleBtn = event.target.closest("[data-sample-index]");
     if (sampleBtn && sampleBtn.closest("#sample-table")) {
       const detail = state.runDetails.get(state.selectedRunId);
@@ -837,20 +2022,11 @@ function bindResults(root) {
     }
     const openFolder = event.target.closest("[data-open-folder]");
     if (openFolder) {
-      api.openFolder(openFolder.dataset.openFolder).then(() => toast("已请求打开文件夹。", "success")).catch((error) => toast(error.message, "error"));
-      return;
-    }
-    if (event.target.closest("#save-peak-selection")) {
-      api.savePeakSelection({
-        run_id: state.selectedRunId,
-        sample_id: state.selectedSampleId,
-        kind: "T",
-        lambda_min: $("#peak-min", root)?.value,
-        lambda_max: $("#peak-max", root)?.value,
-      }).then((result) => {
-        const m = result.selection?.metrics || {};
-        $("#peak-result", root).innerHTML = `已记录：λ0 ${fmt(m.lambda0_nm, 3)} nm，FWHM ${fmt(m.FWHM_nm, 4)} nm，Q ${fmt(m.Q, 2)}。<br><span class="muted">${esc(result.relative_path || "")}</span>`;
-        toast("峰值区间已写入 run 的分析摘要。", "success");
+      event.preventDefault();
+      event.stopPropagation();
+      runActionOnce(`open-folder:${openFolder.dataset.openFolder}`, async () => {
+        await api.openFolder(openFolder.dataset.openFolder);
+        toast("已请求打开文件夹。", "success");
       }).catch((error) => toast(error.message, "error"));
       return;
     }
@@ -861,6 +2037,24 @@ function bindResults(root) {
   if (state.selectedRunId) loadRunInResults(root, state.selectedRunId);
 }
 
+function recordFromStructureElement(el) {
+  if (!el) return null;
+  const host = el.closest("[data-structure-node]") || el;
+  const dataset = host.dataset || {};
+  const record = {
+    key: dataset.structurePin || dataset.structureSelect || dataset.structureFavorite || dataset.structureToggle || "",
+    label: dataset.structureLabel || "",
+    group: dataset.structureGroup || "",
+    mother: dataset.structureMother || "",
+    perturbation: dataset.structurePerturbation || "",
+    run_id: dataset.structureRun || "",
+    kind: dataset.structureKind || "",
+  };
+  if (!record.key) record.key = structurePathKey(record);
+  if (!record.label) record.label = structurePathLabel(record);
+  return record;
+}
+
 async function loadRunInResults(root, runId) {
   state.selectedRunId = runId;
   stopResultAutoplay();
@@ -869,11 +2063,21 @@ async function loadRunInResults(root, runId) {
     const detail = await api.run(runId);
     state.runDetails.set(runId, detail);
     $("#run-title", root).textContent = detail.run?.run_name || detail.run_name || runId;
+    const selected = selectStructurePath({
+      kind: "run",
+      group: detail.run?.group || detail.group || "",
+      mother: detail.run?.mother_structure || detail.mother_structure || "",
+      perturbation: detail.run?.perturbation || detail.perturbation || "",
+      run_id: runId,
+      run_name: detail.run?.run_name || detail.run_name || runId,
+      scope: ensureStructureNavigatorState().scope || state.resultFilters.scope || "current",
+    }, runId);
+    state.selectedStructure = selected;
     const samples = detail.samples || [];
     const files = detail.files || [];
     const samplePane = $("#sample-table", root);
     samplePane.className = samples.length ? "" : "empty";
-    samplePane.innerHTML = samples.length ? `<div class="sample-table-wrap"><table class="table sample-table"><thead><tr><th>sample</th><th>δ / 参数</th><th>λ0 nm</th><th>Q</th><th>FWHM nm</th><th>max(T)</th><th>score</th><th>状态</th></tr></thead><tbody>${samples.slice(0, 160).map(sampleRow).join("")}</tbody></table></div>` : "未发现 scan_points / manifest 样本摘要。";
+    samplePane.innerHTML = samples.length ? `<div class="sample-table-wrap"><table class="table sample-table"><thead><tr><th>sample</th><th>δ / 参数</th><th>质量状态</th><th>score</th><th>操作</th></tr></thead><tbody>${samples.slice(0, 160).map(sampleRow).join("")}</tbody></table></div>` : "未发现 scan_points / manifest 样本摘要。";
     const strip = $("#resource-strip", root);
     if (strip) strip.innerHTML = resourceChips(files);
     const hint = $("#resource-hint", root);
@@ -889,7 +2093,6 @@ async function loadRunInResults(root, runId) {
     toast(error.message, "error");
   }
 }
-
 async function previewFile(path, pane) {
   if (!pane) return;
   try {
@@ -909,22 +2112,22 @@ async function previewFile(path, pane) {
 }
 
 function bindDiagnosis(root) {
-  $("#run-select", root)?.addEventListener("change", (event) => {
-    state.selectedRunId = event.target.value;
+  bindRunCascade(root, async () => {
     state.diagnostics = null;
     state.spectrum = null;
     state.trend = null;
-    renderRoute();
+    await renderRoute();
   });
   $("#load-run-diagnostics", root)?.addEventListener("click", () => loadDiagnostics(root));
   $("#load-spectrum", root)?.addEventListener("click", () => loadSpectrum(root));
   $("#load-trend", root)?.addEventListener("click", () => loadTrend(root));
-  root.addEventListener("click", (event) => {
+  setRouteClickHandler(root, "diagnosis", (event) => {
+    if (routeName() !== "diagnosis") return;
     const img = event.target.closest("[data-diagnosis-image]");
     if (img) openDrawer("谱图预览", `<img src="/api/v2/files/raw?path=${encodeURIComponent(img.dataset.diagnosisImage.replaceAll("\\", "/"))}" alt="${esc(img.dataset.diagnosisImage)}" style="width:100%;height:auto;border-radius:8px"><p class="muted">${esc(img.dataset.diagnosisImage)}</p>`);
   });
   if (state.spectrum?.run_id === state.selectedRunId) {
-    const points = (state.spectrum.points || []).map((p) => ({ x: Number(p[0]), y: Number(p[1]) }));
+    const points = normalizeSpectrumPoints(state.spectrum.points || []);
     drawLine($("#spectrum-chart", root), points, { xLabel: "λ (nm)", yLabel: "T" });
   } else if (state.diagnostics?.run_id === state.selectedRunId) {
     loadSpectrum(root);
@@ -958,7 +2161,7 @@ async function loadSpectrum(root) {
   if (!state.selectedRunId) return;
   const data = await api.diagnosticsSpectrum(state.selectedRunId, "", "T");
   state.spectrum = data;
-  const points = (data.points || []).map((p) => ({ x: Number(p[0]), y: Number(p[1]) }));
+  const points = normalizeSpectrumPoints(data.points || []);
   drawLine($("#spectrum-chart", root), points, { xLabel: "λ (nm)", yLabel: "T" });
 }
 
@@ -969,15 +2172,15 @@ async function loadTrend(root) {
 }
 
 function bindTopology(root) {
-  $("#run-select", root)?.addEventListener("change", (event) => {
-    state.selectedRunId = event.target.value;
+  bindRunCascade(root, async () => {
     state.relay = null;
     state.heatmap = null;
-    renderRoute();
+    await renderRoute();
   });
   $("#load-run-diagnostics", root)?.addEventListener("click", () => loadRelay(root));
   $("#load-heatmap", root)?.addEventListener("click", () => loadHeatmap(root));
-  root.addEventListener("click", (event) => {
+  setRouteClickHandler(root, "topology", (event) => {
+    if (routeName() !== "topology") return;
     const img = event.target.closest("[data-diagnosis-image]");
     if (img) openDrawer("代表谱图", `<img src="/api/v2/files/raw?path=${encodeURIComponent(img.dataset.diagnosisImage.replaceAll("\\", "/"))}" alt="${esc(img.dataset.diagnosisImage)}" style="width:100%;height:auto;border-radius:8px"><p class="muted">${esc(img.dataset.diagnosisImage)}</p>`);
   });
@@ -1017,37 +2220,280 @@ function bindQuality(root) {
 }
 
 function bindSupplement(root) {
-  root.addEventListener("click", (event) => {
+  const ui = ensureSupplementUIState();
+  root.__supplementChangeHandler && root.removeEventListener("change", root.__supplementChangeHandler);
+  root.__supplementChangeHandler = (event) => {
+    const sampleCheck = event.target.closest("[data-supplement-sample-check]");
+    if (sampleCheck) {
+      const sampleKey = sampleCheck.dataset.supplementSampleCheck;
+      if (sampleCheck.checked) ui.selectedKeys.add(sampleKey);
+      else ui.selectedKeys.delete(sampleKey);
+      ui.focusedKey = sampleKey;
+      setSupplementStep(2);
+      renderRoute();
+      return;
+    }
+    const runCheck = event.target.closest("[data-supplement-run-check]");
+    if (runCheck) {
+      const runId = runCheck.dataset.runId || "";
+      (state.missing?.items || []).forEach((item) => {
+        if ((item.run_id || "") !== runId) return;
+        const key = supplementKey(item);
+        if (runCheck.checked) ui.selectedKeys.add(key);
+        else ui.selectedKeys.delete(key);
+        if (runCheck.checked) ui.focusedKey = key;
+      });
+      setSupplementStep(2);
+      renderRoute();
+    }
+  };
+  root.addEventListener("change", root.__supplementChangeHandler);
+  $("#supplement-search", root)?.addEventListener("input", async (event) => {
+    state.supplementSearch = event.target.value;
+    state.supplementVisibleLimit = 420;
+    await renderRoute();
+  });
+  $("#supplement-type", root)?.addEventListener("change", () => renderRoute());
+  $("#load-more-supplement", root)?.addEventListener("click", async () => {
+    state.supplementVisibleLimit += 420;
+    await renderRoute();
+  });
+  setRouteClickHandler(root, "supplement", (event) => {
+    if (routeName() !== "supplement") return;
+    const stepBtn = event.target.closest("[data-supplement-step]");
+    if (stepBtn) {
+      event.preventDefault();
+      setSupplementStep(stepBtn.dataset.supplementStep);
+      renderRoute();
+      return;
+    }
+    const toggleRun = event.target.closest("[data-supplement-toggle-run]");
+    if (toggleRun) {
+      event.preventDefault();
+      const runKey = toggleRun.dataset.supplementToggleRun;
+      if (ui.expandedRuns.has(runKey)) ui.expandedRuns.delete(runKey);
+      else ui.expandedRuns.add(runKey);
+      renderRoute();
+      return;
+    }
+    const sampleCard = event.target.closest("[data-supplement-sample]");
+    if (sampleCard && !event.target.closest("input, button, a, label")) {
+      ui.focusedKey = sampleCard.dataset.supplementSample || ui.focusedKey;
+      setSupplementStep(2);
+      renderRoute();
+      return;
+    }
+    const create = event.target.closest("#create-package");
+    if (create) {
+      event.preventDefault();
+      runActionOnce("create-supplement-package", () => createSupplementPackageFromSelection(root), 2000)
+        .catch((error) => toast(error.message, "error"));
+      return;
+    }
+    const show = event.target.closest("[data-show-package]");
+    if (show) {
+      showPackageModal(show.dataset.showPackage);
+      return;
+    }
     const del = event.target.closest("[data-delete-package]");
     if (!del) return;
     const packageId = del.dataset.deletePackage;
+    let deleteDetail = null;
     openModal({
       title: "删除补做任务包",
       danger: true,
       confirmText: "确认删除任务包",
-      body: `<p>只会删除 V2 生成的 patch 任务包目录和 supplement_index 条目，不会删除原始 run。</p><pre class="mono">${esc(packageId)}</pre>`,
+      body: `<p>只会删除 V2 patch 任务包目录和 supplement_index 条目，不会删除原始 run。</p><div id="delete-patch-detail" class="empty">正在读取真实路径...</div>`,
       onConfirm: async () => {
-        await api.deleteSupplementPackage(packageId);
+        await api.deleteSupplementPackage(packageId, {
+          confirmed: true,
+          package_type: deleteDetail?.package_type || "patch_v2",
+          real_path: deleteDetail?.patch_request_abs_path || deleteDetail?.output_root || deleteDetail?.relative_path || "",
+        });
         toast("补做任务包已删除。", "success");
         state.packages = await api.supplementPackages();
         await renderRoute();
       },
     });
+    const confirmBtn = $("#modal-root [data-confirm-modal]");
+    if (confirmBtn) confirmBtn.disabled = true;
+    (async () => {
+      try {
+        deleteDetail = await api.supplementPackage(packageId);
+        const host = $("#delete-patch-detail", $("#modal-root"));
+        if (host) host.innerHTML = renderSupplementDeletePrompt(deleteDetail);
+        const confirmBtn = $("#modal-root [data-confirm-modal]");
+        const check = $("#modal-root #delete-patch-confirm");
+        if (confirmBtn && check) {
+          confirmBtn.disabled = !check.checked;
+          check.addEventListener("change", () => {
+            confirmBtn.disabled = !check.checked;
+          });
+        }
+      } catch (error) {
+        const host = $("#delete-patch-detail", $("#modal-root"));
+        if (host) host.innerHTML = `<div class="notice warn">${esc(error.message)}</div>`;
+      }
+    })();
   });
-  $("#create-package", root)?.addEventListener("click", async () => {
-    const items = state.missing?.items || [];
-    const selected = $$("[data-missing-index]:checked", root).map((box) => items[Number(box.dataset.missingIndex)]).filter(Boolean);
-    if (!selected.length) return toast("请至少选择一个待补做样本。", "error");
-    const supplementType = $("#supplement-type", root).value;
-    const item = await api.createSupplementPackage({ supplement_type: supplementType, monitor_policy: "single_monitor_only", samples: selected });
-    toast(`已生成任务包：${item.package_id}`, "success");
-    state.packages = await api.supplementPackages();
-    await renderRoute();
+}
+
+async function createSupplementPackageFromSelection(root) {
+  const items = state.missing?.items || [];
+  const selected = collectSupplementSelection(root, items);
+  if (!selected.length) return toast("请至少选择一个待补做样本。", "error");
+  const supplementType = $("#supplement-type", root).value;
+  const runIds = Array.from(new Set(selected.map((x) => x.run_id).filter(Boolean)));
+  if (runIds.length > 1) return toast("一次任务包只支持一个 run，请在树中选择单个 run。", "error");
+  const item = await api.createSupplementPackage({
+    supplement_type: supplementType,
+    monitor_policy: "single_monitor_only",
+    patch_mode: true,
+    output_to_existing_run: true,
+    reuse_existing_perturbation_points: true,
+    samples: selected,
+  });
+  toast(`已生成任务包：${item.package_id}`, "success");
+  const ui = ensureSupplementUIState();
+  ui.lastCreatedPackageId = item.package_id;
+  state.packages = await api.supplementPackages();
+  await renderRoute();
+  showPatchPackageModal(item);
+}
+
+function applySupplementCheck(root, source) {
+  const checked = source.checked;
+  const group = source.dataset.treeGroup;
+  const run = source.dataset.treeRun;
+  const sample = source.dataset.treeSample;
+  if (group) {
+    $$(`[data-parent-group="${CSS.escape(group)}"], [data-tree-leaf][data-parent-run]`, root)
+      .filter((node) => {
+        const runNode = node.closest(".patch-run");
+        return runNode && runNode.querySelector(`[data-parent-group="${CSS.escape(group)}"]`);
+      })
+      .forEach((node) => { node.checked = checked; });
+  }
+  if (run) {
+    $$(`[data-parent-run="${CSS.escape(run)}"]`, root).forEach((node) => { node.checked = checked; });
+  }
+  if (sample) {
+    $$(`[data-tree-leaf="${CSS.escape(sample)}"]`, root).forEach((node) => { node.checked = checked; });
+  }
+}
+
+function updateSupplementTreeState(root) {
+  $$("[data-patch-sample]", root).forEach((sampleNode) => {
+    const sampleKey = sampleNode.dataset.patchSample;
+    const sampleBox = sampleNode.querySelector(`[data-tree-sample="${CSS.escape(sampleKey)}"]`);
+    const leaves = $$(`[data-tree-leaf="${CSS.escape(sampleKey)}"]`, sampleNode);
+    const checked = leaves.filter((x) => x.checked).length;
+    if (sampleBox && leaves.length) {
+      sampleBox.checked = checked === leaves.length;
+      sampleBox.indeterminate = checked > 0 && checked < leaves.length;
+    }
+  });
+  $$("[data-patch-run]", root).forEach((runNode) => {
+    const runKey = runNode.dataset.patchRun;
+    const runBox = runNode.querySelector(`[data-tree-run="${CSS.escape(runKey)}"]`);
+    const leaves = $$(`[data-parent-run="${CSS.escape(runKey)}"][data-tree-leaf]`, runNode);
+    const checked = leaves.filter((x) => x.checked).length;
+    if (runBox && leaves.length) {
+      runBox.checked = checked === leaves.length;
+      runBox.indeterminate = checked > 0 && checked < leaves.length;
+    }
+  });
+  $$("[data-patch-batch]", root).forEach((batchNode) => {
+    const batchKey = batchNode.dataset.patchBatch;
+    const batchBox = batchNode.querySelector(`[data-tree-group="${CSS.escape(batchKey)}"]`);
+    const leaves = $$("[data-tree-leaf]", batchNode);
+    const checked = leaves.filter((x) => x.checked).length;
+    if (batchBox && leaves.length) {
+      batchBox.checked = checked === leaves.length;
+      batchBox.indeterminate = checked > 0 && checked < leaves.length;
+    }
+  });
+}
+
+function collectSupplementSelection(root, items) {
+  const ui = ensureSupplementUIState();
+  return (items || [])
+    .filter((item) => ui.selectedKeys.has(supplementKey(item)))
+    .map((item) => ({
+      ...item,
+      selected_missing_evidence: Array.from(new Set(item.selected_missing_evidence || item.missing_evidence || [])),
+    }));
+}
+
+async function showPackageModal(packageId) {
+  try {
+    const detail = await api.supplementPackage(packageId);
+    showPatchPackageModal(detail);
+  } catch (error) {
+    toast(error.message, "error");
+  }
+}
+
+function renderSupplementDeletePrompt(detail) {
+  const realPath = detail.patch_request_abs_path || detail.output_root || detail.relative_path || "";
+  return `
+    <div class="notice warn">删除只允许 V2 patch 任务包，不会删除原始 run。请再次核对真实路径，并勾选确认。</div>
+    <table class="table">
+      <tbody>
+        <tr><td>任务包</td><td>${esc(detail.package_id || "")}</td></tr>
+        <tr><td>真实路径</td><td class="mono">${esc(realPath)}</td></tr>
+        <tr><td>source run</td><td class="mono">${esc(detail.source_run_abs_path || detail.source_run_dir || "")}</td></tr>
+        <tr><td>master_template</td><td class="mono">${esc(detail.master_template_fsp_abs_path || detail.master_template_fsp_path || "")}</td></tr>
+        <tr><td>工作目录</td><td class="mono">${esc(detail.work_fsp_abs_path || detail.work_fsp_dir || "")}</td></tr>
+      </tbody>
+    </table>
+    <label class="checkbox-line" style="display:flex;gap:8px;align-items:flex-start;margin-top:10px">
+      <input id="delete-patch-confirm" type="checkbox">
+      <span>我确认这是 V2 patch 任务包，不是原始 run。</span>
+    </label>
+  `;
+}
+
+function showPatchPackageModal(item) {
+  const master = item.master_template_fsp_path || "";
+  const masterCopy = item.master_template_fsp_abs_path || master;
+  const workDir = item.work_fsp_dir || "";
+  const workDirText = item.work_fsp_abs_path || workDir;
+  const runDir = item.source_run_dir || "";
+  const runDirCopy = item.source_run_abs_path || runDir;
+  const outputs = item.target_output_dirs || item.expected_output_dirs || item.expected_outputs?.map((x) => x.relative_path) || [];
+  const outputAbs = item.target_output_abs_dirs || [];
+  const outputText = outputs.map((path, index) => esc(outputAbs[index] || path)).join("<br>") || "-";
+  const legacyWarning = (!runDir || !masterCopy)
+    ? `<div class="notice warn">这个任务包缺少 source run 或 master_template.fsp 记录，通常是旧版本生成的任务包。建议删除后用当前树形选择重新生成。</div>`
+    : "";
+  openModal({
+    title: "补做任务包",
+    confirmText: "关闭",
+    body: `<div class="patch-modal">
+      <div class="notice">补做模式会在已有 run 内追加输出，不新建 run_model_time。只需要修改 master_template.fsp 这个母文件的监视器，sample fsp 由补做脚本从母文件复制并按原扰动点自动生成。</div>
+      ${legacyWarning}
+      <table class="table"><tbody>
+        <tr><td>任务包</td><td>${esc(item.package_id || "")}</td></tr>
+        <tr><td>source run</td><td>${esc(runDirCopy || runDir || "-")}</td></tr>
+        <tr><td>工作 FSP 文件夹</td><td>${esc(workDirText || "-")}</td></tr>
+        <tr><td>master_template.fsp</td><td>${esc(masterCopy || "未找到")}</td></tr>
+        <tr><td>预计追加输出目录</td><td>${outputText}</td></tr>
+        <tr><td>选中样本</td><td>${fmt(item.sample_count || item.patch_request?.samples?.length || 0)} 个</td></tr>
+        <tr><td>模式</td><td><span class="tag green">patch_mode=true</span> <span class="tag green">output_to_existing_run=true</span></td></tr>
+      </tbody></table>
+      <div class="modal-action-grid">
+        <button class="btn secondary" data-open-folder="${esc(workDir)}" type="button" ${workDir ? "" : "disabled"}>打开工作 FSP 文件夹</button>
+        <button class="btn ghost" data-copy-path="${esc(masterCopy)}" type="button" ${masterCopy ? "" : "disabled"}>复制 master_template.fsp 路径</button>
+        <button class="btn ghost" data-copy-path="${esc(runDirCopy)}" type="button" ${runDirCopy ? "" : "disabled"}>复制本次 run 结果目录路径</button>
+        <button class="btn secondary" data-refresh-patch-run="${esc(runDir)}" type="button" ${runDir ? "" : "disabled"}>补做完成后刷新该 run 缓存</button>
+      </div>
+    </div>`,
   });
 }
 
 function bindResources(root) {
-  root.addEventListener("click", (event) => {
+  setRouteClickHandler(root, "resources", (event) => {
     if (routeName() !== "resources") return;
     const btn = event.target.closest("[data-file-path]");
     const pane = $("#resource-preview", root);
@@ -1088,12 +2534,34 @@ function bindChrome() {
     const openFsp = event.target.closest("[data-open-fsp]");
     if (openFsp?.dataset.openFsp) {
       event.preventDefault();
+      event.stopPropagation();
       api.openFile(openFsp.dataset.openFsp).then(() => toast("已请求打开 FSP。", "success")).catch((error) => toast(error.message, "error"));
+      return;
     }
     const openFolder = event.target.closest("[data-open-folder]");
     if (openFolder?.dataset.openFolder && routeName() !== "results") {
       event.preventDefault();
-      api.openFolder(openFolder.dataset.openFolder).then(() => toast("已请求打开文件夹。", "success")).catch((error) => toast(error.message, "error"));
+      event.stopPropagation();
+      runActionOnce(`open-folder:${openFolder.dataset.openFolder}`, async () => {
+        await api.openFolder(openFolder.dataset.openFolder);
+        toast("已请求打开文件夹。", "success");
+      }).catch((error) => toast(error.message, "error"));
+      return;
+    }
+    const copyPath = event.target.closest("[data-copy-path]");
+    if (copyPath?.dataset.copyPath) {
+      event.preventDefault();
+      event.stopPropagation();
+      copyText(copyPath.dataset.copyPath).then(() => toast("路径已复制。", "success")).catch((error) => toast(error.message, "error"));
+      return;
+    }
+    const refreshPatch = event.target.closest("[data-refresh-patch-run]");
+    if (refreshPatch?.dataset.refreshPatchRun) {
+      event.preventDefault();
+      event.stopPropagation();
+      api.refreshDelta({ dirty_paths: [refreshPatch.dataset.refreshPatchRun] })
+        .then(() => toast("补做完成、已更新缓存。", "success"))
+        .catch((error) => toast(error.message, "error"));
     }
   }, true);
   $("#global-search").addEventListener("input", async (event) => {
@@ -1125,3 +2593,16 @@ function bindChrome() {
 
 bindChrome();
 bootstrap();
+
+if (typeof window !== "undefined") {
+  window.__fdtdWorkbench = {
+    state,
+    ensureJobLogState,
+    renderJobLogPanel,
+    jobLogDisplayText,
+    jobLogPlainText,
+  };
+}
+
+
+

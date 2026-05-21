@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 FDTD Spectrum Workbench V2 local server.
 
@@ -23,6 +23,7 @@ import threading
 import time
 import traceback
 import zipfile
+import secrets
 from collections import defaultdict
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
@@ -57,6 +58,14 @@ STANDARD_EVIDENCE = [
     ("Poynting", "10_poynting_data"),
 ]
 
+LOCAL_TOKEN = secrets.token_urlsafe(24)
+
+
+class APIError(Exception):
+    def __init__(self, message, status_code=400):
+        super(APIError, self).__init__(message)
+        self.status_code = status_code
+
 
 def now_iso():
     return _dt.datetime.now().replace(microsecond=0).isoformat()
@@ -83,9 +92,16 @@ def ensure_dirs():
 
 def rel_to(root, path):
     try:
-        return str(Path(path).resolve().relative_to(Path(root).resolve()))
+        root_path = Path(root).resolve()
+        candidate = Path(path)
+        if not candidate.is_absolute():
+            candidate = root_path / candidate
+        return str(candidate.resolve().relative_to(root_path))
     except Exception:
-        return os.path.relpath(str(path), str(root))
+        try:
+            return os.path.relpath(str(Path(path)), str(Path(root)))
+        except Exception:
+            return str(path)
 
 
 def slash(path):
@@ -183,6 +199,127 @@ def decode_mixed_log(data):
     if not candidates:
         return data.decode("utf-8", errors="replace")
     return min(candidates, key=lambda item: item[0])[1]
+
+
+ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
+LOG_TIME_RE = re.compile(
+    r"^(?P<time>(?:\d{4}[-/]\d{2}[-/]\d{2}(?:[ T]\d{2}:\d{2}:\d{2}(?:[.,]\d+)?)?)|(?:\d{2}:\d{2}:\d{2}))(?:\s*[\]\)]\s*|\s+[-|:]\s*|\s+)?(?P<rest>.*)$"
+)
+BRACKET_TIME_RE = re.compile(r"^\[(?P<time>[^\]]+)\]\s*(?P<rest>.*)$")
+COLLAPSE_HINT_RE = re.compile(r"(license|licen[sc]e|heartbeat|keep[- ]?alive|\bmesh\b|saving|saved|write|dump)", re.I)
+
+
+def strip_ansi(text):
+    return ANSI_ESCAPE_RE.sub("", text or "")
+
+
+def extract_log_time(text):
+    line = strip_ansi(text or "").strip()
+    if not line:
+        return "", ""
+    match = BRACKET_TIME_RE.match(line)
+    if match and re.search(r"\d", match.group("time")):
+        return match.group("time").strip(), match.group("rest").strip()
+    match = LOG_TIME_RE.match(line)
+    if match:
+        return match.group("time").strip(), match.group("rest").strip()
+    return "", line
+
+
+def classify_log_level(text):
+    low = (text or "").lower()
+    if any(flag in low for flag in ("traceback", "exception", "fatal", "error", "failed", "cannot ", "unable ", " not found")):
+        return "error"
+    if any(flag in low for flag in ("warning", "warn", "deprecated")) or "警告" in text or "错误" in text or "失败" in text:
+        return "warning"
+    if any(flag in low for flag in ("progress", "step", "running", "start", "mesh", "saving", "saved", "license", "heartbeat", "scan")):
+        return "progress"
+    return "info"
+
+
+def collapse_signature(text):
+    cleaned = re.sub(r"\s+", " ", (text or "").strip().lower())
+    cleaned = re.sub(r"\b\d+(?:\.\d+)?\b", "#", cleaned)
+    cleaned = re.sub(r"0x[0-9a-f]+", "0x#", cleaned)
+    return cleaned
+
+
+def detect_encoding_warning(text):
+    suspicious = text.count("�") + text.count("锟") + text.count("Ã")
+    if suspicious >= 8 or (suspicious >= 3 and suspicious >= max(1, len(text) // 2000)):
+        return "可能存在编码问题：日志中出现较多乱码替换字符。"
+    return ""
+
+
+def _source_log_entries(source, raw_text):
+    entries = []
+    collapsed_count = 0
+    prev = None
+    for raw_line in (raw_text or "").splitlines():
+        cleaned = strip_ansi(raw_line).rstrip()
+        if not cleaned.strip():
+            continue
+        time_value, text = extract_log_time(cleaned)
+        level = classify_log_level(text)
+        signature = collapse_signature(text)
+        if COLLAPSE_HINT_RE.search(text):
+            signature = "hint:" + signature
+        if prev and prev["source"] == source and prev["level"] == level and prev["signature"] == signature:
+            prev["repeated_count"] += 1
+            prev["raw"] = prev["raw"] + "\n" + raw_line.rstrip()
+            prev["text"] = prev["base_text"] + (" (x%d)" % prev["repeated_count"] if prev["repeated_count"] > 1 else "")
+            collapsed_count += 1
+            continue
+        entry = {
+            "time": time_value,
+            "level": level,
+            "source": source,
+            "base_text": text,
+            "text": text,
+            "raw": raw_line.rstrip(),
+            "signature": signature,
+            "repeated_count": 1,
+        }
+        entries.append(entry)
+        prev = entry
+    for entry in entries:
+        if entry["repeated_count"] > 1:
+            entry["text"] = entry["base_text"] + (" (x%d)" % entry["repeated_count"])
+        else:
+            entry["text"] = entry["base_text"]
+        entry.pop("base_text", None)
+        entry.pop("signature", None)
+    return entries, collapsed_count
+
+
+def decode_structured_log(payloads):
+    raw_parts = []
+    clean_parts = []
+    structured = []
+    collapsed_count = 0
+    for source, raw_bytes in payloads:
+        decoded = decode_mixed_log(raw_bytes)
+        raw_parts.append("[%s]\n%s" % (source, decoded.rstrip()))
+        entries, collapsed = _source_log_entries(source, decoded)
+        structured.extend(entries)
+        collapsed_count += collapsed
+        if entries:
+            clean_parts.append("[%s]" % source)
+            for item in entries:
+                prefix = ""
+                if item.get("time"):
+                    prefix = "[%s] " % item["time"]
+                clean_parts.append("%s%s%s" % (prefix, item["source"] + " | " if item.get("source") else "", item["text"]))
+    raw_text = "\n".join(part for part in raw_parts if part.strip()).strip()
+    text = "\n".join(part for part in clean_parts if part.strip()).strip()
+    encoding_warning = detect_encoding_warning(raw_text)
+    return {
+        "text": text,
+        "raw_text": raw_text,
+        "structured_lines": structured,
+        "collapsed_count": collapsed_count,
+        "encoding_warning": encoding_warning,
+    }
 
 
 def count_csv_rows(path):
@@ -569,6 +706,114 @@ def extract_metrics_from_spectrum(lambda_nm, T):
     }
 
 
+def normalize_spectrum_points(points):
+    normalized = []
+    for item in points or []:
+        lam = val = None
+        if isinstance(item, dict):
+            lam = numeric(item.get("lambda_nm") or item.get("lambda") or item.get("x"))
+            val = numeric(item.get("T") or item.get("value") or item.get("y"))
+        elif isinstance(item, (list, tuple)) and len(item) >= 2:
+            lam = numeric(item[0])
+            val = numeric(item[1])
+        if lam is None or val is None:
+            continue
+        normalized.append((float(lam), float(val)))
+    normalized.sort(key=lambda pair: pair[0])
+    return normalized
+
+
+def interpolate_level_crossing(left_point, right_point, level):
+    x0, y0 = left_point
+    x1, y1 = right_point
+    if y1 == y0:
+        return (x0 + x1) / 2.0
+    return x0 + (level - y0) * (x1 - x0) / (y1 - y0)
+
+
+def calculate_peak_selection_metrics(points, lambda_min, lambda_max, feature_type="auto"):
+    lam_min = numeric(lambda_min)
+    lam_max = numeric(lambda_max)
+    if lam_min is None or lam_max is None:
+        raise ValueError("lambda_min and lambda_max are required")
+    if lam_min > lam_max:
+        lam_min, lam_max = lam_max, lam_min
+    all_points = normalize_spectrum_points(points)
+    if len(all_points) < 3:
+        raise ValueError("spectrum has too few points")
+    used_points = [(x, y) for x, y in all_points if lam_min <= x <= lam_max]
+    if len(used_points) < 3:
+        raise ValueError("selected λ range has too few raw points")
+    xs = [x for x, _ in used_points]
+    ys = [y for _, y in used_points]
+    max_t = max(ys)
+    min_t = min(ys)
+    median = sorted(ys)[len(ys) // 2]
+    feature = str(feature_type or "auto").strip().lower()
+    if feature not in ("auto", "peak", "dip"):
+        raise ValueError("feature_type must be auto, peak or dip")
+    peak_contrast = max_t - median
+    dip_contrast = median - min_t
+    if feature == "auto":
+        feature = "peak" if peak_contrast >= dip_contrast else "dip"
+    if feature == "peak":
+        feature_index = ys.index(max_t)
+    else:
+        feature_index = ys.index(min_t)
+    lambda0 = xs[feature_index]
+    feature_value = ys[feature_index]
+    contrast = max_t - min_t
+    half_level = min_t + contrast / 2.0 if feature == "peak" else max_t - contrast / 2.0
+    warnings = []
+
+    def predicate(value):
+        return value >= half_level if feature == "peak" else value <= half_level
+
+    left = feature_index
+    while left > 0 and predicate(ys[left]):
+        left -= 1
+    right = feature_index
+    while right < len(ys) - 1 and predicate(ys[right]):
+        right += 1
+
+    left_boundary = None
+    right_boundary = None
+    if left < feature_index and predicate(ys[left + 1]) and not predicate(ys[left]):
+        left_boundary = interpolate_level_crossing(used_points[left], used_points[left + 1], half_level)
+    else:
+        warnings.append("左侧未找到半高边界")
+    if right > feature_index and predicate(ys[right - 1]) and not predicate(ys[right]):
+        right_boundary = interpolate_level_crossing(used_points[right - 1], used_points[right], half_level)
+    else:
+        warnings.append("右侧未找到半高边界")
+
+    fwhm = abs(right_boundary - left_boundary) if left_boundary is not None and right_boundary is not None else None
+    if fwhm is None or fwhm <= 0:
+        warnings.append("FWHM 无法可靠计算")
+    q = lambda0 / fwhm if fwhm and fwhm > 0 else None
+    score = (q or 0) * max(0.0, contrast)
+    return {
+        "lambda0_nm": lambda0,
+        "FWHM_nm": fwhm,
+        "Q": q,
+        "score": score,
+        "feature_type": feature,
+        "feature_value": feature_value,
+        "max_T": max_t,
+        "min_T": min_t,
+        "contrast": contrast,
+        "half_level": half_level,
+        "lambda_min_nm": lam_min,
+        "lambda_max_nm": lam_max,
+        "left_boundary_nm": left_boundary,
+        "right_boundary_nm": right_boundary,
+        "feature_index": feature_index,
+        "used_points": [[x, y] for x, y in used_points],
+        "used_point_count": len(used_points),
+        "warnings": warnings,
+    }
+
+
 def build_missing_evidence(run_detail):
     evidence = run_detail.get("evidence") or {}
     return [name for name in ("R", "A", "Field", "Phase", "Poynting") if not evidence.get(name)]
@@ -782,6 +1027,145 @@ def scan_runs(root, previous_index=None):
     return runs
 
 
+def is_old_run_record(run):
+    text = "%s %s" % (run.get("relative_path", ""), run.get("archive_state", ""))
+    low = text.lower()
+    return "旧" in text or "旧文件" in text or "\\old" in low or "/old" in low or "archive" in low
+
+
+def filter_runs_by_scope(runs, scope):
+    scope = (scope or "current").lower()
+    items = list(runs or [])
+    if scope == "all":
+        return items
+    if scope == "old":
+        return [run for run in items if is_old_run_record(run)]
+    return [run for run in items if not is_old_run_record(run)]
+
+
+def normalize_structure_scope(scope):
+    scope = (scope or "current").lower()
+    return scope if scope in ("current", "old", "all") else "current"
+
+
+def read_run_index_cache(path):
+    data = read_json(path, {"schema_version": 2, "built_at": "", "runs": []})
+    if isinstance(data, list):
+        return {"schema_version": 2, "built_at": "", "runs": list(data)}
+    if not isinstance(data, dict):
+        return {"schema_version": 2, "built_at": "", "runs": []}
+    runs = data.get("runs")
+    if runs is None:
+        runs = data.get("items") or []
+    if not isinstance(runs, list):
+        runs = list(runs) if runs else []
+    data["runs"] = runs
+    return data
+
+
+def _structure_node(name, kind):
+    return {
+        "name": name,
+        "kind": kind,
+        "run_count": 0,
+        "full_count": 0,
+        "test_count": 0,
+        "high_risk_count": 0,
+        "missing_evidence_count": 0,
+        "latest_mtime": "",
+        "latest_mtime_ts": 0,
+        "best_score": None,
+        "children_map": {},
+        "runs": [],
+    }
+
+
+def _update_structure_node(node, run):
+    node["run_count"] += 1
+    mode = str(run.get("mode") or "").lower()
+    if mode == "full":
+        node["full_count"] += 1
+    elif mode == "test":
+        node["test_count"] += 1
+    if str(run.get("risk_level") or run.get("risk") or "").lower() == "high":
+        node["high_risk_count"] += 1
+    node["missing_evidence_count"] += len(run.get("missing_evidence") or [])
+    mtime = run.get("mtime") or 0
+    try:
+        mtime = float(mtime)
+    except Exception:
+        mtime = 0
+    if mtime >= node["latest_mtime_ts"]:
+        node["latest_mtime_ts"] = mtime
+        node["latest_mtime"] = run.get("mtime_iso") or ""
+    score = numeric(run.get("best_score") if run.get("best_score") is not None else run.get("score"))
+    if score is not None and (node["best_score"] is None or score > node["best_score"]):
+        node["best_score"] = score
+
+
+def _finalize_structure_node(node):
+    children = node.pop("children_map", {})
+    node["children"] = [_finalize_structure_node(child) for child in sorted(children.values(), key=lambda item: (
+        -item.get("run_count", 0),
+        -(item.get("best_score") if item.get("best_score") is not None else -1),
+        -item.get("latest_mtime_ts", 0),
+        item.get("name") or "",
+    ))]
+    node["runs"].sort(key=lambda item: (
+        -item.get("run_count", 0),
+        -(item.get("best_score") if item.get("best_score") is not None else -1),
+        -item.get("latest_mtime_ts", 0),
+        item.get("name") or "",
+    ))
+    node.pop("latest_mtime_ts", None)
+    return node
+
+
+def build_structure_tree(runs):
+    roots = {}
+    for run in runs or []:
+        group_name = run.get("group") or "未分类"
+        mother_name = run.get("mother_structure") or "未识别母结构"
+        perturb_name = run.get("perturbation") or "未识别扰动"
+        run_name = run.get("run_name") or run.get("run_id") or "run"
+
+        group_node = roots.setdefault(group_name, _structure_node(group_name, "group"))
+        _update_structure_node(group_node, run)
+        mother_node = group_node["children_map"].setdefault(mother_name, _structure_node(mother_name, "mother"))
+        _update_structure_node(mother_node, run)
+        perturb_node = mother_node["children_map"].setdefault(perturb_name, _structure_node(perturb_name, "perturbation"))
+        _update_structure_node(perturb_node, run)
+
+        perturb_node["runs"].append({
+            "kind": "run",
+            "name": run_name,
+            "run_name": run_name,
+            "run_id": run.get("run_id") or "",
+            "group": group_name,
+            "mother_structure": mother_name,
+            "perturbation": perturb_name,
+            "run_count": 1,
+            "full_count": 1 if str(run.get("mode") or "").lower() == "full" else 0,
+            "test_count": 1 if str(run.get("mode") or "").lower() == "test" else 0,
+            "high_risk_count": 1 if str(run.get("risk_level") or run.get("risk") or "").lower() == "high" else 0,
+            "missing_evidence_count": len(run.get("missing_evidence") or []),
+            "latest_mtime": run.get("mtime_iso") or "",
+            "latest_mtime_ts": float(run.get("mtime") or 0) if str(run.get("mtime") or "").strip() else 0,
+            "best_score": numeric(run.get("best_score") if run.get("best_score") is not None else run.get("score")),
+            "mode": run.get("mode") or "",
+            "risk_level": run.get("risk_level") or run.get("risk") or "",
+            "risk_label": run.get("risk_label") or "",
+            "missing_evidence": run.get("missing_evidence") or [],
+        })
+
+    return [_finalize_structure_node(node) for node in sorted(roots.values(), key=lambda item: (
+        -item.get("run_count", 0),
+        -(item.get("best_score") if item.get("best_score") is not None else -1),
+        -item.get("latest_mtime_ts", 0),
+        item.get("name") or "",
+    ))]
+
+
 def parse_script_defaults(path):
     defaults = {}
     try:
@@ -800,6 +1184,55 @@ def parse_script_defaults(path):
             raw = m.group(1).strip().strip("'\"")
             defaults[key] = numeric(raw) if numeric(raw) is not None else raw
     return defaults
+
+
+def detect_script_args(path):
+    try:
+        text = Path(path).read_text(encoding="utf-8", errors="replace")
+    except Exception:
+        return []
+    keys = set()
+    for match in re.finditer(r"--([A-Za-z0-9][A-Za-z0-9_-]*)", text):
+        key = match.group(1).replace("-", "_").upper()
+        if key and key != "HELP":
+            keys.add(key)
+    return sorted(keys)
+
+
+def build_script_schema(record, defaults=None):
+    defaults = defaults or {}
+    script_path = record.get("script_path") or record.get("relative_path") or ""
+    script_name = Path(script_path).name.lower()
+    detected_style = record.get("detected_style") or ("mock" if "mock_run_script" in script_name else detect_mode(Path(script_path).stem))
+    accepted_keys = record.get("accepted_keys") or detect_script_args(script_path)
+    if not accepted_keys:
+        accepted_keys = sorted([k for k in defaults.keys() if re.match(r"^[A-Z0-9_]+$", str(k))])
+    supports_mode = record.get("supports_mode")
+    if supports_mode is None:
+        if detected_style in ("preview", "test", "full"):
+            supports_mode = [detected_style]
+        else:
+            supports_mode = ["preview", "test", "full"]
+    supports_overrides = record.get("supports_overrides")
+    if supports_overrides is None:
+        supports_overrides = bool(accepted_keys)
+    warnings = list(record.get("warnings") or [])
+    if detected_style == "unknown":
+        warnings.append("未识别脚本模式")
+    if not supports_overrides:
+        warnings.append("未检测到可覆盖参数")
+    schema = dict(record)
+    schema.update({
+        "script_id": str(record.get("script_id") or record.get("id") or ""),
+        "script_path": script_path,
+        "detected_style": detected_style,
+        "supports_mode": supports_mode,
+        "supports_overrides": bool(supports_overrides),
+        "accepted_keys": sorted(set(accepted_keys)),
+        "default_values": dict(record.get("default_values") or defaults),
+        "warnings": warnings,
+    })
+    return schema
 
 
 def scan_scripts(root, previous_registry=None, runs=None):
@@ -859,6 +1292,7 @@ def scan_scripts(root, previous_registry=None, runs=None):
                 "default_step_nm": step,
                 "estimated_points": estimated or defaults.get("TEST_POINT_COUNT", ""),
             })
+            records[-1] = build_script_schema(records[-1], defaults)
     records.sort(key=lambda x: (x["group"], x["mother_structure"], x["perturbation"], x["relative_path"]))
     for idx, item in enumerate(records, 1):
         item["id"] = idx
@@ -884,34 +1318,70 @@ def build_samples_for_run(root, run):
             metric_by_index[int(idx)] = row
     flag_records = run.get("quality_flag_records") or []
     flag_names = run.get("quality_flags") or [f.get("flag") for f in flag_records if isinstance(f, dict)]
+    peak_selection_path = Path(root) / run["relative_path"] / "12_analysis_summary" / "v2_peak_selections.json"
+    peak_selections = load_json_safe(peak_selection_path, {"schema_version": 1, "selections": []})
+    peak_records = peak_selections.get("selections", []) if isinstance(peak_selections, dict) else []
+    selection_by_key = {}
+    for record in peak_records:
+        if not isinstance(record, dict):
+            continue
+        if not record.get("manual_verified"):
+            continue
+        sid = str(record.get("sample_id") or "")
+        kind = str(record.get("kind") or "T").upper()
+        if sid:
+            selection_by_key[(sid, kind)] = record
     for idx, row in enumerate(source_rows):
         sid = row.get("sample_id") or row.get("id") or row.get("index") or row.get("sample") or "#%d" % (idx + 1)
         metric = metric_by_sample.get(str(sid)) or metric_by_index.get(idx) or metric_by_index.get(idx + 1) or {}
+        selection = selection_by_key.get((str(sid), "T"))
+        auto_metrics = {
+            "lambda0_nm": metric.get("lambda0_nm") or metric.get("lambda_peak_nm") or run.get("lambda0_nm"),
+            "Q": metric.get("Q") or metric.get("q") or run.get("q"),
+            "q": metric.get("Q") or metric.get("q") or run.get("q"),
+            "FWHM_nm": metric.get("FWHM_nm") or metric.get("FWHM") or metric.get("fwhm_nm") or run.get("fwhm_nm"),
+            "fwhm_nm": metric.get("FWHM_nm") or metric.get("FWHM") or metric.get("fwhm_nm") or run.get("fwhm_nm"),
+            "max_T": numeric(metric.get("max_T") or metric.get("maxT") or metric.get("T_max") or metric.get("max_t") or run.get("max_t")),
+            "max_t": numeric(metric.get("max_T") or metric.get("maxT") or metric.get("T_max") or metric.get("max_t") or run.get("max_t")),
+            "score": metric.get("score") or metric.get("quality_score") or run.get("score"),
+        }
+        manual_metrics = selection.get("metrics") if selection else {}
+        visible = dict(auto_metrics)
+        if selection and selection.get("manual_verified"):
+            for key in ("lambda0_nm", "Q", "q", "FWHM_nm", "fwhm_nm", "max_T", "max_t", "min_T", "contrast", "score", "feature_type", "half_level", "left_boundary_nm", "right_boundary_nm"):
+                if manual_metrics.get(key) is not None:
+                    visible[key] = manual_metrics.get(key)
         max_t = numeric(metric.get("max_T") or metric.get("maxT") or metric.get("T_max") or metric.get("max_t") or run.get("max_t"))
         sample_flags = []
         if max_t is not None and max_t > 1:
             sample_flags.append("T > 1")
         sample_flags.extend(flag_names or [])
         sample_flags = list(dict.fromkeys([str(x) for x in sample_flags if x]))
-        rows.append({
+        row_payload = {
             "sample_id": sid,
             "delta": row.get("delta") or row.get("Delta") or row.get("value") or row.get("scan_value"),
-            "lambda0_nm": metric.get("lambda0_nm") or metric.get("lambda_peak_nm") or run.get("lambda0_nm"),
-            "Q": metric.get("Q") or metric.get("q") or run.get("q"),
-            "q": metric.get("Q") or metric.get("q") or run.get("q"),
-            "FWHM_nm": metric.get("FWHM_nm") or metric.get("FWHM") or metric.get("fwhm_nm") or run.get("fwhm_nm"),
-            "fwhm_nm": metric.get("FWHM_nm") or metric.get("FWHM") or metric.get("fwhm_nm") or run.get("fwhm_nm"),
-            "max_T": max_t,
-            "max_t": max_t,
-            "score": metric.get("score") or metric.get("quality_score") or run.get("score"),
+            "lambda0_nm": visible.get("lambda0_nm"),
+            "Q": visible.get("Q"),
+            "q": visible.get("q"),
+            "FWHM_nm": visible.get("FWHM_nm"),
+            "fwhm_nm": visible.get("fwhm_nm"),
+            "max_T": visible.get("max_T"),
+            "max_t": visible.get("max_t"),
+            "score": visible.get("score"),
             "quality_flags": sample_flags,
             "missing_evidence": run.get("missing_evidence", []),
             "source_fsp": row.get("source_fsp") or row.get("fsp") or (slash(rel_to(root, fsp_files[min(idx, len(fsp_files) - 1)])) if fsp_files else ""),
-        })
+        }
+        if selection:
+            row_payload["manual_verified"] = True
+            row_payload["manual_selection"] = selection
+            row_payload["manual_metrics"] = manual_metrics
+            row_payload["auto_metrics"] = auto_metrics
+            row_payload["manual_verified_at"] = selection.get("verified_at") or selection.get("created_at")
+        rows.append(row_payload)
     if not rows:
-        rows.append({
-            "sample_id": run.get("best_sample_id") or "#1",
-            "delta": run.get("delta", ""),
+        selection = selection_by_key.get((str(run.get("best_sample_id") or "#1"), "T"))
+        auto_metrics = {
             "lambda0_nm": run.get("lambda0_nm", ""),
             "Q": run.get("q", ""),
             "q": run.get("q", ""),
@@ -920,9 +1390,31 @@ def build_samples_for_run(root, run):
             "max_T": run.get("max_t", ""),
             "max_t": run.get("max_t", ""),
             "score": run.get("score", ""),
+        }
+        visible = dict(auto_metrics)
+        if selection and selection.get("manual_verified"):
+            manual_metrics = selection.get("metrics") or {}
+            for key in ("lambda0_nm", "Q", "q", "FWHM_nm", "fwhm_nm", "max_T", "max_t", "min_T", "contrast", "score", "feature_type", "half_level", "left_boundary_nm", "right_boundary_nm"):
+                if manual_metrics.get(key) is not None:
+                    visible[key] = manual_metrics.get(key)
+        rows.append({
+            "sample_id": run.get("best_sample_id") or "#1",
+            "delta": run.get("delta", ""),
+            "lambda0_nm": visible.get("lambda0_nm", ""),
+            "Q": visible.get("Q", ""),
+            "q": visible.get("q", ""),
+            "FWHM_nm": visible.get("FWHM_nm", ""),
+            "fwhm_nm": visible.get("fwhm_nm", ""),
+            "max_T": visible.get("max_T", ""),
+            "max_t": visible.get("max_t", ""),
+            "score": visible.get("score", ""),
             "quality_flags": flag_names,
             "missing_evidence": run.get("missing_evidence", []),
             "source_fsp": slash(rel_to(root, fsp_files[0])) if fsp_files else "",
+            "manual_verified": bool(selection and selection.get("manual_verified")),
+            "manual_selection": selection if selection else None,
+            "manual_metrics": selection.get("metrics") if selection else {},
+            "auto_metrics": auto_metrics,
         })
     return rows
 
@@ -950,6 +1442,77 @@ def list_run_files(root, run):
         })
     items.sort(key=lambda x: (x["kind"], x["relative_path"]))
     return items
+
+
+def find_master_template(root, run):
+    run_path = Path(root) / run.get("relative_path", "")
+    candidates = [
+        run_path / "05_work_fsp" / "master_template.fsp",
+        run_path / "work_fsp" / "master_template.fsp",
+    ]
+    for path in candidates:
+        if path.exists():
+            return path
+    try:
+        matches = sorted(run_path.rglob("master_template.fsp"))
+        return matches[0] if matches else candidates[0]
+    except Exception:
+        return candidates[0]
+
+
+def run_work_fsp_dir(root, run):
+    master = find_master_template(root, run)
+    if master and master.name == "master_template.fsp":
+        return master.parent
+    return Path(root) / run.get("relative_path", "") / "05_work_fsp"
+
+
+def rel_or_empty(root, path):
+    try:
+        if path:
+            return slash(rel_to(root, Path(path)))
+    except Exception:
+        pass
+    return ""
+
+
+def abs_or_empty(path):
+    try:
+        if path:
+            return str(Path(path).resolve())
+    except Exception:
+        pass
+    return ""
+
+
+def next_numbered_output_dirs(run_path, supplement_type):
+    run_path = Path(run_path)
+    max_index = -1
+    if run_path.exists():
+        for child in run_path.iterdir():
+            if child.is_dir():
+                m = re.match(r"^(\d{2})_", child.name)
+                if m:
+                    max_index = max(max_index, int(m.group(1)))
+    start = max_index + 1
+    typ = str(supplement_type or "").lower()
+    if typ in ("r", "reflection"):
+        names = ["reflection_excel_raw", "reflection_png"]
+    elif typ in ("a", "absorption"):
+        names = ["absorption_excel_raw", "absorption_png"]
+    elif typ in ("field", "fields"):
+        names = ["field_data"]
+    elif typ == "phase":
+        names = ["phase_data"]
+    elif typ == "poynting":
+        names = ["poynting_data"]
+    elif typ in ("angle-resolved", "angle_resolved"):
+        names = ["angle_resolved"]
+    elif typ in ("band sweep", "band_sweep"):
+        names = ["band_sweep"]
+    else:
+        names = ["patch_outputs"]
+    return [run_path / ("%02d_%s" % (start + idx, name)) for idx, name in enumerate(names)]
 
 
 def scan_file_index(root):
@@ -2046,7 +2609,63 @@ def create_job_manifest(request, job_id=None, script_registry=None):
         "deleted_files": [],
         "cache_update_status": "pending",
     }
+    if request.get("patch_mode"):
+        source_run_dir = request.get("source_run_dir") or request.get("source_run_path") or ""
+        manifest.update({
+            "patch_mode": True,
+            "normal_mode": False,
+            "source_run_dir": source_run_dir,
+            "master_template_fsp_path": request.get("master_template_fsp_path") or "",
+            "reuse_existing_perturbation_points": bool(request.get("reuse_existing_perturbation_points", True)),
+            "output_to_existing_run": bool(request.get("output_to_existing_run", True)),
+            "patch_package_id": request.get("package_id") or request.get("patch_package_id"),
+            "expected_outputs": request.get("expected_outputs") or [{"kind": "patch_run_root", "relative_path": source_run_dir}],
+            "probable_output_parents": [source_run_dir] if source_run_dir else [],
+        })
+        return manifest
     return predict_expected_outputs(manifest)
+
+
+def normalize_requested_overrides(overrides):
+    if not isinstance(overrides, dict):
+        return {}
+    if "*" in overrides and isinstance(overrides.get("*"), dict):
+        return dict(overrides.get("*") or {})
+    flat = {}
+    for key, value in overrides.items():
+        if isinstance(value, dict) and key == "*":
+            continue
+        flat[str(key)] = value
+    return flat
+
+
+def flatten_execution_overrides(overrides):
+    return normalize_requested_overrides(overrides)
+
+
+def canonical_json(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def controller_payload_signature(payload):
+    ids = payload.get("ids") or []
+    if isinstance(ids, str):
+        ids = [x.strip() for x in ids.split(",") if x.strip()]
+    normalized = {
+        "ids": [str(x) for x in ids],
+        "mode": payload.get("mode") or "preview",
+        "style": payload.get("style") or "sequential",
+        "max_parallel": int(payload.get("max_parallel") or 2),
+        "overrides": payload.get("overrides") or {},
+        "child_timeout_s": int(payload.get("child_timeout_s") or 3600),
+    }
+    return canonical_json(normalized)
+
+
+def controller_preview_hash(payload):
+    signature = controller_payload_signature(payload)
+    seed = "%s|%s|%s" % (signature, now_iso(), os.urandom(8).hex())
+    return "prev_" + hashlib.sha1(seed.encode("utf-8")).hexdigest()[:16]
 
 
 def take_path_snapshot(root, paths):
@@ -2194,6 +2813,7 @@ class WorkbenchApp(object):
         self.spectra_index_path = STATE_DIR / "spectra_index.json"
         self.cache_changes_path = STATE_DIR / "cache_changes.json"
         self.preload_state_path = STATE_DIR / "preload_state.json"
+        self.controller_preview_path = STATE_DIR / "controller_preview_cache.json"
         self.scan_lock = threading.Lock()
         self.scan_status = {
             "running": False,
@@ -2261,6 +2881,8 @@ class WorkbenchApp(object):
             atomic_write_json(self.cache_changes_path, {"schema_version": 1, "changes": []})
         if not self.preload_state_path.exists():
             atomic_write_json(self.preload_state_path, self.preload_status_data)
+        if not self.controller_preview_path.exists():
+            atomic_write_json(self.controller_preview_path, {"schema_version": 1, "previews": {}})
         self.ensure_templates()
 
     def ensure_templates(self):
@@ -2329,6 +2951,7 @@ class WorkbenchApp(object):
         return {
             "ok": True,
             "stale": stale,
+            "local_token": LOCAL_TOKEN,
             "meta": meta,
             "overview": overview,
             "index_cache": index_cache,
@@ -2339,13 +2962,13 @@ class WorkbenchApp(object):
         }
 
     def cache(self):
-        return read_json(self.run_index_cache_path, {"runs": []})
+        return read_run_index_cache(self.run_index_cache_path)
 
     def scripts(self):
         return read_json(self.script_registry_path, {"scripts": []})
 
     def find_run(self, run_id):
-        for run in read_json(self.run_index_cache_path, {"runs": []}).get("runs", []):
+        for run in read_run_index_cache(self.run_index_cache_path).get("runs", []):
             if run.get("run_id") == run_id:
                 return run
         return None
@@ -2356,7 +2979,11 @@ class WorkbenchApp(object):
             return None
         cached = load_run_detail_cache(run_id)
         fp = run.get("fingerprint", {})
-        if cached and cached.get("run", {}).get("fingerprint", {}).get("fingerprint") == fp.get("fingerprint"):
+        sample_schema_ok = True
+        if cached and cached.get("samples"):
+            first_sample = cached.get("samples", [{}])[0]
+            sample_schema_ok = "Q" in first_sample and "FWHM_nm" in first_sample and "quality_flags" in first_sample
+        if cached and cached.get("run", {}).get("fingerprint", {}).get("fingerprint") == fp.get("fingerprint") and sample_schema_ok:
             return cached
         run_path = self.root / run.get("relative_path", "")
         if not run_path.exists():
@@ -2461,24 +3088,17 @@ class WorkbenchApp(object):
         return {"page": page, "page_size": page_size, "total": total, "items": items[start:start + page_size]}
 
     def get_runs_page(self, query):
-        items = list(read_json(self.run_index_cache_path, {"runs": []}).get("runs", []))
+        items = list(read_run_index_cache(self.run_index_cache_path).get("runs", []))
         q = ((query.get("query") or [""])[0] or "").lower()
         group = (query.get("group") or [""])[0]
         risk = (query.get("risk") or [""])[0]
         status = (query.get("status") or [""])[0]
-        scope = (query.get("scope") or [""])[0]
+        scope = normalize_structure_scope((query.get("scope") or ["current"])[0])
         mother = (query.get("mother") or [""])[0]
         perturbation = (query.get("perturbation") or [""])[0]
-        def is_old_run(run):
-            text = "%s %s" % (run.get("relative_path", ""), run.get("archive_state", ""))
-            low = text.lower()
-            return "旧" in text or "旧文件" in text or "\\old" in low or "/old" in low or "archive" in low
         if q:
             items = [r for r in items if q in json.dumps(r, ensure_ascii=False).lower()]
-        if scope == "current":
-            items = [r for r in items if not is_old_run(r)]
-        elif scope == "old":
-            items = [r for r in items if is_old_run(r)]
+        items = filter_runs_by_scope(items, scope)
         if group:
             items = [r for r in items if group in (r.get("group") or "")]
         if mother:
@@ -2492,6 +3112,16 @@ class WorkbenchApp(object):
         out = self._paginate(items, query)
         out["runs"] = out["items"]
         return out
+
+    def structure_tree(self, query):
+        scope = normalize_structure_scope((query.get("scope") or ["current"])[0])
+        runs = filter_runs_by_scope(read_run_index_cache(self.run_index_cache_path).get("runs", []), scope)
+        return {
+            "schema_version": 1,
+            "scope": scope,
+            "run_count": len(runs),
+            "tree": build_structure_tree(runs),
+        }
 
     def get_scripts_page(self, query):
         items = list(read_json(self.script_registry_path, {"scripts": []}).get("scripts", []))
@@ -2572,7 +3202,7 @@ class WorkbenchApp(object):
         status = self.preload_status()
         status["current"] = kind
         if kind == "run_details":
-            runs = read_json(self.run_index_cache_path, {"runs": []}).get("runs", [])
+            runs = read_run_index_cache(self.run_index_cache_path).get("runs", [])
             built = 0
             items = []
             for run in runs:
@@ -2621,7 +3251,7 @@ class WorkbenchApp(object):
         if counts:
             return counts
         return {
-            "runs": len(read_json(self.run_index_cache_path, {"runs": []}).get("runs", [])),
+            "runs": len(read_run_index_cache(self.run_index_cache_path).get("runs", [])),
             "scripts": len(read_json(self.script_registry_path, {"scripts": []}).get("scripts", [])),
             "spectra": len(read_json(self.spectra_index_path, {"items": []}).get("items", [])),
             "files": len(read_json(self.resource_index_light_path, {"items": []}).get("items", [])),
@@ -2696,38 +3326,64 @@ class WorkbenchApp(object):
             raise ValueError("run not found")
         return {"run_id": run_id, "samples": detail.get("samples", [])}
 
+    def _pick_spectrum_item(self, spectra, run_id, kind, sample_id):
+        rows = [s for s in spectra if s.get("run_id") == run_id and s.get("kind", "").upper() == kind]
+        if not rows:
+            return None
+        if not sample_id:
+            return rows[0]
+        wanted = str(sample_id)
+        aliases = {wanted}
+        n = numeric(wanted.lstrip("#"))
+        if n is not None:
+            i = int(n)
+            aliases.update({str(i), "#%d" % i, "#%d" % (i + 1)})
+        for item in rows:
+            if str(item.get("sample_id") or "") in aliases:
+                return item
+        if n is not None and 0 <= int(n) < len(rows):
+            return rows[int(n)]
+        return rows[0]
+
+    def _resolve_spectrum_points(self, run_id, sample_id="", kind="T"):
+        run = self.find_run(run_id)
+        if not run:
+            raise ValueError("run not found")
+        spectra = read_json(self.spectra_index_path, {"items": []}).get("items", [])
+        item = self._pick_spectrum_item(spectra, run_id, kind, sample_id)
+        if not item:
+            raw_detail = {"run_id": run_id, "relative_path": run.get("relative_path")}
+            candidates = scan_spectrum_index(raw_detail, root=self.root)
+            item = self._pick_spectrum_item(candidates, run_id, kind, sample_id)
+            if item:
+                old = read_json(self.spectra_index_path, {"items": []})
+                old["items"] = old.get("items", []) + [item]
+                save_json_atomic(self.spectra_index_path, old)
+        if not item:
+            return run, None, [], {}
+        spectrum = load_or_build_spectrum_cache(item, root=self.root)
+        points = list(zip(spectrum.get("lambda_nm", []), spectrum.get("value", [])))
+        return run, item, points, spectrum
+
     def save_peak_selection(self, payload):
         run_id = payload.get("run_id")
         sample_id = str(payload.get("sample_id") or "")
         kind = (payload.get("kind") or "T").upper()
         lambda_min = numeric(payload.get("lambda_min"))
         lambda_max = numeric(payload.get("lambda_max"))
+        feature_type = payload.get("feature_type") or "auto"
         if not run_id or lambda_min is None or lambda_max is None:
             raise ValueError("run_id, lambda_min and lambda_max are required")
-        if lambda_min > lambda_max:
-            lambda_min, lambda_max = lambda_max, lambda_min
-        run = self.find_run(run_id)
-        if not run:
-            raise ValueError("run not found")
-        spectra = read_json(self.spectra_index_path, {"items": []}).get("items", [])
-        item = next((s for s in spectra if s.get("run_id") == run_id and s.get("kind", "").upper() == kind and (not sample_id or str(s.get("sample_id")) == sample_id)), None)
-        if not item:
-            candidates = scan_spectrum_index({"run_id": run_id, "relative_path": run.get("relative_path")}, root=self.root)
-            item = next((s for s in candidates if s.get("kind", "").upper() == kind and (not sample_id or str(s.get("sample_id")) == sample_id)), None)
+        run, item, all_pairs, spectrum = self._resolve_spectrum_points(run_id, sample_id, kind)
         if not item:
             raise ValueError("spectrum not found for selected sample")
-        spectrum = load_or_build_spectrum_cache(item, root=self.root)
-        pairs = [
-            (numeric(x), numeric(y))
-            for x, y in zip(spectrum.get("lambda_nm", []), spectrum.get("value", []))
-            if numeric(x) is not None and numeric(y) is not None and lambda_min <= numeric(x) <= lambda_max
-        ]
-        if len(pairs) < 3:
-            raise ValueError("selected λ range has too few points")
-        metrics = extract_metrics_from_spectrum([p[0] for p in pairs], [p[1] for p in pairs])
+        metrics = calculate_peak_selection_metrics(all_pairs, lambda_min, lambda_max, feature_type=feature_type)
+        detail = self.run_detail(run_id)
+        sample_row = next((s for s in detail.get("samples", []) if str(s.get("sample_id") or "") == (item.get("sample_id") or sample_id)), {})
         record = {
             "selection_id": "peak_" + now_stamp() + "_" + hashlib.sha1(("%s|%s|%s|%s" % (run_id, sample_id, lambda_min, lambda_max)).encode("utf-8", errors="replace")).hexdigest()[:8],
             "created_at": now_iso(),
+            "verified_at": now_iso(),
             "run_id": run_id,
             "sample_id": item.get("sample_id") or sample_id,
             "kind": kind,
@@ -2735,6 +3391,20 @@ class WorkbenchApp(object):
             "lambda_max_nm": lambda_max,
             "source_path": item.get("relative_path"),
             "metrics": metrics,
+            "manual_verified": True,
+            "feature_type": metrics.get("feature_type") or feature_type,
+            "used_points": metrics.get("used_points", []),
+            "warnings": metrics.get("warnings", []),
+            "auto_metrics": {
+                "lambda0_nm": sample_row.get("lambda0_nm"),
+                "Q": sample_row.get("Q") or sample_row.get("q"),
+                "q": sample_row.get("q"),
+                "FWHM_nm": sample_row.get("FWHM_nm") or sample_row.get("fwhm_nm"),
+                "fwhm_nm": sample_row.get("fwhm_nm"),
+                "max_T": sample_row.get("max_T") or sample_row.get("max_t"),
+                "max_t": sample_row.get("max_t"),
+                "score": sample_row.get("score"),
+            },
             "note": payload.get("note") or "用户在 V2 页面框选峰区后计算",
         }
         run_path = self.root / run.get("relative_path", "")
@@ -2748,6 +3418,153 @@ class WorkbenchApp(object):
         save_json_atomic(target, data)
         return {"ok": True, "selection": record, "relative_path": slash(rel_to(self.root, target))}
 
+    def peak_calc(self, payload):
+        run_id = payload.get("run_id")
+        sample_id = str(payload.get("sample_id") or "")
+        kind = (payload.get("kind") or "T").upper()
+        lambda_min = numeric(payload.get("lambda_min"))
+        lambda_max = numeric(payload.get("lambda_max"))
+        feature_type = payload.get("feature_type") or "auto"
+        if not run_id or lambda_min is None or lambda_max is None:
+            raise ValueError("run_id, lambda_min and lambda_max are required")
+        run, item, all_pairs, spectrum = self._resolve_spectrum_points(run_id, sample_id, kind)
+        if not item:
+            raise ValueError("spectrum not found for selected sample")
+        metrics = calculate_peak_selection_metrics(all_pairs, lambda_min, lambda_max, feature_type=feature_type)
+        metrics["run_id"] = run_id
+        metrics["sample_id"] = item.get("sample_id") or sample_id
+        metrics["kind"] = kind
+        metrics["source_path"] = item.get("relative_path")
+        metrics["used_point_count"] = len(metrics.get("used_points") or [])
+        return {
+            "ok": True,
+            "run_id": run_id,
+            "sample_id": metrics["sample_id"],
+            "kind": kind,
+            "source_path": item.get("relative_path"),
+            "resolved_feature_type": metrics.get("feature_type"),
+            "metrics": metrics,
+            "used_points": metrics.get("used_points", []),
+            "warnings": metrics.get("warnings", []),
+            "relative_path": slash(rel_to(self.root, item.get("relative_path", ""))) if item.get("relative_path") else "",
+        }
+
+    def _controller_preview_registry(self):
+        data = read_json(self.controller_preview_path, {"schema_version": 1, "previews": {}})
+        if not isinstance(data, dict):
+            data = {"schema_version": 1, "previews": {}}
+        if not isinstance(data.get("previews"), dict):
+            data["previews"] = {}
+        return data
+
+    def _store_controller_preview(self, preview_hash, payload_hash, payload, resolved_execution_plan):
+        data = self._controller_preview_registry()
+        previews = data.get("previews") or {}
+        previews[preview_hash] = {
+            "preview_hash": preview_hash,
+            "payload_hash": payload_hash,
+            "payload": payload,
+            "resolved_execution_plan": resolved_execution_plan,
+            "created_at": now_iso(),
+        }
+        data["previews"] = dict(list(previews.items())[-200:])
+        data["updated_at"] = now_iso()
+        save_json_atomic(self.controller_preview_path, data)
+        return previews[preview_hash]
+
+    def _get_controller_preview(self, preview_hash):
+        return (self._controller_preview_registry().get("previews") or {}).get(preview_hash)
+
+    def resolve_execution_plan(self, payload, script_registry=None, job_dir=None, preview_hash="", payload_hash=""):
+        ids = payload.get("ids") or []
+        if isinstance(ids, str):
+            ids = [x.strip() for x in ids.split(",") if x.strip()]
+        mode = payload.get("mode") or "preview"
+        style = payload.get("style") or "sequential"
+        max_parallel = int(payload.get("max_parallel") or 2)
+        scripts = scripts_by_ids(script_registry or read_json(self.script_registry_path, {"scripts": []}), ids)
+        script_schemas = []
+        for script in scripts:
+            if not script:
+                continue
+            raw_path = script.get("script_path") or script.get("relative_path") or ""
+            script_path = Path(raw_path)
+            if not script_path.is_absolute():
+                script_path = (self.root / script_path).resolve()
+            script_schemas.append(build_script_schema(script, parse_script_defaults(script_path)))
+        requested_overrides = flatten_execution_overrides(payload.get("overrides") or {})
+        accepted_key_set = None
+        for schema in script_schemas:
+            keys = set(schema.get("accepted_keys") or [])
+            accepted_key_set = keys if accepted_key_set is None else (accepted_key_set & keys)
+        if accepted_key_set is None:
+            accepted_key_set = set()
+        overrides_accepted = {k: requested_overrides[k] for k in sorted(requested_overrides) if k in accepted_key_set}
+        overrides_rejected = {k: requested_overrides[k] for k in sorted(requested_overrides) if k not in accepted_key_set}
+        warnings = []
+        for schema in script_schemas:
+            warnings.extend(schema.get("warnings") or [])
+        if overrides_rejected:
+            warnings.append("部分覆盖参数未被脚本接收")
+        if mode == "full" and style == "parallel":
+            warnings.append("full + parallel 需要二次确认")
+        risk_level = "high" if mode == "full" and style == "parallel" else ("medium" if mode == "full" or max_parallel > 1 else "low")
+        is_mock = len(script_schemas) == 1 and (
+            script_schemas[0].get("detected_style") == "mock" or
+            Path(script_schemas[0].get("script_path") or "").name == "mock_run_script.py"
+        )
+        if is_mock:
+            cwd = str(job_dir or self.root)
+            mock_script_path = script_schemas[0].get("script_path") or script_schemas[0].get("relative_path") or ""
+            mock_script = Path(mock_script_path)
+            if not mock_script.is_absolute():
+                mock_script = (self.root / mock_script).resolve()
+            received_json = str((Path(job_dir) / "received.json") if job_dir else (STATE_DIR / "mock_received.json"))
+            payload_json = str((Path(job_dir) / "overrides.json") if job_dir else (STATE_DIR / "mock_overrides.json"))
+            final_command = [
+                sys.executable,
+                str(mock_script),
+                "--received-json", received_json,
+                "--payload-json", payload_json,
+                "--script-id", str(script_schemas[0].get("script_id") or ""),
+                "--script-path", str(script_schemas[0].get("script_path") or ""),
+                "--mode", mode,
+                "--style", style,
+                "--max-parallel", str(max_parallel),
+                "--cwd", cwd,
+                "--preview-hash", preview_hash or "",
+                "--payload-hash", payload_hash or "",
+            ]
+            for key, value in overrides_accepted.items():
+                final_command.extend([f"--{key}", "" if value is None else str(value)])
+            final_command.extend(["--overrides-json", payload_json])
+        else:
+            cwd = str(self.root)
+            final_command = self._controller_command(ids, mode, style, max_parallel, str((Path(job_dir) / "overrides.json") if job_dir else "<overrides-json>"), payload.get("child_timeout_s") or 3600)
+        plan = {
+            "final_command": final_command,
+            "cwd": cwd,
+            "mode": mode,
+            "style": style,
+            "max_parallel": max_parallel,
+            "script_count": len(scripts),
+            "script_schemas": script_schemas,
+            "overrides_requested": requested_overrides,
+            "overrides_accepted": overrides_accepted,
+            "overrides_rejected": overrides_rejected,
+            "warnings": warnings,
+            "risk_level": risk_level,
+            "is_mock": is_mock,
+        }
+        if payload_hash:
+            plan["payload_hash"] = payload_hash
+        if preview_hash:
+            plan["preview_hash"] = preview_hash
+        if is_mock:
+            plan["received_json"] = str((Path(job_dir) / "received.json") if job_dir else (STATE_DIR / "mock_received.json"))
+            plan["payload_json"] = str((Path(job_dir) / "overrides.json") if job_dir else (STATE_DIR / "mock_overrides.json"))
+        return plan
+
     def controller_preview(self, payload):
         ids = payload.get("ids") or []
         if isinstance(ids, str):
@@ -2755,24 +3572,47 @@ class WorkbenchApp(object):
         mode = payload.get("mode") or "preview"
         style = payload.get("style") or "sequential"
         max_parallel = int(payload.get("max_parallel") or 2)
+        payload_hash = controller_payload_signature({**payload, "ids": ids, "mode": mode, "style": style, "max_parallel": max_parallel})
+        preview_hash = controller_preview_hash({**payload, "ids": ids, "mode": mode, "style": style, "max_parallel": max_parallel})
         points = self._estimate_points(payload.get("overrides") or {})
-        command = self._controller_command(ids, mode, style, max_parallel, "<overrides-json>", payload.get("child_timeout_s") or 3600)
         manifest = create_job_manifest({**payload, "ids": ids, "mode": mode, "style": style}, script_registry=read_json(self.script_registry_path, {"scripts": []}))
+        execution_plan = self.resolve_execution_plan({**payload, "ids": ids, "mode": mode, "style": style, "max_parallel": max_parallel}, read_json(self.script_registry_path, {"scripts": []}), job_dir=None, preview_hash=preview_hash, payload_hash=payload_hash)
+        execution_plan["estimated_points"] = points or "按脚本默认"
+        execution_plan["estimated_runtime"] = self._estimate_duration(points, len(ids), style, max_parallel)
+        execution_plan["expected_outputs"] = manifest.get("expected_outputs", [])
+        execution_plan["probable_output_parents"] = manifest.get("probable_output_parents", [])
+        execution_plan["script_count"] = len(ids)
+        command = execution_plan["final_command"]
+        self._store_controller_preview(preview_hash, payload_hash, {
+            "ids": ids,
+            "mode": mode,
+            "style": style,
+            "max_parallel": max_parallel,
+            "overrides": payload.get("overrides") or {},
+            "child_timeout_s": int(payload.get("child_timeout_s") or 3600),
+        }, execution_plan)
         return {
             "ok": True,
+            "preview_hash": preview_hash,
+            "payload_hash": payload_hash,
+            "resolved_execution_plan": execution_plan,
             "command": command,
             "job_preview": {
                 "mode": mode,
                 "style": style,
                 "script_count": len(ids),
-                "estimated_points": points or "按脚本默认",
-                "estimated_runtime": self._estimate_duration(points, len(ids), style, max_parallel),
-                "expected_outputs": manifest.get("expected_outputs", []),
-                "probable_output_parents": manifest.get("probable_output_parents", []),
+                "estimated_points": execution_plan["estimated_points"],
+                "estimated_runtime": execution_plan["estimated_runtime"],
+                "expected_outputs": execution_plan["expected_outputs"],
+                "probable_output_parents": execution_plan["probable_output_parents"],
+                "overrides_accepted": list(execution_plan["overrides_accepted"].keys()),
+                "overrides_rejected": list(execution_plan["overrides_rejected"].keys()),
+                "risk_level": execution_plan["risk_level"],
+                "warnings": execution_plan["warnings"],
             },
-            "estimated_points": points or "按脚本默认",
-            "estimated_duration": self._estimate_duration(points, len(ids), style, max_parallel),
-            "warnings": ["full + parallel 需要二次确认"] if mode == "full" and style == "parallel" else [],
+            "estimated_points": execution_plan["estimated_points"],
+            "estimated_duration": execution_plan["estimated_runtime"],
+            "warnings": execution_plan["warnings"],
             "controller_args": ["--mode", "--style", "--max-parallel", "--ids", "--overrides-json", "--child-timeout-s", "--yes"],
         }
 
@@ -2824,6 +3664,15 @@ class WorkbenchApp(object):
             raise ValueError("no script ids selected")
         mode = payload.get("mode") or "preview"
         style = payload.get("style") or "sequential"
+        payload_hash = controller_payload_signature({**payload, "ids": ids, "mode": mode, "style": style, "max_parallel": int(payload.get("max_parallel") or 2)})
+        preview_hash = payload.get("preview_hash") or ""
+        if not preview_hash:
+            raise APIError("start requires preview_hash", 409)
+        preview = self._get_controller_preview(preview_hash)
+        if not preview:
+            raise APIError("preview hash not found or expired", 409)
+        if preview.get("payload_hash") != payload_hash:
+            raise APIError("preview payload mismatch; please preview again", 409)
         if mode == "full" and style == "parallel" and not payload.get("risk_ack"):
             raise ValueError("full + parallel requires risk_ack")
         if not payload.get("confirm"):
@@ -2831,30 +3680,75 @@ class WorkbenchApp(object):
         job_id = "job_" + now_stamp() + "_" + hashlib.sha1(",".join(map(str, ids)).encode("utf-8")).hexdigest()[:6]
         job_dir = JOBS_DIR / job_id
         job_dir.mkdir(parents=True, exist_ok=True)
-        manifest = create_job_manifest({**payload, "ids": ids, "mode": mode, "style": style}, job_id=job_id, script_registry=read_json(self.script_registry_path, {"scripts": []}))
+        script_registry = read_json(self.script_registry_path, {"scripts": []})
+        resolved_plan = self.resolve_execution_plan({**payload, "ids": ids, "mode": mode, "style": style, "max_parallel": int(payload.get("max_parallel") or 2)}, script_registry, job_dir=job_dir, preview_hash=preview_hash, payload_hash=payload_hash)
+        manifest = create_job_manifest({**payload, "ids": ids, "mode": mode, "style": style}, job_id=job_id, script_registry=script_registry)
+        manifest["preview_hash"] = preview_hash
+        manifest["payload_hash"] = payload_hash
+        manifest["resolved_execution_plan"] = resolved_plan
+        manifest["script_schemas"] = resolved_plan.get("script_schemas", [])
         snapshot_paths = manifest.get("probable_output_parents", []) + [x.get("relative_path") for x in manifest.get("expected_outputs", [])]
         before_snapshot = take_path_snapshot(self.root, snapshot_paths)
         save_json_atomic(job_dir / "before_snapshot.json", before_snapshot)
         overrides_path = job_dir / "overrides.json"
         atomic_write_json(overrides_path, payload.get("overrides") or {})
-        cmd = self._controller_command(ids, mode, style, int(payload.get("max_parallel") or 2), overrides_path, payload.get("child_timeout_s") or 3600)
+        save_json_atomic(job_dir / "resolved_execution_plan.json", resolved_plan)
+        cmd = resolved_plan.get("final_command") or []
         manifest["command"] = " ".join('"%s"' % c if " " in str(c) else str(c) for c in cmd)
-        manifest["status"] = "running"
+        manifest["status"] = "running" if not resolved_plan.get("is_mock") else "completed"
         save_json_atomic(job_dir / "job_manifest.json", manifest)
         (job_dir / "command.txt").write_text(manifest["command"], encoding="utf-8")
         stdout_path = job_dir / "stdout.log"
         stderr_path = job_dir / "stderr.log"
+        save_json_atomic(job_dir / "after_snapshot.json", take_path_snapshot(STATE_DIR, [slash(rel_to(STATE_DIR, job_dir))]))
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
+        env["PYTHONUTF8"] = "1"
+        if resolved_plan.get("is_mock"):
+            proc = subprocess.run(
+                cmd,
+                cwd=str(resolved_plan.get("cwd") or self.root),
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                stdin=subprocess.DEVNULL,
+                env=env,
+                timeout=120,
+            )
+            stdout_path.write_bytes(proc.stdout or b"")
+            stderr_path.write_bytes(proc.stderr or b"")
+            save_json_atomic(job_dir / "after_snapshot.json", take_path_snapshot(STATE_DIR, [slash(rel_to(STATE_DIR, job_dir))]))
+            manifest["status"] = "completed" if proc.returncode == 0 else "failed"
+            manifest["finished_at"] = now_iso()
+            manifest["returncode"] = proc.returncode
+            save_json_atomic(job_dir / "job_manifest.json", manifest)
+            job = {
+                "job_id": job_id,
+                "pid": 0,
+                "status": manifest["status"],
+                "started_at": manifest["created_at"],
+                "completed_at": manifest["finished_at"],
+                "returncode": proc.returncode,
+                "command": cmd,
+                "stdout": slash(rel_to(WEB_DIR, stdout_path)),
+                "stderr": slash(rel_to(WEB_DIR, stderr_path)),
+                "manifest_path": slash(rel_to(WEB_DIR, job_dir / "job_manifest.json")),
+                "created_at": manifest["created_at"],
+                "mode": mode,
+                "style": style,
+                "ids": ids,
+                "probable_output_parents": manifest.get("probable_output_parents", []),
+            }
+            self.jobs[job_id] = {"process": None, "stdout_handle": None, "stderr_handle": None, "state": job}
+            self._persist_jobs()
+            return {"ok": True, **job}
         stdout = open(str(stdout_path), "wb")
         stderr = open(str(stderr_path), "wb")
         creationflags = 0
         if os.name == "nt":
             creationflags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
-        env = os.environ.copy()
-        env["PYTHONIOENCODING"] = "utf-8"
-        env["PYTHONUTF8"] = "1"
         process = subprocess.Popen(
             cmd,
-            cwd=str(self.root),
+            cwd=str(resolved_plan.get("cwd") or self.root),
             stdout=stdout,
             stderr=stderr,
             stdin=subprocess.DEVNULL,
@@ -2945,16 +3839,28 @@ class WorkbenchApp(object):
         job = self.job_state(job_id)
         stdout = WEB_DIR / job.get("stdout", "")
         stderr = WEB_DIR / job.get("stderr", "")
-        text = ""
+        payloads = []
         for label, path in (("stdout", stdout), ("stderr", stderr)):
-            if path.exists():
-                try:
-                    content = decode_mixed_log(path.read_bytes())[-12000:]
-                    if content:
-                        text += "\n[%s]\n%s" % (label, content)
-                except Exception:
-                    pass
-        return {"job_id": job_id, "text": text.strip(), "status": job.get("status")}
+            if not path.exists():
+                continue
+            try:
+                payloads.append((label, path.read_bytes()))
+            except Exception:
+                continue
+        if not payloads:
+            return {
+                "job_id": job_id,
+                "status": job.get("status"),
+                "text": "",
+                "raw_text": "",
+                "structured_lines": [],
+                "encoding_warning": "",
+                "collapsed_count": 0,
+            }
+        decoded = decode_structured_log(payloads)
+        decoded["job_id"] = job_id
+        decoded["status"] = job.get("status")
+        return decoded
 
     def stop_job(self, job_id):
         entry = self.jobs.get(job_id)
@@ -3011,27 +3917,51 @@ class WorkbenchApp(object):
         return actions
 
     def diagnostics_spectrum(self, run_id, sample_id, kind):
-        run = self.find_run(run_id)
-        if not run:
-            raise ValueError("run not found")
         kind = (kind or "T").upper()
-        spectra = read_json(self.spectra_index_path, {"items": []}).get("items", [])
-        item = next((s for s in spectra if s.get("run_id") == run_id and s.get("kind", "").upper() == kind and (not sample_id or s.get("sample_id") == sample_id)), None)
-        if not item:
-            detail = self.run_detail(run_id)
-            run_path = self.root / run["relative_path"]
-            raw_detail = {"run_id": run_id, "relative_path": run["relative_path"]}
-            candidates = scan_spectrum_index(raw_detail, root=self.root)
-            item = next((s for s in candidates if s.get("kind", "").upper() == kind), None)
-            if item:
-                old = read_json(self.spectra_index_path, {"items": []})
-                old["items"] = old.get("items", []) + [item]
-                save_json_atomic(self.spectra_index_path, old)
+        run, item, all_pairs, spectrum = self._resolve_spectrum_points(run_id, sample_id, kind)
         if not item:
             return {"run_id": run_id, "sample_id": sample_id, "kind": kind, "source": "", "points": []}
-        spectrum = load_or_build_spectrum_cache(item, root=self.root)
-        points = sample_points(list(zip(spectrum.get("lambda_nm", []), spectrum.get("value", []))))
-        return {"run_id": run_id, "sample_id": item.get("sample_id"), "kind": kind, "source": item.get("relative_path"), "points": points, "metrics": spectrum.get("metrics", {})}
+        points = [[x, y] for x, y in all_pairs]
+        return {
+            "run_id": run_id,
+            "sample_id": item.get("sample_id"),
+            "kind": kind,
+            "source": item.get("relative_path"),
+            "points": points,
+            "metrics": spectrum.get("metrics", {}),
+            "point_count": len(points),
+        }
+
+    def peak_calc(self, payload):
+        run_id = payload.get("run_id")
+        sample_id = str(payload.get("sample_id") or "")
+        kind = (payload.get("kind") or "T").upper()
+        lambda_min = numeric(payload.get("lambda_min"))
+        lambda_max = numeric(payload.get("lambda_max"))
+        feature_type = payload.get("feature_type") or "auto"
+        if not run_id or lambda_min is None or lambda_max is None:
+            raise ValueError("run_id, lambda_min and lambda_max are required")
+        run, item, all_pairs, spectrum = self._resolve_spectrum_points(run_id, sample_id, kind)
+        if not item:
+            raise ValueError("spectrum not found for selected sample")
+        metrics = calculate_peak_selection_metrics(all_pairs, lambda_min, lambda_max, feature_type=feature_type)
+        metrics["run_id"] = run_id
+        metrics["sample_id"] = item.get("sample_id") or sample_id
+        metrics["kind"] = kind
+        metrics["source_path"] = item.get("relative_path")
+        metrics["used_point_count"] = len(metrics.get("used_points") or [])
+        return {
+            "ok": True,
+            "run_id": run_id,
+            "sample_id": metrics["sample_id"],
+            "kind": kind,
+            "source_path": item.get("relative_path"),
+            "resolved_feature_type": metrics.get("feature_type"),
+            "metrics": metrics,
+            "used_points": metrics.get("used_points", []),
+            "warnings": metrics.get("warnings", []),
+            "relative_path": slash(rel_to(self.root, item.get("relative_path", ""))) if item.get("relative_path") else "",
+        }
 
     def diagnostics_trend(self, run_id):
         detail = self.run_detail(run_id)
@@ -3102,7 +4032,7 @@ class WorkbenchApp(object):
     def mode_relay_heatmap(self, run_id):
         run = self.find_run(run_id) if run_id else None
         if not run:
-            return {"run_id": run_id, "x_label": "lambda_nm", "y_label": "delta", "values": [], "lambda_grid": [], "deltas": []}
+            return {"run_id": run_id, "x_label": "λ (nm)", "y_label": "扰动 δ", "values": [], "lambda_grid": [], "deltas": []}
         run_path = self.root / run.get("relative_path", "")
         spectra = []
         for idx, path in enumerate(find_spectrum_files(run_path, "T")[:80]):
@@ -3114,11 +4044,11 @@ class WorkbenchApp(object):
                     "T": spec["T"],
                 })
         if not spectra:
-            return {"run_id": run_id, "x_label": "lambda_nm", "y_label": "delta", "values": [], "lambda_grid": [], "deltas": []}
+            return {"run_id": run_id, "x_label": "λ (nm)", "y_label": "扰动 δ", "values": [], "lambda_grid": [], "deltas": []}
         low = max(min(s["lambda_nm"]) for s in spectra)
         high = min(max(s["lambda_nm"]) for s in spectra)
         if high <= low:
-            return {"run_id": run_id, "x_label": "lambda_nm", "y_label": "delta", "values": [], "lambda_grid": [], "deltas": []}
+            return {"run_id": run_id, "x_label": "λ (nm)", "y_label": "扰动 δ", "values": [], "lambda_grid": [], "deltas": []}
         cols = min(96, max(16, min(len(s["lambda_nm"]) for s in spectra)))
         step = (high - low) / float(cols - 1)
         grid = [low + i * step for i in range(cols)]
@@ -3134,7 +4064,16 @@ class WorkbenchApp(object):
             interpolated = interpolate_series(spec["lambda_nm"], spec["T"], grid)
             rows.append([None if v is None else round((v - vmin) / denom, 4) for v in interpolated])
             deltas.append(spec["delta"])
-        return {"run_id": run_id, "x_label": "lambda_nm", "y_label": "delta", "values": rows, "lambda_grid": grid, "deltas": deltas}
+        return {
+            "run_id": run_id,
+            "x_label": "λ (nm)",
+            "y_label": "扰动 δ",
+            "values": rows,
+            "lambda_grid": grid,
+            "deltas": deltas,
+            "raw_min": vmin,
+            "raw_max": vmax,
+        }
 
     def mode_relay_candidates(self, group):
         runs = self.cache().get("runs", [])
@@ -3158,8 +4097,18 @@ class WorkbenchApp(object):
             if not needs:
                 continue
             samples = build_samples_for_run(self.root, run)[:12]
+            master_template = find_master_template(self.root, run)
+            work_dir = run_work_fsp_dir(self.root, run)
             for sample in samples:
-                missing = sample.get("missing_evidence") or run.get("missing_evidence") or []
+                missing = list(sample.get("missing_evidence") or run.get("missing_evidence") or [])
+                data_missing = list(missing)
+                if numeric(sample.get("Q") or sample.get("q")) is None:
+                    data_missing.append("Q")
+                if numeric(sample.get("FWHM_nm") or sample.get("fwhm_nm")) is None:
+                    data_missing.append("FWHM")
+                if not sample.get("source_fsp") and not master_template.exists():
+                    data_missing.append("source_fsp")
+                data_missing = list(dict.fromkeys(data_missing))
                 priority = "低"
                 reason = "普通证据补全"
                 if "T > 1" in flag_names or "FWHM 不可靠" in flag_names:
@@ -3186,11 +4135,34 @@ class WorkbenchApp(object):
                     "FWHM_nm": sample.get("FWHM_nm") or sample.get("fwhm_nm") or run.get("fwhm_nm"),
                     "score": sample.get("score") or run.get("score"),
                     "missing_evidence": missing,
+                    "data_missing": data_missing,
                     "source_fsp": sample.get("source_fsp", ""),
+                    "source_run_dir": run.get("relative_path"),
+                    "master_template_fsp_path": slash(rel_to(self.root, master_template)) if master_template.exists() else "",
+                    "work_fsp_dir": slash(rel_to(self.root, work_dir)) if work_dir.exists() else slash(rel_to(self.root, work_dir)),
+                    "has_master_template_fsp": bool(master_template.exists()),
+                    "patch_mode": True,
+                    "output_to_existing_run": True,
+                    "reuse_existing_perturbation_points": True,
                     "priority": priority,
                     "reason": reason,
                 })
         return {"items": items}
+
+    def _source_run_for_samples(self, samples):
+        run_ids = sorted(set(str(s.get("run_id") or "") for s in samples if s.get("run_id")))
+        if len(run_ids) != 1:
+            raise ValueError("一次补做任务包只支持同一个 run；请在树形结构中选择一个 run 后打包")
+        run = self.find_run(run_ids[0])
+        if not run:
+            raise ValueError("source run not found")
+        return run
+
+    def _plan_patch_output_dirs(self, run_path, supplement_type):
+        output_dirs = next_numbered_output_dirs(run_path, supplement_type)
+        for path in output_dirs:
+            path.mkdir(parents=True, exist_ok=True)
+        return output_dirs
 
     def create_supplement_package(self, payload):
         samples = payload.get("samples") or []
@@ -3199,8 +4171,13 @@ class WorkbenchApp(object):
         supplement_type = payload.get("supplement_type") or "field"
         monitor_policy = payload.get("monitor_policy") or "single_monitor_only"
         first = samples[0]
-        source_run_path = first.get("source_run_path") or ""
-        run = self.find_run(first.get("run_id")) or {}
+        run = self._source_run_for_samples(samples)
+        source_run_path = run.get("relative_path") or first.get("source_run_path") or ""
+        source_run_dir = self.safe_path(source_run_path)
+        if not source_run_dir.exists() or not source_run_dir.is_dir():
+            raise ValueError("source run directory not found")
+        master_template = find_master_template(self.root, run)
+        work_dir = run_work_fsp_dir(self.root, run)
         perturbation = first.get("perturbation") or run.get("perturbation") or "未分类扰动"
         package_id = "patch_%s_%s" % (now_stamp(), safe_token(supplement_type))
         base_root = None
@@ -3212,17 +4189,8 @@ class WorkbenchApp(object):
         if base_root is None:
             base_root = GENERATED_DIR / "supplement_requests"
         package_root = base_root / package_id
-        dirs = [
-            "00_patch_plan",
-            "01_patch_fsp",
-            "04_logs",
-            "06_reflection_excel",
-            "07_absorption_excel",
-            "08_field_data",
-            "09_phase_data",
-            "10_poynting_data",
-            "12_patch_summary",
-        ]
+        target_output_dirs = self._plan_patch_output_dirs(source_run_dir, supplement_type)
+        dirs = ["00_patch_plan", "01_patch_fsp", "04_logs", "12_patch_summary"]
         for d in dirs:
             (package_root / d).mkdir(parents=True, exist_ok=True)
         manual = [numeric(x) for x in re.split(r"[,，\s]+", str(payload.get("manual_lambdas_nm") or "")) if x.strip()]
@@ -3241,8 +4209,10 @@ class WorkbenchApp(object):
                 "sample_id": sample.get("sample_id") or "#%d" % (idx + 1),
                 "delta": sample.get("delta"),
                 "lambda_targets_nm": lambdas,
-                "missing_evidence": sample.get("missing_evidence") or [supplement_type],
+                "missing_evidence": sample.get("selected_missing_evidence") or sample.get("missing_evidence") or [supplement_type],
                 "source_fsp": sample.get("source_fsp") or "",
+                "source_run_dir": source_run_path,
+                "master_template_fsp_path": slash(rel_to(self.root, master_template)) if master_template.exists() else "",
             }
             request_samples.append(request_sample)
             for lam_value in lambdas or [""]:
@@ -3252,8 +4222,10 @@ class WorkbenchApp(object):
                     "lambda_nm": lam_value,
                     "evidence_type": supplement_type,
                     "source_run_id": sample.get("run_id"),
+                    "source_run_dir": source_run_path,
                     "source_fsp": request_sample["source_fsp"],
-                    "output_dir": self._output_dir_for_type(supplement_type),
+                    "master_template_fsp_path": request_sample["master_template_fsp_path"],
+                    "output_dir": ";".join(slash(rel_to(self.root, p)) for p in target_output_dirs),
                     "priority": "high" if idx < 3 else "normal",
                     "reason": "missing evidence: " + ",".join(request_sample["missing_evidence"]),
                 })
@@ -3261,31 +4233,56 @@ class WorkbenchApp(object):
             "schema_version": 1,
             "package_id": package_id,
             "created_at": now_iso(),
+            "package_type": "patch_v2",
             "supplement_type": supplement_type,
             "monitor_policy": monitor_policy,
             "lambda_policy": payload.get("lambda_policy") or "peak_triplet",
             "source_run_id": first.get("run_id"),
-            "source_run_path": first.get("source_run_path"),
+            "source_run_path": source_run_path,
+            "source_run_dir": source_run_path,
+            "master_template_fsp_path": slash(rel_to(self.root, master_template)) if master_template.exists() else "",
+            "work_fsp_dir": slash(rel_to(self.root, work_dir)),
+            "patch_mode": True,
+            "normal_mode": False,
+            "reuse_existing_perturbation_points": True,
+            "output_to_existing_run": True,
+            "master_template_semantics": "用户只修改 05_work_fsp/master_template.fsp 中的监视器；补做脚本应从该母文件复制出 sample fsp，并复用已有 run 的扰动点。",
             "mother_structure": first.get("mother_structure") or run.get("mother_structure"),
             "perturbation": perturbation,
             "reduction_path": first.get("reduction_path") or run.get("reduction_path"),
+            "scan_sources": {
+                "scan_points": slash(rel_to(self.root, source_run_dir / "00_scan_plan" / "scan_points.csv")) if (source_run_dir / "00_scan_plan" / "scan_points.csv").exists() else "",
+                "manifest": slash(rel_to(self.root, source_run_dir / "04_logs" / "manifest.csv")) if (source_run_dir / "04_logs" / "manifest.csv").exists() else "",
+            },
             "samples": request_samples,
             "outputs": {
-                "root": slash(rel_to(package_root.parent, package_root)),
-                "field_dir": "08_field_data",
+                "package_root": slash(rel_to(self.root, package_root)) if self.root in package_root.resolve().parents else str(package_root),
+                "source_run_dir": source_run_path,
+                "target_output_dirs": [slash(rel_to(self.root, p)) for p in target_output_dirs],
                 "summary_dir": "12_patch_summary",
             },
+            "expected_output_dirs": [slash(rel_to(self.root, p)) for p in target_output_dirs],
+            "expected_outputs": [{"kind": supplement_type, "relative_path": slash(rel_to(self.root, p))} for p in target_output_dirs],
             "status": "planned",
         }
         atomic_write_json(package_root / "patch_request.json", request)
-        atomic_write_json(package_root / "source_links.json", {"source_run_path": source_run_path, "source_run_id": first.get("run_id"), "samples": samples})
+        atomic_write_json(package_root / "source_links.json", {
+            "source_run_path": source_run_path,
+            "source_run_id": first.get("run_id"),
+            "source_run_dir": source_run_path,
+            "work_fsp_dir": request["work_fsp_dir"],
+            "master_template_fsp_path": request["master_template_fsp_path"],
+            "target_output_dirs": request["expected_output_dirs"],
+            "samples": samples,
+        })
         with open(str(package_root / "00_patch_plan" / "patch_points.csv"), "w", encoding="utf-8-sig", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=["sample_id", "delta", "lambda_nm", "evidence_type", "source_run_id", "source_fsp", "output_dir", "priority", "reason"])
+            writer = csv.DictWriter(f, fieldnames=["sample_id", "delta", "lambda_nm", "evidence_type", "source_run_id", "source_run_dir", "source_fsp", "master_template_fsp_path", "output_dir", "priority", "reason"])
             writer.writeheader()
             writer.writerows(csv_rows)
         index = read_json(self.supplement_index_path, {"schema_version": 1, "packages": []})
         item = {
             "package_id": package_id,
+            "package_type": "patch_v2",
             "created_at": request["created_at"],
             "supplement_type": supplement_type,
             "type": supplement_type,
@@ -3294,12 +4291,28 @@ class WorkbenchApp(object):
             "source_job_id": first.get("source_job_id") or run.get("source_job_id"),
             "relative_path": slash(rel_to(self.root, package_root)) if self.root in package_root.resolve().parents else str(package_root),
             "output_root": slash(rel_to(self.root, package_root)) if self.root in package_root.resolve().parents else str(package_root),
-            "expected_outputs": [
-                {"kind": supplement_type, "relative_path": slash(rel_to(self.root, package_root / self._output_dir_for_type(supplement_type)))}
-            ],
+            "patch_request_path": slash(rel_to(self.root, package_root / "patch_request.json")) if self.root in (package_root / "patch_request.json").resolve().parents else str(package_root / "patch_request.json"),
+            "source_run_dir": source_run_path,
+            "source_run_path": source_run_path,
+            "source_run_abs_path": abs_or_empty(source_run_dir),
+            "work_fsp_dir": request["work_fsp_dir"],
+            "work_fsp_abs_path": abs_or_empty(work_dir),
+            "master_template_fsp_path": request["master_template_fsp_path"],
+            "master_template_fsp_abs_path": abs_or_empty(master_template) if master_template.exists() else "",
+            "patch_mode": True,
+            "reuse_existing_perturbation_points": True,
+            "output_to_existing_run": True,
+            "target_output_dirs": request["expected_output_dirs"],
+            "expected_output_dirs": request["expected_output_dirs"],
+            "target_output_abs_dirs": [abs_or_empty(p) for p in target_output_dirs],
+            "expected_outputs": request["expected_outputs"],
+            "sample_count": len(request_samples),
+            "patch_request": request,
         }
+        index_item = dict(item)
+        index_item.pop("patch_request", None)
         packages = [p for p in index.get("packages", []) if p.get("package_id") != package_id]
-        packages.insert(0, item)
+        packages.insert(0, index_item)
         index["built_at"] = now_iso()
         index["packages"] = packages
         atomic_write_json(self.supplement_index_path, index)
@@ -3322,7 +4335,46 @@ class WorkbenchApp(object):
     def supplement_package(self, package_id):
         for item in self.supplement_packages().get("packages", []):
             if item.get("package_id") == package_id:
-                return item
+                detail = dict(item)
+                rel = detail.get("relative_path") or detail.get("output_root") or ""
+                try:
+                    package_root = self.safe_path(rel)
+                    request = read_json(package_root / "patch_request.json", {})
+                    if request:
+                        detail["patch_request"] = request
+                        for key in (
+                            "source_run_dir",
+                            "source_run_path",
+                            "master_template_fsp_path",
+                            "work_fsp_dir",
+                            "patch_mode",
+                            "reuse_existing_perturbation_points",
+                            "output_to_existing_run",
+                            "expected_output_dirs",
+                            "expected_outputs",
+                        ):
+                            if request.get(key) is not None:
+                                detail[key] = request.get(key)
+                        outputs = request.get("outputs") or {}
+                        if outputs.get("target_output_dirs"):
+                            detail["target_output_dirs"] = outputs.get("target_output_dirs")
+                        if request.get("expected_output_dirs"):
+                            detail["target_output_dirs"] = request.get("expected_output_dirs")
+                        detail["sample_count"] = len(request.get("samples") or [])
+                    run_rel = detail.get("source_run_dir") or detail.get("source_run_path") or ""
+                    master_rel = detail.get("master_template_fsp_path") or ""
+                    work_rel = detail.get("work_fsp_dir") or ""
+                    if run_rel:
+                        detail["source_run_abs_path"] = abs_or_empty(self.safe_path(run_rel))
+                    if master_rel:
+                        detail["master_template_fsp_abs_path"] = abs_or_empty(self.safe_path(master_rel))
+                    if work_rel:
+                        detail["work_fsp_abs_path"] = abs_or_empty(self.safe_path(work_rel))
+                    detail["patch_request_path"] = slash(rel_to(self.root, package_root / "patch_request.json")) if (package_root / "patch_request.json").exists() else detail.get("patch_request_path", "")
+                    detail["patch_request_abs_path"] = abs_or_empty(package_root / "patch_request.json") if (package_root / "patch_request.json").exists() else ""
+                except Exception:
+                    pass
+                return detail
         raise ValueError("package not found")
 
     def delete_supplement_package(self, package_id):
@@ -3333,8 +4385,14 @@ class WorkbenchApp(object):
         item = next((p for p in packages if p.get("package_id") == package_id), None)
         if not item:
             raise ValueError("package not found")
+        if item.get("package_type") != "patch_v2" or not item.get("patch_mode"):
+            raise ValueError("only V2 patch packages can be deleted")
         rel = item.get("relative_path") or item.get("output_root") or ""
         package_root = self.safe_path(rel)
+        if package_root.name.lower().startswith("run_"):
+            raise ValueError("refuse to delete original run directory")
+        if not package_root.name.lower().startswith("patch_"):
+            raise ValueError("refuse to delete non-patch directory")
         if not package_root.exists() or not package_root.is_dir():
             packages = [p for p in packages if p.get("package_id") != package_id]
             index["packages"] = packages
@@ -3352,11 +4410,11 @@ class WorkbenchApp(object):
         return {"ok": True, "deleted": True, "package_id": package_id}
 
     def refresh_scripts_only(self):
-        runs = read_json(self.run_index_cache_path, {"runs": []}).get("runs", [])
+        runs = read_run_index_cache(self.run_index_cache_path).get("runs", [])
         scripts = scan_scripts(self.root, previous_registry=read_json(self.script_registry_path, {}), runs=runs)
         registry = {"schema_version": 2, "built_at": now_iso(), "scripts": scripts}
         atomic_write_json(self.script_registry_path, registry)
-        overview = build_overview_cache(read_json(self.run_index_cache_path, {"runs": []}), registry, read_json(self.quality_cache_path, {}), read_json(self.supplement_index_path, {"packages": []}))
+        overview = build_overview_cache(read_run_index_cache(self.run_index_cache_path), registry, read_json(self.quality_cache_path, {}), read_json(self.supplement_index_path, {"packages": []}))
         atomic_write_json(self.overview_cache_path, overview)
         return registry
 
@@ -3365,12 +4423,25 @@ class WorkbenchApp(object):
         if not manager.exists():
             raise ValueError("fdtd_results_manager.py not found")
         cmd = [sys.executable, str(manager), "--normalize-all", "--dry-run"]
-        proc = subprocess.run(cmd, cwd=str(self.root), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, encoding="utf-8", errors="replace", timeout=90)
-        return {"command": cmd, "returncode": proc.returncode, "text": proc.stdout[-20000:]}
+        proc = subprocess.run(cmd, cwd=str(self.root), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=90)
+        text = decode_mixed_log(proc.stdout)
+        return {"command": cmd, "returncode": proc.returncode, "text": text[-20000:]}
 
 
 class Handler(SimpleHTTPRequestHandler):
     server_version = "FDTDWorkbenchV2/0.1"
+    TOKEN_REQUIRED_POST_PATHS = {
+        "/api/v2/controller/start",
+        "/api/v2/files/open",
+        "/api/v2/files/open-folder",
+        "/api/v2/scripts/refresh",
+        "/api/v2/diagnostics/peak-selection",
+        "/api/v2/diagnostics/peak-calc",
+        "/api/v2/supplement/create-package",
+        "/api/v2/results-manager/dry-run",
+        "/api/v2/index/refresh",
+        "/api/v2/index/refresh-delta",
+    }
 
     def log_message(self, fmt, *args):
         append_log(LOG_DIR / "server.log", "[%s] %s" % (now_iso(), fmt % args))
@@ -3388,7 +4459,13 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def _error(self, exc, status=400):
-        self._json({"ok": False, "error": str(exc)}, status)
+        self._json({"ok": False, "error": str(exc)}, getattr(exc, "status_code", status))
+
+    def _require_local_token(self, path):
+        if path in self.TOKEN_REQUIRED_POST_PATHS or re.match(r"^/api/v2/jobs/[^/]+/stop$", path) or re.match(r"^/api/v2/supplement/packages/[^/]+/delete$", path):
+            token = self.headers.get("X-FDTD-Workbench-Token") or ""
+            if token != LOCAL_TOKEN:
+                raise APIError("本地会话已过期，请刷新页面。", 403)
 
     def _body_json(self):
         length = int(self.headers.get("Content-Length") or 0)
@@ -3412,6 +4489,7 @@ class Handler(SimpleHTTPRequestHandler):
         parsed = urlparse(self.path)
         path = parsed.path.rstrip("/") or "/"
         try:
+            self._require_local_token(path)
             payload = self._body_json()
             return self.handle_api_post(path, payload)
         except Exception as exc:
@@ -3427,6 +4505,8 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(read_json(app.overview_cache_path, empty_overview_cache()).get("summary", {}))
         if path == "/api/v2/runs":
             return self._json(app.get_runs_page(query))
+        if path == "/api/v2/structure-tree":
+            return self._json(app.structure_tree(query))
         m = re.match(r"^/api/v2/runs/([^/]+)$", path)
         if m:
             run = app.run_detail(unquote(m.group(1)))
@@ -3480,6 +4560,8 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(app.diagnostics_trend((query.get("run_id") or [""])[0]))
         if path == "/api/v2/diagnostics/quality":
             return self._json(app.diagnostics_quality((query.get("run_id") or [""])[0]))
+        if path == "/api/v2/diagnostics/peak-calc":
+            raise ValueError("peak-calc is POST only")
         if path == "/api/v2/mode-relay":
             return self._json(app.mode_relay((query.get("run_id") or [""])[0]))
         if path == "/api/v2/mode-relay/heatmap":
@@ -3515,6 +4597,8 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(app.open_project_folder(payload.get("path") or ""))
         if path == "/api/v2/diagnostics/peak-selection":
             return self._json(app.save_peak_selection(payload))
+        if path == "/api/v2/diagnostics/peak-calc":
+            return self._json(app.peak_calc(payload))
         m = re.match(r"^/api/v2/jobs/([^/]+)/stop$", path)
         if m:
             return self._json(app.stop_job(unquote(m.group(1))))
@@ -3578,3 +4662,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
