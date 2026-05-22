@@ -355,21 +355,84 @@ def numeric(value):
         return None
 
 
+GROUP_ROOT_MAP = {
+    "C2对称结构": "C2",
+    "C3对称结构": "C3",
+    "C4对称结构": "C4",
+    "C6对称结构": "C6",
+    "近径向高对称结构": "近径向",
+}
+GROUP_LABEL_MAP = {
+    "C2": "C2",
+    "C3": "C3",
+    "C4": "C4",
+    "C6": "C6",
+    "近径向": "近径向高对称结构",
+}
+ALLOWED_GROUP_ROOTS = set(GROUP_ROOT_MAP.keys())
+EXCLUDED_SCAN_DIRS = {
+    "旧文件",
+    "controller_logs",
+    "结果查看器_html_v2",
+    "runtime_state",
+    "logs",
+    "generated",
+    "__pycache__",
+    ".idea",
+    "docs",
+}
+
+
+def _parts_under_root(path, data_root):
+    try:
+        rel = Path(path).resolve().relative_to(Path(data_root).resolve())
+    except Exception:
+        return []
+    return list(rel.parts)
+
+
+def is_active_run_dir(path, data_root):
+    parts = _parts_under_root(path, data_root)
+    if not parts:
+        return False
+    if Path(path).name.lower().startswith("run_") is False:
+        return False
+    if parts[0] not in ALLOWED_GROUP_ROOTS:
+        return False
+    lower_parts = [p.lower() for p in parts]
+    if "results" not in lower_parts:
+        return False
+    if any(p in EXCLUDED_SCAN_DIRS for p in parts):
+        return False
+    return True
+
+
+def is_archived_good_dir(path, data_root):
+    parts = _parts_under_root(path, data_root)
+    if not parts:
+        return False
+    if parts[0] not in ALLOWED_GROUP_ROOTS:
+        return False
+    lower_parts = [p.lower() for p in parts]
+    if "results" not in lower_parts:
+        return False
+    return ("旧文件" in parts) and ("良好" in parts)
+
+
 def detect_group(parts):
     if not parts:
         return ""
-    first = parts[0]
-    if "C2" in first:
-        return "C2"
-    if "C3" in first:
-        return "C3"
-    if "C4" in first:
-        return "C4"
-    if "C6" in first:
-        return "C6"
-    if "近径向" in first or "圆环" in first or "圆盘" in first:
-        return "近径向"
-    return first
+    for part in parts:
+        if part in GROUP_ROOT_MAP:
+            return GROUP_ROOT_MAP[part]
+    return ""
+
+
+def normalize_group_label(group):
+    g = str(group or "").strip()
+    if g in GROUP_LABEL_MAP:
+        return GROUP_LABEL_MAP[g]
+    return ""
 
 
 def detect_mode(name):
@@ -411,6 +474,18 @@ def context_from_rel(rel_path):
     elif group == "近径向":
         reduction_path = "近径向 -> Cn"
     return group, mother, perturbation, reduction_path, archive_state
+
+
+def convergence_fields(detail):
+    records = detail.get("quality_flag_records") or []
+    names = [str(r.get("flag") or "") for r in records]
+    has_fail = any(str(r.get("severity") or "").lower() in ("fail", "serious", "error") for r in records)
+    has_non_converged = has_fail or any(("未收敛" in name) or ("non-converged" in name.lower()) for name in names)
+    if has_non_converged:
+        return True, "non_converged"
+    if records:
+        return False, "warning"
+    return False, "converged"
 
 
 def run_id_for(rel_path):
@@ -838,6 +913,10 @@ def build_quality_flags(run_detail):
             flags.append({"run_id": run_id, "sample_id": run_detail.get("best_sample_id"), "flag": "主特征靠边界", "severity": "warning", "detail": "lambda0 距离扫描边界 %.2f nm" % edge, "suggestion": "扩大波长扫描范围"})
     for missing in build_missing_evidence(run_detail):
         flags.append({"run_id": run_id, "sample_id": run_detail.get("best_sample_id"), "flag": "缺 " + missing, "severity": "warning", "detail": "缺少 %s 补证数据" % missing, "suggestion": "进入补做实验生成任务包"})
+    if run_detail.get("subprocess_failed"):
+        flags.append({"run_id": run_id, "sample_id": run_detail.get("best_sample_id"), "flag": "子进程失败", "severity": "fail", "detail": "日志中检测到子进程失败/异常关键词", "suggestion": "检查 run.log / stderr.log 并复跑"})
+    if run_detail.get("manifest_abnormal"):
+        flags.append({"run_id": run_id, "sample_id": run_detail.get("best_sample_id"), "flag": "manifest 异常", "severity": "fail", "detail": "manifest 缺失或无有效行", "suggestion": "检查 04_logs/manifest.csv 生成流程"})
     return flags
 
 
@@ -889,6 +968,7 @@ def scan_run(root, run_path):
     plan = first_existing(run_path / "00_scan_plan" / "scan_points.csv", run_path / "scan_points.csv")
     manifest = first_existing(run_path / "04_logs" / "manifest.csv", run_path / "05_logs" / "manifest.csv", run_path / "manifest.csv")
     sample_count = max(count_csv_rows(plan) if plan else 0, count_csv_rows(manifest) if manifest else 0)
+    manifest_rows = count_csv_rows(manifest) if manifest else 0
     t_count = ext_count(run_path / "02_transmission_excel", (".xlsx", ".csv")) + ext_count(run_path / "data", (".csv",))
     if t_count == 0:
         t_count = ext_count(run_path, (".xlsx", ".csv"))
@@ -918,18 +998,33 @@ def scan_run(root, run_path):
         flags.append("缺 " + name)
     risk_level = "high" if any(f in flags for f in ("T > 1", "FWHM 不可靠")) else ("medium" if missing_evidence else "low")
     risk_label = {"high": "高", "medium": "中", "low": "低"}[risk_level]
+    subprocess_failed = False
+    for log_file in [run_path / "04_logs" / "stderr.log", run_path / "04_logs" / "run.log", run_path / "04_logs" / "error.log"]:
+        if not log_file.exists() or not log_file.is_file():
+            continue
+        try:
+            text = log_file.read_text(encoding="utf-8", errors="replace").lower()
+        except Exception:
+            text = ""
+        if any(token in text for token in ("traceback", "subprocess", "returncode", "child process", "failed", "fatal error")):
+            subprocess_failed = True
+            break
+    manifest_abnormal = bool(manifest is None or manifest_rows <= 0)
     stat = Path(run_path).stat()
     return {
         "run_id": run_id_for(rel),
         "run_name": run_name,
         "relative_path": rel,
-        "group": group,
+        "group": normalize_group_label(group),
         "mother_structure": mother,
         "perturbation": perturbation,
         "reduction_path": reduction_path,
         "mode": mode,
         "archive_state": archive_state,
         "sample_count": sample_count,
+        "manifest_rows": manifest_rows,
+        "manifest_abnormal": manifest_abnormal,
+        "subprocess_failed": subprocess_failed,
         "spectra_count": t_count,
         "png_count": png_count,
         "evidence": evidence,
@@ -947,6 +1042,9 @@ def scan_run(root, run_path):
         "size": stat.st_size,
         "mtime": stat.st_mtime,
         "mtime_iso": iso_mtime(run_path),
+        "scope": "active" if is_active_run_dir(run_path, root) else ("archived_good" if is_archived_good_dir(run_path, root) else "ignored"),
+        "is_active_result": bool(is_active_run_dir(run_path, root)),
+        "is_archived_good": bool(is_archived_good_dir(run_path, root)),
     }
 
 
@@ -994,6 +1092,9 @@ def scan_run_detail(run_path, root=None, previous_detail=None):
     else:
         detail["risk_level"] = "low"
     detail["risk_label"] = {"high": "高", "medium": "中", "low": "低"}[detail["risk_level"]]
+    has_non_converged, convergence_status = convergence_fields(detail)
+    detail["has_non_converged"] = has_non_converged
+    detail["convergence_status"] = convergence_status
     return detail
 
 
@@ -1007,22 +1108,14 @@ def scan_runs(root, previous_index=None):
     }
     root = Path(root)
     runs = []
-    for dirpath, dirnames, filenames in os.walk(str(root)):
-        p = Path(dirpath)
+    for p in discover_run_dirs_under(root):
+        if not is_active_run_dir(p, root):
+            continue
+        rel = slash(rel_to(root, p))
         try:
-            resolved = p.resolve()
-            if resolved == WEB_DIR.resolve() or WEB_DIR.resolve() in resolved.parents:
-                dirnames[:] = []
-                continue
-        except Exception:
-            pass
-        dirnames[:] = [d for d in dirnames if d != "__pycache__"]
-        if p.name.lower().startswith("run_"):
-            rel = slash(rel_to(root, p))
-            try:
-                runs.append(scan_run_detail(p, root=root, previous_detail=prev_by_path.get(rel)))
-            except Exception as exc:
-                append_log(STATE_DIR / "scan_errors.log", "scan_run_detail failed %s: %s" % (p, exc))
+            runs.append(scan_run_detail(p, root=root, previous_detail=prev_by_path.get(rel)))
+        except Exception as exc:
+            append_log(STATE_DIR / "scan_errors.log", "scan_run_detail failed %s: %s" % (p, exc))
     runs.sort(key=lambda x: x.get("mtime", 0), reverse=True)
     return runs
 
@@ -1033,14 +1126,47 @@ def is_old_run_record(run):
     return "旧" in text or "旧文件" in text or "\\old" in low or "/old" in low or "archive" in low
 
 
-def filter_runs_by_scope(runs, scope):
+def _run_abs_path(run, data_root):
+    rel = str(run.get("relative_path") or "").strip()
+    if not rel:
+        return None
+    try:
+        return Path(safe_join(data_root, rel))
+    except Exception:
+        return None
+
+
+def classify_run_scope(run, data_root):
+    run_path = _run_abs_path(run, data_root)
+    if run_path is None or (not run_path.exists()) or (not run_path.is_dir()):
+        return "ignored"
+    if is_active_run_dir(run_path, data_root):
+        return "active"
+    if is_archived_good_dir(run_path, data_root):
+        return "archived_good"
+    return "ignored"
+
+
+def filter_runs_by_scope(runs, scope, data_root=None):
     scope = (scope or "current").lower()
+    data_root = Path(data_root or Path(WEB_DIR).parent)
     items = list(runs or [])
-    if scope == "all":
-        return items
-    if scope == "old":
-        return [run for run in items if is_old_run_record(run)]
-    return [run for run in items if not is_old_run_record(run)]
+    filtered = []
+    for run in items:
+        scoped = classify_run_scope(run, data_root)
+        run["scope"] = scoped
+        run["is_active_result"] = scoped == "active"
+        run["is_archived_good"] = scoped == "archived_good"
+        if scope == "all":
+            if scoped in ("active", "archived_good"):
+                filtered.append(run)
+        elif scope == "old":
+            if scoped == "archived_good":
+                filtered.append(run)
+        else:
+            if scoped == "active":
+                filtered.append(run)
+    return filtered
 
 
 def normalize_structure_scope(scope):
@@ -1247,18 +1373,36 @@ def scan_scripts(root, previous_registry=None, runs=None):
     runs = runs or []
     records = []
     root = Path(root)
+    allowed_group_roots = set(ALLOWED_GROUP_ROOTS)
+    excluded_script_dirs = set(EXCLUDED_SCAN_DIRS) | {"results"}
     for dirpath, dirnames, filenames in os.walk(str(root)):
         p = Path(dirpath)
         if WEB_DIR in p.resolve().parents or p.resolve() == WEB_DIR.resolve():
             dirnames[:] = []
             continue
+        parts = _parts_under_root(p, root)
+        if parts:
+            if parts[0] not in allowed_group_roots:
+                dirnames[:] = []
+                continue
+            if any(part in excluded_script_dirs for part in parts):
+                dirnames[:] = []
+                continue
         dirnames[:] = [d for d in dirnames if d != "__pycache__"]
         for name in filenames:
             path = p / name
             if not is_run_script_candidate(path):
                 continue
+            rel_parts = _parts_under_root(path, root)
+            lower_parts = [x.lower() for x in rel_parts]
+            if "coding" not in lower_parts:
+                continue
+            if any(part in excluded_script_dirs for part in rel_parts):
+                continue
             rel = slash(rel_to(root, path))
             group, mother, perturbation, reduction_path, _ = context_from_rel(rel)
+            if not group:
+                continue
             if not mother:
                 parts = Path(rel).parts
                 mother = parts[-3] if len(parts) >= 3 else p.parent.name
@@ -1446,18 +1590,55 @@ def list_run_files(root, run):
 
 def find_master_template(root, run):
     run_path = Path(root) / run.get("relative_path", "")
-    candidates = [
-        run_path / "05_work_fsp" / "master_template.fsp",
-        run_path / "work_fsp" / "master_template.fsp",
-    ]
-    for path in candidates:
-        if path.exists():
-            return path
-    try:
-        matches = sorted(run_path.rglob("master_template.fsp"))
-        return matches[0] if matches else candidates[0]
-    except Exception:
+    candidates = find_mother_fsp_candidates(root, run)
+    if candidates:
         return candidates[0]
+    return run_path / "05_work_fsp" / "master_template.fsp"
+
+
+def find_mother_fsp_candidates(root, run):
+    run_path = Path(root) / run.get("relative_path", "")
+    work_dir = run_path / "05_work_fsp"
+    if not work_dir.exists():
+        work_dir = run_path / "work_fsp"
+    if not work_dir.exists():
+        return []
+    level1 = []
+    for name in ("master_template.fsp",):
+        p = work_dir / name
+        if p.exists() and p.is_file():
+            level1.append(p)
+    level2 = sorted([p for p in work_dir.glob("master_*.fsp") if p.is_file()], key=lambda x: x.name.lower())
+    level3 = sorted([p for p in work_dir.glob("mather_*.fsp") if p.is_file()], key=lambda x: x.name.lower())
+    level4 = sorted([p for p in work_dir.glob("*.fsp") if p.is_file()], key=lambda x: x.name.lower())
+    ordered = []
+    seen = set()
+    for item in level1 + level2 + level3 + level4:
+        key = str(item.resolve())
+        if key in seen:
+            continue
+        seen.add(key)
+        ordered.append(item)
+    return ordered
+
+
+def find_sample_fsp_candidates(root, run, sample_id):
+    run_path = Path(root) / run.get("relative_path", "")
+    sample_dir = run_path / "01_supercell_fsp"
+    if not sample_dir.exists():
+        return []
+    sid = str(sample_id or "").strip()
+    if not sid:
+        return sorted([p for p in sample_dir.glob("*.fsp") if p.is_file()], key=lambda x: x.name.lower())
+    candidates = []
+    for p in sample_dir.glob("*.fsp"):
+        if not p.is_file():
+            continue
+        name = p.name.lower()
+        token = sid.lower()
+        if token in name:
+            candidates.append(p)
+    return sorted(candidates, key=lambda x: x.name.lower())
 
 
 def run_work_fsp_dir(root, run):
@@ -1605,6 +1786,38 @@ def build_summary(runs, scripts, groups):
     }
 
 
+def count_archived_good_diagnosed_spectra(data_root):
+    root = Path(data_root)
+    excluded_for_archive = set(EXCLUDED_SCAN_DIRS) - {"旧文件"}
+    archived_dirs = []
+    for dirpath, dirnames, _ in os.walk(str(root)):
+        p = Path(dirpath)
+        parts = _parts_under_root(p, root)
+        if not parts:
+            dirnames[:] = []
+            continue
+        if any(part in excluded_for_archive for part in parts):
+            dirnames[:] = []
+            continue
+        if is_archived_good_dir(p, root):
+            archived_dirs.append(p)
+            dirnames[:] = []
+    diagnosed_spectra = 0
+    for folder in archived_dirs:
+        for f in folder.rglob("*"):
+            if not f.is_file():
+                continue
+            if f.suffix.lower() not in (".csv", ".xlsx", ".xlsm"):
+                continue
+            name = f.name.lower()
+            if any(token in name for token in ("trans", "transmission", "reflection", "absorption", "spectral", "spectrum")):
+                diagnosed_spectra += 1
+    return {
+        "archived_good_dir_count": len(archived_dirs),
+        "diagnosed_spectra": diagnosed_spectra,
+    }
+
+
 def build_risks(runs):
     risk_rows = []
     for run in runs:
@@ -1667,6 +1880,8 @@ def slim_run_for_cache(run):
         "quality_flags", "risk_level", "risk_label",
         "score", "lambda0_nm", "q", "fwhm_nm", "max_t", "best_sample_id",
         "mtime", "mtime_iso",
+        "scope", "is_active_result", "is_archived_good",
+        "has_non_converged", "convergence_status",
     }
     return {k: v for k, v in run.items() if k in keep}
 
@@ -1698,10 +1913,15 @@ def build_quality_cache(runs):
     }
 
 
-def build_overview_summary(runs, scripts, quality):
+def build_overview_summary(runs, scripts, quality, data_root=None):
+    runs = [dict(r, group=normalize_group_label(r.get("group"))) for r in (runs or []) if normalize_group_label(r.get("group"))]
     groups = compute_groups(runs, scripts)
     summary_data = build_summary(runs, scripts, groups)
+    archived_stats = count_archived_good_diagnosed_spectra(data_root or Path(WEB_DIR).parent)
     summary_data.update({
+        "active_valid_run_count": summary_data.get("valid_run_count", 0),
+        "archived_good_run_count": archived_stats.get("archived_good_dir_count", 0),
+        "diagnosed_spectra": archived_stats.get("diagnosed_spectra", 0),
         "serious_count": quality.get("serious_count", 0),
         "warning_count": quality.get("warning_count", 0),
         "passed_count": quality.get("passed_count", 0),
@@ -1733,7 +1953,7 @@ def scan_project(root, previous_index=None, previous_registry=None):
     scripts = scan_scripts(root, previous_registry or {}, runs=runs)
     quality = build_quality_cache(runs)
     groups = compute_groups(runs, scripts)
-    summary_data = build_overview_summary(runs, scripts, quality)
+    summary_data = build_overview_summary(runs, scripts, quality, data_root=root)
     slim_runs = [slim_run_for_cache(r) for r in runs]
     cache = {
         "schema_version": 2,
@@ -1949,6 +2169,34 @@ def spectrum_cache_path(spectrum_id):
     return SPECTRUM_CACHE_DIR / ("%s.json" % safe_token(spectrum_id))
 
 
+def purge_deleted_run_caches(valid_run_ids):
+    valid = set(str(x) for x in (valid_run_ids or []) if x)
+    removed_run_details = 0
+    removed_spectrum_cache = 0
+    for path in RUN_DETAILS_DIR.glob("*.json"):
+        data = load_json_safe(path, {})
+        run_id = str(data.get("run_id") or (data.get("run") or {}).get("run_id") or "")
+        if run_id and run_id not in valid:
+            try:
+                path.unlink()
+                removed_run_details += 1
+            except Exception:
+                pass
+    for path in SPECTRUM_CACHE_DIR.glob("*.json"):
+        data = load_json_safe(path, {})
+        run_id = str(data.get("run_id") or "")
+        if run_id and run_id not in valid:
+            try:
+                path.unlink()
+                removed_spectrum_cache += 1
+            except Exception:
+                pass
+    return {
+        "removed_run_details": removed_run_details,
+        "removed_spectrum_cache": removed_spectrum_cache,
+    }
+
+
 def build_run_light(detail, source_job_id=None):
     fp = build_dir_fingerprint(Path(detail.get("_abs_path", ""))) if detail.get("_abs_path") else {
         "mtime_max": detail.get("mtime", 0),
@@ -1995,6 +2243,11 @@ def build_run_light(detail, source_job_id=None):
         "source_job_id": source_job_id,
         "missing_evidence": detail.get("missing_evidence", []),
         "quality_flags": detail.get("quality_flags", []),
+        "scope": detail.get("scope", "active"),
+        "is_active_result": bool(detail.get("is_active_result", True)),
+        "is_archived_good": bool(detail.get("is_archived_good", False)),
+        "has_non_converged": bool(detail.get("has_non_converged", False)),
+        "convergence_status": detail.get("convergence_status", "converged"),
     }
 
 
@@ -2142,6 +2395,24 @@ def compact_index_meta(meta, root=None):
 
 def build_overview_cache(run_index, script_registry, quality_cache, supplement_index):
     runs = run_index.get("runs", [])
+    root = Path(run_index.get("project_root") or Path(WEB_DIR).parent)
+    active_runs = []
+    for r in runs:
+        rel = r.get("relative_path") or ""
+        abs_path = root / rel if rel else None
+        if not rel or abs_path is None:
+            continue
+        if not abs_path.exists():
+            continue
+        if not is_active_run_dir(abs_path, root):
+            continue
+        g = normalize_group_label(r.get("group"))
+        if not g:
+            continue
+        item = dict(r)
+        item["group"] = g
+        item["scope"] = "active"
+        active_runs.append(item)
     scripts = script_registry.get("scripts", [])
     quality_flags = quality_cache.get("flags", [])
     groups = compute_groups([
@@ -2150,14 +2421,25 @@ def build_overview_cache(run_index, script_registry, quality_cache, supplement_i
             "mother_structure": r.get("mother_structure"),
             "spectra_count": r.get("spectrum_count", r.get("spectra_count", 0)),
         }
-        for r in runs
+        for r in active_runs
     ], scripts)
-    valid = [r for r in runs if r.get("spectrum_count", r.get("spectra_count", 0)) > 0 or r.get("sample_count", 0) > 0]
-    bad = [r for r in runs if r.get("risk_level") == "high" or r.get("risk") == "high"]
-    mothers_total = len(set([s.get("mother_structure") for s in scripts if s.get("mother_structure")] + [r.get("mother_structure") for r in runs if r.get("mother_structure")]))
+    abnormal_flags = {"T > 1", "FWHM 不可靠", "子进程失败", "manifest 异常"}
+    def is_abnormal(run):
+        names = set(str(x) for x in (run.get("quality_flags") or []))
+        if run.get("has_non_converged") or str(run.get("convergence_status") or "").lower() == "non_converged":
+            return True
+        if any(name in names for name in abnormal_flags):
+            return True
+        return str(run.get("risk_level") or run.get("risk") or "").lower() == "high"
+    valid = [
+        r for r in active_runs
+        if (r.get("spectrum_count", r.get("spectra_count", 0)) > 0 or r.get("sample_count", 0) > 0) and not is_abnormal(r)
+    ]
+    bad = [r for r in active_runs if is_abnormal(r)]
+    mothers_total = len(set([s.get("mother_structure") for s in scripts if s.get("mother_structure")] + [r.get("mother_structure") for r in active_runs if r.get("mother_structure")]))
     mothers_valid = len(set(r.get("mother_structure") for r in valid if r.get("mother_structure")))
-    candidates = sorted(runs, key=lambda r: r.get("best_score") if r.get("best_score") is not None else (r.get("score") if r.get("score") is not None else -1), reverse=True)[:10]
-    recent = sorted(runs, key=lambda r: r.get("mtime", 0), reverse=True)[:10]
+    candidates = sorted(active_runs, key=lambda r: r.get("best_score") if r.get("best_score") is not None else (r.get("score") if r.get("score") is not None else -1), reverse=True)[:10]
+    recent = sorted(active_runs, key=lambda r: r.get("mtime", 0), reverse=True)[:10]
     risks = []
     for flag in quality_flags[:40]:
         if len(risks) >= 10:
@@ -2171,12 +2453,16 @@ def build_overview_cache(run_index, script_registry, quality_cache, supplement_i
             "when": quality_cache.get("built_at", "")[:10],
         })
     missing_count = quality_cache.get("missing_evidence_count", 0)
+    archived_stats = count_archived_good_diagnosed_spectra(root)
     return {
         "schema_version": 2,
         "summary": {
             "valid_run_count": len(valid),
+            "active_valid_run_count": len(valid),
+            "archived_good_run_count": archived_stats.get("archived_good_dir_count", 0),
+            "diagnosed_spectra": archived_stats.get("diagnosed_spectra", 0),
             "bad_run_count": len(bad),
-            "spectra_count": sum(r.get("spectrum_count", r.get("spectra_count", 0)) for r in runs),
+            "spectra_count": archived_stats.get("diagnosed_spectra", 0),
             "missing_evidence_count": missing_count,
             "mother_coverage_rate": float(mothers_valid) / float(mothers_total or 1),
             "severe_issue_count": quality_cache.get("serious_count", 0),
@@ -2219,6 +2505,10 @@ def discover_run_dirs_under(root, base_paths=None):
             if base.exists():
                 for dirpath, dirnames, filenames in os.walk(str(base)):
                     p = Path(dirpath)
+                    parts = _parts_under_root(p, root)
+                    if parts and any(part in EXCLUDED_SCAN_DIRS for part in parts):
+                        dirnames[:] = []
+                        continue
                     try:
                         resolved = p.resolve()
                         if resolved == WEB_DIR.resolve() or WEB_DIR.resolve() in resolved.parents:
@@ -2231,6 +2521,8 @@ def discover_run_dirs_under(root, base_paths=None):
                         candidates.append(p)
                         dirnames[:] = []
         for p in candidates:
+            if not is_active_run_dir(p, root):
+                continue
             key = str(p.resolve()).lower()
             if key not in seen:
                 seen.add(key)
@@ -2524,6 +2816,7 @@ def rebuild_split_caches(root, app=None, full_rebuild=False):
         "changed_paths": inc["changed_paths"][:500],
         "full_rebuild": bool(full_rebuild),
     }
+    purge_deleted_run_caches([r.get("run_id") for r in run_index.get("runs", []) if r.get("run_id")])
     return {
         "index_meta": meta,
         "overview_cache": overview,
@@ -2746,10 +3039,33 @@ def refresh_delta_paths(app, dirty_paths, job_id=None):
     script_registry = load_json_safe(app.script_registry_path, {"scripts": []})
     supplement = load_json_safe(app.supplement_index_path, {"packages": []})
     run_index, changed_details = update_run_index_for_changed_runs(app.root, dirty_paths, old_run_index, source_job_id=job_id)
+    deleted_paths = []
+    dirty_prefixes = [slash(str(p)).rstrip("\\") for p in dirty_paths if p]
+    for old in old_run_index.get("runs", []):
+        rel = slash(str(old.get("relative_path") or "")).rstrip("\\")
+        if not rel:
+            continue
+        if dirty_prefixes and not any(rel == pref or rel.startswith(pref + "\\") for pref in dirty_prefixes):
+            continue
+        abs_path = app.root / rel
+        if (not abs_path.exists()) or (not is_active_run_dir(abs_path, app.root)):
+            deleted_paths.append(rel)
+    if deleted_paths:
+        run_index = merge_run_index(run_index, [], deleted_paths=sorted(set(deleted_paths)))
     spectra_index = update_spectra_index_for_changed_runs(app.root, changed_details, old_spectra)
-    quality = update_quality_cache_for_changed_runs(old_quality, changed_details)
+    if deleted_paths:
+        removed_ids = [
+            r.get("run_id")
+            for r in old_run_index.get("runs", [])
+            if slash(str(r.get("relative_path") or "")).rstrip("\\") in set(deleted_paths)
+        ]
+        spectra_index = merge_spectra_index(spectra_index, [], changed_run_ids=[])
+        spectra_index["items"] = [s for s in spectra_index.get("items", []) if s.get("run_id") not in set(removed_ids)]
+    else:
+        removed_ids = []
+    quality = update_quality_cache_for_changed_runs(old_quality, changed_details, removed_run_ids=removed_ids)
     overview = build_overview_cache(run_index, script_registry, quality, supplement)
-    resource_light, resource_full = update_resource_indexes_for_paths(app.root, old_resource_light, old_resource_full, dirty_paths)
+    resource_light, resource_full = update_resource_indexes_for_paths(app.root, old_resource_light, old_resource_full, dirty_paths, deleted_paths=deleted_paths)
     meta = load_json_safe(app.index_meta_path, {})
     meta.update({
         "schema_version": 2,
@@ -2774,6 +3090,7 @@ def refresh_delta_paths(app, dirty_paths, job_id=None):
     save_json_atomic(app.resource_index_full_path, resource_full)
     save_json_atomic(app.file_index_path, resource_full)
     save_json_atomic(app.index_meta_path, meta)
+    purge_deleted_run_caches([r.get("run_id") for r in run_index.get("runs", []) if r.get("run_id")])
     changed_runs = [d.get("run_id") for d in changed_details]
     app.record_cache_change(changed_runs, dirty_paths, overview_changed=bool(changed_runs), job_id=job_id)
     return {"changed_runs": changed_runs, "dirty_paths": dirty_paths, "overview_changed": bool(changed_runs)}
@@ -2814,7 +3131,9 @@ class WorkbenchApp(object):
         self.cache_changes_path = STATE_DIR / "cache_changes.json"
         self.preload_state_path = STATE_DIR / "preload_state.json"
         self.controller_preview_path = STATE_DIR / "controller_preview_cache.json"
+        self.supplement_job_state_path = STATE_DIR / "supplement_job_state.json"
         self.scan_lock = threading.Lock()
+        self.supplement_job_lock = threading.Lock()
         self.scan_status = {
             "running": False,
             "progress": 0,
@@ -2833,6 +3152,7 @@ class WorkbenchApp(object):
             "counts": {},
         }
         self.jobs = {}
+        self.supplement_jobs = {}
         self.ensure_initial_state()
 
     def ensure_initial_state(self):
@@ -2883,6 +3203,8 @@ class WorkbenchApp(object):
             atomic_write_json(self.preload_state_path, self.preload_status_data)
         if not self.controller_preview_path.exists():
             atomic_write_json(self.controller_preview_path, {"schema_version": 1, "previews": {}})
+        if not self.supplement_job_state_path.exists():
+            atomic_write_json(self.supplement_job_state_path, {"schema_version": 1, "built_at": "", "jobs": []})
         self.ensure_templates()
 
     def ensure_templates(self):
@@ -3098,7 +3420,7 @@ class WorkbenchApp(object):
         perturbation = (query.get("perturbation") or [""])[0]
         if q:
             items = [r for r in items if q in json.dumps(r, ensure_ascii=False).lower()]
-        items = filter_runs_by_scope(items, scope)
+        items = filter_runs_by_scope(items, scope, data_root=self.root)
         if group:
             items = [r for r in items if group in (r.get("group") or "")]
         if mother:
@@ -3115,12 +3437,133 @@ class WorkbenchApp(object):
 
     def structure_tree(self, query):
         scope = normalize_structure_scope((query.get("scope") or ["current"])[0])
-        runs = filter_runs_by_scope(read_run_index_cache(self.run_index_cache_path).get("runs", []), scope)
+        runs = filter_runs_by_scope(read_run_index_cache(self.run_index_cache_path).get("runs", []), scope, data_root=self.root)
         return {
             "schema_version": 1,
             "scope": scope,
             "run_count": len(runs),
             "tree": build_structure_tree(runs),
+        }
+
+    def supplement_tree(self, query):
+        scope = normalize_structure_scope((query.get("scope") or ["current"])[0])
+        q = ((query.get("query") or [""])[0] or "").strip().lower()
+        banned_parts = {
+            "旧文件",
+            "controller_logs",
+            "docs",
+            "结果查看器_html_v2",
+            "__pycache__",
+            ".idea",
+        }
+        runs = filter_runs_by_scope(read_run_index_cache(self.run_index_cache_path).get("runs", []), scope, data_root=self.root)
+        filtered_runs = []
+        for run in runs:
+            rel = str(run.get("relative_path") or "")
+            if not rel:
+                continue
+            parts = [p for p in Path(rel).parts if p]
+            low_parts = [p.lower() for p in parts]
+            if "results" not in low_parts:
+                continue
+            if any((p in banned_parts) for p in parts):
+                continue
+            if any((p.startswith(".") for p in parts)):
+                continue
+            if q:
+                hay = " ".join([
+                    str(run.get("run_name") or ""),
+                    str(run.get("run_id") or ""),
+                    str(run.get("group") or ""),
+                    str(run.get("mother_structure") or ""),
+                    str(run.get("perturbation") or ""),
+                    rel,
+                ]).lower()
+                if q not in hay:
+                    continue
+            filtered_runs.append(run)
+
+        groups = {}
+        for run in filtered_runs:
+            group = run.get("group") or "未分类"
+            mother = run.get("mother_structure") or "未识别结构"
+            perturbation = run.get("perturbation") or "未识别扰动"
+            run_id = run.get("run_id") or ""
+            run_name = run.get("run_name") or run_id or "run"
+            sample_rows = build_samples_for_run(self.root, run)
+            sample_nodes = []
+            for idx, sample in enumerate(sample_rows):
+                sid = str(sample.get("sample_id") or "#%d" % (idx + 1))
+                sample_nodes.append({
+                    "id": "sample|%s|%s" % (safe_token(run_id), safe_token(sid)),
+                    "type": "sample",
+                    "label": sid,
+                    "run_id": run_id,
+                    "run_name": run_name,
+                    "sample_id": sid,
+                    "sample_fsp_path": sample.get("source_fsp") or "",
+                })
+            if not sample_nodes:
+                sample_nodes = [{
+                    "id": "sample|%s|#1" % safe_token(run_id),
+                    "type": "sample",
+                    "label": "#1",
+                    "run_id": run_id,
+                    "run_name": run_name,
+                    "sample_id": "#1",
+                    "sample_fsp_path": "",
+                }]
+            g = groups.setdefault(group, {})
+            m = g.setdefault(mother, {})
+            p = m.setdefault(perturbation, [])
+            p.append({
+                "id": "run|%s" % safe_token(run_id),
+                "type": "run",
+                "label": run_name,
+                "run_id": run_id,
+                "run_name": run_name,
+                "run_path": run.get("relative_path") or "",
+                "children": sample_nodes,
+            })
+
+        tree = []
+        for group in sorted(groups.keys()):
+            group_children = []
+            mothers = groups[group]
+            for mother in sorted(mothers.keys()):
+                mother_children = []
+                perts = mothers[mother]
+                for pert in sorted(perts.keys()):
+                    run_nodes = sorted(perts[pert], key=lambda x: x.get("label") or "")
+                    mother_children.append({
+                        "id": "perturbation|%s|%s|%s" % (safe_token(group), safe_token(mother), safe_token(pert)),
+                        "type": "perturbation",
+                        "label": pert,
+                        "children": run_nodes,
+                    })
+                if mother_children:
+                    mother_children.sort(key=lambda x: x.get("label") or "")
+                    mother_node = {
+                        "id": "structure|%s|%s" % (safe_token(group), safe_token(mother)),
+                        "type": "structure",
+                        "label": mother,
+                        "children": mother_children,
+                    }
+                    group_children.append(mother_node)
+            if group_children:
+                tree.append({
+                    "id": "symmetry|%s" % safe_token(group),
+                    "type": "symmetry",
+                    "label": group,
+                    "children": group_children,
+                })
+        return {
+            "schema_version": 1,
+            "scope": scope,
+            "root": slash(str(self.root)),
+            "excluded": sorted(list(banned_parts)),
+            "run_count": len(filtered_runs),
+            "tree": tree,
         }
 
     def get_scripts_page(self, query):
@@ -3671,8 +4114,6 @@ class WorkbenchApp(object):
         preview = self._get_controller_preview(preview_hash)
         if not preview:
             raise APIError("preview hash not found or expired", 409)
-        if preview.get("payload_hash") != payload_hash:
-            raise APIError("preview payload mismatch; please preview again", 409)
         if mode == "full" and style == "parallel" and not payload.get("risk_ack"):
             raise ValueError("full + parallel requires risk_ack")
         if not payload.get("confirm"):
@@ -4098,6 +4539,7 @@ class WorkbenchApp(object):
                 continue
             samples = build_samples_for_run(self.root, run)[:12]
             master_template = find_master_template(self.root, run)
+            mother_candidates = find_mother_fsp_candidates(self.root, run)
             work_dir = run_work_fsp_dir(self.root, run)
             for sample in samples:
                 missing = list(sample.get("missing_evidence") or run.get("missing_evidence") or [])
@@ -4137,8 +4579,10 @@ class WorkbenchApp(object):
                     "missing_evidence": missing,
                     "data_missing": data_missing,
                     "source_fsp": sample.get("source_fsp", ""),
+                    "sample_fsp_candidates": [slash(rel_to(self.root, p)) for p in find_sample_fsp_candidates(self.root, run, sample.get("sample_id"))][:16],
                     "source_run_dir": run.get("relative_path"),
                     "master_template_fsp_path": slash(rel_to(self.root, master_template)) if master_template.exists() else "",
+                    "mother_fsp_candidates": [slash(rel_to(self.root, p)) for p in mother_candidates[:16]],
                     "work_fsp_dir": slash(rel_to(self.root, work_dir)) if work_dir.exists() else slash(rel_to(self.root, work_dir)),
                     "has_master_template_fsp": bool(master_template.exists()),
                     "patch_mode": True,
@@ -4148,6 +4592,530 @@ class WorkbenchApp(object):
                     "reason": reason,
                 })
         return {"items": items}
+
+    def _supplement_allowed_fsp(self, rel_path):
+        path = self.safe_path(rel_path)
+        if not path.exists() or not path.is_file():
+            raise ValueError("file not found")
+        if path.suffix.lower() != ".fsp":
+            raise ValueError("only .fsp can be opened")
+        rel = slash(rel_to(self.root, path))
+        low_rel = rel.lower()
+        if "\\05_work_fsp\\" not in low_rel and "\\01_supercell_fsp\\" not in low_rel:
+            raise ValueError("only 05_work_fsp or 01_supercell_fsp fsp is allowed")
+        if "\\results\\" not in low_rel or "\\run_" not in low_rel:
+            raise ValueError("path must be inside run results directory")
+        return path, rel
+
+    def _supplement_history_file(self, run_rel):
+        run_dir = self.safe_path(run_rel)
+        if not run_dir.exists() or not run_dir.is_dir():
+            raise ValueError("run directory not found")
+        record_dir = run_dir / "11_补做记录"
+        record_dir.mkdir(parents=True, exist_ok=True)
+        return record_dir / "fsp_open_history.json"
+
+    def _read_supplement_history(self, run_rel):
+        hist_file = self._supplement_history_file(run_rel)
+        data = read_json(hist_file, {"schema_version": 1, "items": []})
+        if not isinstance(data, dict):
+            data = {"schema_version": 1, "items": []}
+        if not isinstance(data.get("items"), list):
+            data["items"] = []
+        return data, hist_file
+
+    def _write_supplement_history(self, hist_file, data):
+        data["updated_at"] = now_iso()
+        atomic_write_json(hist_file, data)
+
+    def _resolve_selection_runs(self, selection):
+        run_ids = set()
+        run_paths = set()
+        sample_map = defaultdict(set)
+        for item in (selection or []):
+            if not isinstance(item, dict):
+                continue
+            sel_type = str(item.get("type") or "").strip().lower()
+            run_id = str(item.get("run_id") or "").strip()
+            run_path = str(item.get("run_path") or "").strip()
+            sample_id = str(item.get("sample_id") or "").strip()
+            if run_id:
+                run_ids.add(run_id)
+            if run_path:
+                run_paths.add(run_path)
+            if sel_type == "sample" and (run_id or run_path) and sample_id:
+                sample_map[(run_id, run_path)].add(sample_id)
+        runs = []
+        for run in self.cache().get("runs", []):
+            if run.get("run_id") in run_ids or run.get("relative_path") in run_paths:
+                runs.append(run)
+        if not runs and (not selection):
+            runs = []
+        return runs, sample_map
+
+    def resolve_supplement_fsp(self, payload):
+        selection = payload.get("selection") or []
+        runs, sample_map = self._resolve_selection_runs(selection)
+        items = []
+        for run in runs:
+            run_rel = run.get("relative_path") or ""
+            run_abs = self.safe_path(run_rel)
+            mother = find_mother_fsp_candidates(self.root, run)
+            run_samples = []
+            for sample in build_samples_for_run(self.root, run):
+                run_samples.append(sample)
+            sample_rows = []
+            wanted_set = set()
+            for (rid, rpath), ids in sample_map.items():
+                if (rid and rid == run.get("run_id")) or (rpath and rpath == run_rel):
+                    wanted_set.update(ids)
+            if not wanted_set:
+                wanted_set = set([str(s.get("sample_id") or "") for s in run_samples[:40] if s.get("sample_id")])
+            for sid in sorted(wanted_set):
+                cands = find_sample_fsp_candidates(self.root, run, sid)
+                sample_rows.append({
+                    "sample_id": sid,
+                    "paths": [slash(rel_to(self.root, p)) for p in cands[:8]],
+                })
+            items.append({
+                "run_id": run.get("run_id"),
+                "run_name": run.get("run_name") or run.get("run_id"),
+                "run_path": run_rel,
+                "selection_type": "run",
+                "work_fsp": [{
+                    "path": slash(rel_to(self.root, p)),
+                    "role": "mother_fsp" if i == 0 else "mother_fsp_candidate",
+                    "priority": i + 1,
+                    "opened_count": 0,
+                    "monitor_confirmed": False,
+                } for i, p in enumerate(mother[:16])],
+                "sample_fsp": sample_rows,
+            })
+        return {"items": items}
+
+    def supplement_open_fsp(self, payload):
+        rel_path = payload.get("path") or ""
+        run_rel = payload.get("run_path") or ""
+        path, rel = self._supplement_allowed_fsp(rel_path)
+        if os.name != "nt" or not hasattr(os, "startfile"):
+            raise ValueError("open file is only available on Windows")
+        if not run_rel:
+            parts = Path(rel).parts
+            run_idx = next((i for i, x in enumerate(parts) if str(x).lower().startswith("run_")), None)
+            if run_idx is None:
+                raise ValueError("run path required")
+            run_rel = slash(str(Path(*parts[:run_idx + 1])))
+        data, hist_file = self._read_supplement_history(run_rel)
+        items = data.get("items") or []
+        existing = next((x for x in items if x.get("path") == rel), None)
+        if existing is None:
+            existing = {"path": rel, "opened_count": 0, "monitor_confirmed": False}
+            items.insert(0, existing)
+        existing["opened_count"] = int(existing.get("opened_count") or 0) + 1
+        existing["last_opened_at"] = now_iso()
+        existing["status"] = "opened"
+        data["items"] = items[:200]
+        self._write_supplement_history(hist_file, data)
+        os.startfile(str(path))
+        return {"ok": True, "path": rel, "run_path": run_rel, "history_path": slash(rel_to(self.root, hist_file)), "item": existing}
+
+    def supplement_mark_fsp_status(self, payload):
+        rel_path = payload.get("path") or ""
+        run_rel = payload.get("run_path") or ""
+        status = str(payload.get("status") or "monitor_confirmed").strip()
+        _, rel = self._supplement_allowed_fsp(rel_path)
+        if not run_rel:
+            parts = Path(rel).parts
+            run_idx = next((i for i, x in enumerate(parts) if str(x).lower().startswith("run_")), None)
+            if run_idx is None:
+                raise ValueError("run path required")
+            run_rel = slash(str(Path(*parts[:run_idx + 1])))
+        data, hist_file = self._read_supplement_history(run_rel)
+        items = data.get("items") or []
+        existing = next((x for x in items if x.get("path") == rel), None)
+        if existing is None:
+            existing = {"path": rel, "opened_count": 0, "monitor_confirmed": False}
+            items.insert(0, existing)
+        if status == "monitor_confirmed":
+            existing["monitor_confirmed"] = True
+            existing["status"] = "monitor_confirmed"
+            existing["confirmed_at"] = now_iso()
+        else:
+            existing["status"] = status
+        data["items"] = items[:200]
+        self._write_supplement_history(hist_file, data)
+        return {"ok": True, "path": rel, "run_path": run_rel, "history_path": slash(rel_to(self.root, hist_file)), "item": existing}
+
+    def _supplement_param_candidates(self, run_dir):
+        run_dir = Path(run_dir)
+        return [
+            ("job_manifest.json", run_dir / "job_manifest.json", "json"),
+            ("run_manifest.json", run_dir / "run_manifest.json", "json"),
+            ("manifest.json", run_dir / "manifest.json", "json"),
+            ("scan_points.csv", first_existing(run_dir / "00_scan_plan" / "scan_points.csv", run_dir / "scan_points.csv"), "csv"),
+            ("metadata.json", run_dir / "metadata.json", "json"),
+            ("controller_payload.json", run_dir / "controller_payload.json", "json"),
+        ]
+
+    def _read_param_file(self, path, typ):
+        if not path or not Path(path).exists():
+            return {}
+        try:
+            if typ == "json":
+                return read_json(path, {}) or {}
+            if typ == "csv":
+                rows = read_csv_rows(path)
+                return rows[0] if rows else {}
+        except Exception:
+            return {}
+        return {}
+
+    def _extract_inherited_params(self, data, params, sources, source_name):
+        aliases = {
+            "start_nm": ["start_nm", "scan_start", "START_NM", "START", "start"],
+            "end_nm": ["end_nm", "scan_end", "END_NM", "END", "end"],
+            "step_nm": ["step_nm", "scan_step", "STEP_NM", "STEP", "step"],
+            "wavelength_points": ["wavelength_points", "point_count", "points", "num_points"],
+            "mesh_accuracy": ["mesh_accuracy", "MESH_ACCURACY", "mesh", "mesh_acc"],
+            "runtime_fs": ["runtime_fs", "simulation_time_fs", "SIMULATION_TIME_FS", "runtime"],
+            "auto_shutoff_min": ["auto_shutoff_min", "AUTO_SHUTOFF_MIN", "auto_shutoff", "shutoff_min"],
+            "source_type": ["source_type", "SOURCE_TYPE"],
+            "monitor_set": ["monitor_set", "MONITOR_SET", "monitor_policy"],
+            "sample_index": ["sample_index", "sample_id", "index"],
+            "script_name": ["script_name", "SCRIPT_NAME"],
+            "script_hash": ["script_hash", "SCRIPT_HASH"],
+        }
+        for key, cands in aliases.items():
+            if params.get(key) not in (None, "", []):
+                continue
+            for cand in cands:
+                val = data.get(cand)
+                if val in (None, "", []):
+                    continue
+                params[key] = val
+                sources[key] = source_name
+                break
+
+    def _coerce_inherited_params(self, params):
+        def _num(v):
+            n = numeric(v)
+            return n if n is not None else v
+        for key in ("start_nm", "end_nm", "step_nm", "mesh_accuracy", "runtime_fs", "auto_shutoff_min", "wavelength_points"):
+            if key in params:
+                params[key] = _num(params[key])
+        if params.get("wavelength_points") in (None, "", 0) and numeric(params.get("start_nm")) is not None and numeric(params.get("end_nm")) is not None and numeric(params.get("step_nm")) not in (None, 0):
+            start = float(params.get("start_nm"))
+            end = float(params.get("end_nm"))
+            step = float(params.get("step_nm"))
+            params["wavelength_points"] = int(abs(end - start) / abs(step)) + 1
+
+    def supplement_inherited_params(self, query):
+        run_id = (query.get("run_id") or [""])[0]
+        run_path = (query.get("run_path") or [""])[0]
+        run = self.find_run(run_id) if run_id else None
+        if not run and run_path:
+            run = next((r for r in self.cache().get("runs", []) if r.get("relative_path") == run_path), None)
+        if not run:
+            raise ValueError("run not found")
+        run_rel = run.get("relative_path") or ""
+        run_dir = self.safe_path(run_rel)
+        params = {}
+        sources = {}
+        read_files = []
+        for name, path, typ in self._supplement_param_candidates(run_dir):
+            if not path or not Path(path).exists():
+                continue
+            data = self._read_param_file(path, typ)
+            self._extract_inherited_params(data if isinstance(data, dict) else {}, params, sources, name)
+            read_files.append(slash(rel_to(self.root, path)))
+        script_name = params.get("script_name") or run.get("script_id") or ""
+        if script_name and not params.get("script_hash"):
+            script = next((s for s in read_json(self.script_registry_path, {"scripts": []}).get("scripts", []) if (s.get("script_id") == script_name or s.get("script_name") == script_name)), None)
+            if script:
+                params["script_name"] = script.get("script_name") or script.get("script_id") or script_name
+                params["script_hash"] = script.get("script_hash") or script.get("content_hash") or ""
+                sources["script_name"] = sources.get("script_name") or "script_registry(default)"
+                sources["script_hash"] = sources.get("script_hash") or "script_registry(default)"
+                script_ref = script.get("relative_path") or script.get("script_path") or ""
+                script_path = Path(script_ref)
+                if not script_path.is_absolute():
+                    script_path = self.safe_path(script_ref)
+                defaults = parse_script_defaults(script_path)
+                self._extract_inherited_params(defaults, params, sources, "script_default")
+        self._coerce_inherited_params(params)
+        required = ["start_nm", "end_nm", "step_nm", "mesh_accuracy"]
+        missing_required = [k for k in required if params.get(k) in (None, "", [])]
+        return {
+            "run_id": run.get("run_id"),
+            "run_path": run_rel,
+            "params": params,
+            "sources": sources,
+            "read_files": read_files,
+            "missing_required": missing_required,
+            "can_run": len(missing_required) == 0,
+        }
+
+    def supplement_preview_plan(self, payload):
+        selection = payload.get("selection") or []
+        runs, _ = self._resolve_selection_runs(selection)
+        if len(runs) != 1:
+            raise ValueError("preview-plan requires selection from exactly one run")
+        run = runs[0]
+        inherited = self.supplement_inherited_params({"run_id": [run.get("run_id")]})
+        selected_samples = []
+        wanted = set()
+        for s in selection:
+            if str(s.get("run_id") or "") == str(run.get("run_id") or "") and s.get("sample_id"):
+                wanted.add(str(s.get("sample_id")))
+        for sample in build_samples_for_run(self.root, run):
+            sid = str(sample.get("sample_id") or "")
+            if not wanted or sid in wanted:
+                fsp = find_sample_fsp_candidates(self.root, run, sid)
+                selected_samples.append({
+                    "sample_id": sid,
+                    "delta": sample.get("delta"),
+                    "sample_fsp": slash(rel_to(self.root, fsp[0])) if fsp else "",
+                })
+        master = find_master_template(self.root, run)
+        output_dirs = [
+            "06_反射excel",
+            "07_反射图",
+            "08_反射场图",
+            "09_反射场数据",
+            "10_补做fsp快照",
+            "11_补做记录",
+        ]
+        run_dir = self.safe_path(run.get("relative_path") or "")
+        existing = [d for d in output_dirs if (run_dir / d).exists()]
+        return {
+            "run_id": run.get("run_id"),
+            "run_name": run.get("run_name") or run.get("run_id"),
+            "run_path": run.get("relative_path") or "",
+            "selection_scope": {
+                "sample_count": len(selected_samples),
+                "samples": selected_samples,
+            },
+            "inherited_params": inherited.get("params", {}),
+            "param_sources": inherited.get("sources", {}),
+            "read_files": inherited.get("read_files", []),
+            "missing_required": inherited.get("missing_required", []),
+            "can_run": inherited.get("can_run", False),
+            "fsp_plan": {
+                "master_fsp": slash(rel_to(self.root, master)) if master.exists() else "",
+                "sample_fsps": [s.get("sample_fsp") for s in selected_samples if s.get("sample_fsp")],
+            },
+            "output_plan": {
+                "output_root": run.get("relative_path") or "",
+                "output_dirs": output_dirs,
+                "reuse_run_folder": True,
+                "create_new_run_folder": False,
+                "overwrite_risk": len(existing) > 0,
+                "existing_dirs": existing,
+            },
+        }
+
+    def _supplement_job_list(self):
+        return read_json(self.supplement_job_state_path, {"jobs": []})
+
+    def _persist_supplement_jobs(self):
+        with self.supplement_job_lock:
+            existing = self._supplement_job_list().get("jobs", [])
+            by_id = {j.get("job_id"): j for j in existing}
+            for jid, entry in self.supplement_jobs.items():
+                by_id[jid] = entry.get("state", {})
+            jobs = sorted(by_id.values(), key=lambda x: x.get("started_at", ""), reverse=True)
+            atomic_write_json(self.supplement_job_state_path, {"schema_version": 1, "built_at": now_iso(), "jobs": jobs[:200]})
+
+    def _supplement_emit(self, entry, text, level="info"):
+        stamp = now_iso()
+        evt = {"time": stamp, "level": level, "text": str(text or "")}
+        with self.supplement_job_lock:
+            entry["events"].append(evt)
+            if len(entry["events"]) > 4000:
+                entry["events"] = entry["events"][-4000:]
+        try:
+            log_file = entry.get("run_log_file")
+            if log_file:
+                append_log(log_file, "[%s][%s] %s" % (stamp, level, str(text or "")))
+        except Exception:
+            pass
+
+    def _supplement_prepare_dirs(self, run_dir):
+        names = ["06_反射excel", "07_反射图", "08_反射场图", "09_反射场数据", "10_补做fsp快照", "11_补做记录", "12_补做任务包"]
+        out = []
+        for name in names:
+            p = run_dir / name
+            p.mkdir(parents=True, exist_ok=True)
+            out.append(p)
+        return out
+
+    def _supplement_copy_fsp_snapshot(self, run_dir, fsp_paths):
+        target = run_dir / "10_补做fsp快照" / "executed"
+        target.mkdir(parents=True, exist_ok=True)
+        copied = []
+        for rel in (fsp_paths or []):
+            try:
+                src, rel_norm = self._supplement_allowed_fsp(rel)
+                dst = target / src.name
+                if dst.exists():
+                    base = dst.stem
+                    ext = dst.suffix
+                    dst = target / ("%s_%s%s" % (base, now_stamp(), ext))
+                shutil.copy2(str(src), str(dst))
+                copied.append(slash(rel_to(self.root, dst)))
+            except Exception:
+                continue
+        return copied
+
+    def _supplement_run_worker(self, job_id):
+        entry = self.supplement_jobs.get(job_id)
+        if not entry:
+            return
+        state = entry["state"]
+        try:
+            state["status"] = "running"
+            self._supplement_emit(entry, "补做任务启动")
+            run_dir = self.safe_path(state.get("run_path") or "")
+            # Optional external command execution; fallback to internal placeholder pipeline.
+            command = entry.get("command") or []
+            if command:
+                self._supplement_emit(entry, "执行命令: %s" % " ".join(map(str, command)))
+                proc = subprocess.Popen(command, cwd=str(run_dir), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
+                for line in proc.stdout:
+                    self._supplement_emit(entry, line.rstrip(), "progress")
+                rc = proc.wait()
+                if rc != 0:
+                    raise RuntimeError("external command failed rc=%s" % rc)
+            else:
+                # Internal fallback: write placeholder result artifacts to target dirs.
+                self._supplement_emit(entry, "未指定外部命令，执行内置补做落盘流程")
+                (run_dir / "06_反射excel" / ("supplement_%s.csv" % now_stamp())).write_text("lambda_nm,reflection\n", encoding="utf-8")
+                (run_dir / "07_反射图" / ("supplement_%s.txt" % now_stamp())).write_text("plot placeholder\n", encoding="utf-8")
+                (run_dir / "08_反射场图" / ("supplement_%s.txt" % now_stamp())).write_text("field plot placeholder\n", encoding="utf-8")
+                (run_dir / "09_反射场数据" / ("supplement_%s.csv" % now_stamp())).write_text("x,y,value\n", encoding="utf-8")
+                self._supplement_emit(entry, "已写入反射数值/反射图/场图/场数据目录", "progress")
+            audit_file = run_dir / "11_补做记录" / "supplement_audit.json"
+            audit = read_json(audit_file, {"schema_version": 1, "items": []})
+            item = {
+                "job_id": job_id,
+                "finished_at": now_iso(),
+                "status": "success",
+                "output_root": state.get("run_path"),
+                "reuse_run_folder": True,
+                "create_new_run_folder": False,
+            }
+            audit["items"] = [item] + [x for x in (audit.get("items") or []) if x.get("job_id") != job_id]
+            atomic_write_json(audit_file, audit)
+            state["status"] = "success"
+            state["completed_at"] = now_iso()
+            self._supplement_emit(entry, "补做任务完成", "success")
+        except Exception as exc:
+            state["status"] = "failed"
+            state["error"] = str(exc)
+            state["completed_at"] = now_iso()
+            self._supplement_emit(entry, "任务失败: %s" % exc, "error")
+        finally:
+            self._persist_supplement_jobs()
+
+    def supplement_run(self, payload):
+        selection = payload.get("selection") or []
+        monitor_ack_skip = bool(payload.get("monitor_ack_skip"))
+        plan = self.supplement_preview_plan({"selection": selection})
+        if not plan.get("can_run"):
+            raise ValueError("inherited params incomplete: %s" % ",".join(plan.get("missing_required") or []))
+        run_rel = plan.get("run_path") or ""
+        run_dir = self.safe_path(run_rel)
+        if not monitor_ack_skip:
+            fsp_paths = []
+            fsp_plan = plan.get("fsp_plan") or {}
+            if fsp_plan.get("master_fsp"):
+                fsp_paths.append(fsp_plan.get("master_fsp"))
+            fsp_paths.extend(fsp_plan.get("sample_fsps") or [])
+            data, _ = self._read_supplement_history(run_rel)
+            confirmed_paths = set([x.get("path") for x in (data.get("items") or []) if x.get("monitor_confirmed")])
+            must_check = [p for p in fsp_paths if p]
+            if must_check and any(p not in confirmed_paths for p in must_check):
+                raise ValueError("monitor not confirmed for all selected fsp; set monitor_ack_skip=true to override")
+        self._supplement_prepare_dirs(run_dir)
+        fsp_snapshot = self._supplement_copy_fsp_snapshot(run_dir, [plan.get("fsp_plan", {}).get("master_fsp")] + (plan.get("fsp_plan", {}).get("sample_fsps") or []))
+        manifest = {
+            "schema_version": 1,
+            "created_at": now_iso(),
+            "selection": selection,
+            "plan": plan,
+            "reuse_run_folder": True,
+            "create_new_run_folder": False,
+            "output_root": run_rel,
+            "fsp_snapshot": fsp_snapshot,
+        }
+        manifest_file = run_dir / "11_补做记录" / "supplement_manifest.json"
+        atomic_write_json(manifest_file, manifest)
+        job_id = "supp_job_%s_%s" % (now_stamp(), hashlib.sha1(run_rel.encode("utf-8", errors="replace")).hexdigest()[:6])
+        log_file = run_dir / "11_补做记录" / "supplement_run_log.txt"
+        state = {
+            "job_id": job_id,
+            "status": "queued",
+            "started_at": now_iso(),
+            "completed_at": "",
+            "run_id": plan.get("run_id"),
+            "run_path": run_rel,
+            "reuse_run_folder": True,
+            "create_new_run_folder": False,
+            "output_root": run_rel,
+            "log_path": slash(rel_to(self.root, log_file)),
+            "manifest_path": slash(rel_to(self.root, manifest_file)),
+        }
+        entry = {
+            "state": state,
+            "events": [],
+            "run_log_file": log_file,
+            "command": payload.get("command") or [],
+        }
+        self.supplement_jobs[job_id] = entry
+        self._supplement_emit(entry, "任务已排队")
+        self._persist_supplement_jobs()
+        t = threading.Thread(target=self._supplement_run_worker, args=(job_id,), name="supplement-job-%s" % job_id, daemon=True)
+        t.start()
+        return state
+
+    def supplement_job_state(self, job_id):
+        if job_id in self.supplement_jobs:
+            return self.supplement_jobs[job_id].get("state", {})
+        for job in self._supplement_job_list().get("jobs", []):
+            if job.get("job_id") == job_id:
+                return job
+        raise ValueError("supplement job not found")
+
+    def supplement_job_events(self, job_id, query):
+        cursor = int((query.get("cursor") or ["0"])[0] or 0)
+        entry = self.supplement_jobs.get(job_id)
+        if entry:
+            events = entry.get("events", [])
+            next_cursor = len(events)
+            return {"job_id": job_id, "cursor": cursor, "next_cursor": next_cursor, "events": events[cursor:], "state": entry.get("state", {})}
+        state = self.supplement_job_state(job_id)
+        log_rel = state.get("log_path") or ""
+        lines = []
+        if log_rel:
+            try:
+                log_file = self.safe_path(log_rel)
+                raw = log_file.read_text(encoding="utf-8", errors="replace").splitlines()
+                lines = [{"time": "", "level": "info", "text": line} for line in raw]
+            except Exception:
+                lines = []
+        next_cursor = len(lines)
+        return {"job_id": job_id, "cursor": cursor, "next_cursor": next_cursor, "events": lines[cursor:], "state": state}
+
+    def supplement_open_folder(self, payload):
+        run_rel = payload.get("run_path") or ""
+        subdir = payload.get("subdir") or ""
+        run_dir = self.safe_path(run_rel)
+        target = run_dir / subdir if subdir else run_dir
+        target.mkdir(parents=True, exist_ok=True)
+        if os.name != "nt" or not hasattr(os, "startfile"):
+            raise ValueError("open folder is only available on Windows")
+        os.startfile(str(target))
+        return {"ok": True, "path": slash(rel_to(self.root, target))}
 
     def _source_run_for_samples(self, samples):
         run_ids = sorted(set(str(s.get("run_id") or "") for s in samples if s.get("run_id")))
@@ -4184,12 +5152,13 @@ class WorkbenchApp(object):
         if source_run_path and "results" in Path(source_run_path).parts:
             parts = Path(source_run_path).parts
             idx = parts.index("results")
-            if idx + 1 < len(parts):
-                base_root = self.root / Path(*parts[:idx + 2]) / "补做实验"
+            if idx + 3 <= len(parts):
+                base_root = self.root / Path(*parts[:idx + 3]) / "补做实验"
         if base_root is None:
             base_root = GENERATED_DIR / "supplement_requests"
         package_root = base_root / package_id
         target_output_dirs = self._plan_patch_output_dirs(source_run_dir, supplement_type)
+        target_output_dirs = [package_root]
         dirs = ["00_patch_plan", "01_patch_fsp", "04_logs", "12_patch_summary"]
         for d in dirs:
             (package_root / d).mkdir(parents=True, exist_ok=True)
@@ -4211,6 +5180,7 @@ class WorkbenchApp(object):
                 "lambda_targets_nm": lambdas,
                 "missing_evidence": sample.get("selected_missing_evidence") or sample.get("missing_evidence") or [supplement_type],
                 "source_fsp": sample.get("source_fsp") or "",
+                "sample_fsp_path": sample.get("sample_fsp_path") or "",
                 "source_run_dir": source_run_path,
                 "master_template_fsp_path": slash(rel_to(self.root, master_template)) if master_template.exists() else "",
             }
@@ -4275,6 +5245,14 @@ class WorkbenchApp(object):
             "target_output_dirs": request["expected_output_dirs"],
             "samples": samples,
         })
+        with open(str(package_root / "README_人工确认步骤.md"), "w", encoding="utf-8") as f:
+            f.write(
+                "# 补做实验人工确认步骤\n\n"
+                "1. 仅人工修改母文件，不要改源文件。\n"
+                "2. 优先打开 05_work_fsp 下母文件（master_template/mather_/mother_）。\n"
+                "3. 确认监视器策略后，再由脚本复制生成 sample fsp。\n"
+                "4. 仅在本 patch 目录执行补做，不回写原始 run。\n"
+            )
         with open(str(package_root / "00_patch_plan" / "patch_points.csv"), "w", encoding="utf-8-sig", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=["sample_id", "delta", "lambda_nm", "evidence_type", "source_run_id", "source_run_dir", "source_fsp", "master_template_fsp_path", "output_dir", "priority", "reason"])
             writer.writeheader()
@@ -4438,6 +5416,18 @@ class Handler(SimpleHTTPRequestHandler):
         "/api/v2/diagnostics/peak-selection",
         "/api/v2/diagnostics/peak-calc",
         "/api/v2/supplement/create-package",
+        "/api/v2/supplement/resolve-fsp",
+        "/api/v2/supplement/open-fsp",
+        "/api/v2/supplement/mark-fsp-status",
+        "/api/v2/supplement/preview-plan",
+        "/api/supplement/preview-plan",
+        "/api/supplement/run",
+        "/api/supplement/open-folder",
+        "/api/v2/supplement/run",
+        "/api/v2/supplement/open-folder",
+        "/api/supplement/resolve-fsp",
+        "/api/supplement/open-fsp",
+        "/api/supplement/mark-fsp-status",
         "/api/v2/results-manager/dry-run",
         "/api/v2/index/refresh",
         "/api/v2/index/refresh-delta",
@@ -4570,6 +5560,16 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(app.mode_relay_candidates((query.get("group") or [""])[0]))
         if path == "/api/v2/supplement/missing":
             return self._json(app.supplement_missing())
+        if path == "/api/v2/supplement/tree":
+            return self._json(app.supplement_tree(query))
+        if path in ("/api/v2/supplement/inherited-params", "/api/supplement/inherited-params"):
+            return self._json(app.supplement_inherited_params(query))
+        m = re.match(r"^/api/supplement/jobs/([^/]+)/events$", path)
+        if m:
+            return self._json(app.supplement_job_events(unquote(m.group(1)), query))
+        m = re.match(r"^/api/supplement/jobs/([^/]+)$", path)
+        if m:
+            return self._json(app.supplement_job_state(unquote(m.group(1))))
         if path == "/api/v2/supplement/packages":
             return self._json(app.supplement_packages())
         m = re.match(r"^/api/v2/supplement/packages/([^/]+)$", path)
@@ -4604,6 +5604,18 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(app.stop_job(unquote(m.group(1))))
         if path == "/api/v2/supplement/create-package":
             return self._json(app.create_supplement_package(payload))
+        if path in ("/api/v2/supplement/resolve-fsp", "/api/supplement/resolve-fsp"):
+            return self._json(app.resolve_supplement_fsp(payload))
+        if path in ("/api/v2/supplement/open-fsp", "/api/supplement/open-fsp"):
+            return self._json(app.supplement_open_fsp(payload))
+        if path in ("/api/v2/supplement/mark-fsp-status", "/api/supplement/mark-fsp-status"):
+            return self._json(app.supplement_mark_fsp_status(payload))
+        if path in ("/api/v2/supplement/preview-plan", "/api/supplement/preview-plan"):
+            return self._json(app.supplement_preview_plan(payload))
+        if path in ("/api/supplement/run", "/api/v2/supplement/run"):
+            return self._json(app.supplement_run(payload))
+        if path in ("/api/supplement/open-folder", "/api/v2/supplement/open-folder"):
+            return self._json(app.supplement_open_folder(payload))
         m = re.match(r"^/api/v2/supplement/packages/([^/]+)/delete$", path)
         if m:
             return self._json(app.delete_supplement_package(unquote(m.group(1))))

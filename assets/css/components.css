@@ -12,6 +12,7 @@
   white-space: nowrap;
   background: #FFFFFF;
   color: var(--color-text-2);
+  transition: background-color .16s ease, border-color .16s ease, box-shadow .16s ease, transform .12s ease;
 }
 
 .btn svg {
@@ -27,6 +28,11 @@
 
 .btn.primary:hover {
   background: var(--color-primary-dark);
+}
+
+.btn:active,
+.icon-btn:active {
+  transform: translateY(1px);
 }
 
 .btn.secondary {
@@ -53,6 +59,40 @@
   border-color: var(--color-border);
 }
 
+.btn[disabled],
+.btn:disabled,
+.icon-btn[disabled],
+.icon-btn:disabled {
+  opacity: .56;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none !important;
+}
+
+.btn.loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.btn.loading::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, .45);
+  border-top-color: #fff;
+  border-radius: 999px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -7px;
+  margin-top: -7px;
+  animation: btn-spin .75s linear infinite;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
 .icon-btn {
   width: 36px;
   height: 36px;
@@ -62,6 +102,7 @@
   border-radius: var(--radius-sm);
   background: #FFFFFF;
   color: var(--color-text-2);
+  transition: background-color .16s ease, border-color .16s ease, color .16s ease, transform .12s ease;
 }
 
 .icon-btn svg {
@@ -80,6 +121,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
+  overflow: hidden;
 }
 
 .card.pad {
@@ -94,6 +136,8 @@
   margin-bottom: 14px;
   font-size: 15px;
   font-weight: 800;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #EEF3F1;
 }
 
 .toolbar {
@@ -194,6 +238,7 @@
   border: 1px solid transparent;
   font-size: 12px;
   font-weight: 800;
+  letter-spacing: 0;
 }
 
 .tag.green {
@@ -357,13 +402,19 @@
 
 .modal {
   width: min(520px, 100%);
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: #FFFFFF;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-float);
+  border: 1px solid var(--color-border);
 }
 
 .modal-head,
 .modal-foot {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -376,8 +427,105 @@
   border-top: 1px solid var(--color-border);
   border-bottom: 0;
   justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
+  background: #FFFFFF;
 }
 
 .modal-body {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
   padding: 16px;
+  overscroll-behavior: contain;
+}
+
+.floating-job-log {
+  position: fixed;
+  right: 18px;
+  bottom: 76px;
+  width: min(720px, calc(100vw - 36px));
+  max-height: 46vh;
+  z-index: 85;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-float);
+}
+
+.floating-job-log.collapsed {
+  width: 56px;
+  height: 56px;
+  max-height: 56px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.floating-job-log-head {
+  height: 48px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.floating-job-log-body {
+  min-height: 0;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.floating-job-log.collapsed .floating-job-log-body {
+  display: none;
+}
+
+.floating-job-log.collapsed .floating-log-title,
+.floating-job-log.collapsed #floating-log-stop,
+.floating-job-log.collapsed #floating-log-copy,
+.floating-job-log.collapsed #floating-log-download {
+  display: none;
+}
+
+.floating-job-log.collapsed .floating-job-log-head {
+  height: 56px;
+  border-bottom: 0;
+  justify-content: center;
+  padding: 0;
+}
+
+.floating-job-log.collapsed #floating-log-toggle {
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 800;
+}
+
+.floating-job-log .floating-compact #job-log-body {
+  max-height: calc(46vh - 160px) !important;
+  overflow: auto !important;
+}
+
+.floating-job-log .floating-compact pre.terminal {
+  max-height: calc(46vh - 160px) !important;
+  overflow: auto !important;
+}
+
+/* 隐藏浮动日志内部重复的复制/下载按钮，避免两套工具条 */
+.floating-job-log .floating-compact [data-job-log-copy],
+.floating-job-log .floating-compact [data-job-log-download] {
+  display: none;
+}
+
+/* 精简滚动条，避免出现上下按钮样式 */
+.floating-job-log *::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }

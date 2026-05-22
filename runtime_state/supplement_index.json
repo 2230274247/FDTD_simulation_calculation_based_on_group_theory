@@ -1,7 +1,124 @@
 {
   "schema_version": 1,
-  "built_at": "2026-05-20T16:50:02",
+  "built_at": "2026-05-22T14:52:47",
   "packages": [
+    {
+      "package_id": "patch_20260522_145247_field",
+      "package_type": "patch_v2",
+      "created_at": "2026-05-22T14:52:47",
+      "supplement_type": "field",
+      "type": "field",
+      "status": "planned",
+      "source_run_id": "run_20260428_171624_3f2a0a2e",
+      "source_job_id": null,
+      "relative_path": "结果查看器_html_v2\\generated\\supplement_requests\\patch_20260522_145247_field",
+      "output_root": "结果查看器_html_v2\\generated\\supplement_requests\\patch_20260522_145247_field",
+      "patch_request_path": "结果查看器_html_v2\\generated\\supplement_requests\\patch_20260522_145247_field\\patch_request.json",
+      "source_run_dir": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624",
+      "source_run_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624",
+      "source_run_abs_path": "H:\\FDTD outcome\\struct\\群论_struct\\近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624",
+      "work_fsp_dir": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\05_work_fsp",
+      "work_fsp_abs_path": "H:\\FDTD outcome\\struct\\群论_struct\\近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\05_work_fsp",
+      "master_template_fsp_path": "",
+      "master_template_fsp_abs_path": "",
+      "patch_mode": true,
+      "reuse_existing_perturbation_points": true,
+      "output_to_existing_run": true,
+      "target_output_dirs": [
+        "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\05_field_data"
+      ],
+      "expected_output_dirs": [
+        "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\05_field_data"
+      ],
+      "target_output_abs_dirs": [
+        "H:\\FDTD outcome\\struct\\群论_struct\\近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\05_field_data"
+      ],
+      "expected_outputs": [
+        {
+          "kind": "field",
+          "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\05_field_data"
+        }
+      ],
+      "sample_count": 5
+    },
+    {
+      "package_id": "patch_20260522_132741_field",
+      "package_type": "patch_v2",
+      "created_at": "2026-05-22T13:27:41",
+      "supplement_type": "field",
+      "type": "field",
+      "status": "planned",
+      "source_run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
+      "source_job_id": "job_20260522_124348_2219fe",
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field",
+      "output_root": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field",
+      "patch_request_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field\\patch_request.json",
+      "source_run_dir": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒",
+      "source_run_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒",
+      "source_run_abs_path": "H:\\FDTD outcome\\struct\\群论_struct\\C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒",
+      "work_fsp_dir": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp",
+      "work_fsp_abs_path": "H:\\FDTD outcome\\struct\\群论_struct\\C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp",
+      "master_template_fsp_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp\\master_template.fsp",
+      "master_template_fsp_abs_path": "H:\\FDTD outcome\\struct\\群论_struct\\C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp\\master_template.fsp",
+      "patch_mode": true,
+      "reuse_existing_perturbation_points": true,
+      "output_to_existing_run": true,
+      "target_output_dirs": [
+        "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\07_field_data"
+      ],
+      "expected_output_dirs": [
+        "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\07_field_data"
+      ],
+      "target_output_abs_dirs": [
+        "H:\\FDTD outcome\\struct\\群论_struct\\C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\07_field_data"
+      ],
+      "expected_outputs": [
+        {
+          "kind": "field",
+          "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\07_field_data"
+        }
+      ],
+      "sample_count": 1
+    },
+    {
+      "package_id": "patch_20260522_132621_field",
+      "package_type": "patch_v2",
+      "created_at": "2026-05-22T13:26:21",
+      "supplement_type": "field",
+      "type": "field",
+      "status": "planned",
+      "source_run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
+      "source_job_id": "job_20260522_124348_2219fe",
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field",
+      "output_root": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field",
+      "patch_request_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field\\patch_request.json",
+      "source_run_dir": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒",
+      "source_run_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒",
+      "source_run_abs_path": "H:\\FDTD outcome\\struct\\群论_struct\\C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒",
+      "work_fsp_dir": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp",
+      "work_fsp_abs_path": "H:\\FDTD outcome\\struct\\群论_struct\\C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp",
+      "master_template_fsp_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp\\master_template.fsp",
+      "master_template_fsp_abs_path": "H:\\FDTD outcome\\struct\\群论_struct\\C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp\\master_template.fsp",
+      "patch_mode": true,
+      "reuse_existing_perturbation_points": true,
+      "output_to_existing_run": true,
+      "target_output_dirs": [
+        "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\06_field_data"
+      ],
+      "expected_output_dirs": [
+        "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\06_field_data"
+      ],
+      "target_output_abs_dirs": [
+        "H:\\FDTD outcome\\struct\\群论_struct\\C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\06_field_data"
+      ],
+      "expected_outputs": [
+        {
+          "kind": "field",
+          "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\06_field_data"
+        }
+      ],
+      "sample_count": 1
+    },
     {
       "package_id": "patch_20260520_165002_field",
       "created_at": "2026-05-20T16:50:02",

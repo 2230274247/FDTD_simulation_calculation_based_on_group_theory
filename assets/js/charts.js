@@ -494,3 +494,243 @@ export function drawDonut(canvas, value) {
   ctx.textAlign = "center";
   ctx.fillText(`${Math.round(v * 100)}%`, cx, cy + 5);
 }
+
+let echartsLoadPromise = null;
+async function ensureEcharts() {
+  if (typeof window === "undefined") return null;
+  if (window.echarts) return window.echarts;
+  if (!echartsLoadPromise) {
+    echartsLoadPromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "./assets/vendor/echarts/echarts.min.js";
+      script.onload = () => resolve(window.echarts || null);
+      script.onerror = reject;
+      document.head.appendChild(script);
+    }).catch(() => null);
+  }
+  return echartsLoadPromise;
+}
+
+export async function drawResponseAnalysis(el, rows, options = {}) {
+  const metric = options.metric || "lambda0_nm";
+  const echarts = await ensureEcharts();
+  if (!el) return;
+  if (!echarts) {
+    el.innerHTML = `<div style="padding:12px;color:#6b7280">ECharts 未就绪，无法绘制联动分析图。</div>`;
+    return;
+  }
+  const chart = echarts.getInstanceByDom(el) || echarts.init(el, null, { renderer: "canvas" });
+  const points = (rows || []).map((r) => ({
+    value: [Number(r.delta), Number(r.value)],
+    sample_id: r.sample_id || "",
+    quality_flags: r.quality_flags || [],
+    missing_evidence: r.missing_evidence || [],
+    abnormal: (r.quality_flags || []).length > 0 || (r.missing_evidence || []).length > 0,
+  })).filter((p) => Number.isFinite(p.value[0]) && Number.isFinite(p.value[1]));
+  chart.setOption({
+    animation: false,
+    grid: { left: 52, right: 16, top: 20, bottom: 42 },
+    xAxis: { type: "value", name: options.xLabel || "δ", nameGap: 20 },
+    yAxis: { type: "value", name: options.yLabel || metric, scale: true, nameGap: 24 },
+    tooltip: {
+      trigger: "item",
+      formatter(params) {
+        const d = params.data || {};
+        return [
+          `sample: ${d.sample_id || "-"}`,
+          `delta: ${params.value?.[0] ?? "-"}`,
+          `${metric}: ${params.value?.[1] ?? "-"}`,
+          `quality_flags: ${(d.quality_flags || []).join(", ") || "无"}`,
+          `missing_evidence: ${(d.missing_evidence || []).join(", ") || "无"}`,
+        ].join("<br>");
+      },
+    },
+    series: [{
+      type: "scatter",
+      data: points,
+      symbolSize: 9,
+      itemStyle: {
+        color(params) {
+          return params.data?.abnormal ? "#D92D20" : "#0B7B6B";
+        },
+      },
+      emphasis: { scale: true },
+    }],
+  });
+}
+
+export async function drawDiagnosisTrendMatrix(el, rows, options = {}) {
+  const echarts = await ensureEcharts();
+  if (!el) return;
+  if (!echarts) {
+    el.innerHTML = `<div style="padding:12px;color:#6b7280">ECharts 未就绪，无法绘制诊断趋势矩阵。</div>`;
+    return;
+  }
+  const chart = echarts.getInstanceByDom(el) || echarts.init(el, null, { renderer: "canvas" });
+  const points = (rows || []).map((r) => ({
+    ...r,
+    value: [Number(r.delta), Number(r.value)],
+  })).filter((p) => Number.isFinite(p.value[0]) && Number.isFinite(p.value[1]));
+  chart.setOption({
+    animation: false,
+    grid: { left: 58, right: 18, top: 24, bottom: 46 },
+    xAxis: { type: "value", name: options.xLabel || "扰动参数 δ", nameGap: 20 },
+    yAxis: { type: "value", name: options.yLabel || options.metric || "score", scale: true, nameGap: 24 },
+    tooltip: {
+      trigger: "item",
+      confine: true,
+      formatter(params) {
+        const d = params.data || {};
+        return [
+          `sample_id: ${d.sample_id || "-"}`,
+          `δ: ${d.delta ?? "-"}`,
+          `λ0: ${Number.isFinite(Number(d.lambda0_nm)) ? Number(d.lambda0_nm).toFixed(4) : "-"}`,
+          `Q: ${Number.isFinite(Number(d.q)) ? Number(d.q).toFixed(4) : "-"}`,
+          `FWHM: ${Number.isFinite(Number(d.fwhm_nm)) ? Number(d.fwhm_nm).toFixed(4) : "-"}`,
+          `max(T): ${Number.isFinite(Number(d.max_t)) ? Number(d.max_t).toFixed(4) : "-"}`,
+          `score: ${Number.isFinite(Number(d.score)) ? Number(d.score).toFixed(4) : "-"}`,
+          `质量旗标: ${(d.quality_flags || []).join(", ") || "无"}`,
+          `缺失证据: ${(d.missing_evidence || []).join(", ") || "无"}`,
+        ].join("<br>");
+      },
+    },
+    series: [
+      {
+        type: "line",
+        data: points.map((p) => p.value),
+        smooth: false,
+        lineStyle: { color: "#98A2B3", width: 1.3 },
+        symbol: "none",
+        z: 1,
+      },
+      {
+        type: "scatter",
+        data: points,
+        symbolSize: 10,
+        itemStyle: {
+          color(params) {
+            const sev = params.data?.severity;
+            if (sev === "high") return "#D92D20";
+            if (sev === "warn") return "#D97706";
+            return "#0B7B6B";
+          },
+          borderColor: "#FFFFFF",
+          borderWidth: 1,
+        },
+        emphasis: { scale: 1.18 },
+        z: 3,
+      },
+    ],
+  });
+  chart.off("click");
+  chart.on("click", (params) => {
+    if (typeof options.onPointSelected === "function") options.onPointSelected(params?.data || null);
+  });
+}
+
+export async function drawModeRelayHeatmap(el, heatmap, annotations = {}) {
+  const echarts = await ensureEcharts();
+  if (!el) return;
+  if (!echarts) {
+    el.innerHTML = `<div style="padding:12px;color:#6b7280">ECharts 未就绪，无法绘制模式接力热图。</div>`;
+    return;
+  }
+  const lambdas = (heatmap?.lambda_grid || []).map(Number).filter(Number.isFinite);
+  const deltas = (heatmap?.deltas || []).map(Number).filter(Number.isFinite);
+  const rows = Array.isArray(heatmap?.values) ? heatmap.values : [];
+  if (!lambdas.length || !deltas.length || !rows.length) {
+    el.innerHTML = `<div style="padding:12px;color:#6b7280">热图数据不足，建议先补做 T 谱扫描与关键证据。</div>`;
+    return;
+  }
+  const seriesData = [];
+  let vMin = Infinity;
+  let vMax = -Infinity;
+  rows.forEach((row, y) => {
+    (row || []).forEach((v, x) => {
+      const n = Number(v);
+      if (!Number.isFinite(n)) return;
+      seriesData.push([x, y, n]);
+      vMin = Math.min(vMin, n);
+      vMax = Math.max(vMax, n);
+    });
+  });
+  const clampMin = Number.isFinite(vMin) ? vMin : 0;
+  const clampMax = Number.isFinite(vMax) ? vMax : 1;
+  const toCoord = (arr) => (arr || []).map((p) => [Number(p[0]), Number(p[1])]).filter((p) => Number.isFinite(p[0]) && Number.isFinite(p[1]));
+  const peakTrack = toCoord(annotations.peakTrack);
+  const dipTrack = toCoord(annotations.dipTrack);
+  const apiTrack = toCoord(annotations.trackFromApi);
+  const highTrans = toCoord(annotations.highTrans);
+  const tOverOne = toCoord(annotations.tOverOne);
+  const switches = toCoord(annotations.switchPoints);
+  const antiCross = toCoord(annotations.antiCross);
+  const startPoint = annotations.startPoint ? [Number(annotations.startPoint[0]), Number(annotations.startPoint[1])] : null;
+
+  const chart = echarts.getInstanceByDom(el) || echarts.init(el, null, { renderer: "canvas" });
+  chart.setOption({
+    animation: false,
+    grid: { left: 68, right: 22, top: 24, bottom: 58 },
+    xAxis: {
+      type: "category",
+      data: lambdas,
+      name: "波长 λ (nm)",
+      nameGap: 32,
+      axisLabel: { formatter: (v) => Number(v).toFixed(0) },
+    },
+    yAxis: {
+      type: "category",
+      data: deltas,
+      name: "扰动参数 δ",
+      nameGap: 40,
+      axisLabel: { formatter: (v) => Number(v).toFixed(4) },
+    },
+    visualMap: {
+      min: clampMin,
+      max: clampMax,
+      calculable: true,
+      orient: "vertical",
+      right: 4,
+      top: "middle",
+      text: ["|T|² 高", "|T|² 低"],
+      inRange: { color: ["#2b2f77", "#365db6", "#3ca9c9", "#69c27d", "#d0dc5a", "#f4bf39"] },
+    },
+    tooltip: {
+      trigger: "item",
+      confine: true,
+      formatter(params) {
+        if (params.seriesType === "heatmap") {
+          const xIdx = params.value?.[0];
+          const yIdx = params.value?.[1];
+          const z = params.value?.[2];
+          return `λ: ${Number(lambdas[xIdx] || 0).toFixed(4)} nm<br>δ: ${Number(deltas[yIdx] || 0).toFixed(4)}<br>|T|²: ${Number(z || 0).toFixed(4)}`;
+        }
+        const p = params.value || [];
+        return `${params.seriesName}<br>λ: ${Number(p[0] || 0).toFixed(4)} nm<br>δ: ${Number(p[1] || 0).toFixed(4)}`;
+      },
+    },
+    series: [
+      { name: "|T|²", type: "heatmap", data: seriesData, progressive: 0 },
+      { name: "λ_peak 轨迹", type: "line", data: peakTrack, smooth: false, symbol: "none", lineStyle: { width: 2, color: "#FFD166" } },
+      { name: "λ_dip 轨迹", type: "line", data: dipTrack, smooth: false, symbol: "none", lineStyle: { width: 2, color: "#70D6FF" } },
+      { name: "API 轨迹", type: "line", data: apiTrack, smooth: false, symbol: "none", lineStyle: { width: 1.5, color: "#FFFFFF", type: "dashed", opacity: 0.9 } },
+      { name: "高透射候选", type: "scatter", data: highTrans, symbolSize: 10, itemStyle: { color: "#F59E0B" } },
+      { name: "T>1 异常", type: "scatter", data: tOverOne, symbolSize: 12, itemStyle: { color: "#DC2626" } },
+      { name: "模式切换点", type: "scatter", data: switches, symbolSize: 10, itemStyle: { color: "#A855F7" } },
+      { name: "反交叉区", type: "scatter", data: antiCross, symbolSize: 9, itemStyle: { color: "#22C55E" } },
+      ...(startPoint && Number.isFinite(startPoint[0]) && Number.isFinite(startPoint[1]) ? [{
+        name: "起点模式",
+        type: "scatter",
+        data: [startPoint],
+        symbol: "diamond",
+        symbolSize: 14,
+        itemStyle: { color: "#FFFFFF", borderColor: "#111827", borderWidth: 1.2 },
+      }] : []),
+    ],
+    legend: {
+      bottom: 0,
+      itemWidth: 14,
+      itemHeight: 8,
+      textStyle: { color: "#475467", fontSize: 11 },
+    },
+  });
+}

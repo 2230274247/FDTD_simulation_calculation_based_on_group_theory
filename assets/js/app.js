@@ -1,5 +1,5 @@
 ﻿import { api } from "./api.js";
-import { drawLine, drawTrend, drawHeatmap } from "./charts.js";
+import { drawLine, drawResponseAnalysis, drawDiagnosisTrendMatrix, drawModeRelayHeatmap } from "./charts.js";
 
 const routes = {
   overview: "研究总览",
@@ -22,6 +22,9 @@ const state = {
   resourcesPage: null,
   selectedRunId: "",
   selectedScriptIds: new Set(),
+  scriptTreeExpanded: new Set(),
+  defaultOverrides: {},
+  perScriptOverrides: {},
   runDetails: new Map(),
   filePreview: null,
   diagnostics: null,
@@ -36,6 +39,11 @@ const state = {
   jobLog: { mode: "all", search: "", autoScroll: true, data: null, jobId: "" },
   sampleSpectrum: { controller: null, data: null, sampleId: "", featureType: "auto", selection: null, lastResult: null, requestSeq: 0, lastSavedManual: false },
   resultFilters: { scope: "current", group: "", mother: "", perturbation: "", risk: "" },
+  resultTreeExpanded: new Set(),
+  resultAnalysisMetric: "lambda0_nm",
+  diagnosisTrendMetric: "score",
+  diagnosisTrendRows: [],
+  diagnosisSelectedPoint: null,
   selectedStructure: null,
   structureTree: null,
   structureNavigator: null,
@@ -46,6 +54,8 @@ const state = {
   resultAutoplayTimer: null,
   supplementSearch: "",
   supplementVisibleLimit: 420,
+  supplementPlanPreview: null,
+  supplementRunState: { jobId: "", cursor: 0, logs: [], status: "", timer: null },
   indexStatus: { running: false, progress: 0 },
   preloadStatus: null,
   warmupStarted: false,
@@ -56,6 +66,7 @@ const state = {
 let warmupPausedUntil = 0;
 let renderSeq = 0;
 const actionLocks = new Map();
+let jobPollTimer = null;
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -74,6 +85,17 @@ const fmt = (value, digits = 0) => {
 const pct = (value) => `${Math.round((Number(value) || 0) * 100)}%`;
 const tagTone = (risk) => risk === "high" ? "red" : risk === "medium" ? "orange" : "green";
 const STRUCTURE_NAV_STORAGE_KEY = "fdtd.result-structure-navigator.v1";
+const ACTIVE_JOB_STORAGE_KEY = "fdtd.activeJobId.v1";
+const SUPPLEMENT_OPENED_FSP_STORAGE_KEY = "fdtd.supplement.openedFsp.v1";
+const OVERVIEW_ALLOWED_GROUPS = new Set(["C2", "C3", "C4", "C6", "近径向高对称结构"]);
+const OVERVIEW_GROUP_LABELS = {
+  C2: "C2",
+  C3: "C3",
+  C4: "C4",
+  C6: "C6",
+  "近径向": "近径向高对称结构",
+  "近径向高对称结构": "近径向高对称结构",
+};
 
 function structurePathKey(path) {
   if (!path) return "";
@@ -148,7 +170,7 @@ function pushStructureRecent(record) {
   if (!record || !record.key) return;
   const nav = ensureStructureNavigatorState();
   const list = [record, ...(nav.recent || []).filter((item) => item.key !== record.key)];
-  nav.recent = list.slice(0, 12);
+  nav.recent = list.slice(0, 3);
   saveStructureNavigatorState();
 }
 
@@ -269,9 +291,21 @@ function openModal({ title, body, confirmText = "确认", danger = false, onConf
       </div>
     </section>`;
   $$("[data-close-modal]", root).forEach((btn) => btn.addEventListener("click", closeModal));
-  $("[data-confirm-modal]", root).addEventListener("click", async () => {
-    if (onConfirm) await onConfirm();
-    closeModal();
+  $("[data-confirm-modal]", root).addEventListener("click", async (event) => {
+    const btn = event.currentTarget;
+    const original = btn.textContent;
+    btn.disabled = true;
+    btn.dataset.loading = "1";
+    btn.textContent = "处理中...";
+    try {
+      if (onConfirm) await onConfirm();
+      closeModal();
+    } catch (error) {
+      toast(error.message || String(error), "error");
+      btn.disabled = false;
+      btn.dataset.loading = "0";
+      btn.textContent = original;
+    }
   });
 }
 
@@ -322,6 +356,23 @@ function ensureJobLogState() {
   if (!state.jobLog.mode) state.jobLog.mode = "all";
   if (state.jobLog.search === undefined) state.jobLog.search = "";
   return state.jobLog;
+}
+
+function loadActiveJobId() {
+  try {
+    return localStorage.getItem(ACTIVE_JOB_STORAGE_KEY) || "";
+  } catch {
+    return "";
+  }
+}
+
+function saveActiveJobId(jobId) {
+  try {
+    if (!jobId) localStorage.removeItem(ACTIVE_JOB_STORAGE_KEY);
+    else localStorage.setItem(ACTIVE_JOB_STORAGE_KEY, String(jobId));
+  } catch {
+    // ignore
+  }
 }
 
 function jobLogLineTone(level) {
@@ -417,6 +468,119 @@ function renderJobLogPanel(root, log = null) {
   }
 }
 
+function ensureFloatingLogPanel() {
+  let panel = $("#floating-job-log");
+  if (!panel) {
+    panel = document.createElement("section");
+    panel.id = "floating-job-log";
+    panel.className = "floating-job-log collapsed";
+    panel.innerHTML = `
+      <header class="floating-job-log-head">
+        <strong class="floating-log-title">实时日志</strong>
+        <div class="toolbar">
+          <button class="btn danger" id="floating-log-stop" type="button">强制中断</button>
+          <button class="btn ghost" id="floating-log-copy" type="button">复制</button>
+          <button class="btn ghost" id="floating-log-download" type="button">下载</button>
+          <button class="btn ghost" id="floating-log-toggle" type="button">展开</button>
+        </div>
+      </header>
+      <div class="floating-job-log-body" id="floating-log-body"></div>`;
+    document.body.appendChild(panel);
+    let drag = null;
+    panel.addEventListener("pointerdown", (event) => {
+      if (!panel.classList.contains("collapsed")) return;
+      // 点击展开按钮时不进入拖动模式，避免吞掉 click 事件
+      if (event.target.closest("#floating-log-toggle")) return;
+      if (!event.target.closest(".floating-job-log-head")) return;
+      panel.setPointerCapture(event.pointerId);
+      const rect = panel.getBoundingClientRect();
+      drag = { id: event.pointerId, dx: event.clientX - rect.left, dy: event.clientY - rect.top };
+    });
+    panel.addEventListener("pointermove", (event) => {
+      if (!drag || drag.id !== event.pointerId) return;
+      const left = Math.max(8, Math.min(window.innerWidth - 64, event.clientX - drag.dx));
+      const top = Math.max(8, Math.min(window.innerHeight - 64, event.clientY - drag.dy));
+      panel.style.left = `${left}px`;
+      panel.style.top = `${top}px`;
+      panel.style.right = "auto";
+      panel.style.bottom = "auto";
+    });
+    panel.addEventListener("pointerup", () => { drag = null; });
+    panel.addEventListener("click", async (event) => {
+      const toggle = event.target.closest("#floating-log-toggle");
+      if (toggle) {
+        panel.classList.toggle("collapsed");
+        toggle.textContent = panel.classList.contains("collapsed") ? "展开" : "收起";
+        return;
+      }
+      if (event.target.closest("#floating-log-copy")) {
+        const text = jobLogPlainText(ensureJobLogState().data || {});
+        await copyText(String(text || ""));
+        toast("日志已复制。", "success");
+        return;
+      }
+      if (event.target.closest("#floating-log-download")) {
+        const text = jobLogPlainText(ensureJobLogState().data || {});
+        downloadText(`fdtd_job_log_${state.activeJobId || "current"}.txt`, String(text || ""));
+        return;
+      }
+      if (event.target.closest("#floating-log-stop")) {
+        if (!state.activeJobId) {
+          toast("当前没有运行中的任务。", "error");
+          return;
+        }
+        await api.stopJob(state.activeJobId);
+        toast("已发送强制中断请求。", "success");
+        return;
+      }
+      const modeBtn = event.target.closest("[data-job-log-mode]");
+      if (modeBtn) {
+        const jobLog = ensureJobLogState();
+        jobLog.mode = modeBtn.dataset.jobLogMode || "all";
+        updateFloatingLogPanel();
+        return;
+      }
+      if (event.target.closest("[data-job-log-copy]")) {
+        const text = jobLogPlainText(ensureJobLogState().data || {});
+        await copyText(String(text || ""));
+        toast("日志已复制。", "success");
+        return;
+      }
+      if (event.target.closest("[data-job-log-download]")) {
+        const text = jobLogPlainText(ensureJobLogState().data || {});
+        downloadText(`fdtd_job_log_${state.activeJobId || "current"}.txt`, String(text || ""));
+      }
+    });
+    panel.addEventListener("input", (event) => {
+      if (event.target.id !== "job-log-search") return;
+      const jobLog = ensureJobLogState();
+      jobLog.search = event.target.value || "";
+      updateFloatingLogPanel();
+    });
+    panel.addEventListener("change", (event) => {
+      if (event.target.id !== "job-log-auto-scroll") return;
+      const jobLog = ensureJobLogState();
+      jobLog.autoScroll = !!event.target.checked;
+      updateFloatingLogPanel();
+    });
+  }
+  return panel;
+}
+
+function updateFloatingLogPanel(log = null) {
+  const panel = ensureFloatingLogPanel();
+  const body = $("#floating-log-body", panel);
+  const data = log || ensureJobLogState().data || { text: "尚无日志", raw_text: "尚无日志", structured_lines: [] };
+  body.innerHTML = `<div class="floating-job-log-content">${jobLogDisplayText(data)}</div>`;
+  const content = $(".floating-job-log-content", panel);
+  if (content) content.classList.add("floating-compact");
+  panel.hidden = !state.activeJobId && !(data?.text || data?.raw_text);
+  const logBody = $("#job-log-body", panel);
+  if (logBody && ensureJobLogState().autoScroll && logBody.scrollHeight > logBody.clientHeight) {
+    logBody.scrollTop = logBody.scrollHeight;
+  }
+}
+
 async function runActionOnce(key, fn, lockMs = 1200) {
   const now = Date.now();
   if (actionLocks.get(key) > now) return;
@@ -470,6 +634,11 @@ function updateStatusBar(extra = "") {
 async function bootstrap() {
   const started = performance.now();
   try {
+    if (!state.activeJobId) state.activeJobId = loadActiveJobId();
+    if (!state.supplementRunState?.jobId) {
+      const sid = localStorage.getItem("fdtd.supplement.jobid.v1") || "";
+      if (sid) state.supplementRunState = { ...(state.supplementRunState || {}), jobId: sid, cursor: 0, logs: [], status: "running", timer: null };
+    }
     const data = await api.bootstrap();
     api.setLocalToken(data.local_token || "");
     state.meta = data.meta || null;
@@ -479,6 +648,11 @@ async function bootstrap() {
     updateHeader();
     updateStatusBar(data.stale ? "当前显示上次缓存" : `bootstrap ${Math.round(performance.now() - started)} ms`);
     await renderRoute();
+    updateFloatingLogPanel();
+    if (state.activeJobId) pollJob();
+    if (state.supplementRunState?.jobId) {
+      startSupplementLogPolling($("#page-root"));
+    }
     startBackgroundWarmup();
   } catch (error) {
     $("#page-root").innerHTML = `<div class="empty">读取缓存失败：${esc(error.message)}</div>`;
@@ -583,8 +757,21 @@ async function loadRouteData(route) {
     state.quality = await api.cacheChunk("quality");
   }
   if (route === "supplement") {
-    state.missing = await api.supplementMissing();
-    state.packages = await api.supplementPackages();
+    const [missing, packages] = await Promise.all([
+      api.supplementMissing(),
+      api.supplementPackages(),
+    ]);
+    let supplementTree = { tree: [] };
+    try {
+      supplementTree = await api.supplementTree({ scope: "current", query: state.supplementSearch || "" });
+    } catch (error) {
+      const msg = String(error?.message || "");
+      if (!msg.includes("/api/v2/supplement/tree")) throw error;
+      supplementTree = { tree: [] };
+    }
+    state.missing = missing;
+    state.packages = packages;
+    state.supplementTree = supplementTree;
   }
   if (route === "resources") {
     state.resourcesPage = await api.resources({ page: 1, page_size: 120, query: q });
@@ -632,18 +819,24 @@ function renderOverview() {
   const overview = state.overview || {};
   const s = overview.summary || {};
   const candidates = overview.top_candidates || [];
-  const groups = overview.groups || [];
+  const groups = (overview.groups || [])
+    .map((g) => ({ ...g, group: OVERVIEW_GROUP_LABELS[g.group] || g.group }))
+    .filter((g) => OVERVIEW_ALLOWED_GROUPS.has(g.group));
   const recent = overview.recent_runs || [];
   const risks = overview.risks || [];
   const noCache = !state.meta?.built_at;
+  const cacheBanner = state.indexStatus.running
+    ? "当前显示上次缓存 / 正在后台刷新"
+    : (state.meta?.stale ? "当前显示上次缓存" : "当前显示最新缓存");
   return `<section class="page active">
-    ${pageHead("研究总览", "首屏只读轻量缓存；目录扫描必须由后台刷新显式触发。", `<button class="btn secondary" id="first-index" type="button">${noCache ? "开始首次索引" : "后台刷新索引"}</button>`)}
+    ${pageHead("研究总览", "首屏只读轻量缓存；目录扫描必须由后台刷新显式触发。", `<div class="toolbar"><button class="btn secondary" id="first-index" type="button" title="增量刷新索引；顶部按钮支持右键全量重建">${noCache ? "开始首次索引" : "后台刷新索引"}</button><button class="btn ghost" id="rebuild-index" type="button" title="清空缓存并全量重建">清空缓存重建</button></div>`)}
+    <div class="notice" style="margin-bottom:12px">${esc(cacheBanner)}</div>
     <div class="stat-grid">
-      ${statCard("有效 run", s.valid_run_count, "存在 T 谱、manifest 或扫描点")}
-      ${statCard("异常 run", s.bad_run_count, "严重质量标记")}
-      ${statCard("已诊断谱线", s.spectra_count, "T/R/A 谱线索引")}
+      ${statCard("有效 run", s.valid_run_count, "当前 results 下真实存在且无严重问题", "口径：仅统计白名单群目录的 active run，且不存在不收敛/T>1/FWHM不可靠/子进程失败/manifest异常。")}
+      ${statCard("异常 run", s.bad_run_count, "当前 results 下存在严重异常", "口径：任意样本触发不收敛、T>1、FWHM不可靠、子进程失败、manifest异常即 +1。")}
+      ${statCard("已诊断谱线", s.diagnosed_spectra ?? s.spectra_count, "仅统计旧文件中的良好结果", "口径：仅统计 .../results/.../旧文件/.../良好 下谱线，不计入 active run。")}
       ${statCard("缺失证据", s.missing_evidence_count, "R/A/Field/Phase/Poynting")}
-      ${statCard("母结构覆盖率", pct(s.mother_coverage_rate), "按脚本与有效结果估算")}
+      ${statCard("母结构覆盖率", pct(s.mother_coverage_rate), "按脚本与有效结果估算", "群分类覆盖仅允许：C2/C3/C4/C6/近径向高对称结构。")}
     </div>
     ${noCache ? `<div class="empty">尚未建立索引。页面不会自动扫描真实目录，请点击“开始首次索引”。</div>` : ""}
     <div class="overview-grid">
@@ -655,13 +848,13 @@ function renderOverview() {
     </div>
   </section>`;
 }
-function statCard(label, value, note) {
-  return `<div class="card stat-card"><div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M13 16V8"/><path d="M18 16v-8"/></svg></div><div><div class="stat-label">${esc(label)}</div><div class="stat-value">${esc(value ?? "-")}</div><div class="stat-note">${esc(note)}</div></div></div>`;
+function statCard(label, value, note, tooltip = "") {
+  return `<div class="card stat-card" title="${esc(tooltip || note)}"><div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M13 16V8"/><path d="M18 16v-8"/></svg></div><div><div class="stat-label">${esc(label)}</div><div class="stat-value">${esc(value ?? "-")}</div><div class="stat-note">${esc(note)}</div></div></div>`;
 }
 
 function groupProgress(group) {
   const rate = Number(group.coverage_rate) || 0;
-  return `<div class="progress-row"><div class="progress-label">${esc(group.group || "未分类")}</div><div class="progress-track"><div class="progress-bar" style="width:${Math.max(2, Math.min(100, rate * 100))}%"></div></div><div class="progress-value">${pct(rate)}</div></div>`;
+  return `<div class="progress-row"><div class="progress-label">${esc(OVERVIEW_GROUP_LABELS[group.group] || group.group || "未分类")}</div><div class="progress-track"><div class="progress-bar" style="width:${Math.max(2, Math.min(100, rate * 100))}%"></div></div><div class="progress-value">${pct(rate)}</div></div>`;
 }
 
 function candidateTable(rows) {
@@ -690,21 +883,21 @@ function emptySmall(text) {
 
 function renderRunControl() {
   const scripts = state.scriptsPage?.scripts || [];
+  const selectedCount = state.selectedScriptIds.size;
+  const selectedRows = scripts.filter((s) => state.selectedScriptIds.has(String(s.id || s.script_id)));
   return `<section class="page active">
     ${pageHead("运行控制", "只通过 subprocess 调用 fdtd_master_controller.py；启动前写入 job_manifest、快照和临时 overrides。", `<button class="btn secondary" id="refresh-scripts" type="button">刷新脚本列表</button>`)}
     <div class="layout-3">
-      <div class="card pad"><div class="card-title">结构与脚本 <span class="muted">${fmt(state.scriptsPage?.total || scripts.length)} 个</span></div><div class="script-tree">${scripts.length ? scripts.map(scriptRow).join("") : emptySmall("暂无脚本缓存")}</div></div>
+      <div class="card pad"><div class="card-title">结构与脚本 <span class="muted">${fmt(state.scriptsPage?.total || scripts.length)} 个</span></div><div class="script-tree">${renderScriptTree(scripts)}</div></div>
       <div class="card pad">${runForm()}</div>
-      <div><div class="card pad"><div class="card-title">启动摘要</div><table class="table"><tbody><tr><td>选择脚本</td><td id="selected-script-count">${state.selectedScriptIds.size}</td></tr><tr><td>扫描点数估算</td><td id="point-estimate">待预览</td></tr><tr><td>预计时长</td><td id="duration-estimate">待预览</td></tr><tr><td>安全状态</td><td id="run-preview-status">${state.runPreview?.valid ? "已预览，可启动" : (state.runPreview?.dirtyReason || "未预览")}</td></tr></tbody></table><div class="toolbar" style="margin-top:14px"><button class="btn secondary" id="preview-run" type="button">预览命令</button><button class="btn primary" id="start-run" type="button" ${state.runPreview?.valid ? "" : "disabled"}>启动</button></div></div><div class="terminal-head" style="margin-top:12px"><span>实时日志</span><button class="link" id="stop-job" type="button">停止任务</button></div><div class="card pad" id="job-log">${jobLogDisplayText(ensureJobLogState().data || { text: "尚未启动任务。", raw_text: "尚未启动任务。", structured_lines: [] })}</div></div>
+      <div><div class="card pad"><div class="card-title">启动摘要</div><table class="table"><tbody><tr><td>选择脚本</td><td id="selected-script-count">${selectedCount}</td></tr><tr><td>扫描点数估算</td><td id="point-estimate">待预览</td></tr><tr><td>预计时长</td><td id="duration-estimate">待预览</td></tr><tr><td>安全状态</td><td id="run-preview-status">${state.runPreview?.valid ? "已预览，可启动" : (state.runPreview?.dirtyReason || "未预览")}</td></tr></tbody></table><div class="toolbar" style="margin-top:14px"><button class="btn secondary" id="preview-run" type="button">预览命令</button><button class="btn primary" id="start-run" type="button" ${state.runPreview?.valid ? "" : "disabled"}>启动</button></div></div>
+      <div class="card pad run-override-card" style="margin-top:12px">
+        <div class="card-title">已选脚本参数表 <span class="muted">${selectedCount} 个</span></div>
+        ${renderSelectedScriptOverrides(selectedRows)}
+      </div></div>
     </div>
     <div class="bottom-actions"><span class="muted">危险操作都需要二次确认；full + parallel 会触发高风险确认。</span><div class="toolbar"><button class="btn ghost" id="clear-selected" type="button">清空选择</button><button class="btn primary" id="bottom-start" type="button" ${state.runPreview?.valid ? "" : "disabled"}>确认启动</button></div></div>
   </section>`;
-}
-
-function scriptRow(s) {
-  const id = String(s.id || s.script_id);
-  const status = { has_full: "已有 full", has_test: "已有 test", missing_result: "缺结果", failed: "异常", unknown: "未知" }[s.status] || s.status || "未知";
-  return `<button class="tree-row ${state.selectedScriptIds.has(id) ? "active" : ""}" data-script-id="${esc(id)}" type="button"><span class="dot ${s.status === "failed" ? "red" : s.status === "has_full" ? "green" : "orange"}"></span><span>${esc(s.group || "")} / ${esc(s.mother_structure || "")} / ${esc(s.perturbation || s.relative_path)}</span><span class="tag blue">${esc(status)}</span></button>`;
 }
 
 function runForm() {
@@ -713,14 +906,17 @@ function runForm() {
     <div class="field" style="margin-top:12px"><label>执行策略</label><div class="segmented" id="style-control"><button class="active" data-value="sequential" type="button">sequential</button><button data-value="parallel" type="button">parallel</button></div></div>
     <div class="form-grid" style="margin-top:12px">
       ${inputField("max-parallel", "并发数", "2", "个")}
-      ${inputField("start-value", "start", "", "nm")}
-      ${inputField("end-value", "end", "", "nm")}
-      ${inputField("step-value", "step", "", "nm")}
-      ${inputField("mesh-accuracy", "mesh accuracy", "", "级")}
-      ${inputField("dt-factor", "dt 稳定阈值", "", "CFL")}
-      ${inputField("runtime-fs", "runtime", "", "fs")}
-      ${inputField("auto-shutoff", "auto shutoff", "", "min")}
       ${inputField("child-timeout", "子任务超时", "3600", "s")}
+    </div>
+    <div class="card-title" style="margin-top:12px">默认参数</div>
+    <div class="form-grid">
+      ${overrideInputField("default", "START_NM", "start", "nm", state.defaultOverrides.START_NM ?? "")}
+      ${overrideInputField("default", "END_NM", "end", "nm", state.defaultOverrides.END_NM ?? "")}
+      ${overrideInputField("default", "STEP_NM", "step", "nm", state.defaultOverrides.STEP_NM ?? "")}
+      ${overrideInputField("default", "MESH_ACCURACY", "mesh accuracy", "级", state.defaultOverrides.MESH_ACCURACY ?? "")}
+      ${overrideInputField("default", "SIMULATION_TIME_FS", "runtime", "fs", state.defaultOverrides.SIMULATION_TIME_FS ?? "")}
+      ${overrideInputField("default", "AUTO_SHUTOFF_MIN", "auto shutoff", "min", state.defaultOverrides.AUTO_SHUTOFF_MIN ?? "")}
+      ${overrideInputField("default", "DT_STABILITY_FACTOR", "dt 稳定阈值", "CFL", state.defaultOverrides.DT_STABILITY_FACTOR ?? "")}
     </div>
     <div class="notice" style="margin-top:14px">页面加载不会运行脚本；只有点击启动并确认后才会执行。</div>`;
 }
@@ -729,10 +925,101 @@ function inputField(id, label, value, unit) {
   return `<div class="field unit-field"><label>${esc(label)}</label><input class="input" id="${esc(id)}" type="number" value="${esc(value)}"><span class="unit">${esc(unit)}</span></div>`;
 }
 
+function overrideInputField(scope, key, label, unit, value = "") {
+  return `<div class="field unit-field"><label>${esc(label)}</label><input class="input" data-override-scope="${esc(scope)}" data-override-key="${esc(key)}" type="number" value="${esc(value)}"><span class="unit">${esc(unit)}</span></div>`;
+}
+
+function scriptStatusTag(status) {
+  const map = { has_full: ["已有 full", "green"], has_test: ["已有 test", "blue"], missing_result: ["缺结果", "orange"], failed: ["异常", "red"], unknown: ["未知", "orange"] };
+  const [label, tone] = map[status] || [status || "未知", "orange"];
+  return `<span class="tag ${tone}">${esc(label)}</span>`;
+}
+
+function scriptTreeModel(scripts) {
+  const groupsMap = new Map();
+  scripts.forEach((script) => {
+    const group = script.group || "未分类";
+    const mother = script.mother_structure || "未识别母结构";
+    const perturb = script.perturbation || "未识别扰动";
+    if (!groupsMap.has(group)) groupsMap.set(group, new Map());
+    if (!groupsMap.get(group).has(mother)) groupsMap.get(group).set(mother, new Map());
+    if (!groupsMap.get(group).get(mother).has(perturb)) groupsMap.get(group).get(mother).set(perturb, []);
+    groupsMap.get(group).get(mother).get(perturb).push(script);
+  });
+  const out = [];
+  for (const [group, mothers] of groupsMap.entries()) {
+    const gNode = { key: `g:${group}`, type: "group", label: group, children: [] };
+    for (const [mother, perts] of mothers.entries()) {
+      const mNode = { key: `m:${group}|${mother}`, type: "mother", label: mother, children: [] };
+      for (const [perturb, rows] of perts.entries()) {
+        const pNode = { key: `p:${group}|${mother}|${perturb}`, type: "perturbation", label: perturb, children: [] };
+        rows.forEach((s) => pNode.children.push({ key: `s:${String(s.id || s.script_id)}`, type: "script", scriptId: String(s.id || s.script_id), script: s, label: s.relative_path || s.script_path || s.perturbation || s.script_id }));
+        mNode.children.push(pNode);
+      }
+      gNode.children.push(mNode);
+    }
+    out.push(gNode);
+  }
+  return out;
+}
+
+function collectScriptIds(node) {
+  if (!node) return [];
+  if (node.type === "script") return [node.scriptId];
+  return (node.children || []).flatMap((c) => collectScriptIds(c));
+}
+
+function scriptSelectionState(node) {
+  const ids = collectScriptIds(node);
+  if (!ids.length) return { checked: false, indeterminate: false, total: 0, selected: 0 };
+  const selected = ids.filter((id) => state.selectedScriptIds.has(id)).length;
+  return { checked: selected === ids.length, indeterminate: selected > 0 && selected < ids.length, total: ids.length, selected };
+}
+
+function renderScriptTree(scripts) {
+  if (!scripts.length) return emptySmall("暂无脚本缓存");
+  const model = scriptTreeModel(scripts);
+  const renderNode = (node, level = 0) => {
+    const sel = scriptSelectionState(node);
+    const expandable = node.type !== "script";
+    const expanded = expandable ? state.scriptTreeExpanded.has(node.key) : false;
+    const status = node.type === "script" ? scriptStatusTag(node.script.status) : `<span class="tag blue">${fmt(sel.selected)}/${fmt(sel.total)}</span>`;
+    const dot = node.type === "script" ? `<span class="dot ${node.script.status === "failed" ? "red" : node.script.status === "has_full" ? "green" : "orange"}"></span>` : `<span class="dot blue"></span>`;
+    return `<div class="run-tree-node level-${level}">
+      <div class="run-tree-row" data-tree-key="${esc(node.key)}" data-tree-type="${esc(node.type)}" data-script-id="${esc(node.scriptId || "")}">
+        ${expandable ? `<button class="icon-btn run-tree-toggle" data-tree-toggle="${esc(node.key)}" type="button">${expanded ? "▾" : "▸"}</button>` : `<span class="run-tree-toggle-spacer"></span>`}
+        <input type="checkbox" data-tree-check="${esc(node.key)}" ${sel.checked ? "checked" : ""} ${sel.indeterminate ? "data-indeterminate=1" : ""}>
+        ${dot}
+        <span class="run-tree-label">${esc(node.type === "script" ? (node.script.mother_structure ? `${node.script.mother_structure} / ${node.script.perturbation}` : node.label) : node.label)}</span>
+        ${status}
+      </div>
+      ${expandable && expanded ? `<div class="run-tree-children">${(node.children || []).map((child) => renderNode(child, level + 1)).join("")}</div>` : ""}
+    </div>`;
+  };
+  return `<div class="run-script-tree">${model.map((n) => renderNode(n, 0)).join("")}</div>`;
+}
+
+function renderSelectedScriptOverrides(rows) {
+  if (!rows.length) return `<div class="empty">请选择脚本后再设置单脚本参数。</div>`;
+  const keys = ["START_NM", "END_NM", "STEP_NM", "MESH_ACCURACY", "SIMULATION_TIME_FS", "AUTO_SHUTOFF_MIN", "DT_STABILITY_FACTOR"];
+  return `<div class="run-script-overrides">${rows.map((script) => {
+    const sid = String(script.id || script.script_id);
+    const open = state.scriptTreeExpanded.has(`o:${sid}`);
+    const values = state.perScriptOverrides[sid] || {};
+    return `<div class="override-item">
+      <div class="override-head">
+        <button class="link" data-override-toggle="${esc(sid)}" type="button">${open ? "▾" : "▸"} ${esc(script.group || "")} / ${esc(script.mother_structure || "")} / ${esc(script.perturbation || sid)}</button>
+        ${scriptStatusTag(script.status)}
+      </div>
+      ${open ? `<div class="override-grid">${keys.map((k) => `<div class="field"><label>${esc(k)}</label><input class="input" data-override-scope="script" data-override-script-id="${esc(sid)}" data-override-key="${esc(k)}" type="number" value="${esc(values[k] ?? "")}"></div>`).join("")}</div>` : ""}
+    </div>`;
+  }).join("")}</div>`;
+}
+
 function renderResults() {
   const runs = state.runsPage?.runs || [];
   return `<section class="page active">
-    ${pageHead("结果浏览", "按当前结果 / 历史结果分区加载；run 树使用 群类别 → 母结构 → 扰动 → run 的层级，点击样本后预览对应谱图。")}
+    ${pageHead("结果浏览", "群类别 → 母结构 → 扰动方式 → run；支持按 scope 过滤并保存展开状态。", `<button class="btn secondary" id="refresh-results-index" type="button">刷新结果索引</button>`)}
     <div class="results-layout">
       <div class="card pad results-sidebar">
         <div id="structure-navigator">${renderStructureNavigator()}</div>
@@ -743,9 +1030,18 @@ function renderResults() {
           <div id="sample-table" class="empty">请选择 run。</div>
         </div>
         <div class="card chart-card">
-          <div class="chart-head"><strong>参数趋势 / 相关资源</strong><span id="resource-hint" class="muted">选择 run 后按需加载</span></div>
+          <div class="chart-head"><strong>样本参数—光谱响应联动分析</strong><span id="resource-hint" class="muted">选择 run 后加载 δ→指标关系</span></div>
+          <div class="toolbar" id="result-metric-tabs" style="margin-bottom:8px">
+            ${[
+              ["lambda0_nm", "δ → λ0"],
+              ["q", "δ → Q"],
+              ["fwhm_nm", "δ → FWHM"],
+              ["max_t", "δ → max(T)"],
+              ["score", "δ → score"],
+            ].map(([key, label]) => `<button class="btn ghost ${state.resultAnalysisMetric === key ? "active" : ""}" data-result-metric="${esc(key)}" type="button">${esc(label)}</button>`).join("")}
+          </div>
           <div class="trend-resource-grid">
-            <div class="chart-box small"><canvas id="result-trend-chart"></canvas></div>
+            <div class="chart-box small"><div id="result-response-chart" style="width:100%;height:210px"></div></div>
             <div id="resource-strip" class="resource-strip">请选择 run。</div>
           </div>
         </div>
@@ -762,26 +1058,25 @@ function renderStructureNavigator() {
   const nav = ensureStructureNavigatorState();
   const scope = nav.scope || "current";
   const query = (nav.query || "").trim();
-  const tree = Array.isArray(state.structureTree?.tree) ? state.structureTree.tree : [];
+  const treeRaw = Array.isArray(state.structureTree?.tree) ? state.structureTree.tree : [];
+  const tree = pruneStructureTreeByScope(filterAllowedResultTree(treeRaw), scope);
   const filtered = filterStructureTree(tree, query);
+  const visibleRunCount = countTreeRuns(filtered);
   const selectedKey = state.selectedStructure?.key || structurePathKey({
     group: state.resultFilters.group || "",
     mother: state.resultFilters.mother || "",
     perturbation: state.resultFilters.perturbation || "",
     run_id: state.selectedRunId || "",
   });
-  const openKeys = new Set(nav.expanded || []);
-  if (state.selectedStructure) {
-    structureAncestorKeys(state.selectedStructure).forEach((key) => openKeys.add(key));
-  }
+  const openKeys = new Set(state.resultTreeExpanded || []);
   return `
     <div class="structure-nav">
-      <div class="card-title">StructureNavigator <span class="muted">${fmt(state.structureTree?.run_count || state.runsPage?.total || 0)} 个</span></div>
+      <div class="card-title">StructureNavigator <span class="muted">${fmt(visibleRunCount)} 个</span></div>
       <div class="structure-nav-bar">
         <input class="input structure-search" id="structure-search" type="search" placeholder="搜索结构 / 扰动 / run" value="${esc(nav.query || "")}">
         <div class="segmented structure-scope" id="structure-scope">
           <button class="${scope === "current" ? "active" : ""}" data-structure-scope="current" type="button">当前 results</button>
-          <button class="${scope === "old" ? "active" : ""}" data-structure-scope="old" type="button">旧文件</button>
+          <button class="${scope === "old" ? "active" : ""}" data-structure-scope="old" type="button">旧文件良好</button>
           <button class="${scope === "all" ? "active" : ""}" data-structure-scope="all" type="button">全部</button>
         </div>
       </div>
@@ -793,9 +1088,83 @@ function renderStructureNavigator() {
     </div>`;
 }
 
+function countTreeRuns(nodes) {
+  const walk = (node) => {
+    const directRuns = Array.isArray(node.runs) ? node.runs.length : (node.kind === "run" ? 1 : 0);
+    const childRuns = (node.children || []).reduce((sum, child) => sum + walk(child), 0);
+    return directRuns + childRuns;
+  };
+  return (nodes || []).reduce((sum, node) => sum + walk(node), 0);
+}
+
+function runRecordMatchesScope(run, scope) {
+  if (!run) return false;
+  const runScope = String(run.scope || "").toLowerCase();
+  const isArchived = Boolean(run.is_archived_good) || runScope === "archived_good" || runScope === "old";
+  const isActive = run.is_active_result !== false && !isArchived;
+  if (scope === "old") return isArchived;
+  if (scope === "all") return isActive || isArchived;
+  return isActive;
+}
+
+function pruneStructureTreeByScope(nodes, scope = "current") {
+  const normalizeRun = (run) => {
+    const runScope = String(run.scope || "").toLowerCase();
+    if (!run.scope) {
+      if (run.is_archived_good) run.scope = "archived_good";
+      else if (run.is_active_result === false) run.scope = "ignored";
+      else run.scope = "active";
+    } else if (runScope === "old") {
+      run.scope = "archived_good";
+    } else if (runScope === "current") {
+      run.scope = "active";
+    }
+    return run;
+  };
+  const walk = (node) => {
+    const current = { ...node };
+    const runs = (node.runs || [])
+      .map((run) => normalizeRun({ ...run }))
+      .filter((run) => runRecordMatchesScope(run, scope));
+    const children = (node.children || []).map((child) => walk(child)).filter(Boolean);
+    current.runs = runs;
+    current.children = children;
+    if (!runs.length && !children.length) return null;
+    current.run_count = runs.length || children.reduce((sum, child) => sum + (child.run_count || 0), 0);
+    return current;
+  };
+  return (nodes || []).map((node) => walk(node)).filter(Boolean);
+}
+
+function removeRunFromStructureTree(runId) {
+  if (!runId || !state.structureTree?.tree) return;
+  const walk = (node) => {
+    const runs = (node.runs || []).filter((run) => (run.run_id || "") !== runId);
+    const children = (node.children || []).map((child) => walk(child)).filter(Boolean);
+    if (!runs.length && !children.length) return null;
+    return { ...node, runs, children };
+  };
+  state.structureTree = {
+    ...state.structureTree,
+    tree: (state.structureTree.tree || []).map((node) => walk(node)).filter(Boolean),
+  };
+}
+
+function filterAllowedResultTree(nodes) {
+  const allowed = new Set(["C2", "C3", "C4", "C6", "近径向高对称结构", "近径向"]);
+  const normalize = (name) => (name === "近径向" ? "近径向高对称结构" : name);
+  return (nodes || [])
+    .filter((node) => allowed.has(node.name || node.group || ""))
+    .map((node) => ({
+      ...node,
+      name: normalize(node.name || node.group || ""),
+      group: normalize(node.group || node.name || ""),
+    }));
+}
+
 function renderStructurePins(title, items, kind) {
   if (!items.length) return `<div class="structure-band"><div class="structure-band-title">${esc(title)}</div><div class="muted structure-band-empty">暂无</div></div>`;
-  return `<div class="structure-band"><div class="structure-band-title">${esc(title)}</div><div class="structure-pin-row">${items.slice(0, 6).map((item) => `<button class="structure-pin" data-structure-pin="${esc(item.key)}" data-structure-pin-kind="${esc(kind)}" data-structure-label="${esc(item.label || "")}" data-structure-group="${esc(item.group || "")}" data-structure-mother="${esc(item.mother || "")}" data-structure-perturbation="${esc(item.perturbation || "")}" data-structure-run="${esc(item.run_id || "")}" data-structure-scope="${esc(item.scope || "")}" type="button" title="${esc(item.label || item.key)}"><span>${esc(item.label || item.key)}</span></button>`).join("")}</div></div>`;
+  return `<div class="structure-band"><div class="structure-band-title">${esc(title)}</div><div class="structure-pin-row">${items.slice(0, 3).map((item) => `<button class="structure-pin" data-structure-pin="${esc(item.key)}" data-structure-pin-kind="${esc(kind)}" data-structure-label="${esc(item.label || "")}" data-structure-group="${esc(item.group || "")}" data-structure-mother="${esc(item.mother || "")}" data-structure-perturbation="${esc(item.perturbation || "")}" data-structure-run="${esc(item.run_id || "")}" data-structure-scope="${esc(item.scope || "")}" type="button" title="${esc(item.label || item.key)}"><span>${esc(item.label || item.key)}</span></button>`).join("")}</div></div>`;
 }
 
 function filterStructureTree(nodes, query) {
@@ -863,7 +1232,7 @@ function renderStructureNode(node, parent = null, level = 0, openKeys = new Set(
   const toggle = canToggle ? `<button class="icon-btn structure-toggle" data-structure-toggle="${esc(key)}" type="button" aria-label="${expanded ? "收起" : "展开"}">${expanded ? "▾" : "▸"}</button>` : `<span class="structure-toggle-spacer"></span>`;
   const fav = `<button class="icon-btn structure-favorite ${isFavoriteRecord(record) ? "active" : ""}" data-structure-favorite="${esc(key)}" type="button" aria-label="收藏">${isFavoriteRecord(record) ? "★" : "☆"}</button>`;
   const selectButton = (node.kind === "perturbation" || node.kind === "run")
-    ? `<button class="link structure-select" data-structure-select="${esc(key)}" data-structure-run="${esc(node.kind === "run" ? (node.run_id || "") : (node.runs?.[0]?.run_id || ""))}" title="${esc(countTitle)}">${esc(node.name || record.label || key)}</button>`
+    ? `<button class="link structure-select" data-structure-select="${esc(key)}" data-structure-run="${esc(node.kind === "run" ? (node.run_id || "") : (node.runs?.[0]?.run_id || ""))}" title="${esc(countTitle)}" type="button">${esc(node.name || record.label || key)}</button>`
     : `<span class="structure-name" title="${esc(countTitle)}">${esc(node.name || record.label || key)}</span>`;
   return `
     <div class="structure-node level-${level} ${isSelected ? "active" : ""}" data-structure-node="${esc(key)}" data-structure-group="${esc(record.group || "")}" data-structure-mother="${esc(record.mother || "")}" data-structure-perturbation="${esc(record.perturbation || "")}" data-structure-run="${esc(record.run_id || "")}" data-structure-label="${esc(record.label || "")}" data-structure-kind="${esc(node.kind || "")}">
@@ -932,8 +1301,113 @@ function renderDiagnosis() {
     </div>
     <div class="layout-2"><div class="card chart-card"><div class="chart-head"><strong>T(λ) 曲线</strong><button class="btn secondary" id="load-spectrum" type="button">重载谱线</button></div><div class="chart-box"><canvas id="spectrum-chart"></canvas></div></div><div class="card pad"><div class="card-title">质量旗标</div><div id="quality-flags">${qFlags.length ? `<div class="flag-list">${qFlags.map((f) => `<div class="flag-item"><span class="dot ${f.severity === "fail" ? "red" : "orange"}"></span><span><strong>${esc(f.flag)}</strong><br><span class="muted">${esc(f.detail || "")}</span></span></div>`).join("")}</div>` : emptySmall("选择 run 后加载质量状态")}</div></div></div>
     <div class="card pad" style="margin-top:16px"><div class="card-title">谱图图片 <span class="muted">${fmt(imageFiles.length)} 张</span></div><div class="image-strip">${imageFiles.length ? imageFiles.slice(0, 18).map((f, idx) => `<button class="thumb" data-diagnosis-image="${esc(f.relative_path)}" type="button"><img src="/api/v2/files/raw?path=${encodeURIComponent(f.relative_path.replaceAll("\\", "/"))}" alt="${esc(f.name || f.relative_path)}"><span>${idx + 1}</span></button>`).join("") : emptySmall("该 run 暂无谱图 png；仍可显示 Excel/CSV 曲线。")}</div></div>
-    <div class="card chart-card" style="margin-top:16px"><div class="chart-head"><strong>参数趋势</strong><button class="btn secondary" id="load-trend" type="button">加载趋势</button></div><div class="chart-box"><canvas id="trend-chart"></canvas></div></div>
+    <div class="card chart-card" style="margin-top:16px">
+      <div class="chart-head"><strong>诊断趋势矩阵</strong><button class="btn secondary" id="load-trend" type="button">加载趋势</button></div>
+      <div class="toolbar" id="diagnosis-metric-tabs">
+        ${[
+          ["lambda0_nm", "λ0 vs δ"],
+          ["q", "Q vs δ"],
+          ["fwhm_nm", "FWHM vs δ"],
+          ["max_t", "max(T) vs δ"],
+          ["score", "score vs δ"],
+        ].map(([key, label]) => `<button class="btn ghost ${state.diagnosisTrendMetric === key ? "active" : ""}" data-diagnosis-metric="${esc(key)}" type="button">${esc(label)}</button>`).join("")}
+      </div>
+      <div class="chart-box"><div id="diagnosis-trend-chart" style="width:100%;height:260px"></div></div>
+      <div id="diagnosis-evidence-chips" class="diag-evidence"></div>
+      <div class="diag-proof-note">提示：缺 Field / Phase / Poynting 时，当前结论不能作为严格拓扑证明。</div>
+    </div>
   </section>`;
+}
+
+function diagnosisMetricConfig(key) {
+  const map = {
+    lambda0_nm: { yKey: "lambda0_nm", yLabel: "中心波长 λ0 (nm)" },
+    q: { yKey: "q", yLabel: "品质因子 Q" },
+    fwhm_nm: { yKey: "fwhm_nm", yLabel: "半高宽 FWHM (nm)" },
+    max_t: { yKey: "max_t", yLabel: "峰值 max(T)" },
+    score: { yKey: "score", yLabel: "综合得分 score" },
+  };
+  return map[key] || map.score;
+}
+
+function diagnosisPointSeverity(point) {
+  const flags = point.quality_flags || [];
+  const missing = point.missing_evidence || [];
+  const critical = ["T > 1", "FWHM 不可靠", "子进程失败", "manifest 异常", "未收敛", "non-converged"];
+  const highRisk = flags.some((f) => critical.some((k) => String(f || "").toLowerCase().includes(k.toLowerCase())))
+    || Number(point.max_t) > 1;
+  if (highRisk) return "high";
+  if (flags.length || missing.length) return "warn";
+  return "ok";
+}
+
+function buildDiagnosisTrendRows(detail, trendPoints) {
+  const samples = detail?.samples || [];
+  const sampleByDelta = new Map(samples.map((s) => [String(s.delta ?? ""), s]));
+  return (trendPoints || []).map((row, idx) => {
+    const sample = sampleByDelta.get(String(row.delta ?? "")) || {};
+    const point = {
+      idx,
+      sample_id: sample.sample_id || row.sample_id || `#${idx + 1}`,
+      delta: Number(row.delta ?? idx),
+      lambda0_nm: Number(row.lambda0_nm ?? row.lambda_peak_nm ?? sample.lambda0_nm),
+      q: Number(row.q ?? row.Q ?? sample.q ?? sample.Q),
+      fwhm_nm: Number(row.fwhm_nm ?? row.FWHM_nm ?? sample.fwhm_nm ?? sample.FWHM_nm),
+      max_t: Number(row.max_t ?? row.max_T ?? sample.max_t ?? sample.max_T),
+      score: Number(row.score ?? sample.score),
+      quality_flags: (sample.quality_flags || row.quality_flags || []).map((x) => String(x)),
+      missing_evidence: (sample.missing_evidence || row.missing_evidence || detail?.missing_evidence || []).map((x) => String(x)),
+    };
+    point.severity = diagnosisPointSeverity(point);
+    return point;
+  }).filter((p) => Number.isFinite(p.delta));
+}
+
+function renderDiagnosisEvidenceChips(root, point) {
+  const host = $("#diagnosis-evidence-chips", root);
+  if (!host) return;
+  if (!point) {
+    host.innerHTML = `<div class="muted">选择趋势点后显示证据完整度。</div>`;
+    return;
+  }
+  const missingSet = new Set((point.missing_evidence || []).map((x) => String(x).toLowerCase()));
+  const keys = ["R", "A", "Field", "Phase", "Poynting"];
+  const chips = keys.map((key) => {
+    const miss = missingSet.has(key.toLowerCase());
+    return `<span class="diag-chip ${miss ? "missing" : "ok"}">${esc(key)}: ${miss ? "缺失" : "就绪"}</span>`;
+  }).join("");
+  host.innerHTML = `<div class="diag-evidence-head">样本 ${esc(point.sample_id)} · δ=${fmt(point.delta, 4)} · 风险=${esc(point.severity)}</div><div class="diag-chip-row">${chips}</div>`;
+}
+
+function renderDiagnosisTrendMatrix(root) {
+  const host = $("#diagnosis-trend-chart", root);
+  if (!host) return;
+  const rows = state.diagnosisTrendRows || [];
+  if (!rows.length) {
+    host.innerHTML = `<div class="empty" style="min-height:260px">暂无趋势数据。</div>`;
+    renderDiagnosisEvidenceChips(root, null);
+    return;
+  }
+  const metric = diagnosisMetricConfig(state.diagnosisTrendMetric);
+  const chartRows = rows
+    .filter((r) => Number.isFinite(Number(r[metric.yKey])))
+    .map((r) => ({ ...r, value: Number(r[metric.yKey]) }));
+  if (!chartRows.length) {
+    host.innerHTML = `<div class="empty" style="min-height:260px">当前指标暂无可绘制数据。</div>`;
+    renderDiagnosisEvidenceChips(root, null);
+    return;
+  }
+  drawDiagnosisTrendMatrix(host, chartRows, {
+    metric: state.diagnosisTrendMetric,
+    xLabel: "扰动参数 δ",
+    yLabel: metric.yLabel,
+    onPointSelected(point) {
+      state.diagnosisSelectedPoint = point || null;
+      renderDiagnosisEvidenceChips(root, point || null);
+    },
+  });
+  const selected = state.diagnosisSelectedPoint && chartRows.find((r) => r.sample_id === state.diagnosisSelectedPoint.sample_id && r.delta === state.diagnosisSelectedPoint.delta);
+  renderDiagnosisEvidenceChips(root, selected || chartRows[0] || null);
 }
 
 function runSelector(runs) {
@@ -999,19 +1473,82 @@ function renderTopology() {
   const runs = state.runsPage?.runs || [];
   const relay = state.relay || {};
   const imageFiles = selectedRunImageFiles();
+  const todoList = [
+    "k-space 扫描",
+    "band sweep",
+    "相位连续性",
+    "缠绕数",
+    "Field",
+    "Phase",
+    "Poynting",
+    ...(relay.evidence_gaps || []),
+    ...(relay.todo || []),
+  ];
+  const uniqueTodo = Array.from(new Set(todoList.filter(Boolean)));
+  const hasWeakEvidence = uniqueTodo.length > 0;
   return `<section class="page active">
     ${pageHead("模式接力 / 拓扑候选", "本页仅做候选筛选，不等价于严格拓扑证明。")}
-    <div class="notice">本页仅为候选筛选；严格证明仍需 k-space 扫描、带隙演化、相位连续性与缠绕数验证。</div>
+    <div class="notice">本页仅为候选筛选；严格证明仍需 k-space / band sweep / 相位连续性 / 缠绕数，以及 Field-Phase-Poynting 证据链。</div>
     ${runSelector(runs)}
     <div class="metric-grid">
       ${metric("候选强度", relay.candidate_strength)}
       ${metric("代表样本数", relay.representative_sample_count)}
-      ${metric("证据缺口", relay.evidence_gaps?.length)}
+      ${metric("证据缺口", uniqueTodo.length)}
       <div class="metric"><label>临界区间</label><strong>${esc(relay.critical_interval || "-")}</strong></div>
     </div>
-    <div class="layout-2"><div class="card chart-card"><div class="chart-head"><strong>T(λ,δ) 热图</strong><button class="btn secondary" id="load-heatmap" type="button">重载热图</button></div><div class="chart-box"><canvas id="heatmap-chart"></canvas></div></div><div class="card pad"><div class="card-title">证据缺口 / Todo</div>${(relay.evidence_gaps || []).concat(relay.todo || []).length ? `<div class="flag-list">${(relay.evidence_gaps || []).concat(relay.todo || []).map((x) => `<div class="flag-item"><span class="dot orange"></span><span>${esc(x)}</span></div>`).join("")}</div>` : emptySmall("选择 run 后加载")}</div></div>
+    <div class="layout-2">
+      <div class="card chart-card">
+        <div class="chart-head"><strong>T(λ, δ) 模式接力热图</strong><button class="btn secondary" id="load-heatmap" type="button">重载热图</button></div>
+        <div class="chart-box"><div id="mode-relay-heatmap" style="width:100%;height:520px"></div></div>
+        <div class="muted topo-note">图中叠加 λ_peak / λ_dip 轨迹，并自动标注起点模式、反交叉区、模式切换点、高透射候选与 T&gt;1 异常点。</div>
+      </div>
+      <div class="card pad">
+        <div class="card-title">严格证明缺口 / Todo</div>
+        ${uniqueTodo.length ? `<div class="flag-list">${uniqueTodo.map((x) => `<div class="flag-item"><span class="dot orange"></span><span>${esc(x)}</span></div>`).join("")}</div>` : emptySmall("暂无缺口")}
+        ${hasWeakEvidence ? `<div class="topo-action"><button class="btn primary" data-go="supplement" type="button">去补做实验</button></div>` : `<div class="muted" style="margin-top:10px">证据链较完整，仍需避免把候选写成已证明。</div>`}
+      </div>
+    </div>
     <div class="card pad" style="margin-top:16px"><div class="card-title">代表谱图 <span class="muted">${fmt(imageFiles.length)} 张</span></div><div class="image-strip">${imageFiles.length ? imageFiles.slice(0, 18).map((f, idx) => `<button class="thumb" data-diagnosis-image="${esc(f.relative_path)}" type="button"><img src="/api/v2/files/raw?path=${encodeURIComponent(f.relative_path.replaceAll("\\", "/"))}" alt="${esc(f.name || f.relative_path)}"><span>${idx + 1}</span></button>`).join("") : emptySmall("该 run 暂无谱图 png；可先用热图和峰位轨迹判断候选。")}</div></div>
   </section>`;
+}
+
+function relayAnnotations(heatmap, relay) {
+  const rows = heatmap?.values || [];
+  const lambdas = heatmap?.lambda_grid || [];
+  const deltas = heatmap?.deltas || [];
+  const peakTrack = [];
+  const dipTrack = [];
+  const highTrans = [];
+  const tOverOne = [];
+  rows.forEach((row, rIdx) => {
+    if (!Array.isArray(row) || !row.length) return;
+    let maxV = -Infinity; let minV = Infinity;
+    let maxI = -1; let minI = -1;
+    row.forEach((v, i) => {
+      const n = Number(v);
+      if (!Number.isFinite(n)) return;
+      if (n > maxV) { maxV = n; maxI = i; }
+      if (n < minV) { minV = n; minI = i; }
+    });
+    if (maxI >= 0) peakTrack.push([Number(lambdas[maxI]), Number(deltas[rIdx]), Number(maxV)]);
+    if (minI >= 0) dipTrack.push([Number(lambdas[minI]), Number(deltas[rIdx]), Number(minV)]);
+    const tAbs = (Number(heatmap?.raw_min) || 0) + ((Number(heatmap?.raw_max) || 1) - (Number(heatmap?.raw_min) || 0)) * Number(maxV);
+    if (Number.isFinite(tAbs) && tAbs > 0.92) highTrans.push([Number(lambdas[maxI]), Number(deltas[rIdx]), tAbs]);
+    if (Number.isFinite(tAbs) && tAbs > 1.0) tOverOne.push([Number(lambdas[maxI]), Number(deltas[rIdx]), tAbs]);
+  });
+  const switchPoints = [];
+  for (let i = 1; i < peakTrack.length; i += 1) {
+    const jump = Math.abs((peakTrack[i]?.[0] || 0) - (peakTrack[i - 1]?.[0] || 0));
+    if (jump > 25) switchPoints.push(peakTrack[i]);
+  }
+  const antiCross = [];
+  for (let i = 0; i < Math.min(peakTrack.length, dipTrack.length); i += 1) {
+    const gap = Math.abs((peakTrack[i]?.[0] || 0) - (dipTrack[i]?.[0] || 0));
+    if (gap < 12) antiCross.push(peakTrack[i]);
+  }
+  const startPoint = peakTrack[0] || null;
+  const trackFromApi = (relay?.track || []).map((p) => [Number(p.lambda_nm), Number(p.delta)]).filter((p) => Number.isFinite(p[0]) && Number.isFinite(p[1]));
+  return { peakTrack, dipTrack, highTrans, tOverOne, switchPoints, antiCross, startPoint, trackFromApi };
 }
 
 function renderQuality() {
@@ -1026,12 +1563,21 @@ function renderQuality() {
 
 function ensureSupplementUIState() {
   if (!state.supplementUI) {
-    state.supplementUI = { selectedKeys: new Set(), focusedKey: "", expandedRuns: new Set(), step: 1, lastCreatedPackageId: "" };
+    state.supplementUI = { selectedSampleKeys: new Set(), focusedKey: "", expandedRuns: new Set(), step: 1, lastCreatedPackageId: "", openedFspPaths: {}, fspHistory: [], fspStatus: {} };
   }
-  if (!(state.supplementUI.selectedKeys instanceof Set)) state.supplementUI.selectedKeys = new Set(state.supplementUI.selectedKeys || []);
+  if (!(state.supplementUI.selectedSampleKeys instanceof Set)) state.supplementUI.selectedSampleKeys = new Set(state.supplementUI.selectedSampleKeys || []);
   if (!(state.supplementUI.expandedRuns instanceof Set)) state.supplementUI.expandedRuns = new Set(state.supplementUI.expandedRuns || []);
   if (!Number.isFinite(Number(state.supplementUI.step))) state.supplementUI.step = 1;
   if (!state.supplementUI.lastCreatedPackageId) state.supplementUI.lastCreatedPackageId = "";
+  if (!state.supplementUI.openedFspPaths || typeof state.supplementUI.openedFspPaths !== "object") {
+    try {
+      state.supplementUI.openedFspPaths = JSON.parse(localStorage.getItem(SUPPLEMENT_OPENED_FSP_STORAGE_KEY) || "{}") || {};
+    } catch {
+      state.supplementUI.openedFspPaths = {};
+    }
+  }
+  if (!Array.isArray(state.supplementUI.fspHistory)) state.supplementUI.fspHistory = [];
+  if (!state.supplementUI.fspStatus || typeof state.supplementUI.fspStatus !== "object") state.supplementUI.fspStatus = {};
   return state.supplementUI;
 }
 
@@ -1045,8 +1591,8 @@ function supplementRunKey(runId) {
 }
 
 function supplementSelectedItems(items) {
-  const ui = ensureSupplementUIState();
-  return (items || []).filter((item) => ui.selectedKeys.has(supplementKey(item)));
+  const selected = ensureSupplementUIState().selectedSampleKeys || new Set();
+  return (items || []).filter((item) => selected.has(supplementKey(item)));
 }
 
 function supplementRunStats(rows) {
@@ -1079,8 +1625,73 @@ function supplementSummaryChips(item) {
   ].filter(Boolean).join(" ");
 }
 
+function supplementMockItems() {
+  return [
+    {
+      run_id: "run_20260428_230048_aadf6d53",
+      run_name: "run_20260428_230048_aadf6d53",
+      group: "C6",
+      mother_structure: "六柱环",
+      perturbation: "偏心孔扰动",
+      sample_id: "sample_003",
+      missing_evidence: ["Field", "Phase"],
+      risk_level: "medium",
+      risk_label: "中风险",
+      source_run_dir: "C6对称结构\\六柱环\\results\\偏心孔扰动\\run_20260428_230048_aadf6d53",
+      master_template_fsp_path: "C6对称结构\\六柱环\\results\\偏心孔扰动\\run_20260428_230048_aadf6d53\\05_work_fsp\\master_template.fsp",
+      mother_fsp_candidates: [
+        "C6对称结构\\六柱环\\results\\偏心孔扰动\\run_20260428_230048_aadf6d53\\05_work_fsp\\master_template.fsp",
+      ],
+      sample_fsp_candidates: [
+        "C6对称结构\\六柱环\\results\\偏心孔扰动\\run_20260428_230048_aadf6d53\\01_supercell_fsp\\sample_003.fsp",
+      ],
+      has_master_template_fsp: true,
+    },
+    {
+      run_id: "run_20260428_230048_aadf6d53",
+      run_name: "run_20260428_230048_aadf6d53",
+      group: "C6",
+      mother_structure: "六柱环",
+      perturbation: "偏心孔扰动",
+      sample_id: "sample_004",
+      missing_evidence: ["R"],
+      risk_level: "low",
+      risk_label: "低风险",
+      source_run_dir: "C6对称结构\\六柱环\\results\\偏心孔扰动\\run_20260428_230048_aadf6d53",
+      master_template_fsp_path: "C6对称结构\\六柱环\\results\\偏心孔扰动\\run_20260428_230048_aadf6d53\\05_work_fsp\\master_template.fsp",
+      mother_fsp_candidates: [
+        "C6对称结构\\六柱环\\results\\偏心孔扰动\\run_20260428_230048_aadf6d53\\05_work_fsp\\master_template.fsp",
+      ],
+      sample_fsp_candidates: [
+        "C6对称结构\\六柱环\\results\\偏心孔扰动\\run_20260428_230048_aadf6d53\\01_supercell_fsp\\sample_004.fsp",
+      ],
+      has_master_template_fsp: true,
+    },
+    {
+      run_id: "run_20260427_133012_9f3c1a2b",
+      run_name: "run_20260427_133012_9f3c1a2b",
+      group: "C4",
+      mother_structure: "双圆盘",
+      perturbation: "半径差扰动",
+      sample_id: "sample_001",
+      missing_evidence: ["Poynting"],
+      risk_level: "high",
+      risk_label: "高风险",
+      source_run_dir: "C4对称结构\\双圆盘\\results\\半径差扰动\\run_20260427_133012_9f3c1a2b",
+      master_template_fsp_path: "C4对称结构\\双圆盘\\results\\半径差扰动\\run_20260427_133012_9f3c1a2b\\05_work_fsp\\master_ring.fsp",
+      mother_fsp_candidates: [
+        "C4对称结构\\双圆盘\\results\\半径差扰动\\run_20260427_133012_9f3c1a2b\\05_work_fsp\\master_ring.fsp",
+      ],
+      sample_fsp_candidates: [
+        "C4对称结构\\双圆盘\\results\\半径差扰动\\run_20260427_133012_9f3c1a2b\\01_supercell_fsp\\sample_001.fsp",
+      ],
+      has_master_template_fsp: true,
+    },
+  ];
+}
+
 function renderSupplement() {
-  const allItems = state.missing?.items || [];
+  const allItems = (state.missing?.items && state.missing.items.length) ? state.missing.items : supplementMockItems();
   allItems.forEach((item, index) => { item.__sourceIndex = index; });
   const q = state.supplementSearch.trim().toLowerCase();
   const items = q ? allItems.filter((item) => JSON.stringify(item).toLowerCase().includes(q)) : allItems;
@@ -1089,20 +1700,28 @@ function renderSupplement() {
   const ui = ensureSupplementUIState();
   const selectedItems = supplementSelectedItems(allItems);
   const focusItem = selectedItems.find((item) => supplementKey(item) === ui.focusedKey) || selectedItems[0] || visibleItems[0] || items[0] || null;
-  const selectedCount = selectedItems.length;
+  const treeSource = state.supplementTree?.tree || [];
+  const treeModel = treeSource.length
+    ? buildSupplementTreeModel(treeSource, allItems, q)
+    : buildSupplementTreeFromItems(allItems, q);
+  const selectedSampleCount = ensureSupplementUIState().selectedSampleKeys.size;
+  const selectedRunCount = countSelectedRuns(treeModel, ensureSupplementUIState().selectedSampleKeys);
+  const step2 = renderSupplementStep2(focusItem, allItems);
+  const step3 = renderSupplementStep3(focusItem, selectedItems, packages, allItems);
+  const hasSelection = selectedSampleCount > 0;
   return `<section class="page active">
-    ${pageHead("补做实验", "三步流程：先选目标，再确认母文件与监视器策略，最后生成任务包。")}
-    <div class="notice">Step 2 只修改任务包里复制出来的 <code>master_template.fsp</code>，不修改原始 run。任务包删除时也只会针对 V2 patch 包目录。</div>
-    <div class="stepper">
-      <button class="stepper-item ${ui.step === 1 ? "active" : ""}" data-supplement-step="1" type="button"><span>1</span><strong>选择补做目标</strong></button>
-      <button class="stepper-item ${ui.step === 2 ? "active" : ""}" data-supplement-step="2" type="button"><span>2</span><strong>确认母文件与监视器</strong></button>
-      <button class="stepper-item ${ui.step === 3 ? "active" : ""}" data-supplement-step="3" type="button"><span>3</span><strong>生成任务包 / 打开任务包</strong></button>
+    ${pageHead("补做实验", "三步流程：选择目标、确认 FSP、继承参数并运行。")}
+    <div class="supp-v1-risk">仅允许修改 run 内工作副本，不修改源文件；补做结果回写原 run 的新增目录。</div>
+    <div class="supp-v1-stepper">
+      <button class="supp-v1-step ${ui.step === 1 ? "active" : ""}" data-supplement-step="1" type="button"><span>1</span><em>选择补做目标</em></button>
+      <button class="supp-v1-step ${ui.step === 2 ? "active" : ""}" data-supplement-step="2" type="button"><span>2</span><em>确认母文件与监视器</em></button>
+      <button class="supp-v1-step ${ui.step === 3 ? "active" : ""}" data-supplement-step="3" type="button"><span>3</span><em>继承参数并运行</em></button>
     </div>
-    <div class="results-layout supplement-layout">
-      <div class="card pad supplement-tree-card">
-        <div class="card-title">Step 1 选择补做目标 <span class="muted">${fmt(selectedCount, 0)} 已选 · ${fmt(visibleItems.length)} / ${fmt(items.length)} / ${fmt(allItems.length)} 条</span></div>
-        <div class="toolbar supplement-toolbar">
-          <select class="select" id="supplement-type" style="max-width:220px">
+    <div class="supp-v1-grid">
+      <div class="card pad supp-v1-left">
+        <div class="card-title">Step 1 目标树选择 <span class="muted">已选 run ${fmt(selectedRunCount, 0)} 个 · 样本 ${fmt(selectedSampleCount, 0)} 个</span></div>
+        <div class="supp-v1-toolbar">
+          <select class="select" id="supplement-type">
             <option value="field">Field</option>
             <option value="phase">Phase</option>
             <option value="poynting">Poynting</option>
@@ -1111,28 +1730,449 @@ function renderSupplement() {
             <option value="angle-resolved">angle-resolved</option>
             <option value="band sweep">band sweep</option>
           </select>
-          <input class="input" id="supplement-search" placeholder="搜索 run、样本、缺失类型、风险" value="${esc(state.supplementSearch)}">
+          <input class="input" id="supplement-search" placeholder="搜索 run、结构、扰动、样本" value="${esc(state.supplementSearch)}">
         </div>
-        ${visibleItems.length ? `<div class="supplement-tree">${renderSupplementTree(visibleItems)}</div>${items.length > visibleItems.length ? `<div class="toolbar" style="margin-top:12px"><button class="btn secondary" id="load-more-supplement" type="button">加载更多 ${Math.min(420, items.length - visibleItems.length)} 条</button><span class="muted">搜索可缩小目标范围。</span></div>` : ""}` : emptySmall("暂无待补做样本")}
+        ${treeModel.length ? `<div class="supplement-tree supplement-tree-v2">${renderSupplementTreeV2(treeModel)}</div>` : emptySmall("暂无可选 run / sample")}
+        <div class="toolbar" style="margin-top:12px;justify-content:space-between">
+          <span class="muted">层级：对称性结果 → 结构类型 → 扰动方式 → run → 单次样本</span>
+          <button class="btn danger" id="clear-supplement-selection" type="button">清空选择</button>
+        </div>
       </div>
-      <div class="supplement-main">
-        <div class="card pad supplement-step-card">
-          <div class="card-title">Step 2 确认母文件与监视器策略</div>
-          <div class="notice">只会在任务包内部复制出来的 <code>master_template.fsp</code> 上修改监视器策略，不会直接改原始 run。</div>
-          ${renderSupplementDetailPanel(focusItem, selectedItems)}
+      <div class="supp-v1-right">
+        <div class="card pad supp-v1-card">
+          <div class="card-title">Step 2 FSP 解析与打开 <button class="btn secondary" id="open-fsp-picker" type="button" style="float:right">选择并打开 FSP</button></div>
+          <div class="supp-v1-risk">建议先打开 <code>05_work_fsp</code> 的母文件；只选单样本时再打开 <code>01_supercell_fsp</code>。</div>
+          ${step2}
         </div>
-        <div class="card pad supplement-step-card">
-          <div class="card-title">Step 3 生成任务包 / 打开任务包</div>
-          <div class="toolbar" style="gap:8px;flex-wrap:wrap">
-            <button class="btn primary" id="create-package" type="button" ${selectedCount ? "" : "disabled"}>生成任务包</button>
+        <div class="card pad supp-v1-card">
+          <div class="card-title">Step 3 继承参数与补做计划</div>
+          <div class="supp-v1-kv">
+            <div><span>start</span><b title="900 nm">900 nm</b></div>
+            <div><span>end</span><b title="1700 nm">1700 nm</b></div>
+            <div><span>step</span><b title="2.5 nm">2.5 nm</b></div>
+            <div><span>mesh</span><b title="4">4</b></div>
+            <div><span>runtime</span><b title="1000 fs">1000 fs</b></div>
+            <div><span>auto shutoff</span><b title="1e-5">1e-5</b></div>
+          </div>
+          <div class="supp-v1-path" title="run_xxx\\06_反射excel 07_反射图 08_反射场图 09_反射场数据 10_补做fsp快照 11_补做记录">回写目录：06_反射excel / 07_反射图 / 08_反射场图 / 09_反射场数据 / 10_补做fsp快照 / 11_补做记录</div>
+          <div class="toolbar" style="gap:8px;flex-wrap:wrap;margin-top:10px">
+            <button class="btn secondary" id="preview-supp-plan" type="button" ${hasSelection ? "" : "disabled"}>生成补做计划预览</button>
+            <button class="btn secondary" id="create-package" type="button" ${hasSelection ? "" : "disabled"}>生成补做计划</button>
+            <button class="btn primary" id="run-supplement" type="button" ${state.supplementPlanPreview?.can_run ? "" : "disabled"}>确认并运行补做</button>
+            <button class="btn ghost" id="open-supp-output" type="button" ${state.supplementPlanPreview?.run_path ? "" : "disabled"}>打开补做输出目录</button>
             ${ui.lastCreatedPackageId ? `<button class="btn secondary" data-show-package="${esc(ui.lastCreatedPackageId)}" type="button">打开上次任务包</button>` : ""}
           </div>
-          <div class="muted" style="margin-top:8px">仅支持同一个 run；当前已选 ${fmt(selectedCount, 0)} 个样本。</div>
-          <div class="package-list" style="margin-top:12px">${packages.length ? packages.slice(0, 40).map((p) => renderSupplementPackageRow(p)).join("") : emptySmall("暂无补做任务包")}</div>
+          <div class="supp-v1-log">${renderSupplementRunLog()}</div>
+          ${renderSupplementPlanPreview(state.supplementPlanPreview)}
+          ${step3}
         </div>
       </div>
     </div>
   </section>`;
+}
+
+function collectSelectedEvidenceBySample(items) {
+  const selected = ensureSupplementUIState().selectedSampleKeys || new Set();
+  const map = new Map();
+  (items || []).forEach((item) => {
+    const sampleKey = supplementKey(item);
+    if (selected.has(sampleKey)) map.set(sampleKey, Array.from(new Set(item.missing_evidence || [])));
+  });
+  return map;
+}
+
+function buildSupplementTreeModel(sourceTree, items, query = "") {
+  const itemMap = new Map();
+  (items || []).forEach((item) => itemMap.set(`${item.run_id || ""}|${item.sample_id || ""}`, item));
+  const q = String(query || "").trim().toLowerCase();
+  const cloneNode = (node, level = 0) => {
+    const kindMap = { symmetry: "group", structure: "mother", perturbation: "perturb", run: "run", sample: "sample" };
+    const kind = kindMap[node.type] || node.type || "node";
+    const out = {
+      kind,
+      key: node.id || `${kind}|${safeDomKey(node.label || "")}`,
+      label: node.label || "",
+      run_id: node.run_id || "",
+      sample_id: node.sample_id || "",
+      children: [],
+    };
+    if (kind === "sample") {
+      const ref = itemMap.get(`${node.run_id || ""}|${node.sample_id || ""}`);
+      out.sampleKey = `${node.run_id || ""}|${node.sample_id || ""}`;
+      out.sample = ref || {
+        run_id: node.run_id || "",
+        run_name: node.run_name || node.run_id || "",
+        sample_id: node.sample_id || "",
+        missing_evidence: [],
+      };
+    }
+    const children = (node.children || []).map((c) => cloneNode(c, level + 1)).filter(Boolean);
+    const labelMatch = out.label.toLowerCase().includes(q);
+    const keep = !q || labelMatch || children.length > 0;
+    if (!keep) return null;
+    out.children = children;
+    return out;
+  };
+  return (sourceTree || []).map((n) => cloneNode(n, 0)).filter(Boolean);
+}
+
+function buildSupplementTreeFromItems(items, query = "") {
+  const q = String(query || "").trim().toLowerCase();
+  const groups = new Map();
+  (items || []).forEach((item) => {
+    const group = item.group || "未分类";
+    const mother = item.mother_structure || "未识别结构";
+    const perturbation = item.perturbation || "未识别扰动";
+    const runId = item.run_id || "unknown_run";
+    const runName = item.run_name || runId;
+    const sampleId = item.sample_id || "#1";
+    const hay = `${group} ${mother} ${perturbation} ${runName} ${sampleId}`.toLowerCase();
+    if (q && !hay.includes(q)) return;
+    if (!groups.has(group)) groups.set(group, new Map());
+    if (!groups.get(group).has(mother)) groups.get(group).set(mother, new Map());
+    if (!groups.get(group).get(mother).has(perturbation)) groups.get(group).get(mother).set(perturbation, new Map());
+    if (!groups.get(group).get(mother).get(perturbation).has(runId)) {
+      groups.get(group).get(mother).get(perturbation).set(runId, { runName, samples: [] });
+    }
+    groups.get(group).get(mother).get(perturbation).get(runId).samples.push(item);
+  });
+  const tree = [];
+  for (const [group, mothers] of groups.entries()) {
+    const gNode = { kind: "group", key: `symmetry|${safeDomKey(group)}`, label: group, children: [] };
+    for (const [mother, perts] of mothers.entries()) {
+      const mNode = { kind: "mother", key: `structure|${safeDomKey(group)}|${safeDomKey(mother)}`, label: mother, children: [] };
+      for (const [perturbation, runs] of perts.entries()) {
+        const pNode = { kind: "perturb", key: `perturbation|${safeDomKey(group)}|${safeDomKey(mother)}|${safeDomKey(perturbation)}`, label: perturbation, children: [] };
+        for (const [runId, runInfo] of runs.entries()) {
+          const rNode = { kind: "run", key: `run|${safeDomKey(runId)}`, label: runInfo.runName, run_id: runId, children: [] };
+          runInfo.samples.forEach((sample) => {
+            rNode.children.push({
+              kind: "sample",
+              key: `sample|${safeDomKey(runId)}|${safeDomKey(sample.sample_id || "#1")}`,
+              label: sample.sample_id || "#1",
+              run_id: runId,
+              sample_id: sample.sample_id || "#1",
+              sample: sample,
+            });
+          });
+          pNode.children.push(rNode);
+        }
+        mNode.children.push(pNode);
+      }
+      gNode.children.push(mNode);
+    }
+    tree.push(gNode);
+  }
+  return tree;
+}
+
+function collectLeafKeys(node) {
+  if (!node) return [];
+  if (node.kind === "sample") return [supplementKey(node.sample || { run_id: node.run_id, sample_id: node.sample_id })];
+  return (node.children || []).flatMap((child) => collectLeafKeys(child));
+}
+
+function nodeSelectionState(node) {
+  const selected = ensureSupplementUIState().selectedSampleKeys;
+  const leaves = collectLeafKeys(node);
+  const checkedCount = leaves.filter((k) => selected.has(k)).length;
+  return {
+    checked: leaves.length > 0 && checkedCount === leaves.length,
+    indeterminate: checkedCount > 0 && checkedCount < leaves.length,
+    total: leaves.length,
+    checkedCount,
+  };
+}
+
+function renderSupplementTreeV2(nodes, level = 0) {
+  return (nodes || []).map((node) => renderSupplementTreeNode(node, level)).join("");
+}
+
+function renderSupplementTreeNode(node, level = 0) {
+  const ui = ensureSupplementUIState();
+  const hasChildren = Array.isArray(node.children) && node.children.length > 0;
+  const selection = nodeSelectionState(node);
+  const expanded = hasChildren && (ui.expandedRuns.has(node.key) || level <= 1);
+  const css = node.kind === "sample" ? "supplement-leaf" : "supplement-branch";
+  const tag = node.kind === "sample"
+    ? `<span class="tag ${selection.checked ? "green" : "blue"}">${selection.checked ? "已选" : "未选"}</span>`
+    : `<span class="tag blue">${fmt(selection.checkedCount, 0)}/${fmt(selection.total, 0)}</span>`;
+  const label = node.kind === "run" ? `${node.label}` : node.label;
+  return `<div class="supp-node ${css} level-${level}" data-supp-node="${esc(node.key)}">
+    <div class="supp-node-row">
+      ${hasChildren ? `<button class="icon-btn" data-supplement-toggle-run="${esc(node.key)}" type="button">${expanded ? "▾" : "▸"}</button>` : `<span class="structure-toggle-spacer"></span>`}
+      <input type="checkbox" data-supp-node-check="${esc(node.key)}" data-indeterminate="${selection.indeterminate ? "1" : "0"}" ${selection.checked ? "checked" : ""}>
+      <span class="supp-node-label">${esc(label)}</span>
+      ${tag}
+    </div>
+    ${expanded && hasChildren ? `<div class="supp-node-children">${renderSupplementTreeV2(node.children, level + 1)}</div>` : ""}
+  </div>`;
+}
+
+function countSelectedRuns(tree, selectedSamples) {
+  const runKeys = new Set();
+  const walk = (node) => {
+    if (!node) return;
+    if (node.kind === "run") {
+      const leaves = collectLeafKeys(node);
+      if (leaves.some((k) => selectedSamples.has(k))) runKeys.add(node.key);
+    }
+    (node.children || []).forEach(walk);
+  };
+  (tree || []).forEach(walk);
+  return runKeys.size;
+}
+
+function renderSupplementStep2(focusItem, allItems) {
+  const ui = ensureSupplementUIState();
+  const selectedMap = collectSelectedEvidenceBySample(allItems || []);
+  if (!selectedMap.size) return emptySmall("先在 Step 1 勾选样本。");
+  const selectedItems = (allItems || []).filter((item) => selectedMap.has(supplementKey(item)));
+  const runGrouped = new Map();
+  selectedItems.forEach((item) => {
+    const runId = item.run_id || "";
+    if (!runGrouped.has(runId)) runGrouped.set(runId, []);
+    runGrouped.get(runId).push(item);
+  });
+  const rows = [];
+  runGrouped.forEach((rowsByRun, runId) => {
+    const first = rowsByRun[0] || {};
+    const motherPaths = Array.from(new Set(rowsByRun.flatMap((x) => x.mother_fsp_candidates || []).filter(Boolean)));
+    rows.push(`<div class="supp-step2-block"><strong>${esc(first.group || "")} / ${esc(first.mother_structure || "")} / ${esc(first.perturbation || "")} / ${esc(first.run_name || runId)}</strong></div>`);
+    rows.push(`<div class="muted mono">${esc(first.source_run_dir || "")}</div>`);
+    if (motherPaths.length) {
+      rows.push(`<div class="supp-fsp-list">${motherPaths.map((p) => renderFspActions(p, ui)).join("")}</div>`);
+    } else {
+      rows.push(`<div class="empty">未找到 05_work_fsp 母文件。</div>`);
+    }
+    rowsByRun.forEach((item) => {
+      const sKey = supplementKey(item);
+      const ev = selectedMap.get(sKey) || [];
+      const sampleFsp = item.sample_fsp_candidates || [];
+      rows.push(`<div class="supp-sample-hint">sample ${esc(item.sample_id || "")} · evidence: ${esc(ev.join(", "))}</div>`);
+      if (sampleFsp.length) rows.push(`<div class="supp-fsp-list">${sampleFsp.slice(0, 8).map((p) => renderFspActions(p, ui)).join("")}</div>`);
+    });
+  });
+  return rows.join("");
+}
+
+function renderFspActions(path, ui) {
+  const opened = !!ui.openedFspPaths[path];
+  return `<div class="supp-fsp-row">
+    <span class="mono">${esc(path)}</span>
+    ${opened ? `<span class="tag green">已打开过</span>` : ""}
+    <button class="btn ghost" data-open-fsp="${esc(path)}" type="button">打开 FSP 文件</button>
+    <button class="btn ghost" data-open-folder="${esc(path)}" type="button">打开所在文件夹</button>
+    <button class="btn ghost" data-copy-path="${esc(path)}" type="button">复制路径</button>
+  </div>`;
+}
+
+function supplementCurrentSelection(items) {
+  const selected = ensureSupplementUIState().selectedSampleKeys || new Set();
+  return (items || []).filter((it) => selected.has(supplementKey(it)));
+}
+
+function buildResolvePayloadFromSelection(items) {
+  const selected = supplementCurrentSelection(items);
+  const out = [];
+  selected.forEach((item) => {
+    out.push({
+      type: "sample",
+      run_id: item.run_id || "",
+      run_path: item.source_run_dir || item.source_run_path || "",
+      sample_id: item.sample_id || "",
+      perturbation: item.perturbation || "",
+    });
+  });
+  return { selection: out };
+}
+
+function groupResolvedByPerturbation(items) {
+  const map = new Map();
+  (items || []).forEach((row) => {
+    const k = `${row.group || ""}|${row.mother_structure || ""}|${row.perturbation || ""}`;
+    if (!map.has(k)) map.set(k, { key: k, label: `${row.group || ""} / ${row.mother_structure || ""} / ${row.perturbation || ""}`, runs: [] });
+    map.get(k).runs.push(row);
+  });
+  return Array.from(map.values());
+}
+
+function renderFspPickerRows(rows, ui) {
+  return (rows || []).map((row) => {
+    const runPath = row.run_path || "";
+    const workRows = (row.work_fsp || []).map((x) => {
+      const path = x.path || "";
+      const status = ui.fspStatus[path] || {};
+      return `<tr>
+        <td title="${esc(row.run_name || row.run_id || "")}">${esc(row.run_name || row.run_id || "")}</td>
+        <td title="${esc(path)}" class="mono">${esc(path)}</td>
+        <td><span class="tag ${status.monitor_confirmed ? "green" : status.opened_count ? "blue" : "orange"}">${status.monitor_confirmed ? "已确认" : status.opened_count ? "曾打开" : "未打开"}</span></td>
+        <td>
+          <button class="btn ghost" data-fsp-open="${esc(path)}" data-run-path="${esc(runPath)}" type="button">打开 FSP</button>
+          <button class="btn ghost" data-fsp-confirm="${esc(path)}" data-run-path="${esc(runPath)}" type="button">确认监视器已修改</button>
+        </td>
+      </tr>`;
+    }).join("");
+    const sampleRows = (row.sample_fsp || []).map((s) => (s.paths || []).map((p) => {
+      const status = ui.fspStatus[p] || {};
+      return `<tr>
+        <td title="${esc((row.run_name || row.run_id || "") + " / " + (s.sample_id || ""))}">${esc((row.run_name || row.run_id || "") + " / " + (s.sample_id || ""))}</td>
+        <td title="${esc(p)}" class="mono">${esc(p)}</td>
+        <td><span class="tag ${status.monitor_confirmed ? "green" : status.opened_count ? "blue" : "orange"}">${status.monitor_confirmed ? "已确认" : status.opened_count ? "曾打开" : "未打开"}</span></td>
+        <td>
+          <button class="btn ghost" data-fsp-open="${esc(p)}" data-run-path="${esc(runPath)}" type="button">打开 FSP</button>
+          <button class="btn ghost" data-fsp-confirm="${esc(p)}" data-run-path="${esc(runPath)}" type="button">确认监视器已修改</button>
+        </td>
+      </tr>`;
+    }).join("")).join("");
+    return workRows + sampleRows;
+  }).join("");
+}
+
+function openSupplementFspModal(items) {
+  const ui = ensureSupplementUIState();
+  const payload = buildResolvePayloadFromSelection(items);
+  if (!(payload.selection || []).length) {
+    toast("请先在 Step 1 选择至少一个样本。", "error");
+    return;
+  }
+  const root = $("#modal-root");
+  root.hidden = false;
+  root.innerHTML = `<section class="modal" role="dialog" aria-modal="true" aria-label="选择并打开 FSP 文件">
+    <div class="modal-head"><strong>选择并打开 FSP 文件</strong><button class="icon-btn" data-modal-close type="button">×</button></div>
+    <div class="modal-body">
+      <div class="segmented" id="supp-fsp-tabs" style="margin-bottom:10px">
+        <button class="active" data-tab="perturb" type="button">扰动方式选择</button>
+        <button data-tab="run" type="button">Run 选择</button>
+        <button data-tab="sample" type="button">单次仿真选择</button>
+      </div>
+      <div class="layout-2" style="grid-template-columns:minmax(0,1fr) 280px;gap:12px">
+        <div>
+          <div class="empty" id="supp-fsp-loading">正在解析 FSP...</div>
+          <div id="supp-fsp-table-wrap" hidden>
+            <table class="table"><thead><tr><th>目标</th><th>FSP 路径</th><th>状态</th><th>操作</th></tr></thead><tbody id="supp-fsp-rows"></tbody></table>
+          </div>
+        </div>
+        <div class="card pad">
+          <div class="card-title">最近打开记录</div>
+          <div id="supp-fsp-history" class="resource-list">${(ui.fspHistory || []).length ? ui.fspHistory.slice(0, 20).map((h) => `<div class="resource-row"><strong title="${esc(h.path || "")}">${esc(h.path || "")}</strong><span>${esc(h.time || "")}</span></div>`).join("") : `<div class="empty">暂无记录</div>`}</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn ghost" data-modal-close type="button">关闭</button></div>
+  </section>`;
+  root.querySelectorAll("[data-modal-close]").forEach((btn) => btn.addEventListener("click", closeModal));
+  const tabs = { current: "perturb", data: [] };
+  const renderRows = () => {
+    const rowsHost = $("#supp-fsp-rows", root);
+    const tableWrap = $("#supp-fsp-table-wrap", root);
+    const loading = $("#supp-fsp-loading", root);
+    if (!rowsHost || !tableWrap || !loading) return;
+    let rows = tabs.data;
+    if (tabs.current === "perturb") {
+      const groups = groupResolvedByPerturbation(tabs.data);
+      rows = groups.flatMap((g) => g.runs);
+    } else if (tabs.current === "run") {
+      rows = tabs.data;
+    } else {
+      rows = tabs.data.map((x) => ({ ...x, work_fsp: [], sample_fsp: x.sample_fsp || [] }));
+    }
+    rowsHost.innerHTML = renderFspPickerRows(rows, ui) || `<tr><td colspan="4" class="muted">暂无可打开 FSP</td></tr>`;
+    loading.hidden = true;
+    tableWrap.hidden = false;
+  };
+  $("#supp-fsp-tabs", root)?.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-tab]");
+    if (!btn) return;
+    tabs.current = btn.dataset.tab || "perturb";
+    $$("#supp-fsp-tabs [data-tab]", root).forEach((b) => b.classList.toggle("active", b === btn));
+    renderRows();
+  });
+  root.addEventListener("click", async (event) => {
+    const openBtn = event.target.closest("[data-fsp-open]");
+    if (openBtn) {
+      const path = openBtn.dataset.fspOpen || "";
+      const runPath = openBtn.dataset.runPath || "";
+      try {
+        const out = await api.supplementOpenFsp({ path, run_path: runPath });
+        ui.fspStatus[path] = { ...(ui.fspStatus[path] || {}), opened_count: Number((ui.fspStatus[path]?.opened_count || 0) + 1), last_opened_at: out?.item?.last_opened_at || nowIsoClient() };
+        ui.fspHistory.unshift({ path, time: out?.item?.last_opened_at || nowIsoClient() });
+        ui.fspHistory = ui.fspHistory.slice(0, 50);
+        toast("已打开 FSP 文件。", "success");
+        renderRows();
+      } catch (error) {
+        toast(error.message, "error");
+      }
+      return;
+    }
+    const markBtn = event.target.closest("[data-fsp-confirm]");
+    if (markBtn) {
+      const path = markBtn.dataset.fspConfirm || "";
+      const runPath = markBtn.dataset.runPath || "";
+      try {
+        await api.supplementMarkFspStatus({ path, run_path: runPath, status: "monitor_confirmed" });
+        ui.fspStatus[path] = { ...(ui.fspStatus[path] || {}), monitor_confirmed: true, confirmed_at: nowIsoClient() };
+        toast("已标记监视器修改完成。", "success");
+        renderRows();
+      } catch (error) {
+        toast(error.message, "error");
+      }
+    }
+  });
+  api.supplementResolveFsp(payload).then((data) => {
+    tabs.data = data.items || [];
+    renderRows();
+  }).catch((error) => {
+    $("#supp-fsp-loading", root).textContent = error.message || "解析失败";
+  });
+}
+
+function nowIsoClient() {
+  return new Date().toISOString().replace("T", " ").slice(0, 19);
+}
+
+function renderSupplementStep3(focusItem, selectedItems, packages, allItems = []) {
+  const selectedMap = collectSelectedEvidenceBySample(allItems);
+  if (!selectedMap.size) return `<div class="muted" style="margin-top:8px">仅支持同一个 run；当前未选样本。</div><div class="package-list" style="margin-top:12px">${packages.length ? packages.slice(0, 40).map((p) => renderSupplementPackageRow(p)).join("") : emptySmall("暂无补做任务包")}</div>`;
+  const selectedRows = allItems.filter((item) => selectedMap.has(supplementKey(item)));
+  const previewRows = selectedRows.slice(0, 80).map((item) => {
+    const ev = selectedMap.get(supplementKey(item)) || [];
+    const runDir = item.source_run_dir || "";
+    const out = `${runDir}\\补做实验\\patch_YYYYMMDD_HHMMSS_<type>`;
+    return `<tr><td>${esc(item.run_id || "")}</td><td>${esc(item.sample_id || "")}</td><td>${esc(ev.join(", "))}</td><td class="mono">${esc(item.master_template_fsp_path || "")}</td><td class="mono">${esc((item.sample_fsp_candidates || [item.source_fsp || ""])[0] || "")}</td><td class="mono">${esc(out)}</td></tr>`;
+  }).join("");
+  return `<div class="muted" style="margin-top:8px">仅支持同一个 run；当前已选 ${fmt(selectedRows.length, 0)} 个样本。</div>
+    <div class="sample-table-wrap" style="margin-top:10px"><table class="table"><thead><tr><th>run</th><th>sample</th><th>补做证据</th><th>母文件</th><th>sample fsp</th><th>预计输出目录</th></tr></thead><tbody>${previewRows}</tbody></table></div>
+    <div class="package-list" style="margin-top:12px">${packages.length ? packages.slice(0, 40).map((p) => renderSupplementPackageRow(p)).join("") : emptySmall("暂无补做任务包")}</div>`;
+}
+
+function renderSupplementPlanPreview(plan) {
+  if (!plan) return `<div class="muted" style="margin-top:10px">尚未生成补做计划预览。</div>`;
+  const missing = plan.missing_required || [];
+  const risk = plan.output_plan?.overwrite_risk;
+  const riskText = risk ? `存在覆盖风险（目录已存在：${(plan.output_plan?.existing_dirs || []).join("、")}）` : "无覆盖风险";
+  return `<div class="card" style="margin-top:10px;padding:10px">
+    <div class="card-title" style="margin-bottom:6px">补做计划预览</div>
+    <table class="table"><tbody>
+      <tr><td>当前选择范围</td><td>run ${esc(plan.run_name || plan.run_id || "")}，样本 ${fmt(plan.selection_scope?.sample_count || 0, 0)} 个</td></tr>
+      <tr><td>继承参数来源</td><td>${esc(Object.entries(plan.param_sources || {}).map(([k, v]) => `${k}:${v}`).join(" | ") || "-")}</td></tr>
+      <tr><td>将运行样本</td><td>${esc((plan.selection_scope?.samples || []).map((s) => s.sample_id).join(", ") || "-")}</td></tr>
+      <tr><td>将使用 FSP</td><td class="mono">${esc([plan.fsp_plan?.master_fsp, ...((plan.fsp_plan?.sample_fsps || []).slice(0, 5))].filter(Boolean).join(" ; "))}</td></tr>
+      <tr><td>输出目录</td><td class="mono">${esc((plan.output_plan?.output_dirs || []).join(" / "))}</td></tr>
+      <tr><td>reuse_run_folder</td><td>true</td></tr>
+      <tr><td>create_new_run_folder</td><td>false</td></tr>
+      <tr><td>覆盖风险</td><td>${esc(riskText)}</td></tr>
+    </tbody></table>
+    ${missing.length ? `<div class="notice warn">关键参数缺失：${esc(missing.join(", "))}。请补齐后再运行。</div>` : `<div class="notice">参数完整，可进入下一阶段运行。</div>`}
+  </div>`;
+}
+
+function renderSupplementRunLog() {
+  const s = state.supplementRunState || {};
+  const lines = s.logs || [];
+  if (!s.jobId) return "[ready] 页面为局部交互，按钮不会刷新整页。\n[ready] 生成计划后可运行补做。";
+  const body = lines.slice(-16).map((x) => `[${x.time || ""}] ${x.text || ""}`).join("\n");
+  return `[job] ${s.jobId} | ${s.status || "running"}\n${body || "等待日志..."}`;
 }
 
 function renderSupplementDetailPanel(focusItem, selectedItems) {
@@ -1212,22 +2252,7 @@ function renderSupplementRunNode(runId, rows, selectedKeys, expandedRuns) {
   </div>`;
 }
 
-function renderSupplementSampleNode(runKey, item, selectedKeys) {
-  const key = supplementKey(item);
-  const missing = (item.missing_evidence || []).slice(0, 4);
-  const selected = selectedKeys.has(key);
-  return `<div class="supplement-sample ${selected ? "active" : ""}" data-supplement-sample="${esc(key)}" data-supplement-run-id="${esc(item.run_id || "")}" data-item-index="${esc(item.__index)}">
-    <label class="supplement-sample-head">
-      <input type="checkbox" data-supplement-sample-check="${esc(key)}" data-parent-run="${esc(runKey)}" data-item-index="${esc(item.__index)}" ${selected ? "checked" : ""}>
-      <span class="supplement-sample-title">样本 ${esc(item.sample_id || "")}</span>
-      <span class="supplement-sample-delta">δ ${esc(item.delta ?? "-")}</span>
-    </label>
-    <div class="supplement-sample-tags">
-      ${supplementSummaryChips(item)}
-      ${missing.length ? `<span class="tag">${esc(missing.join(" · "))}</span>` : ""}
-    </div>
-  </div>`;
-}
+function renderSupplementSampleNode(runKey, item, selectedKeys) { return ""; }
 
 function supplementKey(item) {
   return [item.run_id, item.sample_id].map((x) => String(x ?? "").replaceAll("|", "_")).join("|");
@@ -1259,6 +2284,7 @@ async function afterRender(route) {
 
 function bindOverview(root) {
   $("#first-index", root)?.addEventListener("click", () => refreshIndex(false));
+  $("#rebuild-index", root)?.addEventListener("click", () => refreshIndex(true));
   $$("[data-run-jump]", root).forEach((row) => row.addEventListener("click", () => {
     state.selectedRunId = row.dataset.runJump;
     navigate("diagnosis");
@@ -1270,21 +2296,37 @@ function activeValue(root, id) {
 }
 
 function collectRunPayload(root) {
-  const wildcard = {};
-  [
-    ["start-value", "START_NM"], ["end-value", "END_NM"], ["step-value", "STEP_NM"],
-    ["mesh-accuracy", "MESH_ACCURACY"], ["dt-factor", "DT_STABILITY_FACTOR"],
-    ["runtime-fs", "SIMULATION_TIME_FS"], ["auto-shutoff", "AUTO_SHUTOFF_MIN"],
-  ].forEach(([id, key]) => {
-    const raw = $(`#${id}`, root)?.value;
-    if (raw !== "") wildcard[key] = Number(raw);
+  const defaultOverrides = {};
+  $$("[data-override-scope='default']", root).forEach((input) => {
+    const key = input.dataset.overrideKey;
+    const raw = input.value;
+    if (!key) return;
+    if (raw !== "") defaultOverrides[key] = Number(raw);
+    state.defaultOverrides[key] = raw === "" ? undefined : Number(raw);
+  });
+  const perScriptOverrides = {};
+  $$("[data-override-scope='script']", root).forEach((input) => {
+    const sid = input.dataset.overrideScriptId;
+    const key = input.dataset.overrideKey;
+    const raw = input.value;
+    if (!sid || !key) return;
+    if (!perScriptOverrides[sid]) perScriptOverrides[sid] = {};
+    if (raw !== "") perScriptOverrides[sid][key] = Number(raw);
+    state.perScriptOverrides[sid] = { ...(state.perScriptOverrides[sid] || {}), [key]: raw === "" ? undefined : Number(raw) };
+  });
+  Object.keys(perScriptOverrides).forEach((sid) => {
+    const cleaned = {};
+    Object.entries(perScriptOverrides[sid]).forEach(([k, v]) => { if (Number.isFinite(v)) cleaned[k] = v; });
+    perScriptOverrides[sid] = cleaned;
   });
   return {
     mode: activeValue(root, "mode-control") || "preview",
     style: activeValue(root, "style-control") || "sequential",
     max_parallel: Number($("#max-parallel", root)?.value || 2),
     ids: Array.from(state.selectedScriptIds),
-    overrides: Object.keys(wildcard).length ? { "*": wildcard } : {},
+    default_overrides: defaultOverrides,
+    per_script_overrides: perScriptOverrides,
+    overrides: Object.keys(defaultOverrides).length ? { "*": defaultOverrides } : {},
     child_timeout_s: Number($("#child-timeout", root)?.value || 3600),
   };
 }
@@ -1303,7 +2345,8 @@ function runPayloadHash(payload) {
     mode: payload.mode || "preview",
     style: payload.style || "sequential",
     max_parallel: Number(payload.max_parallel || 2),
-    overrides: payload.overrides || {},
+    default_overrides: payload.default_overrides || {},
+    per_script_overrides: payload.per_script_overrides || {},
     child_timeout_s: Number(payload.child_timeout_s || 3600),
   });
 }
@@ -1313,13 +2356,8 @@ function runPreviewMatchesCurrent(root) {
 }
 
 function updateRunPreviewControls(root) {
-  const current = runPayloadHash(collectRunPayload(root));
   const preview = state.runPreview || {};
-  if (preview.valid && preview.payloadHash !== current) {
-    state.runPreview.valid = false;
-    state.runPreview.dirtyReason = "参数已变化，请重新预览";
-  }
-  const startAllowed = !!(state.runPreview?.valid && state.runPreview.payloadHash === current);
+  const startAllowed = !!state.runPreview?.valid;
   [$("#start-run", root), $("#bottom-start", root)].filter(Boolean).forEach((btn) => {
     btn.disabled = !startAllowed;
   });
@@ -1341,19 +2379,97 @@ function invalidateRunPreview(root, reason = "参数已变化，请重新预览"
 }
 
 function bindRun(root) {
+  const scripts = state.scriptsPage?.scripts || [];
+  const model = scriptTreeModel(scripts);
+  const byKey = new Map();
+  const walk = (node) => {
+    byKey.set(node.key, node);
+    (node.children || []).forEach(walk);
+  };
+  model.forEach(walk);
   const invalidate = () => invalidateRunPreview(root);
   const sortSelectedScriptIds = () => {
     state.selectedScriptIds = new Set(Array.from(state.selectedScriptIds).sort((a, b) => String(a).localeCompare(String(b), "zh-CN", { numeric: true })));
   };
-  $$(".tree-row[data-script-id]", root).forEach((row) => row.addEventListener("click", () => {
-    const id = row.dataset.scriptId;
-    if (state.selectedScriptIds.has(id)) state.selectedScriptIds.delete(id);
-    else state.selectedScriptIds.add(id);
-    sortSelectedScriptIds();
-    row.classList.toggle("active");
-    $("#selected-script-count", root).textContent = state.selectedScriptIds.size;
-    invalidate();
-  }));
+  const rerenderRunPanel = () => {
+    const scriptsNow = state.scriptsPage?.scripts || [];
+    const selectedRows = scriptsNow.filter((s) => state.selectedScriptIds.has(String(s.id || s.script_id)));
+    const treeHost = $(".script-tree", root);
+    if (treeHost) treeHost.innerHTML = renderScriptTree(scriptsNow);
+    const count = $("#selected-script-count", root);
+    if (count) count.textContent = state.selectedScriptIds.size;
+    const overrideHost = $(".run-override-card", root);
+    if (overrideHost) {
+      const cardTitle = $(".card-title .muted", overrideHost);
+      if (cardTitle) cardTitle.textContent = `${state.selectedScriptIds.size} 个`;
+      const body = $(".run-script-overrides", overrideHost) || $(".empty", overrideHost);
+      if (body) body.outerHTML = renderSelectedScriptOverrides(selectedRows);
+    }
+    $$("[data-tree-check][data-indeterminate='1']", root).forEach((box) => { box.indeterminate = true; });
+  };
+  const setChecked = (node, checked) => {
+    collectScriptIds(node).forEach((id) => {
+      if (checked) state.selectedScriptIds.add(id);
+      else state.selectedScriptIds.delete(id);
+    });
+  };
+  if (root.__runClickHandler) root.removeEventListener("click", root.__runClickHandler);
+  root.__runClickHandler = (event) => {
+    const toggle = event.target.closest("[data-tree-toggle]");
+    if (toggle) {
+      event.preventDefault();
+      event.stopPropagation();
+      const key = toggle.dataset.treeToggle;
+      if (state.scriptTreeExpanded.has(key)) state.scriptTreeExpanded.delete(key);
+      else state.scriptTreeExpanded.add(key);
+      rerenderRunPanel();
+      return;
+    }
+    const row = event.target.closest(".run-tree-row");
+    if (row && !event.target.closest("input,button,a")) {
+      const key = row.dataset.treeKey;
+      const node = byKey.get(key);
+      if (!node) return;
+      const sel = scriptSelectionState(node);
+      setChecked(node, !sel.checked);
+      sortSelectedScriptIds();
+      $("#selected-script-count", root).textContent = state.selectedScriptIds.size;
+      invalidate();
+      rerenderRunPanel();
+      return;
+    }
+    const overrideToggle = event.target.closest("[data-override-toggle]");
+    if (overrideToggle) {
+      const sid = overrideToggle.dataset.overrideToggle;
+      const key = `o:${sid}`;
+      if (state.scriptTreeExpanded.has(key)) state.scriptTreeExpanded.delete(key);
+      else state.scriptTreeExpanded.add(key);
+      rerenderRunPanel();
+      return;
+    }
+  };
+  root.addEventListener("click", root.__runClickHandler);
+  if (root.__runChangeHandler) root.removeEventListener("change", root.__runChangeHandler);
+  root.__runChangeHandler = (event) => {
+    const check = event.target.closest("[data-tree-check]");
+    if (check) {
+      event.stopPropagation();
+      const key = check.dataset.treeCheck;
+      const node = byKey.get(key);
+      if (!node) return;
+      setChecked(node, !!check.checked);
+      sortSelectedScriptIds();
+      $("#selected-script-count", root).textContent = state.selectedScriptIds.size;
+      invalidate();
+      rerenderRunPanel();
+      return;
+    }
+    if (event.target.matches("[data-override-scope='script'],[data-override-scope='default']")) {
+      invalidate();
+    }
+  };
+  root.addEventListener("change", root.__runChangeHandler);
+  $$("[data-tree-check][data-indeterminate='1']", root).forEach((box) => { box.indeterminate = true; });
   $$(".segmented", root).forEach((seg) => seg.addEventListener("click", (event) => {
     const btn = event.target.closest("button");
     if (!btn) return;
@@ -1362,7 +2478,7 @@ function bindRun(root) {
   }));
   root.__runPreviewDirtyHandler && root.removeEventListener("input", root.__runPreviewDirtyHandler);
   root.__runPreviewDirtyHandler = (event) => {
-    if (!event.target.closest("#mode-control, #style-control, #max-parallel, #start-value, #end-value, #step-value, #mesh-accuracy, #dt-factor, #runtime-fs, #auto-shutoff, #child-timeout")) return;
+    if (!event.target.closest("#mode-control, #style-control, #max-parallel, #child-timeout,[data-override-scope='default'],[data-override-scope='script']")) return;
     invalidate();
   };
   root.addEventListener("input", root.__runPreviewDirtyHandler);
@@ -1396,7 +2512,7 @@ function bindRun(root) {
         collapsed_count: 0,
         encoding_warning: "",
       };
-      renderJobLogPanel(root);
+      updateFloatingLogPanel();
       updateRunPreviewControls(root);
     } catch (error) {
       toast(error.message, "error");
@@ -1405,7 +2521,7 @@ function bindRun(root) {
   const start = () => {
     const payload = collectRunPayload(root);
     if (!payload.ids.length) return toast("请先选择至少一个脚本。", "error");
-    if (!state.runPreview?.valid || state.runPreview.payloadHash !== runPayloadHash(payload)) {
+    if (!state.runPreview?.valid) {
       return toast("参数已变化，请重新预览。", "error");
     }
     const highRisk = payload.mode === "full" && payload.style === "parallel";
@@ -1435,6 +2551,7 @@ function bindRun(root) {
       onConfirm: async () => {
         const job = await api.controllerStart({ ...payload, preview_hash: state.runPreview.previewHash, payload_hash: state.runPreview.payloadHash, confirm: true, risk_ack: highRisk });
         state.activeJobId = job.job_id;
+        saveActiveJobId(state.activeJobId);
         state.jobLog.data = {
           text: `任务已启动：${job.job_id}\n${Array.isArray(job.command) ? job.command.join(" ") : job.command}`,
           raw_text: `任务已启动：${job.job_id}\n${Array.isArray(job.command) ? job.command.join(" ") : job.command}`,
@@ -1442,8 +2559,8 @@ function bindRun(root) {
           collapsed_count: 0,
           encoding_warning: "",
         };
-        renderJobLogPanel(root);
-        pollJob(root);
+        updateFloatingLogPanel();
+        pollJob();
       },
     });
   };
@@ -1460,40 +2577,6 @@ function bindRun(root) {
     await api.stopJob(state.activeJobId);
     toast("已发送停止请求。", "success");
   });
-  root.addEventListener("click", (event) => {
-    const modeBtn = event.target.closest("[data-job-log-mode]");
-    if (modeBtn) {
-      const jobLog = ensureJobLogState();
-      jobLog.mode = modeBtn.dataset.jobLogMode || "all";
-      renderJobLogPanel(root);
-      return;
-    }
-    const copyBtn = event.target.closest("[data-job-log-copy]");
-    if (copyBtn) {
-      const jobLog = ensureJobLogState();
-      const text = jobLogPlainText(jobLog.data || {});
-      copyText(String(text || "")).then(() => toast("日志已复制。", "success")).catch((error) => toast(error.message, "error"));
-      return;
-    }
-    const downloadBtn = event.target.closest("[data-job-log-download]");
-    if (downloadBtn) {
-      const jobLog = ensureJobLogState();
-      const text = jobLogPlainText(jobLog.data || {});
-      downloadText(`fdtd_job_log_${state.activeJobId || "current"}.txt`, String(text || ""));
-    }
-  });
-  root.addEventListener("input", (event) => {
-    if (event.target.id !== "job-log-search") return;
-    const jobLog = ensureJobLogState();
-    jobLog.search = event.target.value || "";
-    renderJobLogPanel(root);
-  });
-  root.addEventListener("change", (event) => {
-    if (event.target.id !== "job-log-auto-scroll") return;
-    const jobLog = ensureJobLogState();
-    jobLog.autoScroll = !!event.target.checked;
-    renderJobLogPanel(root);
-  });
   updateRunPreviewControls(root);
 }
 
@@ -1504,7 +2587,11 @@ function stopResultAutoplay() {
   }
 }
 
-async function pollJob(root) {
+async function pollJob() {
+  if (jobPollTimer) {
+    clearTimeout(jobPollTimer);
+    jobPollTimer = null;
+  }
   if (!state.activeJobId) return;
   try {
     const [log, job] = await Promise.all([api.jobLog(state.activeJobId), api.job(state.activeJobId)]);
@@ -1513,12 +2600,15 @@ async function pollJob(root) {
       jobId: state.activeJobId,
       data: log || {},
     };
-    renderJobLogPanel(root, log);
+    updateFloatingLogPanel(log);
     if (job.status === "running" || job.status === "stopping") {
-      setTimeout(() => pollJob(root), 1500);
+      jobPollTimer = setTimeout(() => pollJob(), 1500);
     } else {
       const changes = await api.cacheChanges(job.created_at || "");
       toast(`任务结束，已增量索引 ${changes.changed_runs?.length || 0} 个 run。`, "success");
+      state.activeJobId = "";
+      saveActiveJobId("");
+      updateFloatingLogPanel();
       await bootstrap();
     }
   } catch (error) {
@@ -1529,7 +2619,8 @@ async function pollJob(root) {
       collapsed_count: 0,
       encoding_warning: "",
     };
-    renderJobLogPanel(root);
+    updateFloatingLogPanel();
+    jobPollTimer = setTimeout(() => pollJob(), 2000);
   }
 }
 
@@ -1623,7 +2714,21 @@ function selectedRunImageFiles() {
 }
 
 function resourceChips(files) {
-  const wanted = files.filter((f) => ["image", "xlsx", "csv", "fsp"].includes(f.kind) || ["xlsx", "csv", "fsp", "png", "jpg"].includes(f.extension)).slice(0, 60);
+  const allowPatterns = [
+    /02_transmission_excel/i,
+    /06_reflection_excel/i,
+    /07_absorption_excel/i,
+    /03_transmission.*png/i,
+    /08_field_data/i,
+    /09_phase_data/i,
+    /10_poynting_data/i,
+    /12_analysis_summary/i,
+    /05_work_fsp/i,
+    /01_supercell_fsp/i,
+  ];
+  const wanted = (files || [])
+    .filter((f) => allowPatterns.some((re) => re.test(String(f.relative_path || ""))))
+    .slice(0, 80);
   if (!wanted.length) return "该 run 暂无可快速预览的谱图、表格或 FSP。";
   return wanted.map((f) => `<button class="resource-chip" data-file-path="${esc(f.relative_path)}" type="button">${esc(f.kind || f.extension)} · ${esc(f.name || f.relative_path)}</button>`).join("");
 }
@@ -1900,6 +3005,10 @@ function bindResults(root) {
     return;
   };
   root.addEventListener("input", root.__resultsInputHandler);
+  $("#refresh-results-index", root)?.addEventListener("click", async () => {
+    await refreshIndex(false);
+    await renderRoute();
+  });
   root.addEventListener("input", (event) => {
     if (!event.target.closest("#peak-min, #peak-max")) return;
     const spec = ensureSampleSpectrumState();
@@ -1984,7 +3093,9 @@ function bindResults(root) {
     }
     const toggleBtn = event.target.closest("[data-structure-toggle]");
     if (toggleBtn) {
-      toggleStructureExpanded(toggleBtn.dataset.structureToggle);
+      const key = toggleBtn.dataset.structureToggle;
+      if (state.resultTreeExpanded.has(key)) state.resultTreeExpanded.delete(key);
+      else state.resultTreeExpanded.add(key);
       refreshNavigator();
       return;
     }
@@ -2051,6 +3162,12 @@ function bindResults(root) {
     const btn = event.target.closest("[data-file-path]");
     const pane = $("#preview-pane", root);
     if (btn && pane) previewFile(btn.dataset.filePath, pane);
+    const metricBtn = event.target.closest("[data-result-metric]");
+    if (metricBtn) {
+      state.resultAnalysisMetric = metricBtn.dataset.resultMetric || "lambda0_nm";
+      loadResultResponseChart(root);
+      $$("#result-metric-tabs [data-result-metric]", root).forEach((b) => b.classList.toggle("active", b === metricBtn));
+    }
   });
   if (state.selectedRunId) loadRunInResults(root, state.selectedRunId);
 }
@@ -2099,17 +3216,70 @@ async function loadRunInResults(root, runId) {
     const strip = $("#resource-strip", root);
     if (strip) strip.innerHTML = resourceChips(files);
     const hint = $("#resource-hint", root);
-    if (hint) hint.textContent = `${fmt(files.length)} 个文件，已隐藏完整文件表，只保留关键资源入口`;
-    try {
-      const trend = await api.diagnosticsTrend(runId);
-      drawTrend($("#result-trend-chart", root), trend.points || detail.metrics || [], "delta", "score");
-    } catch {
-      drawTrend($("#result-trend-chart", root), detail.metrics || [], "delta", "score");
+    const hasEffectiveData = files.length > 0 || samples.length > 0 || (detail.metrics || []).length > 0;
+    if (hint) {
+      hint.textContent = hasEffectiveData
+        ? `${fmt(files.length)} 个文件，已隐藏完整文件表，只保留关键资源入口`
+        : "该 run 在本地没有可用结果文件（可能已删除，或仅剩缓存索引）。";
+    }
+    await loadResultResponseChart(root, detail);
+    const previewPane = $("#preview-pane", root);
+    if (!hasEffectiveData) {
+      removeRunFromStructureTree(runId);
+      const navEl = $("#structure-navigator", root);
+      if (navEl) navEl.innerHTML = renderStructureNavigator();
+      if (previewPane) previewPane.innerHTML = `<div class="empty">本地未找到该 run 的结果文件，建议先刷新结果索引。</div>`;
+      state.resultPreviewImages = [];
+      state.resultPreviewIndex = 0;
+      state.selectedSampleId = "";
+      return;
     }
     if (samples.length) renderSamplePreview(root, detail, 0);
+    else if (previewPane) previewPane.innerHTML = `<div class="empty">该 run 暂无样本可预览。</div>`;
   } catch (error) {
     toast(error.message, "error");
   }
+}
+
+async function loadResultResponseChart(root, detailOverride = null) {
+  const detail = detailOverride || state.runDetails.get(state.selectedRunId) || {};
+  let rows = [];
+  try {
+    const trend = await api.diagnosticsTrend(state.selectedRunId);
+    rows = trend.points || [];
+  } catch {
+    rows = detail.metrics || [];
+  }
+  const metricMap = {
+    lambda0_nm: ["lambda0_nm", "中心波长 λ0 (nm)"],
+    q: ["q", "品质因子 Q"],
+    fwhm_nm: ["fwhm_nm", "半高宽 FWHM (nm)"],
+    max_t: ["max_t", "峰值 max(T)"],
+    score: ["score", "综合得分 score"],
+  };
+  const [metric, yLabel] = metricMap[state.resultAnalysisMetric] || metricMap.lambda0_nm;
+  const sampleByDelta = new Map((detail.samples || []).map((s) => [String(s.delta ?? ""), s]));
+  const data = (rows || []).map((r, idx) => {
+    const sample = sampleByDelta.get(String(r.delta ?? "")) || {};
+    return {
+      delta: Number(r.delta ?? idx),
+      value: Number(r[metric]),
+      sample_id: sample.sample_id || `#${idx + 1}`,
+      quality_flags: sample.quality_flags || [],
+      missing_evidence: sample.missing_evidence || [],
+    };
+  }).filter((x) => Number.isFinite(x.delta) && Number.isFinite(x.value));
+  const chartHost = $("#result-response-chart", root);
+  if (!chartHost) return;
+  if (!data.length) {
+    chartHost.innerHTML = `<div class="empty" style="min-height:210px">暂无可绘制的样本参数—光谱响应数据。</div>`;
+    return;
+  }
+  drawResponseAnalysis(chartHost, data, {
+    metric,
+    xLabel: "扰动参数 δ",
+    yLabel,
+  });
 }
 async function previewFile(path, pane) {
   if (!pane) return;
@@ -2134,11 +3304,20 @@ function bindDiagnosis(root) {
     state.diagnostics = null;
     state.spectrum = null;
     state.trend = null;
+    state.diagnosisTrendRows = [];
+    state.diagnosisSelectedPoint = null;
     await renderRoute();
   });
   $("#load-run-diagnostics", root)?.addEventListener("click", () => loadDiagnostics(root));
   $("#load-spectrum", root)?.addEventListener("click", () => loadSpectrum(root));
   $("#load-trend", root)?.addEventListener("click", () => loadTrend(root));
+  $$("#diagnosis-metric-tabs [data-diagnosis-metric]", root).forEach((btn) => {
+    btn.addEventListener("click", () => {
+      state.diagnosisTrendMetric = btn.dataset.diagnosisMetric || "score";
+      $$("#diagnosis-metric-tabs [data-diagnosis-metric]", root).forEach((b) => b.classList.toggle("active", b === btn));
+      renderDiagnosisTrendMatrix(root);
+    });
+  });
   setRouteClickHandler(root, "diagnosis", (event) => {
     if (routeName() !== "diagnosis") return;
     const img = event.target.closest("[data-diagnosis-image]");
@@ -2151,7 +3330,8 @@ function bindDiagnosis(root) {
     loadSpectrum(root);
   }
   if (state.trend?.run_id === state.selectedRunId) {
-    drawTrend($("#trend-chart", root), state.trend.points || [], "delta", "score");
+    state.diagnosisTrendRows = buildDiagnosisTrendRows(state.runDetails.get(state.selectedRunId) || {}, state.trend.points || []);
+    renderDiagnosisTrendMatrix(root);
   } else if (state.diagnostics?.run_id === state.selectedRunId) {
     loadTrend(root);
   }
@@ -2186,7 +3366,11 @@ async function loadSpectrum(root) {
 async function loadTrend(root) {
   if (!state.selectedRunId) return;
   state.trend = await api.diagnosticsTrend(state.selectedRunId);
-  drawTrend($("#trend-chart", root), state.trend.points || [], "delta", "score");
+  const detail = state.runDetails.get(state.selectedRunId) || await api.run(state.selectedRunId);
+  state.runDetails.set(state.selectedRunId, detail);
+  state.diagnosisTrendRows = buildDiagnosisTrendRows(detail, state.trend.points || []);
+  state.diagnosisSelectedPoint = null;
+  renderDiagnosisTrendMatrix(root);
 }
 
 function bindTopology(root) {
@@ -2203,7 +3387,8 @@ function bindTopology(root) {
     if (img) openDrawer("代表谱图", `<img src="/api/v2/files/raw?path=${encodeURIComponent(img.dataset.diagnosisImage.replaceAll("\\", "/"))}" alt="${esc(img.dataset.diagnosisImage)}" style="width:100%;height:auto;border-radius:8px"><p class="muted">${esc(img.dataset.diagnosisImage)}</p>`);
   });
   if (state.heatmap?.run_id === state.selectedRunId) {
-    drawHeatmap($("#heatmap-chart", root), state.heatmap);
+    const ann = relayAnnotations(state.heatmap, state.relay || {});
+    drawModeRelayHeatmap($("#mode-relay-heatmap", root), state.heatmap, ann);
   }
   if (state.selectedRunId && state.relay?.run_id !== state.selectedRunId) loadRelay(root);
 }
@@ -2223,7 +3408,8 @@ async function loadRelay(root) {
 
 async function loadHeatmap(root) {
   state.heatmap = await api.modeRelayHeatmap(state.selectedRunId);
-  drawHeatmap($("#heatmap-chart", root), state.heatmap);
+  const ann = relayAnnotations(state.heatmap, state.relay || {});
+  drawModeRelayHeatmap($("#mode-relay-heatmap", root), state.heatmap, ann);
 }
 
 function bindQuality(root) {
@@ -2237,84 +3423,164 @@ function bindQuality(root) {
   });
 }
 
+function renderSupplementLocal(root) {
+  const route = routeName();
+  if (route !== "supplement") return;
+  const host = document.getElementById("page-root");
+  if (!host) return;
+  host.innerHTML = renderSupplement();
+  afterRender("supplement");
+}
+
 function bindSupplement(root) {
   const ui = ensureSupplementUIState();
+  const allItems = (state.missing?.items && state.missing.items.length) ? state.missing.items : supplementMockItems();
+  const q = state.supplementSearch.trim().toLowerCase();
+  const filtered = q ? allItems.filter((item) => JSON.stringify(item).toLowerCase().includes(q)) : allItems;
+  const visibleItems = filtered.slice(0, state.supplementVisibleLimit);
+  const sourceTree = state.supplementTree?.tree || [];
+  const tree = sourceTree.length
+    ? buildSupplementTreeModel(sourceTree, allItems, q)
+    : buildSupplementTreeFromItems(allItems, q);
+  const nodeMap = new Map();
+  const walk = (node) => { nodeMap.set(node.key, node); (node.children || []).forEach(walk); };
+  tree.forEach(walk);
+  $$("[data-supp-node-check][data-indeterminate='1']", root).forEach((el) => { el.indeterminate = true; });
+
   root.__supplementChangeHandler && root.removeEventListener("change", root.__supplementChangeHandler);
   root.__supplementChangeHandler = (event) => {
-    const sampleCheck = event.target.closest("[data-supplement-sample-check]");
-    if (sampleCheck) {
-      const sampleKey = sampleCheck.dataset.supplementSampleCheck;
-      if (sampleCheck.checked) ui.selectedKeys.add(sampleKey);
-      else ui.selectedKeys.delete(sampleKey);
-      ui.focusedKey = sampleKey;
-      setSupplementStep(2);
-      renderRoute();
-      return;
-    }
-    const runCheck = event.target.closest("[data-supplement-run-check]");
-    if (runCheck) {
-      const runId = runCheck.dataset.runId || "";
-      (state.missing?.items || []).forEach((item) => {
-        if ((item.run_id || "") !== runId) return;
-        const key = supplementKey(item);
-        if (runCheck.checked) ui.selectedKeys.add(key);
-        else ui.selectedKeys.delete(key);
-        if (runCheck.checked) ui.focusedKey = key;
-      });
-      setSupplementStep(2);
-      renderRoute();
-    }
+    const check = event.target.closest("[data-supp-node-check]");
+    if (!check) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const node = nodeMap.get(check.dataset.suppNodeCheck || "");
+    if (!node) return;
+    const leaves = collectLeafKeys(node);
+    leaves.forEach((leaf) => {
+      if (check.checked) ui.selectedSampleKeys.add(leaf);
+      else ui.selectedSampleKeys.delete(leaf);
+    });
+    if (node.sample) ui.focusedKey = supplementKey(node.sample);
+    setSupplementStep(2);
+    renderSupplementLocal(root);
   };
   root.addEventListener("change", root.__supplementChangeHandler);
-  $("#supplement-search", root)?.addEventListener("input", async (event) => {
+
+  $("#supplement-search", root)?.addEventListener("input", (event) => {
     state.supplementSearch = event.target.value;
     state.supplementVisibleLimit = 420;
-    await renderRoute();
+    renderSupplementLocal(root);
   });
-  $("#supplement-type", root)?.addEventListener("change", () => renderRoute());
-  $("#load-more-supplement", root)?.addEventListener("click", async () => {
+  $("#supplement-type", root)?.addEventListener("change", () => renderSupplementLocal(root));
+  $("#load-more-supplement", root)?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     state.supplementVisibleLimit += 420;
-    await renderRoute();
+    renderSupplementLocal(root);
   });
+  $("#clear-supplement-selection", root)?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    ui.selectedSampleKeys.clear();
+    ui.focusedKey = "";
+    renderSupplementLocal(root);
+  });
+
   setRouteClickHandler(root, "supplement", (event) => {
     if (routeName() !== "supplement") return;
     const stepBtn = event.target.closest("[data-supplement-step]");
     if (stepBtn) {
       event.preventDefault();
+      event.stopPropagation();
       setSupplementStep(stepBtn.dataset.supplementStep);
-      renderRoute();
+      renderSupplementLocal(root);
+      return;
+    }
+    const openPicker = event.target.closest("#open-fsp-picker");
+    if (openPicker) {
+      event.preventDefault();
+      event.stopPropagation();
+      openSupplementFspModal(allItems);
       return;
     }
     const toggleRun = event.target.closest("[data-supplement-toggle-run]");
     if (toggleRun) {
       event.preventDefault();
-      const runKey = toggleRun.dataset.supplementToggleRun;
-      if (ui.expandedRuns.has(runKey)) ui.expandedRuns.delete(runKey);
-      else ui.expandedRuns.add(runKey);
-      renderRoute();
+      event.stopPropagation();
+      const runKey = toggleRun.dataset.supplementToggleRun || "";
+      if (ui.expandedRuns.has(runKey)) ui.expandedRuns.delete(runKey); else ui.expandedRuns.add(runKey);
+      renderSupplementLocal(root);
       return;
     }
-    const sampleCard = event.target.closest("[data-supplement-sample]");
-    if (sampleCard && !event.target.closest("input, button, a, label")) {
-      ui.focusedKey = sampleCard.dataset.supplementSample || ui.focusedKey;
-      setSupplementStep(2);
-      renderRoute();
+    const openFsp = event.target.closest("[data-open-fsp]");
+    if (openFsp) {
+      event.preventDefault();
+      event.stopPropagation();
+      const path = openFsp.dataset.openFsp || "";
+      api.openFile(path).then(() => {
+        ui.openedFspPaths[path] = true;
+        localStorage.setItem(SUPPLEMENT_OPENED_FSP_STORAGE_KEY, JSON.stringify(ui.openedFspPaths));
+        renderSupplementLocal(root);
+      }).catch((error) => toast(error.message, "error"));
+      return;
+    }
+    const openFolder = event.target.closest("[data-open-folder]");
+    if (openFolder) {
+      event.preventDefault();
+      event.stopPropagation();
+      api.openFolder(openFolder.dataset.openFolder || "").catch((error) => toast(error.message, "error"));
+      return;
+    }
+    const copyPath = event.target.closest("[data-copy-path]");
+    if (copyPath) {
+      event.preventDefault();
+      event.stopPropagation();
+      const p = copyPath.dataset.copyPath || "";
+      navigator.clipboard?.writeText(p).then(() => toast("路径已复制。", "success")).catch(() => toast(p, "success"));
+      return;
+    }
+    const previewPlan = event.target.closest("#preview-supp-plan");
+    if (previewPlan) {
+      event.preventDefault();
+      event.stopPropagation();
+      runActionOnce("preview-supp-plan", () => previewSupplementPlan(root), 1200).catch((error) => toast(error.message, "error"));
+      return;
+    }
+    const runSupp = event.target.closest("#run-supplement");
+    if (runSupp) {
+      event.preventDefault();
+      event.stopPropagation();
+      runActionOnce("run-supplement", () => startSupplementRun(root), 1500).catch((error) => toast(error.message, "error"));
+      return;
+    }
+    const openOut = event.target.closest("#open-supp-output");
+    if (openOut) {
+      event.preventDefault();
+      event.stopPropagation();
+      const runPath = state.supplementPlanPreview?.run_path || "";
+      if (runPath) {
+        api.supplementOpenFolder({ run_path: runPath }).catch((error) => toast(error.message, "error"));
+      }
       return;
     }
     const create = event.target.closest("#create-package");
     if (create) {
       event.preventDefault();
-      runActionOnce("create-supplement-package", () => createSupplementPackageFromSelection(root), 2000)
-        .catch((error) => toast(error.message, "error"));
+      event.stopPropagation();
+      runActionOnce("create-supplement-package", () => createSupplementPackageFromSelection(root), 2000).catch((error) => toast(error.message, "error"));
       return;
     }
     const show = event.target.closest("[data-show-package]");
     if (show) {
+      event.preventDefault();
+      event.stopPropagation();
       showPackageModal(show.dataset.showPackage);
       return;
     }
     const del = event.target.closest("[data-delete-package]");
     if (!del) return;
+    event.preventDefault();
+    event.stopPropagation();
     const packageId = del.dataset.deletePackage;
     let deleteDetail = null;
     openModal({
@@ -2340,13 +3606,11 @@ function bindSupplement(root) {
         deleteDetail = await api.supplementPackage(packageId);
         const host = $("#delete-patch-detail", $("#modal-root"));
         if (host) host.innerHTML = renderSupplementDeletePrompt(deleteDetail);
-        const confirmBtn = $("#modal-root [data-confirm-modal]");
+        const confirmBtn2 = $("#modal-root [data-confirm-modal]");
         const check = $("#modal-root #delete-patch-confirm");
-        if (confirmBtn && check) {
-          confirmBtn.disabled = !check.checked;
-          check.addEventListener("change", () => {
-            confirmBtn.disabled = !check.checked;
-          });
+        if (confirmBtn2 && check) {
+          confirmBtn2.disabled = !check.checked;
+          check.addEventListener("change", () => { confirmBtn2.disabled = !check.checked; });
         }
       } catch (error) {
         const host = $("#delete-patch-detail", $("#modal-root"));
@@ -2379,67 +3643,89 @@ async function createSupplementPackageFromSelection(root) {
   showPatchPackageModal(item);
 }
 
-function applySupplementCheck(root, source) {
-  const checked = source.checked;
-  const group = source.dataset.treeGroup;
-  const run = source.dataset.treeRun;
-  const sample = source.dataset.treeSample;
-  if (group) {
-    $$(`[data-parent-group="${CSS.escape(group)}"], [data-tree-leaf][data-parent-run]`, root)
-      .filter((node) => {
-        const runNode = node.closest(".patch-run");
-        return runNode && runNode.querySelector(`[data-parent-group="${CSS.escape(group)}"]`);
-      })
-      .forEach((node) => { node.checked = checked; });
+async function previewSupplementPlan(root) {
+  const items = (state.missing?.items && state.missing.items.length) ? state.missing.items : supplementMockItems();
+  const selected = supplementCurrentSelection(items);
+  if (!selected.length) return toast("请至少选择一个样本。", "error");
+  const runIds = Array.from(new Set(selected.map((x) => x.run_id).filter(Boolean)));
+  if (runIds.length !== 1) return toast("预览计划仅支持单个 run。", "error");
+  const selection = selected.map((x) => ({
+    type: "sample",
+    run_id: x.run_id || "",
+    run_path: x.source_run_dir || x.source_run_path || "",
+    sample_id: x.sample_id || "",
+  }));
+  const plan = await api.supplementPreviewPlan({ selection });
+  state.supplementPlanPreview = plan;
+  if ((plan.missing_required || []).length) {
+    toast(`关键参数缺失：${(plan.missing_required || []).join(", ")}`, "error");
+  } else {
+    toast("补做计划预览已生成。", "success");
   }
-  if (run) {
-    $$(`[data-parent-run="${CSS.escape(run)}"]`, root).forEach((node) => { node.checked = checked; });
+  renderSupplementLocal(root);
+}
+
+async function startSupplementRun(root) {
+  const items = (state.missing?.items && state.missing.items.length) ? state.missing.items : supplementMockItems();
+  const selected = supplementCurrentSelection(items);
+  if (!selected.length) return toast("请先选择样本。", "error");
+  const selection = selected.map((x) => ({
+    type: "sample",
+    run_id: x.run_id || "",
+    run_path: x.source_run_dir || x.source_run_path || "",
+    sample_id: x.sample_id || "",
+  }));
+  const plan = state.supplementPlanPreview || await api.supplementPreviewPlan({ selection });
+  if ((plan.missing_required || []).length) {
+    throw new Error(`关键参数缺失：${(plan.missing_required || []).join(", ")}`);
   }
-  if (sample) {
-    $$(`[data-tree-leaf="${CSS.escape(sample)}"]`, root).forEach((node) => { node.checked = checked; });
+  const confirmed = window.confirm("确认在原 run 目录内执行补做？不会创建新的 run 文件夹。");
+  if (!confirmed) return;
+  const job = await api.supplementRun({ selection, monitor_ack_skip: true });
+  state.supplementRunState = { jobId: job.job_id, cursor: 0, logs: [], status: job.status || "queued", timer: null };
+  localStorage.setItem("fdtd.supplement.jobid.v1", job.job_id || "");
+  toast(`补做任务已启动：${job.job_id}`, "success");
+  startSupplementLogPolling(root);
+}
+
+async function pollSupplementLogs(root) {
+  const rs = state.supplementRunState || {};
+  if (!rs.jobId) return;
+  try {
+    const data = await api.supplementJobEvents(rs.jobId, { cursor: rs.cursor || 0 });
+    rs.cursor = Number(data.next_cursor || rs.cursor || 0);
+    rs.logs = [...(rs.logs || []), ...(data.events || [])].slice(-800);
+    rs.status = data.state?.status || rs.status;
+    state.supplementRunState = rs;
+    if (["success", "failed"].includes(rs.status)) stopSupplementLogPolling();
+    if (routeName() === "supplement") renderSupplementLocal(root || $("#page-root"));
+  } catch (error) {
+    stopSupplementLogPolling();
+    toast(error.message, "error");
   }
 }
 
-function updateSupplementTreeState(root) {
-  $$("[data-patch-sample]", root).forEach((sampleNode) => {
-    const sampleKey = sampleNode.dataset.patchSample;
-    const sampleBox = sampleNode.querySelector(`[data-tree-sample="${CSS.escape(sampleKey)}"]`);
-    const leaves = $$(`[data-tree-leaf="${CSS.escape(sampleKey)}"]`, sampleNode);
-    const checked = leaves.filter((x) => x.checked).length;
-    if (sampleBox && leaves.length) {
-      sampleBox.checked = checked === leaves.length;
-      sampleBox.indeterminate = checked > 0 && checked < leaves.length;
-    }
-  });
-  $$("[data-patch-run]", root).forEach((runNode) => {
-    const runKey = runNode.dataset.patchRun;
-    const runBox = runNode.querySelector(`[data-tree-run="${CSS.escape(runKey)}"]`);
-    const leaves = $$(`[data-parent-run="${CSS.escape(runKey)}"][data-tree-leaf]`, runNode);
-    const checked = leaves.filter((x) => x.checked).length;
-    if (runBox && leaves.length) {
-      runBox.checked = checked === leaves.length;
-      runBox.indeterminate = checked > 0 && checked < leaves.length;
-    }
-  });
-  $$("[data-patch-batch]", root).forEach((batchNode) => {
-    const batchKey = batchNode.dataset.patchBatch;
-    const batchBox = batchNode.querySelector(`[data-tree-group="${CSS.escape(batchKey)}"]`);
-    const leaves = $$("[data-tree-leaf]", batchNode);
-    const checked = leaves.filter((x) => x.checked).length;
-    if (batchBox && leaves.length) {
-      batchBox.checked = checked === leaves.length;
-      batchBox.indeterminate = checked > 0 && checked < leaves.length;
-    }
-  });
+function startSupplementLogPolling(root) {
+  stopSupplementLogPolling();
+  state.supplementRunState.timer = setInterval(() => {
+    pollSupplementLogs(root).catch(() => {});
+  }, 1500);
+}
+
+function stopSupplementLogPolling() {
+  const t = state.supplementRunState?.timer;
+  if (t) clearInterval(t);
+  if (state.supplementRunState) state.supplementRunState.timer = null;
 }
 
 function collectSupplementSelection(root, items) {
-  const ui = ensureSupplementUIState();
+  const selectedMap = collectSelectedEvidenceBySample(items || []);
   return (items || [])
-    .filter((item) => ui.selectedKeys.has(supplementKey(item)))
+    .filter((item) => selectedMap.has(supplementKey(item)))
     .map((item) => ({
       ...item,
-      selected_missing_evidence: Array.from(new Set(item.selected_missing_evidence || item.missing_evidence || [])),
+      selected_missing_evidence: Array.from(new Set(selectedMap.get(supplementKey(item)) || [])),
+      sample_fsp_path: (item.sample_fsp_candidates || [item.source_fsp || ""])[0] || "",
     }));
 }
 
@@ -2586,9 +3872,11 @@ function bindChrome() {
     state.search = event.target.value;
     if (["run", "results", "resources"].includes(routeName())) await renderRoute();
   });
+  $("#refresh-index").setAttribute("title", "左键：增量刷新；右键：清空缓存重建");
   $("#refresh-index").addEventListener("click", () => refreshIndex(false));
   $("#refresh-index").addEventListener("contextmenu", (event) => {
     event.preventDefault();
+    toast("已请求清空缓存重建。", "info");
     refreshIndex(true);
   });
   $("#export-summary").addEventListener("click", () => {
