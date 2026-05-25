@@ -1,16 +1,16 @@
 {
   "schema_version": 2,
   "project_root": "H:\\FDTD outcome\\struct\\群论_struct",
-  "built_at": "2026-05-22T15:11:26",
-  "scan_duration_ms": 3633,
+  "built_at": "2026-05-22T17:54:10",
+  "scan_duration_ms": 3007,
   "scanner_version": "v2",
   "status": "ready",
   "stale": false,
   "counts": {
-    "runs": 5,
-    "scripts": 129,
-    "spectra": 1327,
-    "files": 1644
+    "runs": 1,
+    "scripts": 91,
+    "spectra": 1343,
+    "files": 1582
   },
   "last_error": null,
   "changed_paths": [],

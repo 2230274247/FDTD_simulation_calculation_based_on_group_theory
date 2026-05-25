@@ -1,6 +1,6 @@
 {
   "running": true,
-  "started_at": "2026-05-22T15:10:21",
+  "started_at": "2026-05-22T16:41:57",
   "completed_at": "",
   "progress": 50,
   "queue": [
@@ -16,10 +16,10 @@
   ],
   "current": "spectra",
   "counts": {
-    "runs": 5,
-    "scripts": 129,
-    "spectra": 1327,
-    "files": 1644,
+    "runs": 2,
+    "scripts": 91,
+    "spectra": 1335,
+    "files": 1570,
     "run_details_built": 0,
     "spectra_built": 0
   }

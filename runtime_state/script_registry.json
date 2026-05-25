@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "built_at": "2026-05-22T12:42:35",
+  "built_at": "2026-05-22T17:54:10",
   "scripts": [
     {
       "id": 1,
@@ -15,7 +15,40 @@
       "default_start_nm": "",
       "default_end_nm": 30.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双圆盘\\coding\\半径差扰动\\run_fdtd_disk_radius_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 30.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 2,
@@ -30,7 +63,40 @@
       "default_start_nm": "",
       "default_end_nm": 30.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双圆盘\\coding\\单盘开孔扰动\\run_fdtd_single_disk_hole_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 30.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 3,
@@ -45,7 +111,40 @@
       "default_start_nm": "",
       "default_end_nm": 30.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双圆盘\\coding\\双盘同步开孔扰动\\run_fdtd_all_disk_hole_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 30.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 4,
@@ -60,7 +159,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C2对称结构\\双圆盘\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 5,
@@ -75,7 +207,40 @@
       "default_start_nm": "",
       "default_end_nm": 35.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双圆盘\\coding\\非对称位移扰动\\run_fdtd_disk_asymmetric_offset_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 35.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 6,
@@ -90,7 +255,40 @@
       "default_start_nm": "",
       "default_end_nm": 30.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双柱\\coding\\左右位置差扰动\\run_fdtd_pillar_position_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 30.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 7,
@@ -105,7 +303,40 @@
       "default_start_nm": "",
       "default_end_nm": 25.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双柱\\coding\\左右半径差扰动\\run_fdtd_pillar_radius_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 25.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 8,
@@ -120,7 +351,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C2对称结构\\双柱\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 9,
@@ -135,7 +399,40 @@
       "default_start_nm": 300.0,
       "default_end_nm": 430.0,
       "default_step_nm": 10.0,
-      "estimated_points": 14
+      "estimated_points": 14,
+      "script_path": "C2对称结构\\双柱\\coding\\间距扫描扰动\\run_fdtd_pillar_spacing_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 300.0,
+        "END_NM": 430.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 10,
@@ -150,7 +447,40 @@
       "default_start_nm": "",
       "default_end_nm": 40.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双柱\\coding\\高度差扰动\\run_fdtd_pillar_height_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 40.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 11,
@@ -165,7 +495,40 @@
       "default_start_nm": 80.0,
       "default_end_nm": 160.0,
       "default_step_nm": 10.0,
-      "estimated_points": 9
+      "estimated_points": 9,
+      "script_path": "C2对称结构\\双梁\\coding\\同步梁宽扫描扰动\\run_fdtd_all_beam_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 80.0,
+        "END_NM": 160.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 12,
@@ -180,7 +543,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C2对称结构\\双梁\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 13,
@@ -195,7 +591,40 @@
       "default_start_nm": "",
       "default_end_nm": 35.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双梁\\coding\\梁偏移扰动\\run_fdtd_beam_offset_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 35.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 14,
@@ -210,7 +639,40 @@
       "default_start_nm": "",
       "default_end_nm": 30.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双梁\\coding\\梁宽差扰动\\run_fdtd_beam_width_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 30.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 15,
@@ -225,7 +687,40 @@
       "default_start_nm": "",
       "default_end_nm": 50.0,
       "default_step_nm": 10.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双梁\\coding\\梁长差扰动\\run_fdtd_beam_length_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 50.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 16,
@@ -240,7 +735,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C2对称结构\\双椭圆\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 17,
@@ -255,7 +783,40 @@
       "default_start_nm": "",
       "default_end_nm": 25.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双椭圆\\coding\\短轴差扰动\\run_fdtd_ellipse_short_axis_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 25.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 18,
@@ -270,7 +831,34 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双椭圆\\coding\\转角差扰动\\run_fdtd_ellipse_angle_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 19,
@@ -285,7 +873,40 @@
       "default_start_nm": "",
       "default_end_nm": 40.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双椭圆\\coding\\长轴差扰动\\run_fdtd_ellipse_long_axis_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 40.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 20,
@@ -300,7 +921,40 @@
       "default_start_nm": "",
       "default_end_nm": 35.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双椭圆\\coding\\间距差扰动\\run_fdtd_ellipse_spacing_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 35.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 21,
@@ -315,7 +969,40 @@
       "default_start_nm": "",
       "default_end_nm": 30.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双脊\\coding\\位置差扰动\\run_fdtd_ridge_position_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 30.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 22,
@@ -330,7 +1017,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C2对称结构\\双脊\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 23,
@@ -345,7 +1065,40 @@
       "default_start_nm": "",
       "default_end_nm": 25.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双脊\\coding\\脊宽差扰动\\run_fdtd_ridge_width_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 25.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 24,
@@ -360,7 +1113,40 @@
       "default_start_nm": "",
       "default_end_nm": 40.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双脊\\coding\\脊高差扰动\\run_fdtd_ridge_height_difference_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 40.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 25,
@@ -375,7 +1161,40 @@
       "default_start_nm": "",
       "default_end_nm": 25.0,
       "default_step_nm": 5.0,
-      "estimated_points": "3,"
+      "estimated_points": "3,",
+      "script_path": "C2对称结构\\双脊\\coding\\顶部槽差扰动\\run_fdtd_ridge_top_slot_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 25.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask',",
+        "TEST_POINT_COUNT": "3,",
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 26,
@@ -390,7 +1209,40 @@
       "default_start_nm": 350.0,
       "default_end_nm": 520.0,
       "default_step_nm": 25.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C3对称结构\\三叶星\\coding\\三臂同步缩放扰动\\run_fdtd_all_arm_scale_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 350.0,
+        "END_NM": 520.0,
+        "STEP_NM": 25.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 27,
@@ -405,7 +1257,40 @@
       "default_start_nm": 80.0,
       "default_end_nm": 170.0,
       "default_step_nm": 15.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C3对称结构\\三叶星\\coding\\单臂宽度差扰动\\run_fdtd_single_arm_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 80.0,
+        "END_NM": 170.0,
+        "STEP_NM": 15.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 28,
@@ -420,7 +1305,34 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C3对称结构\\三叶星\\coding\\单臂转角扰动\\run_fdtd_single_arm_angle_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 29,
@@ -435,7 +1347,40 @@
       "default_start_nm": 350.0,
       "default_end_nm": 520.0,
       "default_step_nm": 25.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C3对称结构\\三叶星\\coding\\单臂长度差扰动\\run_fdtd_single_arm_length_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 350.0,
+        "END_NM": 520.0,
+        "STEP_NM": 25.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 30,
@@ -450,7 +1395,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C3对称结构\\三叶星\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 31,
@@ -465,7 +1443,40 @@
       "default_start_nm": 60.0,
       "default_end_nm": 130.0,
       "default_step_nm": 10.0,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C3对称结构\\三柱簇\\coding\\三柱同步半径扫描扰动\\run_fdtd_all_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 60.0,
+        "END_NM": 130.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 32,
@@ -480,7 +1491,40 @@
       "default_start_nm": 60.0,
       "default_end_nm": 130.0,
       "default_step_nm": 10.0,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C3对称结构\\三柱簇\\coding\\其中两柱同改扰动\\run_fdtd_two_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 60.0,
+        "END_NM": 130.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 33,
@@ -495,7 +1539,40 @@
       "default_start_nm": "",
       "default_end_nm": 90.0,
       "default_step_nm": 15.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C3对称结构\\三柱簇\\coding\\单点偏移扰动\\run_fdtd_single_pillar_offset_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 90.0,
+        "STEP_NM": 15.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 34,
@@ -510,7 +1587,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C3对称结构\\三柱簇\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 35,
@@ -525,7 +1635,40 @@
       "default_start_nm": 60.0,
       "default_end_nm": 130.0,
       "default_step_nm": 10.0,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C3对称结构\\三柱簇\\coding\\改单个柱子扰动\\run_fdtd_single_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 60.0,
+        "END_NM": 130.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 36,
@@ -540,7 +1683,40 @@
       "default_start_nm": 20.0,
       "default_end_nm": 80.0,
       "default_step_nm": 10.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C3对称结构\\三裂缝环\\coding\\三裂缝同步宽度扰动\\run_fdtd_all_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 20.0,
+        "END_NM": 80.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 37,
@@ -555,7 +1731,40 @@
       "default_start_nm": 20.0,
       "default_end_nm": 80.0,
       "default_step_nm": 10.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C3对称结构\\三裂缝环\\coding\\单裂缝宽度扰动\\run_fdtd_single_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 20.0,
+        "END_NM": 80.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 38,
@@ -570,7 +1779,34 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C3对称结构\\三裂缝环\\coding\\单裂缝角度扰动\\run_fdtd_single_slit_angle_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 39,
@@ -585,7 +1821,40 @@
       "default_start_nm": 100.0,
       "default_end_nm": 230.0,
       "default_step_nm": 20.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C3对称结构\\三裂缝环\\coding\\单裂缝长度扰动\\run_fdtd_single_slit_length_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 100.0,
+        "END_NM": 230.0,
+        "STEP_NM": 20.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 40,
@@ -600,7 +1869,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C3对称结构\\三裂缝环\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 41,
@@ -615,7 +1917,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\十字\\coding\\单臂开槽扰动\\run_fdtd_single_arm_slot_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 42,
@@ -630,7 +1957,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\十字\\coding\\单臂长度变化扰动\\run_fdtd_single_arm_length_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 43,
@@ -645,7 +1997,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\十字\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 44,
@@ -660,7 +2045,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\十字\\coding\\横竖臂宽度差扰动\\run_fdtd_arm_width_diff_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 45,
@@ -675,7 +2085,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\十字\\coding\\横竖臂长度差扰动\\run_fdtd_arm_length_diff_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 46,
@@ -690,7 +2125,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四孔方块\\coding\\单孔偏移扰动\\run_fdtd_single_hole_offset_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 47,
@@ -705,7 +2165,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四孔方块\\coding\\四孔同步孔径扰动\\run_fdtd_all_hole_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 48,
@@ -720,7 +2205,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四孔方块\\coding\\孔距同步扫描扰动\\run_fdtd_hole_pitch_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 49,
@@ -735,7 +2245,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四孔方块\\coding\\对角成对变化扰动\\run_fdtd_diagonal_pair_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 50,
@@ -750,7 +2285,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四孔方块\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 51,
@@ -765,7 +2333,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四孔方块\\coding\\改单孔半径扰动\\run_fdtd_single_hole_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 52,
@@ -780,7 +2373,40 @@
       "default_start_nm": "",
       "default_end_nm": 120.0,
       "default_step_nm": 15.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四柱簇\\coding\\单柱偏移扰动\\run_fdtd_single_pillar_offset_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 120.0,
+        "STEP_NM": 15.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 53,
@@ -795,7 +2421,40 @@
       "default_start_nm": 60.0,
       "default_end_nm": 130.0,
       "default_step_nm": 10.0,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C4对称结构\\四柱簇\\coding\\四柱同步半径扰动\\run_fdtd_all_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 60.0,
+        "END_NM": 130.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 54,
@@ -810,7 +2469,40 @@
       "default_start_nm": 60.0,
       "default_end_nm": 130.0,
       "default_step_nm": 10.0,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C4对称结构\\四柱簇\\coding\\对边成对变化扰动\\run_fdtd_opposite_pair_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 60.0,
+        "END_NM": 130.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 55,
@@ -825,7 +2517,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四柱簇\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 56,
@@ -840,7 +2565,40 @@
       "default_start_nm": 60.0,
       "default_end_nm": 130.0,
       "default_step_nm": 10.0,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C4对称结构\\四柱簇\\coding\\改单个柱子扰动\\run_fdtd_single_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 60.0,
+        "END_NM": 130.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 57,
@@ -855,7 +2613,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四裂缝环\\coding\\四裂缝同步扫描扰动\\run_fdtd_all_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 58,
@@ -870,7 +2653,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四裂缝环\\coding\\对边裂缝成对变化扰动\\run_fdtd_opposite_pair_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 59,
@@ -885,7 +2693,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四裂缝环\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 60,
@@ -900,7 +2741,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四裂缝环\\coding\\改单裂缝宽度扰动\\run_fdtd_single_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 61,
@@ -915,7 +2781,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四裂缝环\\coding\\裂缝角度差扰动\\run_fdtd_single_slit_angle_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 62,
@@ -930,7 +2821,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\四裂缝环\\coding\\裂缝长度差扰动\\run_fdtd_single_slit_length_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 63,
@@ -945,7 +2861,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\方环\\coding\\偏心内孔扰动\\run_fdtd_eccentric_inner_hole_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 64,
@@ -960,7 +2901,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\方环\\coding\\内孔尺寸扫描扰动\\run_fdtd_inner_hole_size_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 65,
@@ -975,7 +2941,38 @@
       "default_start_nm": 1.0,
       "default_end_nm": 1.5,
       "default_step_nm": 0.05,
-      "estimated_points": 11
+      "estimated_points": 11,
+      "script_path": "C4对称结构\\方环\\coding\\外框长宽差扰动\\run_fdtd_outer_aspect_ratio_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "START",
+        "STEP",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8,
+        "START": 1.0,
+        "END": 1.5,
+        "STEP": 0.05
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 66,
@@ -990,7 +2987,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\方环\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 67,
@@ -1005,7 +3035,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C4对称结构\\方环\\coding\\边宽差扰动\\run_fdtd_edge_width_diff_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 68,
@@ -1015,12 +3070,45 @@
       "mother_structure": "六柱环",
       "perturbation": "交替两组柱子扰动",
       "reduction_path": "C6 -> 待识别",
-      "status": "missing_result",
+      "status": "failed",
       "recommended_mode": "test",
       "default_start_nm": 45.0,
       "default_end_nm": 105.0,
       "default_step_nm": 10.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C6对称结构\\六柱环\\coding\\交替两组柱子扰动\\run_fdtd_alternating_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 45.0,
+        "END_NM": 105.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 69,
@@ -1035,7 +3123,40 @@
       "default_start_nm": 45.0,
       "default_end_nm": 105.0,
       "default_step_nm": 10.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C6对称结构\\六柱环\\coding\\六柱同步半径扰动\\run_fdtd_all_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 45.0,
+        "END_NM": 105.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 70,
@@ -1050,7 +3171,40 @@
       "default_start_nm": "",
       "default_end_nm": 120.0,
       "default_step_nm": 15.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C6对称结构\\六柱环\\coding\\单柱偏移扰动\\run_fdtd_single_pillar_offset_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 120.0,
+        "STEP_NM": 15.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 71,
@@ -1065,7 +3219,40 @@
       "default_start_nm": 45.0,
       "default_end_nm": 105.0,
       "default_step_nm": 10.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C6对称结构\\六柱环\\coding\\对边两柱变化扰动\\run_fdtd_opposite_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 45.0,
+        "END_NM": 105.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 72,
@@ -1080,7 +3267,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C6对称结构\\六柱环\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 73,
@@ -1095,7 +3315,40 @@
       "default_start_nm": 45.0,
       "default_end_nm": 105.0,
       "default_step_nm": 10.0,
-      "estimated_points": 7
+      "estimated_points": 7,
+      "script_path": "C6对称结构\\六柱环\\coding\\改单个柱子扰动\\run_fdtd_single_pillar_radius_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 45.0,
+        "END_NM": 105.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 74,
@@ -1110,7 +3363,40 @@
       "default_start_nm": 70.0,
       "default_end_nm": 150.0,
       "default_step_nm": 10.0,
-      "estimated_points": 9
+      "estimated_points": 9,
+      "script_path": "C6对称结构\\六臂星\\coding\\交替两组臂变化扰动\\run_fdtd_alternating_arm_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 70.0,
+        "END_NM": 150.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 75,
@@ -1125,7 +3411,40 @@
       "default_start_nm": 70.0,
       "default_end_nm": 150.0,
       "default_step_nm": 10.0,
-      "estimated_points": 9
+      "estimated_points": 9,
+      "script_path": "C6对称结构\\六臂星\\coding\\单臂变化扰动\\run_fdtd_single_arm_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 70.0,
+        "END_NM": 150.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 76,
@@ -1140,7 +3459,40 @@
       "default_start_nm": 70.0,
       "default_end_nm": 150.0,
       "default_step_nm": 10.0,
-      "estimated_points": 9
+      "estimated_points": 9,
+      "script_path": "C6对称结构\\六臂星\\coding\\对臂变化扰动\\run_fdtd_opposite_arm_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 70.0,
+        "END_NM": 150.0,
+        "STEP_NM": 10.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 77,
@@ -1155,7 +3507,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C6对称结构\\六臂星\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 78,
@@ -1170,7 +3555,40 @@
       "default_start_nm": 500.0,
       "default_end_nm": 700.0,
       "default_step_nm": 25.0,
-      "estimated_points": 9
+      "estimated_points": 9,
+      "script_path": "C6对称结构\\六臂星\\coding\\所有臂同步缩放扰动\\run_fdtd_all_arm_scale_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 500.0,
+        "END_NM": 700.0,
+        "STEP_NM": 25.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 79,
@@ -1185,7 +3603,40 @@
       "default_start_nm": 20.0,
       "default_end_nm": 75.0,
       "default_step_nm": 7.5,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C6对称结构\\六裂缝环\\coding\\交替裂缝扰动\\run_fdtd_alternating_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 20.0,
+        "END_NM": 75.0,
+        "STEP_NM": 7.5,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 80,
@@ -1200,7 +3651,40 @@
       "default_start_nm": 20.0,
       "default_end_nm": 75.0,
       "default_step_nm": 7.5,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C6对称结构\\六裂缝环\\coding\\六裂缝同步宽度扰动\\run_fdtd_all_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 20.0,
+        "END_NM": 75.0,
+        "STEP_NM": 7.5,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 81,
@@ -1215,7 +3699,40 @@
       "default_start_nm": "",
       "default_end_nm": 40.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C6对称结构\\六裂缝环\\coding\\单点缺口扰动\\run_fdtd_single_cut_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 40.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 82,
@@ -1230,7 +3747,40 @@
       "default_start_nm": 20.0,
       "default_end_nm": 75.0,
       "default_step_nm": 7.5,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C6对称结构\\六裂缝环\\coding\\对裂缝变化扰动\\run_fdtd_opposite_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 20.0,
+        "END_NM": 75.0,
+        "STEP_NM": 7.5,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 83,
@@ -1245,7 +3795,40 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "C6对称结构\\六裂缝环\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 84,
@@ -1260,580 +3843,43 @@
       "default_start_nm": 20.0,
       "default_end_nm": 75.0,
       "default_step_nm": 7.5,
-      "estimated_points": 8
+      "estimated_points": 8,
+      "script_path": "C6对称结构\\六裂缝环\\coding\\改单裂缝扰动\\run_fdtd_single_slit_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 20.0,
+        "END_NM": 75.0,
+        "STEP_NM": 7.5,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
       "id": 85,
-      "script_id": "run_fdtd_all_arm_scale_sweep_5d2a3219",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三叶星\\三臂同步缩放扰动\\run_fdtd_all_arm_scale_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三叶星",
-      "perturbation": "三臂同步缩放扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 350.0,
-      "default_end_nm": 520.0,
-      "default_step_nm": 25.0,
-      "estimated_points": 7
-    },
-    {
-      "id": 86,
-      "script_id": "run_fdtd_single_arm_width_sweep_b0e691f2",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三叶星\\单臂宽度差扰动\\run_fdtd_single_arm_width_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三叶星",
-      "perturbation": "单臂宽度差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 80.0,
-      "default_end_nm": 170.0,
-      "default_step_nm": 15.0,
-      "estimated_points": 7
-    },
-    {
-      "id": 87,
-      "script_id": "run_fdtd_single_arm_angle_sweep_028626b0",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三叶星\\单臂转角扰动\\run_fdtd_single_arm_angle_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三叶星",
-      "perturbation": "单臂转角扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": "",
-      "default_step_nm": "",
-      "estimated_points": 3.0
-    },
-    {
-      "id": 88,
-      "script_id": "run_fdtd_single_arm_length_sweep_9519d314",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三叶星\\单臂长度差扰动\\run_fdtd_single_arm_length_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三叶星",
-      "perturbation": "单臂长度差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 350.0,
-      "default_end_nm": 520.0,
-      "default_step_nm": 25.0,
-      "estimated_points": 7
-    },
-    {
-      "id": 89,
-      "script_id": "run_fdtd_all_pillar_radius_sweep_211979ca",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三柱簇\\三柱同步半径扫描扰动\\run_fdtd_all_pillar_radius_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三柱簇",
-      "perturbation": "三柱同步半径扫描扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 60.0,
-      "default_end_nm": 130.0,
-      "default_step_nm": 10.0,
-      "estimated_points": 8
-    },
-    {
-      "id": 90,
-      "script_id": "run_fdtd_two_pillar_radius_sweep_f1679e0b",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三柱簇\\其中两柱同改扰动\\run_fdtd_two_pillar_radius_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三柱簇",
-      "perturbation": "其中两柱同改扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 60.0,
-      "default_end_nm": 130.0,
-      "default_step_nm": 10.0,
-      "estimated_points": 8
-    },
-    {
-      "id": 91,
-      "script_id": "run_fdtd_single_pillar_offset_sweep_419c051f",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三柱簇\\单点偏移扰动\\run_fdtd_single_pillar_offset_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三柱簇",
-      "perturbation": "单点偏移扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 90.0,
-      "default_step_nm": 15.0,
-      "estimated_points": 3.0
-    },
-    {
-      "id": 92,
-      "script_id": "run_fdtd_single_pillar_radius_sweep_3b6aacd3",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三柱簇\\改单个柱子扰动\\run_fdtd_single_pillar_radius_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三柱簇",
-      "perturbation": "改单个柱子扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 60.0,
-      "default_end_nm": 130.0,
-      "default_step_nm": 10.0,
-      "estimated_points": 8
-    },
-    {
-      "id": 93,
-      "script_id": "run_fdtd_all_slit_width_sweep_a7b9106e",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三裂缝环\\三裂缝同步宽度扰动\\run_fdtd_all_slit_width_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三裂缝环",
-      "perturbation": "三裂缝同步宽度扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 20.0,
-      "default_end_nm": 80.0,
-      "default_step_nm": 10.0,
-      "estimated_points": 7
-    },
-    {
-      "id": 94,
-      "script_id": "run_fdtd_single_slit_width_sweep_6d6dde07",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三裂缝环\\单裂缝宽度扰动\\run_fdtd_single_slit_width_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三裂缝环",
-      "perturbation": "单裂缝宽度扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 20.0,
-      "default_end_nm": 80.0,
-      "default_step_nm": 10.0,
-      "estimated_points": 7
-    },
-    {
-      "id": 95,
-      "script_id": "run_fdtd_single_slit_angle_sweep_174b6acb",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三裂缝环\\单裂缝角度扰动\\run_fdtd_single_slit_angle_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三裂缝环",
-      "perturbation": "单裂缝角度扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": "",
-      "default_step_nm": "",
-      "estimated_points": 3.0
-    },
-    {
-      "id": 96,
-      "script_id": "run_fdtd_single_slit_length_sweep_d4c19d9a",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C3对称结构\\三裂缝环\\单裂缝长度扰动\\run_fdtd_single_slit_length_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "三裂缝环",
-      "perturbation": "单裂缝长度扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 100.0,
-      "default_end_nm": 230.0,
-      "default_step_nm": 20.0,
-      "estimated_points": 7
-    },
-    {
-      "id": 97,
-      "script_id": "run_fdtd_single_arm_slot_sweep_fb2e99e1",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C4对称结构\\十字\\单臂开槽扰动\\run_fdtd_single_arm_slot_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "十字",
-      "perturbation": "单臂开槽扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": "",
-      "default_step_nm": "",
-      "estimated_points": 3.0
-    },
-    {
-      "id": 98,
-      "script_id": "run_fdtd_disk_radius_difference_sweep_f7a46ef6",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_15时18分41秒\\temp_scripts\\C2对称结构\\双圆盘\\半径差扰动\\run_fdtd_disk_radius_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双圆盘",
-      "perturbation": "半径差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 30.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 99,
-      "script_id": "run_fdtd_disk_radius_difference_sweep_824730c7",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_15时18分57秒\\temp_scripts\\C2对称结构\\双圆盘\\半径差扰动\\run_fdtd_disk_radius_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双圆盘",
-      "perturbation": "半径差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 30.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 100,
-      "script_id": "run_fdtd_disk_radius_difference_sweep_062b0739",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双圆盘\\半径差扰动\\run_fdtd_disk_radius_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双圆盘",
-      "perturbation": "半径差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 30.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 101,
-      "script_id": "run_fdtd_single_disk_hole_sweep_be2cec58",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双圆盘\\单盘开孔扰动\\run_fdtd_single_disk_hole_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双圆盘",
-      "perturbation": "单盘开孔扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 30.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 102,
-      "script_id": "run_fdtd_all_disk_hole_sweep_8d38cd21",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双圆盘\\双盘同步开孔扰动\\run_fdtd_all_disk_hole_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双圆盘",
-      "perturbation": "双盘同步开孔扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 30.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 103,
-      "script_id": "run_fdtd_disk_asymmetric_offset_sweep_ec228c26",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双圆盘\\非对称位移扰动\\run_fdtd_disk_asymmetric_offset_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双圆盘",
-      "perturbation": "非对称位移扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 35.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 104,
-      "script_id": "run_fdtd_pillar_position_difference_sweep_d1eda5ff",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双柱\\左右位置差扰动\\run_fdtd_pillar_position_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双柱",
-      "perturbation": "左右位置差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 30.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 105,
-      "script_id": "run_fdtd_pillar_radius_difference_sweep_0e19f6e2",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双柱\\左右半径差扰动\\run_fdtd_pillar_radius_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双柱",
-      "perturbation": "左右半径差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 25.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 106,
-      "script_id": "run_fdtd_pillar_spacing_sweep_6920ac10",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双柱\\间距扫描扰动\\run_fdtd_pillar_spacing_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双柱",
-      "perturbation": "间距扫描扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 300.0,
-      "default_end_nm": 430.0,
-      "default_step_nm": 10.0,
-      "estimated_points": 14
-    },
-    {
-      "id": 107,
-      "script_id": "run_fdtd_pillar_height_difference_sweep_0a72a2b9",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双柱\\高度差扰动\\run_fdtd_pillar_height_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双柱",
-      "perturbation": "高度差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 40.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 108,
-      "script_id": "run_fdtd_all_beam_width_sweep_2e5aacc8",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双梁\\同步梁宽扫描扰动\\run_fdtd_all_beam_width_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双梁",
-      "perturbation": "同步梁宽扫描扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 80.0,
-      "default_end_nm": 160.0,
-      "default_step_nm": 10.0,
-      "estimated_points": 9
-    },
-    {
-      "id": 109,
-      "script_id": "run_fdtd_beam_offset_sweep_5367b595",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双梁\\梁偏移扰动\\run_fdtd_beam_offset_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双梁",
-      "perturbation": "梁偏移扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 35.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 110,
-      "script_id": "run_fdtd_beam_width_difference_sweep_c194a128",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双梁\\梁宽差扰动\\run_fdtd_beam_width_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双梁",
-      "perturbation": "梁宽差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 30.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 111,
-      "script_id": "run_fdtd_beam_length_difference_sweep_ef2a9199",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双梁\\梁长差扰动\\run_fdtd_beam_length_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双梁",
-      "perturbation": "梁长差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 50.0,
-      "default_step_nm": 10.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 112,
-      "script_id": "run_fdtd_ellipse_short_axis_difference_sweep_df4a8d87",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双椭圆\\短轴差扰动\\run_fdtd_ellipse_short_axis_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双椭圆",
-      "perturbation": "短轴差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 25.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 113,
-      "script_id": "run_fdtd_ellipse_angle_difference_sweep_1af4f09e",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双椭圆\\转角差扰动\\run_fdtd_ellipse_angle_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双椭圆",
-      "perturbation": "转角差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": "",
-      "default_step_nm": "",
-      "estimated_points": "3,"
-    },
-    {
-      "id": 114,
-      "script_id": "run_fdtd_ellipse_long_axis_difference_sweep_96173ef1",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双椭圆\\长轴差扰动\\run_fdtd_ellipse_long_axis_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双椭圆",
-      "perturbation": "长轴差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 40.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 115,
-      "script_id": "run_fdtd_ellipse_spacing_difference_sweep_f628e6c3",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双椭圆\\间距差扰动\\run_fdtd_ellipse_spacing_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双椭圆",
-      "perturbation": "间距差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 35.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 116,
-      "script_id": "run_fdtd_ridge_position_difference_sweep_3e29f7ad",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双脊\\位置差扰动\\run_fdtd_ridge_position_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双脊",
-      "perturbation": "位置差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 30.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 117,
-      "script_id": "run_fdtd_ridge_width_difference_sweep_1b0e4519",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双脊\\脊宽差扰动\\run_fdtd_ridge_width_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双脊",
-      "perturbation": "脊宽差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 25.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 118,
-      "script_id": "run_fdtd_ridge_height_difference_sweep_6fc74fec",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双脊\\脊高差扰动\\run_fdtd_ridge_height_difference_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双脊",
-      "perturbation": "脊高差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 40.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 119,
-      "script_id": "run_fdtd_ridge_top_slot_sweep_6d723836",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_22时48分31秒\\temp_scripts\\C2对称结构\\双脊\\顶部槽差扰动\\run_fdtd_ridge_top_slot_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "双脊",
-      "perturbation": "顶部槽差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": 25.0,
-      "default_step_nm": 5.0,
-      "estimated_points": "3,"
-    },
-    {
-      "id": 120,
-      "script_id": "run_fdtd_inner_hole_size_sweep_5919111b",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_17时19分05秒\\temp_scripts\\C4对称结构\\方环\\内孔尺寸扫描扰动\\run_fdtd_inner_hole_size_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "方环",
-      "perturbation": "内孔尺寸扫描扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": "",
-      "default_step_nm": "",
-      "estimated_points": 3.0
-    },
-    {
-      "id": 121,
-      "script_id": "run_fdtd_outer_aspect_ratio_sweep_54ace772",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_17时19分05秒\\temp_scripts\\C4对称结构\\方环\\外框长宽差扰动\\run_fdtd_outer_aspect_ratio_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "方环",
-      "perturbation": "外框长宽差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": 1.0,
-      "default_end_nm": 1.5,
-      "default_step_nm": 0.05,
-      "estimated_points": 11
-    },
-    {
-      "id": 122,
-      "script_id": "run_fdtd_edge_width_diff_sweep_9dfbaafd",
-      "relative_path": "controller_logs\\controller_run_2026年5月11日_17时19分05秒\\temp_scripts\\C4对称结构\\方环\\边宽差扰动\\run_fdtd_edge_width_diff_sweep.py",
-      "group": "controller_logs",
-      "mother_structure": "方环",
-      "perturbation": "边宽差扰动",
-      "reduction_path": "",
-      "status": "missing_result",
-      "recommended_mode": "test",
-      "default_start_nm": "",
-      "default_end_nm": "",
-      "default_step_nm": "",
-      "estimated_points": 3.0
-    },
-    {
-      "id": 123,
       "script_id": "run_fdtd_eccentric_inner_hole_sweep_aae49b6e",
       "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\run_fdtd_eccentric_inner_hole_sweep.py",
       "group": "近径向",
@@ -1845,10 +3891,35 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\run_fdtd_eccentric_inner_hole_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
-      "id": 124,
+      "id": 86,
       "script_id": "run_fdtd_brillouin_zone_folding_sweep_a3ebbdc0",
       "relative_path": "近径向高对称结构\\圆环\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
       "group": "近径向",
@@ -1860,10 +3931,43 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "近径向高对称结构\\圆环\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
-      "id": 125,
+      "id": 87,
       "script_id": "run_fdtd_uneven_ring_width_sweep_b6e20f9e",
       "relative_path": "近径向高对称结构\\圆环\\coding\\环宽不均扰动\\run_fdtd_uneven_ring_width_sweep.py",
       "group": "近径向",
@@ -1875,10 +3979,35 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "近径向高对称结构\\圆环\\coding\\环宽不均扰动\\run_fdtd_uneven_ring_width_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
-      "id": 126,
+      "id": 88,
       "script_id": "run_fdtd_hole_sweep_4e4bd29c",
       "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\run_fdtd_hole_sweep.py",
       "group": "近径向",
@@ -1890,10 +4019,35 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\run_fdtd_hole_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
-      "id": 127,
+      "id": 89,
       "script_id": "run_fdtd_single_side_notch_sweep_d1680b14",
       "relative_path": "近径向高对称结构\\圆盘\\coding\\单侧缺口扰动\\run_fdtd_single_side_notch_sweep.py",
       "group": "近径向",
@@ -1905,10 +4059,35 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "近径向高对称结构\\圆盘\\coding\\单侧缺口扰动\\run_fdtd_single_side_notch_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
-      "id": 128,
+      "id": 90,
       "script_id": "run_fdtd_brillouin_zone_folding_sweep_7563a912",
       "relative_path": "近径向高对称结构\\圆盘\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
       "group": "近径向",
@@ -1920,10 +4099,43 @@
       "default_start_nm": "",
       "default_end_nm": 60.0,
       "default_step_nm": 5.0,
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "近径向高对称结构\\圆盘\\coding\\布里渊区折叠\\run_fdtd_brillouin_zone_folding_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "END_NM",
+        "MESH_ACCURACY",
+        "RUN_MODE_DEFAULT",
+        "SIMULATION_TIME_FS",
+        "START_NM",
+        "STEP_NM",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "START_NM": 0.0,
+        "END_NM": 60.0,
+        "STEP_NM": 5.0,
+        "RUN_MODE_DEFAULT": "ask",
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     },
     {
-      "id": 129,
+      "id": 91,
       "script_id": "run_fdtd_ellipticization_sweep_94251e4c",
       "relative_path": "近径向高对称结构\\圆盘\\coding\\椭圆化扰动\\run_fdtd_ellipticization_sweep.py",
       "group": "近径向",
@@ -1935,7 +4147,32 @@
       "default_start_nm": "",
       "default_end_nm": "",
       "default_step_nm": "",
-      "estimated_points": 3.0
+      "estimated_points": 3.0,
+      "script_path": "近径向高对称结构\\圆盘\\coding\\椭圆化扰动\\run_fdtd_ellipticization_sweep.py",
+      "detected_style": "unknown",
+      "supports_mode": [
+        "preview",
+        "test",
+        "full"
+      ],
+      "supports_overrides": true,
+      "accepted_keys": [
+        "AUTO_SHUTOFF_MIN",
+        "DT_STABILITY_FACTOR",
+        "MESH_ACCURACY",
+        "SIMULATION_TIME_FS",
+        "TEST_POINT_COUNT"
+      ],
+      "default_values": {
+        "TEST_POINT_COUNT": 3.0,
+        "MESH_ACCURACY": 2.0,
+        "SIMULATION_TIME_FS": 10000.0,
+        "AUTO_SHUTOFF_MIN": 1e-12,
+        "DT_STABILITY_FACTOR": 0.8
+      },
+      "warnings": [
+        "未识别脚本模式"
+      ]
     }
   ]
 }

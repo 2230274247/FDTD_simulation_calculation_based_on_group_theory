@@ -4979,8 +4979,14 @@ class WorkbenchApp(object):
             # Optional external command execution; fallback to internal placeholder pipeline.
             command = entry.get("command") or []
             if command:
-                self._supplement_emit(entry, "执行命令: %s" % " ".join(map(str, command)))
-                proc = subprocess.Popen(command, cwd=str(run_dir), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
+                live_command = list(command)
+                exe_name = os.path.basename(str(live_command[0])).lower() if live_command else ""
+                if live_command and exe_name.startswith("python") and "-u" not in live_command[1:]:
+                    live_command.insert(1, "-u")
+                self._supplement_emit(entry, "执行命令: %s" % " ".join(map(str, live_command)))
+                child_env = os.environ.copy()
+                child_env["PYTHONUNBUFFERED"] = "1"
+                proc = subprocess.Popen(live_command, cwd=str(run_dir), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", bufsize=1, env=child_env)
                 for line in proc.stdout:
                     self._supplement_emit(entry, line.rstrip(), "progress")
                 rc = proc.wait()

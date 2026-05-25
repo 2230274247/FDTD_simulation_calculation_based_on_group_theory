@@ -5,109 +5,222 @@
     "active_valid_run_count": 0,
     "archived_good_run_count": 0,
     "diagnosed_spectra": 0,
-    "bad_run_count": 0,
+    "bad_run_count": 1,
     "spectra_count": 0,
-    "missing_evidence_count": 25,
+    "missing_evidence_count": 5,
     "mother_coverage_rate": 0.0,
-    "severe_issue_count": 0,
-    "warning_count": 34,
+    "severe_issue_count": 1,
+    "warning_count": 6,
     "passed_count": 0,
-    "rerun_suggested_count": 5
+    "rerun_suggested_count": 1
   },
-  "groups": [],
-  "top_candidates": [],
-  "recent_runs": [],
+  "groups": [
+    {
+      "group": "C6",
+      "run_count": 1,
+      "mother_count": 1,
+      "coverage_rate": 0.058823529411764705
+    }
+  ],
+  "top_candidates": [
+    {
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
+      "run_name": "run_full_2026年5月22日_16时42分50秒",
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒",
+      "group": "C6",
+      "mother_structure": "六柱环",
+      "perturbation": "交替两组柱子扰动",
+      "reduction_path": "C6 -> 待识别",
+      "status": "done",
+      "risk": "high",
+      "risk_level": "high",
+      "risk_label": "高",
+      "mode": "full",
+      "archive_state": "",
+      "spectrum_count": 8,
+      "spectra_count": 8,
+      "sample_count": 7,
+      "has_T": true,
+      "has_R": false,
+      "has_A": false,
+      "has_field": false,
+      "has_phase": false,
+      "has_poynting": false,
+      "best_score": 73.31282414087273,
+      "score": 73.31282414087273,
+      "lambda0_nm": 1301.9060585432267,
+      "Q": 733.1282414087261,
+      "q": 733.1282414087261,
+      "FWHM_nm": 1.7758230893432483,
+      "fwhm_nm": 1.7758230893432483,
+      "max_t": 534344850775452.0,
+      "modified_at": "2026-05-22T16:49:09",
+      "mtime": 1779439749.4220507,
+      "fingerprint": {
+        "mtime_max": 1779440275.9136722,
+        "total_size": 181112025,
+        "file_count": 18,
+        "dir_count": 6,
+        "fingerprint": "1779440275.9136722-181112025-18-6"
+      },
+      "last_indexed_at": "2026-05-22T16:57:56",
+      "source_job_id": "job_20260522_164249_b4c96d",
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "quality_flags": [
+        "T > 1",
+        "FWHM 不可靠",
+        "缺 R",
+        "缺 A",
+        "缺 Field",
+        "缺 Phase",
+        "缺 Poynting"
+      ],
+      "scope": "active",
+      "is_active_result": true,
+      "is_archived_good": false,
+      "has_non_converged": true,
+      "convergence_status": "non_converged"
+    }
+  ],
+  "recent_runs": [
+    {
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
+      "run_name": "run_full_2026年5月22日_16时42分50秒",
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒",
+      "group": "C6",
+      "mother_structure": "六柱环",
+      "perturbation": "交替两组柱子扰动",
+      "reduction_path": "C6 -> 待识别",
+      "status": "done",
+      "risk": "high",
+      "risk_level": "high",
+      "risk_label": "高",
+      "mode": "full",
+      "archive_state": "",
+      "spectrum_count": 8,
+      "spectra_count": 8,
+      "sample_count": 7,
+      "has_T": true,
+      "has_R": false,
+      "has_A": false,
+      "has_field": false,
+      "has_phase": false,
+      "has_poynting": false,
+      "best_score": 73.31282414087273,
+      "score": 73.31282414087273,
+      "lambda0_nm": 1301.9060585432267,
+      "Q": 733.1282414087261,
+      "q": 733.1282414087261,
+      "FWHM_nm": 1.7758230893432483,
+      "fwhm_nm": 1.7758230893432483,
+      "max_t": 534344850775452.0,
+      "modified_at": "2026-05-22T16:49:09",
+      "mtime": 1779439749.4220507,
+      "fingerprint": {
+        "mtime_max": 1779440275.9136722,
+        "total_size": 181112025,
+        "file_count": 18,
+        "dir_count": 6,
+        "fingerprint": "1779440275.9136722-181112025-18-6"
+      },
+      "last_indexed_at": "2026-05-22T16:57:56",
+      "source_job_id": "job_20260522_164249_b4c96d",
+      "missing_evidence": [
+        "R",
+        "A",
+        "Field",
+        "Phase",
+        "Poynting"
+      ],
+      "quality_flags": [
+        "T > 1",
+        "FWHM 不可靠",
+        "缺 R",
+        "缺 A",
+        "缺 Field",
+        "缺 Phase",
+        "缺 Poynting"
+      ],
+      "scope": "active",
+      "is_active_result": true,
+      "is_archived_good": false,
+      "has_non_converged": true,
+      "convergence_status": "non_converged"
+    }
+  ],
   "risks": [
     {
+      "level": "high",
+      "title": "run_full_2026年5月22日_16时42分50秒_d9c42c10 / T > 1",
+      "detail": "max(T)=5.343e+14",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
+      "when": "2026-05-22"
+    },
+    {
       "level": "medium",
-      "title": "run_20260428_230048_aadf6d53 / FWHM 不可靠",
+      "title": "run_full_2026年5月22日_16时42分50秒_d9c42c10 / FWHM 不可靠",
       "detail": "半高宽点数不足或无法闭合",
       "suggestion": "加密 λ 或参数采样后复算",
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "when": "2026-05-22"
     },
     {
       "level": "medium",
-      "title": "run_20260428_230048_aadf6d53 / 缺 R",
+      "title": "run_full_2026年5月22日_16时42分50秒_d9c42c10 / 缺 R",
       "detail": "缺少 R 补证数据",
       "suggestion": "进入补做实验生成任务包",
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "when": "2026-05-22"
     },
     {
       "level": "medium",
-      "title": "run_20260428_230048_aadf6d53 / 缺 A",
+      "title": "run_full_2026年5月22日_16时42分50秒_d9c42c10 / 缺 A",
       "detail": "缺少 A 补证数据",
       "suggestion": "进入补做实验生成任务包",
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "when": "2026-05-22"
     },
     {
       "level": "medium",
-      "title": "run_20260428_230048_aadf6d53 / 缺 Field",
+      "title": "run_full_2026年5月22日_16时42分50秒_d9c42c10 / 缺 Field",
       "detail": "缺少 Field 补证数据",
       "suggestion": "进入补做实验生成任务包",
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "when": "2026-05-22"
     },
     {
       "level": "medium",
-      "title": "run_20260428_230048_aadf6d53 / 缺 Phase",
+      "title": "run_full_2026年5月22日_16时42分50秒_d9c42c10 / 缺 Phase",
       "detail": "缺少 Phase 补证数据",
       "suggestion": "进入补做实验生成任务包",
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "when": "2026-05-22"
     },
     {
       "level": "medium",
-      "title": "run_20260428_230048_aadf6d53 / 缺 Poynting",
+      "title": "run_full_2026年5月22日_16时42分50秒_d9c42c10 / 缺 Poynting",
       "detail": "缺少 Poynting 补证数据",
       "suggestion": "进入补做实验生成任务包",
-      "run_id": "run_20260428_230048_aadf6d53",
-      "when": "2026-05-22"
-    },
-    {
-      "level": "medium",
-      "title": "run_20260428_171624_3f2a0a2e / 采样不足",
-      "detail": "主特征附近或谱线采样点不足",
-      "suggestion": "缩小区间并加密扫描",
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "when": "2026-05-22"
-    },
-    {
-      "level": "medium",
-      "title": "run_20260428_171624_3f2a0a2e / FWHM 不可靠",
-      "detail": "半高宽点数不足或无法闭合",
-      "suggestion": "加密 λ 或参数采样后复算",
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "when": "2026-05-22"
-    },
-    {
-      "level": "medium",
-      "title": "run_20260428_171624_3f2a0a2e / 缺 R",
-      "detail": "缺少 R 补证数据",
-      "suggestion": "进入补做实验生成任务包",
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "when": "2026-05-22"
-    },
-    {
-      "level": "medium",
-      "title": "run_20260428_171624_3f2a0a2e / 缺 A",
-      "detail": "缺少 A 补证数据",
-      "suggestion": "进入补做实验生成任务包",
-      "run_id": "run_20260428_171624_3f2a0a2e",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "when": "2026-05-22"
     }
   ],
   "next_actions": [
     {
       "title": "补齐缺失证据",
-      "count": 25,
+      "count": 5,
       "target": "supplement"
     },
     {
       "title": "复核严重质量旗标",
-      "count": 0,
+      "count": 1,
       "target": "quality"
     },
     {

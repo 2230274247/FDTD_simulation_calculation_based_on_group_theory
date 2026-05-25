@@ -1,11 +1,19 @@
 {
   "schema_version": 2,
-  "built_at": "2026-05-22T15:11:26",
+  "built_at": "2026-05-22T17:54:10",
   "runs": {
-    "run_20260428_230048_aadf6d53": {
+    "run_full_2026年5月22日_16时42分50秒_d9c42c10": {
       "flags": [
         {
-          "run_id": "run_20260428_230048_aadf6d53",
+          "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
+          "sample_id": null,
+          "flag": "T > 1",
+          "severity": "fail",
+          "detail": "max(T)=5.343e+14",
+          "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+        },
+        {
+          "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
           "sample_id": null,
           "flag": "FWHM 不可靠",
           "severity": "warning",
@@ -13,7 +21,7 @@
           "suggestion": "加密 λ 或参数采样后复算"
         },
         {
-          "run_id": "run_20260428_230048_aadf6d53",
+          "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
           "sample_id": null,
           "flag": "缺 R",
           "severity": "warning",
@@ -21,7 +29,7 @@
           "suggestion": "进入补做实验生成任务包"
         },
         {
-          "run_id": "run_20260428_230048_aadf6d53",
+          "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
           "sample_id": null,
           "flag": "缺 A",
           "severity": "warning",
@@ -29,7 +37,7 @@
           "suggestion": "进入补做实验生成任务包"
         },
         {
-          "run_id": "run_20260428_230048_aadf6d53",
+          "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
           "sample_id": null,
           "flag": "缺 Field",
           "severity": "warning",
@@ -37,7 +45,7 @@
           "suggestion": "进入补做实验生成任务包"
         },
         {
-          "run_id": "run_20260428_230048_aadf6d53",
+          "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
           "sample_id": null,
           "flag": "缺 Phase",
           "severity": "warning",
@@ -45,7 +53,7 @@
           "suggestion": "进入补做实验生成任务包"
         },
         {
-          "run_id": "run_20260428_230048_aadf6d53",
+          "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
           "sample_id": null,
           "flag": "缺 Poynting",
           "severity": "warning",
@@ -54,6 +62,7 @@
         }
       ],
       "flag_names": [
+        "T > 1",
         "FWHM 不可靠",
         "缺 R",
         "缺 A",
@@ -61,297 +70,21 @@
         "缺 Phase",
         "缺 Poynting"
       ],
-      "risk_level": "medium",
-      "risk_label": "中"
-    },
-    "run_20260428_171624_3f2a0a2e": {
-      "flags": [
-        {
-          "run_id": "run_20260428_171624_3f2a0a2e",
-          "sample_id": null,
-          "flag": "采样不足",
-          "severity": "warning",
-          "detail": "主特征附近或谱线采样点不足",
-          "suggestion": "缩小区间并加密扫描"
-        },
-        {
-          "run_id": "run_20260428_171624_3f2a0a2e",
-          "sample_id": null,
-          "flag": "FWHM 不可靠",
-          "severity": "warning",
-          "detail": "半高宽点数不足或无法闭合",
-          "suggestion": "加密 λ 或参数采样后复算"
-        },
-        {
-          "run_id": "run_20260428_171624_3f2a0a2e",
-          "sample_id": null,
-          "flag": "缺 R",
-          "severity": "warning",
-          "detail": "缺少 R 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_171624_3f2a0a2e",
-          "sample_id": null,
-          "flag": "缺 A",
-          "severity": "warning",
-          "detail": "缺少 A 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_171624_3f2a0a2e",
-          "sample_id": null,
-          "flag": "缺 Field",
-          "severity": "warning",
-          "detail": "缺少 Field 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_171624_3f2a0a2e",
-          "sample_id": null,
-          "flag": "缺 Phase",
-          "severity": "warning",
-          "detail": "缺少 Phase 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_171624_3f2a0a2e",
-          "sample_id": null,
-          "flag": "缺 Poynting",
-          "severity": "warning",
-          "detail": "缺少 Poynting 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        }
-      ],
-      "flag_names": [
-        "采样不足",
-        "FWHM 不可靠",
-        "缺 R",
-        "缺 A",
-        "缺 Field",
-        "缺 Phase",
-        "缺 Poynting"
-      ],
-      "risk_level": "medium",
-      "risk_label": "中"
-    },
-    "run_20260428_171521_539b7964": {
-      "flags": [
-        {
-          "run_id": "run_20260428_171521_539b7964",
-          "sample_id": null,
-          "flag": "采样不足",
-          "severity": "warning",
-          "detail": "主特征附近或谱线采样点不足",
-          "suggestion": "缩小区间并加密扫描"
-        },
-        {
-          "run_id": "run_20260428_171521_539b7964",
-          "sample_id": null,
-          "flag": "FWHM 不可靠",
-          "severity": "warning",
-          "detail": "半高宽点数不足或无法闭合",
-          "suggestion": "加密 λ 或参数采样后复算"
-        },
-        {
-          "run_id": "run_20260428_171521_539b7964",
-          "sample_id": null,
-          "flag": "缺 R",
-          "severity": "warning",
-          "detail": "缺少 R 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_171521_539b7964",
-          "sample_id": null,
-          "flag": "缺 A",
-          "severity": "warning",
-          "detail": "缺少 A 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_171521_539b7964",
-          "sample_id": null,
-          "flag": "缺 Field",
-          "severity": "warning",
-          "detail": "缺少 Field 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_171521_539b7964",
-          "sample_id": null,
-          "flag": "缺 Phase",
-          "severity": "warning",
-          "detail": "缺少 Phase 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_171521_539b7964",
-          "sample_id": null,
-          "flag": "缺 Poynting",
-          "severity": "warning",
-          "detail": "缺少 Poynting 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        }
-      ],
-      "flag_names": [
-        "采样不足",
-        "FWHM 不可靠",
-        "缺 R",
-        "缺 A",
-        "缺 Field",
-        "缺 Phase",
-        "缺 Poynting"
-      ],
-      "risk_level": "medium",
-      "risk_label": "中"
-    },
-    "run_20260428_164236_d8b00484": {
-      "flags": [
-        {
-          "run_id": "run_20260428_164236_d8b00484",
-          "sample_id": null,
-          "flag": "采样不足",
-          "severity": "warning",
-          "detail": "主特征附近或谱线采样点不足",
-          "suggestion": "缩小区间并加密扫描"
-        },
-        {
-          "run_id": "run_20260428_164236_d8b00484",
-          "sample_id": null,
-          "flag": "FWHM 不可靠",
-          "severity": "warning",
-          "detail": "半高宽点数不足或无法闭合",
-          "suggestion": "加密 λ 或参数采样后复算"
-        },
-        {
-          "run_id": "run_20260428_164236_d8b00484",
-          "sample_id": null,
-          "flag": "缺 R",
-          "severity": "warning",
-          "detail": "缺少 R 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_164236_d8b00484",
-          "sample_id": null,
-          "flag": "缺 A",
-          "severity": "warning",
-          "detail": "缺少 A 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_164236_d8b00484",
-          "sample_id": null,
-          "flag": "缺 Field",
-          "severity": "warning",
-          "detail": "缺少 Field 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_164236_d8b00484",
-          "sample_id": null,
-          "flag": "缺 Phase",
-          "severity": "warning",
-          "detail": "缺少 Phase 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_20260428_164236_d8b00484",
-          "sample_id": null,
-          "flag": "缺 Poynting",
-          "severity": "warning",
-          "detail": "缺少 Poynting 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        }
-      ],
-      "flag_names": [
-        "采样不足",
-        "FWHM 不可靠",
-        "缺 R",
-        "缺 A",
-        "缺 Field",
-        "缺 Phase",
-        "缺 Poynting"
-      ],
-      "risk_level": "medium",
-      "risk_label": "中"
-    },
-    "run_preview_2026年5月22日_12时43分49秒_319eac44": {
-      "flags": [
-        {
-          "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-          "sample_id": null,
-          "flag": "采样不足",
-          "severity": "warning",
-          "detail": "主特征附近或谱线采样点不足",
-          "suggestion": "缩小区间并加密扫描"
-        },
-        {
-          "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-          "sample_id": null,
-          "flag": "FWHM 不可靠",
-          "severity": "warning",
-          "detail": "半高宽点数不足或无法闭合",
-          "suggestion": "加密 λ 或参数采样后复算"
-        },
-        {
-          "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-          "sample_id": null,
-          "flag": "缺 R",
-          "severity": "warning",
-          "detail": "缺少 R 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-          "sample_id": null,
-          "flag": "缺 A",
-          "severity": "warning",
-          "detail": "缺少 A 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-          "sample_id": null,
-          "flag": "缺 Field",
-          "severity": "warning",
-          "detail": "缺少 Field 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-          "sample_id": null,
-          "flag": "缺 Phase",
-          "severity": "warning",
-          "detail": "缺少 Phase 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        },
-        {
-          "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-          "sample_id": null,
-          "flag": "缺 Poynting",
-          "severity": "warning",
-          "detail": "缺少 Poynting 补证数据",
-          "suggestion": "进入补做实验生成任务包"
-        }
-      ],
-      "flag_names": [
-        "采样不足",
-        "FWHM 不可靠",
-        "缺 R",
-        "缺 A",
-        "缺 Field",
-        "缺 Phase",
-        "缺 Poynting"
-      ],
-      "risk_level": "medium",
-      "risk_label": "中"
+      "risk_level": "high",
+      "risk_label": "高"
     }
   },
   "flags": [
     {
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
+      "sample_id": null,
+      "flag": "T > 1",
+      "severity": "fail",
+      "detail": "max(T)=5.343e+14",
+      "suggestion": "复跑并检查归一化、monitor、mesh、simulation time"
+    },
+    {
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "sample_id": null,
       "flag": "FWHM 不可靠",
       "severity": "warning",
@@ -359,7 +92,7 @@
       "suggestion": "加密 λ 或参数采样后复算"
     },
     {
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "sample_id": null,
       "flag": "缺 R",
       "severity": "warning",
@@ -367,7 +100,7 @@
       "suggestion": "进入补做实验生成任务包"
     },
     {
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "sample_id": null,
       "flag": "缺 A",
       "severity": "warning",
@@ -375,7 +108,7 @@
       "suggestion": "进入补做实验生成任务包"
     },
     {
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "sample_id": null,
       "flag": "缺 Field",
       "severity": "warning",
@@ -383,7 +116,7 @@
       "suggestion": "进入补做实验生成任务包"
     },
     {
-      "run_id": "run_20260428_230048_aadf6d53",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "sample_id": null,
       "flag": "缺 Phase",
       "severity": "warning",
@@ -391,231 +124,7 @@
       "suggestion": "进入补做实验生成任务包"
     },
     {
-      "run_id": "run_20260428_230048_aadf6d53",
-      "sample_id": null,
-      "flag": "缺 Poynting",
-      "severity": "warning",
-      "detail": "缺少 Poynting 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "sample_id": null,
-      "flag": "采样不足",
-      "severity": "warning",
-      "detail": "主特征附近或谱线采样点不足",
-      "suggestion": "缩小区间并加密扫描"
-    },
-    {
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "sample_id": null,
-      "flag": "FWHM 不可靠",
-      "severity": "warning",
-      "detail": "半高宽点数不足或无法闭合",
-      "suggestion": "加密 λ 或参数采样后复算"
-    },
-    {
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "sample_id": null,
-      "flag": "缺 R",
-      "severity": "warning",
-      "detail": "缺少 R 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "sample_id": null,
-      "flag": "缺 A",
-      "severity": "warning",
-      "detail": "缺少 A 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "sample_id": null,
-      "flag": "缺 Field",
-      "severity": "warning",
-      "detail": "缺少 Field 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "sample_id": null,
-      "flag": "缺 Phase",
-      "severity": "warning",
-      "detail": "缺少 Phase 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171624_3f2a0a2e",
-      "sample_id": null,
-      "flag": "缺 Poynting",
-      "severity": "warning",
-      "detail": "缺少 Poynting 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171521_539b7964",
-      "sample_id": null,
-      "flag": "采样不足",
-      "severity": "warning",
-      "detail": "主特征附近或谱线采样点不足",
-      "suggestion": "缩小区间并加密扫描"
-    },
-    {
-      "run_id": "run_20260428_171521_539b7964",
-      "sample_id": null,
-      "flag": "FWHM 不可靠",
-      "severity": "warning",
-      "detail": "半高宽点数不足或无法闭合",
-      "suggestion": "加密 λ 或参数采样后复算"
-    },
-    {
-      "run_id": "run_20260428_171521_539b7964",
-      "sample_id": null,
-      "flag": "缺 R",
-      "severity": "warning",
-      "detail": "缺少 R 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171521_539b7964",
-      "sample_id": null,
-      "flag": "缺 A",
-      "severity": "warning",
-      "detail": "缺少 A 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171521_539b7964",
-      "sample_id": null,
-      "flag": "缺 Field",
-      "severity": "warning",
-      "detail": "缺少 Field 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171521_539b7964",
-      "sample_id": null,
-      "flag": "缺 Phase",
-      "severity": "warning",
-      "detail": "缺少 Phase 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_171521_539b7964",
-      "sample_id": null,
-      "flag": "缺 Poynting",
-      "severity": "warning",
-      "detail": "缺少 Poynting 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_164236_d8b00484",
-      "sample_id": null,
-      "flag": "采样不足",
-      "severity": "warning",
-      "detail": "主特征附近或谱线采样点不足",
-      "suggestion": "缩小区间并加密扫描"
-    },
-    {
-      "run_id": "run_20260428_164236_d8b00484",
-      "sample_id": null,
-      "flag": "FWHM 不可靠",
-      "severity": "warning",
-      "detail": "半高宽点数不足或无法闭合",
-      "suggestion": "加密 λ 或参数采样后复算"
-    },
-    {
-      "run_id": "run_20260428_164236_d8b00484",
-      "sample_id": null,
-      "flag": "缺 R",
-      "severity": "warning",
-      "detail": "缺少 R 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_164236_d8b00484",
-      "sample_id": null,
-      "flag": "缺 A",
-      "severity": "warning",
-      "detail": "缺少 A 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_164236_d8b00484",
-      "sample_id": null,
-      "flag": "缺 Field",
-      "severity": "warning",
-      "detail": "缺少 Field 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_164236_d8b00484",
-      "sample_id": null,
-      "flag": "缺 Phase",
-      "severity": "warning",
-      "detail": "缺少 Phase 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_20260428_164236_d8b00484",
-      "sample_id": null,
-      "flag": "缺 Poynting",
-      "severity": "warning",
-      "detail": "缺少 Poynting 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-      "sample_id": null,
-      "flag": "采样不足",
-      "severity": "warning",
-      "detail": "主特征附近或谱线采样点不足",
-      "suggestion": "缩小区间并加密扫描"
-    },
-    {
-      "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-      "sample_id": null,
-      "flag": "FWHM 不可靠",
-      "severity": "warning",
-      "detail": "半高宽点数不足或无法闭合",
-      "suggestion": "加密 λ 或参数采样后复算"
-    },
-    {
-      "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-      "sample_id": null,
-      "flag": "缺 R",
-      "severity": "warning",
-      "detail": "缺少 R 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-      "sample_id": null,
-      "flag": "缺 A",
-      "severity": "warning",
-      "detail": "缺少 A 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-      "sample_id": null,
-      "flag": "缺 Field",
-      "severity": "warning",
-      "detail": "缺少 Field 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
-      "sample_id": null,
-      "flag": "缺 Phase",
-      "severity": "warning",
-      "detail": "缺少 Phase 补证数据",
-      "suggestion": "进入补做实验生成任务包"
-    },
-    {
-      "run_id": "run_preview_2026年5月22日_12时43分49秒_319eac44",
+      "run_id": "run_full_2026年5月22日_16时42分50秒_d9c42c10",
       "sample_id": null,
       "flag": "缺 Poynting",
       "severity": "warning",
@@ -623,9 +132,9 @@
       "suggestion": "进入补做实验生成任务包"
     }
   ],
-  "serious_count": 0,
-  "warning_count": 34,
-  "missing_evidence_count": 25,
+  "serious_count": 1,
+  "warning_count": 6,
+  "missing_evidence_count": 5,
   "passed_count": 0,
-  "rerun_suggested_count": 5
+  "rerun_suggested_count": 1
 }

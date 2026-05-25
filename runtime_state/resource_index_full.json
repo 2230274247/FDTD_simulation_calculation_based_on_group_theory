@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "built_at": "2026-05-22T15:11:26",
+  "built_at": "2026-05-22T16:57:56",
   "items": [
     {
       "relative_path": ".idea\\.gitignore",
@@ -333,14 +333,64 @@
       "fingerprint": "1777217421.2798038-116"
     },
     {
-      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp\\master_template.fsp",
-      "name": "master_template.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 292234,
-      "mtime": 1779174504.9656043,
-      "mtime_iso": "2026-05-19T15:08:24",
-      "fingerprint": "1779174504.9656043-292234"
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field\\00_patch_plan\\patch_points.csv",
+      "name": "patch_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 556,
+      "mtime": 1779427581.154163,
+      "mtime_iso": "2026-05-22T13:26:21",
+      "fingerprint": "1779427581.154163-556"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field\\patch_request.json",
+      "name": "patch_request.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 2719,
+      "mtime": 1779427581.1510465,
+      "mtime_iso": "2026-05-22T13:26:21",
+      "fingerprint": "1779427581.1510465-2719"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field\\source_links.json",
+      "name": "source_links.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 2441,
+      "mtime": 1779427581.1526039,
+      "mtime_iso": "2026-05-22T13:26:21",
+      "fingerprint": "1779427581.1526039-2441"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field\\00_patch_plan\\patch_points.csv",
+      "name": "patch_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 556,
+      "mtime": 1779427661.4501295,
+      "mtime_iso": "2026-05-22T13:27:41",
+      "fingerprint": "1779427661.4501295-556"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field\\patch_request.json",
+      "name": "patch_request.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 2719,
+      "mtime": 1779427661.4485092,
+      "mtime_iso": "2026-05-22T13:27:41",
+      "fingerprint": "1779427661.4485092-2719"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field\\source_links.json",
+      "name": "source_links.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 2441,
+      "mtime": 1779427661.4501295,
+      "mtime_iso": "2026-05-22T13:27:41",
+      "fingerprint": "1779427661.4501295-2441"
     },
     {
       "relative_path": "C2对称结构\\双圆盘\\scripts\\dual_disks_build_20260426_231746.py",
@@ -4181,6 +4231,186 @@
       "mtime": 1777217643.1690352,
       "mtime_iso": "2026-04-26T23:34:03",
       "fingerprint": "1777217643.1690352-114"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 723,
+      "mtime": 1779439380.064168,
+      "mtime_iso": "2026-05-22T16:43:00",
+      "fingerprint": "1779439380.064168-723"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0000_alternating_pillar_radius_70.000nm.fsp",
+      "name": "0000_alternating_pillar_radius_70.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805885,
+      "mtime": 1779439749.1684427,
+      "mtime_iso": "2026-05-22T16:49:09",
+      "fingerprint": "1779439749.1684427-25805885"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0001_alternating_pillar_radius_78.333nm.fsp",
+      "name": "0001_alternating_pillar_radius_78.333nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805389,
+      "mtime": 1779439883.0002787,
+      "mtime_iso": "2026-05-22T16:51:23",
+      "fingerprint": "1779439883.0002787-25805389"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0002_alternating_pillar_radius_86.667nm.fsp",
+      "name": "0002_alternating_pillar_radius_86.667nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805229,
+      "mtime": 1779439950.5644722,
+      "mtime_iso": "2026-05-22T16:52:30",
+      "fingerprint": "1779439950.5644722-25805229"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0003_alternating_pillar_radius_95.000nm.fsp",
+      "name": "0003_alternating_pillar_radius_95.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805181,
+      "mtime": 1779439998.832814,
+      "mtime_iso": "2026-05-22T16:53:18",
+      "fingerprint": "1779439998.832814-25805181"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0004_alternating_pillar_radius_103.333nm.fsp",
+      "name": "0004_alternating_pillar_radius_103.333nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805357,
+      "mtime": 1779440121.9854262,
+      "mtime_iso": "2026-05-22T16:55:21",
+      "fingerprint": "1779440121.9854262-25805357"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0005_alternating_pillar_radius_111.667nm.fsp",
+      "name": "0005_alternating_pillar_radius_111.667nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805269,
+      "mtime": 1779440217.3597775,
+      "mtime_iso": "2026-05-22T16:56:57",
+      "fingerprint": "1779440217.3597775-25805269"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0006_alternating_pillar_radius_120.000nm.fsp",
+      "name": "0006_alternating_pillar_radius_120.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805173,
+      "mtime": 1779440275.4592092,
+      "mtime_iso": "2026-05-22T16:57:55",
+      "fingerprint": "1779440275.4592092-25805173"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0000_alternating_pillar_radius_70.000nm_transmission_abs2.xlsx",
+      "name": "0000_alternating_pillar_radius_70.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25308,
+      "mtime": 1779439749.4206018,
+      "mtime_iso": "2026-05-22T16:49:09",
+      "fingerprint": "1779439749.4206018-25308"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0001_alternating_pillar_radius_78.333nm_transmission_abs2.xlsx",
+      "name": "0001_alternating_pillar_radius_78.333nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24024,
+      "mtime": 1779439883.4684656,
+      "mtime_iso": "2026-05-22T16:51:23",
+      "fingerprint": "1779439883.4684656-24024"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0002_alternating_pillar_radius_86.667nm_transmission_abs2.xlsx",
+      "name": "0002_alternating_pillar_radius_86.667nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24000,
+      "mtime": 1779439950.982093,
+      "mtime_iso": "2026-05-22T16:52:30",
+      "fingerprint": "1779439950.982093-24000"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0003_alternating_pillar_radius_95.000nm_transmission_abs2.xlsx",
+      "name": "0003_alternating_pillar_radius_95.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24370,
+      "mtime": 1779439999.0441835,
+      "mtime_iso": "2026-05-22T16:53:19",
+      "fingerprint": "1779439999.0441835-24370"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0004_alternating_pillar_radius_103.333nm_transmission_abs2.xlsx",
+      "name": "0004_alternating_pillar_radius_103.333nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24597,
+      "mtime": 1779440122.2022913,
+      "mtime_iso": "2026-05-22T16:55:22",
+      "fingerprint": "1779440122.2022913-24597"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0005_alternating_pillar_radius_111.667nm_transmission_abs2.xlsx",
+      "name": "0005_alternating_pillar_radius_111.667nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24729,
+      "mtime": 1779440217.5757692,
+      "mtime_iso": "2026-05-22T16:56:57",
+      "fingerprint": "1779440217.5757692-24729"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0006_alternating_pillar_radius_120.000nm_transmission_abs2.xlsx",
+      "name": "0006_alternating_pillar_radius_120.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24851,
+      "mtime": 1779440275.9126723,
+      "mtime_iso": "2026-05-22T16:57:55",
+      "fingerprint": "1779440275.9126723-24851"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 295142,
+      "mtime": 1779174759.9163344,
+      "mtime_iso": "2026-05-19T15:12:39",
+      "fingerprint": "1779174759.9163344-295142"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 5496,
+      "mtime": 1779440275.9136722,
+      "mtime_iso": "2026-05-22T16:57:55",
+      "fingerprint": "1779440275.9136722-5496"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1302,
+      "mtime": 1779439380.064168,
+      "mtime_iso": "2026-05-22T16:43:00",
+      "fingerprint": "1779439380.064168-1302"
     },
     {
       "relative_path": "C6对称结构\\六柱环\\scripts\\six_pillar_ring_build_20260426_231746.py",
@@ -14463,46 +14693,6 @@
       "fingerprint": "1777431181.8842347-2916"
     },
     {
-      "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171521\\00_scan_plan\\config_summary.txt",
-      "name": "config_summary.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 513,
-      "mtime": 1777367731.255877,
-      "mtime_iso": "2026-04-28T17:15:31",
-      "fingerprint": "1777367731.255877-513"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171521\\00_scan_plan\\scan_points.csv",
-      "name": "scan_points.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 324,
-      "mtime": 1777367731.255877,
-      "mtime_iso": "2026-04-28T17:15:31",
-      "fingerprint": "1777367731.255877-324"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\00_scan_plan\\config_summary.txt",
-      "name": "config_summary.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 513,
-      "mtime": 1777367794.3269982,
-      "mtime_iso": "2026-04-28T17:16:34",
-      "fingerprint": "1777367794.3269982-513"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\00_scan_plan\\scan_points.csv",
-      "name": "scan_points.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 324,
-      "mtime": 1777367794.3161814,
-      "mtime_iso": "2026-04-28T17:16:34",
-      "fingerprint": "1777367794.3161814-324"
-    },
-    {
       "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\test_20260428_172119\\00_scan_plan\\config_summary.txt",
       "name": "config_summary.txt",
       "extension": "txt",
@@ -14973,796 +15163,6 @@
       "fingerprint": "1777431181.8862329-4674"
     },
     {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\00_scan_plan\\config_summary.txt",
-      "name": "config_summary.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 563,
-      "mtime": 1777388459.103242,
-      "mtime_iso": "2026-04-28T23:00:59",
-      "fingerprint": "1777388459.103242-563"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\00_scan_plan\\scan_points.csv",
-      "name": "scan_points.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 1061,
-      "mtime": 1777388459.1022215,
-      "mtime_iso": "2026-04-28T23:00:59",
-      "fingerprint": "1777388459.1022215-1061"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
-      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25802527,
-      "mtime": 1777388625.0285995,
-      "mtime_iso": "2026-04-28T23:03:45",
-      "fingerprint": "1777388625.0285995-25802527"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
-      "name": "0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777395118.0818617,
-      "mtime_iso": "2026-04-29T00:51:58",
-      "fingerprint": "1777395118.0818617-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
-      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777395612.9410422,
-      "mtime_iso": "2026-04-29T01:00:12",
-      "fingerprint": "1777395612.9410422-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
-      "name": "0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777396112.099092,
-      "mtime_iso": "2026-04-29T01:08:32",
-      "fingerprint": "1777396112.099092-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
-      "name": "0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777396602.5111258,
-      "mtime_iso": "2026-04-29T01:16:42",
-      "fingerprint": "1777396602.5111258-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
-      "name": "0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777397099.227057,
-      "mtime_iso": "2026-04-29T01:24:59",
-      "fingerprint": "1777397099.227057-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.fsp",
-      "name": "0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777397602.5199554,
-      "mtime_iso": "2026-04-29T01:33:22",
-      "fingerprint": "1777397602.5199554-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.fsp",
-      "name": "0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777398095.757171,
-      "mtime_iso": "2026-04-29T01:41:35",
-      "fingerprint": "1777398095.757171-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.fsp",
-      "name": "0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777398588.9836335,
-      "mtime_iso": "2026-04-29T01:49:48",
-      "fingerprint": "1777398588.9836335-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.fsp",
-      "name": "0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777399085.0730095,
-      "mtime_iso": "2026-04-29T01:58:05",
-      "fingerprint": "1777399085.0730095-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.fsp",
-      "name": "0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777399575.00985,
-      "mtime_iso": "2026-04-29T02:06:15",
-      "fingerprint": "1777399575.00985-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.fsp",
-      "name": "0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777400070.019775,
-      "mtime_iso": "2026-04-29T02:14:30",
-      "fingerprint": "1777400070.019775-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.fsp",
-      "name": "0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777400561.8457959,
-      "mtime_iso": "2026-04-29T02:22:41",
-      "fingerprint": "1777400561.8457959-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
-      "name": "0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777389141.1642566,
-      "mtime_iso": "2026-04-28T23:12:21",
-      "fingerprint": "1777389141.1642566-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
-      "name": "0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777389647.5723293,
-      "mtime_iso": "2026-04-28T23:20:47",
-      "fingerprint": "1777389647.5723293-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
-      "name": "0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777390151.272366,
-      "mtime_iso": "2026-04-28T23:29:11",
-      "fingerprint": "1777390151.272366-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
-      "name": "0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777390649.0189633,
-      "mtime_iso": "2026-04-28T23:37:29",
-      "fingerprint": "1777390649.0189633-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
-      "name": "0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777391148.8773122,
-      "mtime_iso": "2026-04-28T23:45:48",
-      "fingerprint": "1777391148.8773122-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.fsp",
-      "name": "0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777391639.5875518,
-      "mtime_iso": "2026-04-28T23:53:59",
-      "fingerprint": "1777391639.5875518-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.fsp",
-      "name": "0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777392131.3127663,
-      "mtime_iso": "2026-04-29T00:02:11",
-      "fingerprint": "1777392131.3127663-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.fsp",
-      "name": "0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777392628.0153668,
-      "mtime_iso": "2026-04-29T00:10:28",
-      "fingerprint": "1777392628.0153668-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.fsp",
-      "name": "0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777393121.9978905,
-      "mtime_iso": "2026-04-29T00:18:41",
-      "fingerprint": "1777393121.9978905-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.fsp",
-      "name": "0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777393625.8580487,
-      "mtime_iso": "2026-04-29T00:27:05",
-      "fingerprint": "1777393625.8580487-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.fsp",
-      "name": "0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777394124.0817091,
-      "mtime_iso": "2026-04-29T00:35:24",
-      "fingerprint": "1777394124.0817091-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.fsp",
-      "name": "0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777394624.7798505,
-      "mtime_iso": "2026-04-29T00:43:44",
-      "fingerprint": "1777394624.7798505-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.xlsx",
-      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33795,
-      "mtime": 1777388625.1586585,
-      "mtime_iso": "2026-04-28T23:03:45",
-      "fingerprint": "1777388625.1586585-33795"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.xlsx",
-      "name": "0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33767,
-      "mtime": 1777395118.2252095,
-      "mtime_iso": "2026-04-29T00:51:58",
-      "fingerprint": "1777395118.2252095-33767"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.xlsx",
-      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33777,
-      "mtime": 1777395613.0794098,
-      "mtime_iso": "2026-04-29T01:00:13",
-      "fingerprint": "1777395613.0794098-33777"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.xlsx",
-      "name": "0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33780,
-      "mtime": 1777396112.2414649,
-      "mtime_iso": "2026-04-29T01:08:32",
-      "fingerprint": "1777396112.2414649-33780"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.xlsx",
-      "name": "0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33772,
-      "mtime": 1777396602.6455896,
-      "mtime_iso": "2026-04-29T01:16:42",
-      "fingerprint": "1777396602.6455896-33772"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.xlsx",
-      "name": "0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33867,
-      "mtime": 1777397099.3590457,
-      "mtime_iso": "2026-04-29T01:24:59",
-      "fingerprint": "1777397099.3590457-33867"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.xlsx",
-      "name": "0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33841,
-      "mtime": 1777397602.6647518,
-      "mtime_iso": "2026-04-29T01:33:22",
-      "fingerprint": "1777397602.6647518-33841"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.xlsx",
-      "name": "0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33776,
-      "mtime": 1777398095.8886697,
-      "mtime_iso": "2026-04-29T01:41:35",
-      "fingerprint": "1777398095.8886697-33776"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.xlsx",
-      "name": "0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33773,
-      "mtime": 1777398589.1298952,
-      "mtime_iso": "2026-04-29T01:49:49",
-      "fingerprint": "1777398589.1298952-33773"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.xlsx",
-      "name": "0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33822,
-      "mtime": 1777399085.218426,
-      "mtime_iso": "2026-04-29T01:58:05",
-      "fingerprint": "1777399085.218426-33822"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.xlsx",
-      "name": "0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33871,
-      "mtime": 1777399575.1314864,
-      "mtime_iso": "2026-04-29T02:06:15",
-      "fingerprint": "1777399575.1314864-33871"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.xlsx",
-      "name": "0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33817,
-      "mtime": 1777400070.1609952,
-      "mtime_iso": "2026-04-29T02:14:30",
-      "fingerprint": "1777400070.1609952-33817"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.xlsx",
-      "name": "0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33805,
-      "mtime": 1777400561.9897518,
-      "mtime_iso": "2026-04-29T02:22:41",
-      "fingerprint": "1777400561.9897518-33805"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.xlsx",
-      "name": "0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33753,
-      "mtime": 1777389141.312224,
-      "mtime_iso": "2026-04-28T23:12:21",
-      "fingerprint": "1777389141.312224-33753"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.xlsx",
-      "name": "0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33834,
-      "mtime": 1777389647.7141926,
-      "mtime_iso": "2026-04-28T23:20:47",
-      "fingerprint": "1777389647.7141926-33834"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.xlsx",
-      "name": "0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33777,
-      "mtime": 1777390151.4198544,
-      "mtime_iso": "2026-04-28T23:29:11",
-      "fingerprint": "1777390151.4198544-33777"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.xlsx",
-      "name": "0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33784,
-      "mtime": 1777390649.1627812,
-      "mtime_iso": "2026-04-28T23:37:29",
-      "fingerprint": "1777390649.1627812-33784"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.xlsx",
-      "name": "0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33802,
-      "mtime": 1777391149.0236979,
-      "mtime_iso": "2026-04-28T23:45:49",
-      "fingerprint": "1777391149.0236979-33802"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.xlsx",
-      "name": "0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33772,
-      "mtime": 1777391639.719941,
-      "mtime_iso": "2026-04-28T23:53:59",
-      "fingerprint": "1777391639.719941-33772"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.xlsx",
-      "name": "0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33862,
-      "mtime": 1777392131.4454162,
-      "mtime_iso": "2026-04-29T00:02:11",
-      "fingerprint": "1777392131.4454162-33862"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.xlsx",
-      "name": "0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33834,
-      "mtime": 1777392628.159621,
-      "mtime_iso": "2026-04-29T00:10:28",
-      "fingerprint": "1777392628.159621-33834"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.xlsx",
-      "name": "0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33867,
-      "mtime": 1777393122.1584616,
-      "mtime_iso": "2026-04-29T00:18:42",
-      "fingerprint": "1777393122.1584616-33867"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.xlsx",
-      "name": "0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33807,
-      "mtime": 1777393625.9896305,
-      "mtime_iso": "2026-04-29T00:27:05",
-      "fingerprint": "1777393625.9896305-33807"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.xlsx",
-      "name": "0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33773,
-      "mtime": 1777394124.213534,
-      "mtime_iso": "2026-04-29T00:35:24",
-      "fingerprint": "1777394124.213534-33773"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.xlsx",
-      "name": "0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33853,
-      "mtime": 1777394624.923323,
-      "mtime_iso": "2026-04-29T00:43:44",
-      "fingerprint": "1777394624.923323-33853"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.png",
-      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 83779,
-      "mtime": 1777388625.5088396,
-      "mtime_iso": "2026-04-28T23:03:45",
-      "fingerprint": "1777388625.5088396-83779"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.png",
-      "name": "0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 82956,
-      "mtime": 1777395118.338334,
-      "mtime_iso": "2026-04-29T00:51:58",
-      "fingerprint": "1777395118.338334-82956"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.png",
-      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 83710,
-      "mtime": 1777395613.2031248,
-      "mtime_iso": "2026-04-29T01:00:13",
-      "fingerprint": "1777395613.2031248-83710"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.png",
-      "name": "0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84502,
-      "mtime": 1777396112.3653562,
-      "mtime_iso": "2026-04-29T01:08:32",
-      "fingerprint": "1777396112.3653562-84502"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.png",
-      "name": "0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84119,
-      "mtime": 1777396602.7572906,
-      "mtime_iso": "2026-04-29T01:16:42",
-      "fingerprint": "1777396602.7572906-84119"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.png",
-      "name": "0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85799,
-      "mtime": 1777397099.4797604,
-      "mtime_iso": "2026-04-29T01:24:59",
-      "fingerprint": "1777397099.4797604-85799"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.png",
-      "name": "0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85016,
-      "mtime": 1777397602.7841768,
-      "mtime_iso": "2026-04-29T01:33:22",
-      "fingerprint": "1777397602.7841768-85016"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.png",
-      "name": "0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84963,
-      "mtime": 1777398096.0075917,
-      "mtime_iso": "2026-04-29T01:41:36",
-      "fingerprint": "1777398096.0075917-84963"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.png",
-      "name": "0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84476,
-      "mtime": 1777398589.2504952,
-      "mtime_iso": "2026-04-29T01:49:49",
-      "fingerprint": "1777398589.2504952-84476"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.png",
-      "name": "0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85547,
-      "mtime": 1777399085.3425508,
-      "mtime_iso": "2026-04-29T01:58:05",
-      "fingerprint": "1777399085.3425508-85547"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.png",
-      "name": "0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84748,
-      "mtime": 1777399575.275476,
-      "mtime_iso": "2026-04-29T02:06:15",
-      "fingerprint": "1777399575.275476-84748"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.png",
-      "name": "0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85315,
-      "mtime": 1777400070.282539,
-      "mtime_iso": "2026-04-29T02:14:30",
-      "fingerprint": "1777400070.282539-85315"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.png",
-      "name": "0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85522,
-      "mtime": 1777400562.111227,
-      "mtime_iso": "2026-04-29T02:22:42",
-      "fingerprint": "1777400562.111227-85522"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.png",
-      "name": "0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 83956,
-      "mtime": 1777389141.4336076,
-      "mtime_iso": "2026-04-28T23:12:21",
-      "fingerprint": "1777389141.4336076-83956"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.png",
-      "name": "0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84800,
-      "mtime": 1777389647.833997,
-      "mtime_iso": "2026-04-28T23:20:47",
-      "fingerprint": "1777389647.833997-84800"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.png",
-      "name": "0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84798,
-      "mtime": 1777390151.542725,
-      "mtime_iso": "2026-04-28T23:29:11",
-      "fingerprint": "1777390151.542725-84798"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.png",
-      "name": "0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84194,
-      "mtime": 1777390649.271677,
-      "mtime_iso": "2026-04-28T23:37:29",
-      "fingerprint": "1777390649.271677-84194"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.png",
-      "name": "0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 86097,
-      "mtime": 1777391149.1476135,
-      "mtime_iso": "2026-04-28T23:45:49",
-      "fingerprint": "1777391149.1476135-86097"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.png",
-      "name": "0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84966,
-      "mtime": 1777391639.8452656,
-      "mtime_iso": "2026-04-28T23:53:59",
-      "fingerprint": "1777391639.8452656-84966"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.png",
-      "name": "0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84600,
-      "mtime": 1777392131.5702012,
-      "mtime_iso": "2026-04-29T00:02:11",
-      "fingerprint": "1777392131.5702012-84600"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.png",
-      "name": "0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84583,
-      "mtime": 1777392628.2810965,
-      "mtime_iso": "2026-04-29T00:10:28",
-      "fingerprint": "1777392628.2810965-84583"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.png",
-      "name": "0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85787,
-      "mtime": 1777393122.2833135,
-      "mtime_iso": "2026-04-29T00:18:42",
-      "fingerprint": "1777393122.2833135-85787"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.png",
-      "name": "0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84706,
-      "mtime": 1777393626.100953,
-      "mtime_iso": "2026-04-29T00:27:06",
-      "fingerprint": "1777393626.100953-84706"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.png",
-      "name": "0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84902,
-      "mtime": 1777394124.3577275,
-      "mtime_iso": "2026-04-29T00:35:24",
-      "fingerprint": "1777394124.3577275-84902"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.png",
-      "name": "0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85598,
-      "mtime": 1777394625.0425532,
-      "mtime_iso": "2026-04-29T00:43:45",
-      "fingerprint": "1777394625.0425532-85598"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\05_logs\\manifest.csv",
-      "name": "manifest.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 6297,
-      "mtime": 1777400562.11223,
-      "mtime_iso": "2026-04-29T02:22:42",
-      "fingerprint": "1777400562.11223-6297"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\05_logs\\run_log.txt",
-      "name": "run_log.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 3106,
-      "mtime": 1777400562.11223,
-      "mtime_iso": "2026-04-29T02:22:42",
-      "fingerprint": "1777400562.11223-3106"
-    },
-    {
       "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_run_stderr.log",
       "name": "automation_run_stderr.log",
       "extension": "log",
@@ -16001,26 +15401,6 @@
       "mtime": 1777431181.8877597,
       "mtime_iso": "2026-04-29T10:53:01",
       "fingerprint": "1777431181.8877597-3117"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\椭圆化扰动\\automation_output\\run_20260428_164236\\00_scan_plan\\config_summary.txt",
-      "name": "config_summary.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 448,
-      "mtime": 1777365768.7762535,
-      "mtime_iso": "2026-04-28T16:42:48",
-      "fingerprint": "1777365768.7762535-448"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\椭圆化扰动\\automation_output\\run_20260428_164236\\00_scan_plan\\scan_points.csv",
-      "name": "scan_points.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 225,
-      "mtime": 1777365768.773917,
-      "mtime_iso": "2026-04-28T16:42:48",
-      "fingerprint": "1777365768.773917-225"
     },
     {
       "relative_path": "近径向高对称结构\\圆盘\\coding\\椭圆化扰动\\automation_output\\test_20260428_164421\\00_scan_plan\\config_summary.txt",
@@ -16775,14 +16155,64 @@
       "fingerprint": "1777217421.2798038-116"
     },
     {
-      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_12时43分49秒\\05_work_fsp\\master_template.fsp",
-      "name": "master_template.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 292234,
-      "mtime": 1779174504.9656043,
-      "mtime_iso": "2026-05-19T15:08:24",
-      "fingerprint": "1779174504.9656043-292234"
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field\\00_patch_plan\\patch_points.csv",
+      "name": "patch_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 556,
+      "mtime": 1779427581.154163,
+      "mtime_iso": "2026-05-22T13:26:21",
+      "fingerprint": "1779427581.154163-556"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field\\patch_request.json",
+      "name": "patch_request.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 2719,
+      "mtime": 1779427581.1510465,
+      "mtime_iso": "2026-05-22T13:26:21",
+      "fingerprint": "1779427581.1510465-2719"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132621_field\\source_links.json",
+      "name": "source_links.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 2441,
+      "mtime": 1779427581.1526039,
+      "mtime_iso": "2026-05-22T13:26:21",
+      "fingerprint": "1779427581.1526039-2441"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field\\00_patch_plan\\patch_points.csv",
+      "name": "patch_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 556,
+      "mtime": 1779427661.4501295,
+      "mtime_iso": "2026-05-22T13:27:41",
+      "fingerprint": "1779427661.4501295-556"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field\\patch_request.json",
+      "name": "patch_request.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 2719,
+      "mtime": 1779427661.4485092,
+      "mtime_iso": "2026-05-22T13:27:41",
+      "fingerprint": "1779427661.4485092-2719"
+    },
+    {
+      "relative_path": "C2对称结构\\双圆盘\\results\\半径差扰动\\补做实验\\patch_20260522_132741_field\\source_links.json",
+      "name": "source_links.json",
+      "extension": "json",
+      "kind": "json",
+      "size": 2441,
+      "mtime": 1779427661.4501295,
+      "mtime_iso": "2026-05-22T13:27:41",
+      "fingerprint": "1779427661.4501295-2441"
     },
     {
       "relative_path": "C2对称结构\\双圆盘\\scripts\\dual_disks_build_20260426_231746.py",
@@ -20623,6 +20053,186 @@
       "mtime": 1777217643.1690352,
       "mtime_iso": "2026-04-26T23:34:03",
       "fingerprint": "1777217643.1690352-114"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\00_scan_plan\\scan_points.csv",
+      "name": "scan_points.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 723,
+      "mtime": 1779439380.064168,
+      "mtime_iso": "2026-05-22T16:43:00",
+      "fingerprint": "1779439380.064168-723"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0000_alternating_pillar_radius_70.000nm.fsp",
+      "name": "0000_alternating_pillar_radius_70.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805885,
+      "mtime": 1779439749.1684427,
+      "mtime_iso": "2026-05-22T16:49:09",
+      "fingerprint": "1779439749.1684427-25805885"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0001_alternating_pillar_radius_78.333nm.fsp",
+      "name": "0001_alternating_pillar_radius_78.333nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805389,
+      "mtime": 1779439883.0002787,
+      "mtime_iso": "2026-05-22T16:51:23",
+      "fingerprint": "1779439883.0002787-25805389"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0002_alternating_pillar_radius_86.667nm.fsp",
+      "name": "0002_alternating_pillar_radius_86.667nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805229,
+      "mtime": 1779439950.5644722,
+      "mtime_iso": "2026-05-22T16:52:30",
+      "fingerprint": "1779439950.5644722-25805229"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0003_alternating_pillar_radius_95.000nm.fsp",
+      "name": "0003_alternating_pillar_radius_95.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805181,
+      "mtime": 1779439998.832814,
+      "mtime_iso": "2026-05-22T16:53:18",
+      "fingerprint": "1779439998.832814-25805181"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0004_alternating_pillar_radius_103.333nm.fsp",
+      "name": "0004_alternating_pillar_radius_103.333nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805357,
+      "mtime": 1779440121.9854262,
+      "mtime_iso": "2026-05-22T16:55:21",
+      "fingerprint": "1779440121.9854262-25805357"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0005_alternating_pillar_radius_111.667nm.fsp",
+      "name": "0005_alternating_pillar_radius_111.667nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805269,
+      "mtime": 1779440217.3597775,
+      "mtime_iso": "2026-05-22T16:56:57",
+      "fingerprint": "1779440217.3597775-25805269"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\01_fsp\\0006_alternating_pillar_radius_120.000nm.fsp",
+      "name": "0006_alternating_pillar_radius_120.000nm.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 25805173,
+      "mtime": 1779440275.4592092,
+      "mtime_iso": "2026-05-22T16:57:55",
+      "fingerprint": "1779440275.4592092-25805173"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0000_alternating_pillar_radius_70.000nm_transmission_abs2.xlsx",
+      "name": "0000_alternating_pillar_radius_70.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 25308,
+      "mtime": 1779439749.4206018,
+      "mtime_iso": "2026-05-22T16:49:09",
+      "fingerprint": "1779439749.4206018-25308"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0001_alternating_pillar_radius_78.333nm_transmission_abs2.xlsx",
+      "name": "0001_alternating_pillar_radius_78.333nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24024,
+      "mtime": 1779439883.4684656,
+      "mtime_iso": "2026-05-22T16:51:23",
+      "fingerprint": "1779439883.4684656-24024"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0002_alternating_pillar_radius_86.667nm_transmission_abs2.xlsx",
+      "name": "0002_alternating_pillar_radius_86.667nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24000,
+      "mtime": 1779439950.982093,
+      "mtime_iso": "2026-05-22T16:52:30",
+      "fingerprint": "1779439950.982093-24000"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0003_alternating_pillar_radius_95.000nm_transmission_abs2.xlsx",
+      "name": "0003_alternating_pillar_radius_95.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24370,
+      "mtime": 1779439999.0441835,
+      "mtime_iso": "2026-05-22T16:53:19",
+      "fingerprint": "1779439999.0441835-24370"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0004_alternating_pillar_radius_103.333nm_transmission_abs2.xlsx",
+      "name": "0004_alternating_pillar_radius_103.333nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24597,
+      "mtime": 1779440122.2022913,
+      "mtime_iso": "2026-05-22T16:55:22",
+      "fingerprint": "1779440122.2022913-24597"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0005_alternating_pillar_radius_111.667nm_transmission_abs2.xlsx",
+      "name": "0005_alternating_pillar_radius_111.667nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24729,
+      "mtime": 1779440217.5757692,
+      "mtime_iso": "2026-05-22T16:56:57",
+      "fingerprint": "1779440217.5757692-24729"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\02_transmission_excel\\0006_alternating_pillar_radius_120.000nm_transmission_abs2.xlsx",
+      "name": "0006_alternating_pillar_radius_120.000nm_transmission_abs2.xlsx",
+      "extension": "xlsx",
+      "kind": "xlsx",
+      "size": 24851,
+      "mtime": 1779440275.9126723,
+      "mtime_iso": "2026-05-22T16:57:55",
+      "fingerprint": "1779440275.9126723-24851"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\05_work_fsp\\master_template.fsp",
+      "name": "master_template.fsp",
+      "extension": "fsp",
+      "kind": "fsp",
+      "size": 295142,
+      "mtime": 1779174759.9163344,
+      "mtime_iso": "2026-05-19T15:12:39",
+      "fingerprint": "1779174759.9163344-295142"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\manifest.csv",
+      "name": "manifest.csv",
+      "extension": "csv",
+      "kind": "csv",
+      "size": 5496,
+      "mtime": 1779440275.9136722,
+      "mtime_iso": "2026-05-22T16:57:55",
+      "fingerprint": "1779440275.9136722-5496"
+    },
+    {
+      "relative_path": "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒\\结构状态说明.md",
+      "name": "结构状态说明.md",
+      "extension": "md",
+      "kind": "md",
+      "size": 1302,
+      "mtime": 1779439380.064168,
+      "mtime_iso": "2026-05-22T16:43:00",
+      "fingerprint": "1779439380.064168-1302"
     },
     {
       "relative_path": "C6对称结构\\六柱环\\scripts\\six_pillar_ring_build_20260426_231746.py",
@@ -30905,46 +30515,6 @@
       "fingerprint": "1777431181.8842347-2916"
     },
     {
-      "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171521\\00_scan_plan\\config_summary.txt",
-      "name": "config_summary.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 513,
-      "mtime": 1777367731.255877,
-      "mtime_iso": "2026-04-28T17:15:31",
-      "fingerprint": "1777367731.255877-513"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171521\\00_scan_plan\\scan_points.csv",
-      "name": "scan_points.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 324,
-      "mtime": 1777367731.255877,
-      "mtime_iso": "2026-04-28T17:15:31",
-      "fingerprint": "1777367731.255877-324"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\00_scan_plan\\config_summary.txt",
-      "name": "config_summary.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 513,
-      "mtime": 1777367794.3269982,
-      "mtime_iso": "2026-04-28T17:16:34",
-      "fingerprint": "1777367794.3269982-513"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\run_20260428_171624\\00_scan_plan\\scan_points.csv",
-      "name": "scan_points.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 324,
-      "mtime": 1777367794.3161814,
-      "mtime_iso": "2026-04-28T17:16:34",
-      "fingerprint": "1777367794.3161814-324"
-    },
-    {
       "relative_path": "近径向高对称结构\\圆环\\coding\\偏心内孔扰动\\automation_output\\test_20260428_172119\\00_scan_plan\\config_summary.txt",
       "name": "config_summary.txt",
       "extension": "txt",
@@ -31415,796 +30985,6 @@
       "fingerprint": "1777431181.8862329-4674"
     },
     {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\00_scan_plan\\config_summary.txt",
-      "name": "config_summary.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 563,
-      "mtime": 1777388459.103242,
-      "mtime_iso": "2026-04-28T23:00:59",
-      "fingerprint": "1777388459.103242-563"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\00_scan_plan\\scan_points.csv",
-      "name": "scan_points.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 1061,
-      "mtime": 1777388459.1022215,
-      "mtime_iso": "2026-04-28T23:00:59",
-      "fingerprint": "1777388459.1022215-1061"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
-      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25802527,
-      "mtime": 1777388625.0285995,
-      "mtime_iso": "2026-04-28T23:03:45",
-      "fingerprint": "1777388625.0285995-25802527"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
-      "name": "0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777395118.0818617,
-      "mtime_iso": "2026-04-29T00:51:58",
-      "fingerprint": "1777395118.0818617-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
-      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777395612.9410422,
-      "mtime_iso": "2026-04-29T01:00:12",
-      "fingerprint": "1777395612.9410422-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
-      "name": "0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777396112.099092,
-      "mtime_iso": "2026-04-29T01:08:32",
-      "fingerprint": "1777396112.099092-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
-      "name": "0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777396602.5111258,
-      "mtime_iso": "2026-04-29T01:16:42",
-      "fingerprint": "1777396602.5111258-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
-      "name": "0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777397099.227057,
-      "mtime_iso": "2026-04-29T01:24:59",
-      "fingerprint": "1777397099.227057-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.fsp",
-      "name": "0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777397602.5199554,
-      "mtime_iso": "2026-04-29T01:33:22",
-      "fingerprint": "1777397602.5199554-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.fsp",
-      "name": "0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777398095.757171,
-      "mtime_iso": "2026-04-29T01:41:35",
-      "fingerprint": "1777398095.757171-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.fsp",
-      "name": "0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777398588.9836335,
-      "mtime_iso": "2026-04-29T01:49:48",
-      "fingerprint": "1777398588.9836335-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.fsp",
-      "name": "0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777399085.0730095,
-      "mtime_iso": "2026-04-29T01:58:05",
-      "fingerprint": "1777399085.0730095-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.fsp",
-      "name": "0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777399575.00985,
-      "mtime_iso": "2026-04-29T02:06:15",
-      "fingerprint": "1777399575.00985-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.fsp",
-      "name": "0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777400070.019775,
-      "mtime_iso": "2026-04-29T02:14:30",
-      "fingerprint": "1777400070.019775-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\negx\\0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.fsp",
-      "name": "0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777400561.8457959,
-      "mtime_iso": "2026-04-29T02:22:41",
-      "fingerprint": "1777400561.8457959-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
-      "name": "0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777389141.1642566,
-      "mtime_iso": "2026-04-28T23:12:21",
-      "fingerprint": "1777389141.1642566-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
-      "name": "0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777389647.5723293,
-      "mtime_iso": "2026-04-28T23:20:47",
-      "fingerprint": "1777389647.5723293-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
-      "name": "0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777390151.272366,
-      "mtime_iso": "2026-04-28T23:29:11",
-      "fingerprint": "1777390151.272366-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
-      "name": "0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777390649.0189633,
-      "mtime_iso": "2026-04-28T23:37:29",
-      "fingerprint": "1777390649.0189633-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
-      "name": "0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777391148.8773122,
-      "mtime_iso": "2026-04-28T23:45:48",
-      "fingerprint": "1777391148.8773122-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.fsp",
-      "name": "0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777391639.5875518,
-      "mtime_iso": "2026-04-28T23:53:59",
-      "fingerprint": "1777391639.5875518-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.fsp",
-      "name": "0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777392131.3127663,
-      "mtime_iso": "2026-04-29T00:02:11",
-      "fingerprint": "1777392131.3127663-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.fsp",
-      "name": "0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777392628.0153668,
-      "mtime_iso": "2026-04-29T00:10:28",
-      "fingerprint": "1777392628.0153668-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.fsp",
-      "name": "0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777393121.9978905,
-      "mtime_iso": "2026-04-29T00:18:41",
-      "fingerprint": "1777393121.9978905-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.fsp",
-      "name": "0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777393625.8580487,
-      "mtime_iso": "2026-04-29T00:27:05",
-      "fingerprint": "1777393625.8580487-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.fsp",
-      "name": "0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777394124.0817091,
-      "mtime_iso": "2026-04-29T00:35:24",
-      "fingerprint": "1777394124.0817091-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\01_fsp_files\\posx\\0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.fsp",
-      "name": "0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.fsp",
-      "extension": "fsp",
-      "kind": "fsp",
-      "size": 25803375,
-      "mtime": 1777394624.7798505,
-      "mtime_iso": "2026-04-29T00:43:44",
-      "fingerprint": "1777394624.7798505-25803375"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.xlsx",
-      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33795,
-      "mtime": 1777388625.1586585,
-      "mtime_iso": "2026-04-28T23:03:45",
-      "fingerprint": "1777388625.1586585-33795"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.xlsx",
-      "name": "0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33767,
-      "mtime": 1777395118.2252095,
-      "mtime_iso": "2026-04-29T00:51:58",
-      "fingerprint": "1777395118.2252095-33767"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.xlsx",
-      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33777,
-      "mtime": 1777395613.0794098,
-      "mtime_iso": "2026-04-29T01:00:13",
-      "fingerprint": "1777395613.0794098-33777"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.xlsx",
-      "name": "0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33780,
-      "mtime": 1777396112.2414649,
-      "mtime_iso": "2026-04-29T01:08:32",
-      "fingerprint": "1777396112.2414649-33780"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.xlsx",
-      "name": "0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33772,
-      "mtime": 1777396602.6455896,
-      "mtime_iso": "2026-04-29T01:16:42",
-      "fingerprint": "1777396602.6455896-33772"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.xlsx",
-      "name": "0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33867,
-      "mtime": 1777397099.3590457,
-      "mtime_iso": "2026-04-29T01:24:59",
-      "fingerprint": "1777397099.3590457-33867"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.xlsx",
-      "name": "0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33841,
-      "mtime": 1777397602.6647518,
-      "mtime_iso": "2026-04-29T01:33:22",
-      "fingerprint": "1777397602.6647518-33841"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.xlsx",
-      "name": "0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33776,
-      "mtime": 1777398095.8886697,
-      "mtime_iso": "2026-04-29T01:41:35",
-      "fingerprint": "1777398095.8886697-33776"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.xlsx",
-      "name": "0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33773,
-      "mtime": 1777398589.1298952,
-      "mtime_iso": "2026-04-29T01:49:49",
-      "fingerprint": "1777398589.1298952-33773"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.xlsx",
-      "name": "0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33822,
-      "mtime": 1777399085.218426,
-      "mtime_iso": "2026-04-29T01:58:05",
-      "fingerprint": "1777399085.218426-33822"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.xlsx",
-      "name": "0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33871,
-      "mtime": 1777399575.1314864,
-      "mtime_iso": "2026-04-29T02:06:15",
-      "fingerprint": "1777399575.1314864-33871"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.xlsx",
-      "name": "0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33817,
-      "mtime": 1777400070.1609952,
-      "mtime_iso": "2026-04-29T02:14:30",
-      "fingerprint": "1777400070.1609952-33817"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\negx\\0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.xlsx",
-      "name": "0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33805,
-      "mtime": 1777400561.9897518,
-      "mtime_iso": "2026-04-29T02:22:41",
-      "fingerprint": "1777400561.9897518-33805"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.xlsx",
-      "name": "0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33753,
-      "mtime": 1777389141.312224,
-      "mtime_iso": "2026-04-28T23:12:21",
-      "fingerprint": "1777389141.312224-33753"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.xlsx",
-      "name": "0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33834,
-      "mtime": 1777389647.7141926,
-      "mtime_iso": "2026-04-28T23:20:47",
-      "fingerprint": "1777389647.7141926-33834"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.xlsx",
-      "name": "0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33777,
-      "mtime": 1777390151.4198544,
-      "mtime_iso": "2026-04-28T23:29:11",
-      "fingerprint": "1777390151.4198544-33777"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.xlsx",
-      "name": "0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33784,
-      "mtime": 1777390649.1627812,
-      "mtime_iso": "2026-04-28T23:37:29",
-      "fingerprint": "1777390649.1627812-33784"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.xlsx",
-      "name": "0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33802,
-      "mtime": 1777391149.0236979,
-      "mtime_iso": "2026-04-28T23:45:49",
-      "fingerprint": "1777391149.0236979-33802"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.xlsx",
-      "name": "0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33772,
-      "mtime": 1777391639.719941,
-      "mtime_iso": "2026-04-28T23:53:59",
-      "fingerprint": "1777391639.719941-33772"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.xlsx",
-      "name": "0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33862,
-      "mtime": 1777392131.4454162,
-      "mtime_iso": "2026-04-29T00:02:11",
-      "fingerprint": "1777392131.4454162-33862"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.xlsx",
-      "name": "0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33834,
-      "mtime": 1777392628.159621,
-      "mtime_iso": "2026-04-29T00:10:28",
-      "fingerprint": "1777392628.159621-33834"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.xlsx",
-      "name": "0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33867,
-      "mtime": 1777393122.1584616,
-      "mtime_iso": "2026-04-29T00:18:42",
-      "fingerprint": "1777393122.1584616-33867"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.xlsx",
-      "name": "0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33807,
-      "mtime": 1777393625.9896305,
-      "mtime_iso": "2026-04-29T00:27:05",
-      "fingerprint": "1777393625.9896305-33807"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.xlsx",
-      "name": "0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33773,
-      "mtime": 1777394124.213534,
-      "mtime_iso": "2026-04-29T00:35:24",
-      "fingerprint": "1777394124.213534-33773"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\02_transmission_excel\\posx\\0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.xlsx",
-      "name": "0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.xlsx",
-      "extension": "xlsx",
-      "kind": "xlsx",
-      "size": 33853,
-      "mtime": 1777394624.923323,
-      "mtime_iso": "2026-04-29T00:43:44",
-      "fingerprint": "1777394624.923323-33853"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\center\\0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.png",
-      "name": "0000_center_d0000.00nm_x+0000.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 83779,
-      "mtime": 1777388625.5088396,
-      "mtime_iso": "2026-04-28T23:03:45",
-      "fingerprint": "1777388625.5088396-83779"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.png",
-      "name": "0013_negx_d0025.00nm_x-0025.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 82956,
-      "mtime": 1777395118.338334,
-      "mtime_iso": "2026-04-29T00:51:58",
-      "fingerprint": "1777395118.338334-82956"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.png",
-      "name": "0014_negx_d0050.00nm_x-0050.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 83710,
-      "mtime": 1777395613.2031248,
-      "mtime_iso": "2026-04-29T01:00:13",
-      "fingerprint": "1777395613.2031248-83710"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.png",
-      "name": "0015_negx_d0075.00nm_x-0075.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84502,
-      "mtime": 1777396112.3653562,
-      "mtime_iso": "2026-04-29T01:08:32",
-      "fingerprint": "1777396112.3653562-84502"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.png",
-      "name": "0016_negx_d0100.00nm_x-0100.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84119,
-      "mtime": 1777396602.7572906,
-      "mtime_iso": "2026-04-29T01:16:42",
-      "fingerprint": "1777396602.7572906-84119"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.png",
-      "name": "0017_negx_d0125.00nm_x-0125.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85799,
-      "mtime": 1777397099.4797604,
-      "mtime_iso": "2026-04-29T01:24:59",
-      "fingerprint": "1777397099.4797604-85799"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.png",
-      "name": "0018_negx_d0150.00nm_x-0150.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85016,
-      "mtime": 1777397602.7841768,
-      "mtime_iso": "2026-04-29T01:33:22",
-      "fingerprint": "1777397602.7841768-85016"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.png",
-      "name": "0019_negx_d0175.00nm_x-0175.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84963,
-      "mtime": 1777398096.0075917,
-      "mtime_iso": "2026-04-29T01:41:36",
-      "fingerprint": "1777398096.0075917-84963"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.png",
-      "name": "0020_negx_d0200.00nm_x-0200.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84476,
-      "mtime": 1777398589.2504952,
-      "mtime_iso": "2026-04-29T01:49:49",
-      "fingerprint": "1777398589.2504952-84476"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.png",
-      "name": "0021_negx_d0225.00nm_x-0225.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85547,
-      "mtime": 1777399085.3425508,
-      "mtime_iso": "2026-04-29T01:58:05",
-      "fingerprint": "1777399085.3425508-85547"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.png",
-      "name": "0022_negx_d0250.00nm_x-0250.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84748,
-      "mtime": 1777399575.275476,
-      "mtime_iso": "2026-04-29T02:06:15",
-      "fingerprint": "1777399575.275476-84748"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.png",
-      "name": "0023_negx_d0275.00nm_x-0275.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85315,
-      "mtime": 1777400070.282539,
-      "mtime_iso": "2026-04-29T02:14:30",
-      "fingerprint": "1777400070.282539-85315"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\negx\\0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.png",
-      "name": "0024_negx_d0290.00nm_x-0290.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85522,
-      "mtime": 1777400562.111227,
-      "mtime_iso": "2026-04-29T02:22:42",
-      "fingerprint": "1777400562.111227-85522"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.png",
-      "name": "0001_posx_d0025.00nm_x+0025.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 83956,
-      "mtime": 1777389141.4336076,
-      "mtime_iso": "2026-04-28T23:12:21",
-      "fingerprint": "1777389141.4336076-83956"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.png",
-      "name": "0002_posx_d0050.00nm_x+0050.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84800,
-      "mtime": 1777389647.833997,
-      "mtime_iso": "2026-04-28T23:20:47",
-      "fingerprint": "1777389647.833997-84800"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.png",
-      "name": "0003_posx_d0075.00nm_x+0075.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84798,
-      "mtime": 1777390151.542725,
-      "mtime_iso": "2026-04-28T23:29:11",
-      "fingerprint": "1777390151.542725-84798"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.png",
-      "name": "0004_posx_d0100.00nm_x+0100.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84194,
-      "mtime": 1777390649.271677,
-      "mtime_iso": "2026-04-28T23:37:29",
-      "fingerprint": "1777390649.271677-84194"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.png",
-      "name": "0005_posx_d0125.00nm_x+0125.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 86097,
-      "mtime": 1777391149.1476135,
-      "mtime_iso": "2026-04-28T23:45:49",
-      "fingerprint": "1777391149.1476135-86097"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.png",
-      "name": "0006_posx_d0150.00nm_x+0150.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84966,
-      "mtime": 1777391639.8452656,
-      "mtime_iso": "2026-04-28T23:53:59",
-      "fingerprint": "1777391639.8452656-84966"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.png",
-      "name": "0007_posx_d0175.00nm_x+0175.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84600,
-      "mtime": 1777392131.5702012,
-      "mtime_iso": "2026-04-29T00:02:11",
-      "fingerprint": "1777392131.5702012-84600"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.png",
-      "name": "0008_posx_d0200.00nm_x+0200.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84583,
-      "mtime": 1777392628.2810965,
-      "mtime_iso": "2026-04-29T00:10:28",
-      "fingerprint": "1777392628.2810965-84583"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.png",
-      "name": "0009_posx_d0225.00nm_x+0225.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85787,
-      "mtime": 1777393122.2833135,
-      "mtime_iso": "2026-04-29T00:18:42",
-      "fingerprint": "1777393122.2833135-85787"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.png",
-      "name": "0010_posx_d0250.00nm_x+0250.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84706,
-      "mtime": 1777393626.100953,
-      "mtime_iso": "2026-04-29T00:27:06",
-      "fingerprint": "1777393626.100953-84706"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.png",
-      "name": "0011_posx_d0275.00nm_x+0275.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 84902,
-      "mtime": 1777394124.3577275,
-      "mtime_iso": "2026-04-29T00:35:24",
-      "fingerprint": "1777394124.3577275-84902"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\03_transmission_png_abs2\\posx\\0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.png",
-      "name": "0012_posx_d0290.00nm_x+0290.00nm_y+0000.00nm.png",
-      "extension": "png",
-      "kind": "image",
-      "size": 85598,
-      "mtime": 1777394625.0425532,
-      "mtime_iso": "2026-04-29T00:43:45",
-      "fingerprint": "1777394625.0425532-85598"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\05_logs\\manifest.csv",
-      "name": "manifest.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 6297,
-      "mtime": 1777400562.11223,
-      "mtime_iso": "2026-04-29T02:22:42",
-      "fingerprint": "1777400562.11223-6297"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_output\\run_20260428_230048\\05_logs\\run_log.txt",
-      "name": "run_log.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 3106,
-      "mtime": 1777400562.11223,
-      "mtime_iso": "2026-04-29T02:22:42",
-      "fingerprint": "1777400562.11223-3106"
-    },
-    {
       "relative_path": "近径向高对称结构\\圆盘\\coding\\偏心孔扰动\\automation_run_stderr.log",
       "name": "automation_run_stderr.log",
       "extension": "log",
@@ -32443,26 +31223,6 @@
       "mtime": 1777431181.8877597,
       "mtime_iso": "2026-04-29T10:53:01",
       "fingerprint": "1777431181.8877597-3117"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\椭圆化扰动\\automation_output\\run_20260428_164236\\00_scan_plan\\config_summary.txt",
-      "name": "config_summary.txt",
-      "extension": "txt",
-      "kind": "txt",
-      "size": 448,
-      "mtime": 1777365768.7762535,
-      "mtime_iso": "2026-04-28T16:42:48",
-      "fingerprint": "1777365768.7762535-448"
-    },
-    {
-      "relative_path": "近径向高对称结构\\圆盘\\coding\\椭圆化扰动\\automation_output\\run_20260428_164236\\00_scan_plan\\scan_points.csv",
-      "name": "scan_points.csv",
-      "extension": "csv",
-      "kind": "csv",
-      "size": 225,
-      "mtime": 1777365768.773917,
-      "mtime_iso": "2026-04-28T16:42:48",
-      "fingerprint": "1777365768.773917-225"
     },
     {
       "relative_path": "近径向高对称结构\\圆盘\\coding\\椭圆化扰动\\automation_output\\test_20260428_164421\\00_scan_plan\\config_summary.txt",

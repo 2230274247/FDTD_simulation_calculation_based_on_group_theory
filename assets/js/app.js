@@ -3696,17 +3696,22 @@ async function pollSupplementLogs(root) {
     rs.cursor = Number(data.next_cursor || rs.cursor || 0);
     rs.logs = [...(rs.logs || []), ...(data.events || [])].slice(-800);
     rs.status = data.state?.status || rs.status;
+    rs.pollErrorCount = 0;
     state.supplementRunState = rs;
     if (["success", "failed"].includes(rs.status)) stopSupplementLogPolling();
     if (routeName() === "supplement") renderSupplementLocal(root || $("#page-root"));
   } catch (error) {
-    stopSupplementLogPolling();
-    toast(error.message, "error");
+    rs.pollErrorCount = Number(rs.pollErrorCount || 0) + 1;
+    state.supplementRunState = rs;
+    if (rs.pollErrorCount <= 2 || rs.pollErrorCount % 10 === 0) {
+      toast(`补做日志轮询异常（将自动重试）：${error.message}`, "error");
+    }
   }
 }
 
 function startSupplementLogPolling(root) {
-  stopSupplementLogPolling();
+  if (state.supplementRunState?.timer) return;
+  pollSupplementLogs(root).catch(() => {});
   state.supplementRunState.timer = setInterval(() => {
     pollSupplementLogs(root).catch(() => {});
   }, 1500);

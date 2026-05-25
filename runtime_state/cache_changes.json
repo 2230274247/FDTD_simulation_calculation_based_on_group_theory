@@ -1171,6 +1171,319 @@
       "dirty_paths": [
         "C6对称结构\\六柱环\\results\\交替两组柱子扰动"
       ]
+    },
+    {
+      "changed_at": "2026-05-22T15:53:13",
+      "job_id": null,
+      "overview_changed": true,
+      "changed_runs": [
+        "run_full_2026年5月22日_15时13分36秒_719ef396"
+      ],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_15时13分36秒"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T15:56:14",
+      "job_id": null,
+      "overview_changed": true,
+      "changed_runs": [
+        "run_full_2026年5月22日_15时13分36秒_719ef396"
+      ],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_15时13分36秒"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:10:53",
+      "job_id": "job_20260522_161051_b4c96d",
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:24:52",
+      "job_id": "job_20260522_162450_b4c96d",
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:25:20",
+      "job_id": "job_20260522_162519_b4c96d",
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:25:51",
+      "job_id": "job_20260522_162550_b4c96d",
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:31:32",
+      "job_id": "job_20260522_163047_b4c96d",
+      "overview_changed": true,
+      "changed_runs": [
+        "run_preview_2026年5月22日_16时31分21秒_1999c6f9"
+      ],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动",
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_preview_2026年5月22日_16时31分21秒"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:34:39",
+      "job_id": "job_20260522_163302_2676f2",
+      "overview_changed": true,
+      "changed_runs": [
+        "run_preview_2026年5月22日_16时33分03秒_4404e8ef",
+        "run_preview_2026年5月22日_16时33分03秒_09821381",
+        "run_preview_2026年5月22日_16时33分03秒_bb154759",
+        "run_preview_2026年5月22日_16时33分03秒_ee87d00a",
+        "run_preview_2026年5月22日_16时33分18秒_81ffb7b3",
+        "run_preview_2026年5月22日_16时33分18秒_651a2288",
+        "run_preview_2026年5月22日_16时33分18秒_48e73df1",
+        "run_preview_2026年5月22日_16时33分18秒_90995092",
+        "run_preview_2026年5月22日_16时33分25秒_e0dff0b5",
+        "run_preview_2026年5月22日_16时33分25秒_c6d9a15e",
+        "run_preview_2026年5月22日_16时33分25秒_61469ead",
+        "run_preview_2026年5月22日_16时33分25秒_fb6d210d",
+        "run_preview_2026年5月22日_16时33分33秒_d9c04d57",
+        "run_preview_2026年5月22日_16时33分33秒_8c376692",
+        "run_preview_2026年5月22日_16时33分33秒_500e6588",
+        "run_preview_2026年5月22日_16时33分33秒_244b2be8",
+        "run_preview_2026年5月22日_16时33分39秒_47265359",
+        "run_preview_2026年5月22日_16时33分39秒_4d54a37b",
+        "run_preview_2026年5月22日_16时33分39秒_ee4ba59e",
+        "run_preview_2026年5月22日_16时33分39秒_d8165987",
+        "run_preview_2026年5月22日_16时33分47秒_1a34b1ce",
+        "run_preview_2026年5月22日_16时33分47秒_a8b83340",
+        "run_preview_2026年5月22日_16时33分47秒_4fa1b480",
+        "run_preview_2026年5月22日_16时33分47秒_ebe04b39",
+        "run_preview_2026年5月22日_16时33分53秒_ed24f23c",
+        "run_preview_2026年5月22日_16时33分53秒_91423cfe",
+        "run_preview_2026年5月22日_16时33分53秒_f30e7a6f",
+        "run_preview_2026年5月22日_16时33分53秒_00fd430c",
+        "run_preview_2026年5月22日_16时34分01秒_ca0da559",
+        "run_preview_2026年5月22日_16时34分01秒_b25acc6d",
+        "run_preview_2026年5月22日_16时34分01秒_aa69f346",
+        "run_preview_2026年5月22日_16时34分01秒_0d054e25",
+        "run_preview_2026年5月22日_16时34分07秒_1f789c67",
+        "run_preview_2026年5月22日_16时34分07秒_f809ea63",
+        "run_preview_2026年5月22日_16时34分07秒_c5805531",
+        "run_preview_2026年5月22日_16时34分07秒_1559cc52",
+        "run_preview_2026年5月22日_16时34分14秒_87b54c99",
+        "run_preview_2026年5月22日_16时34分14秒_efb34504",
+        "run_preview_2026年5月22日_16时34分14秒_baba4b6d",
+        "run_preview_2026年5月22日_16时34分14秒_4f4226aa",
+        "run_preview_2026年5月22日_16时34分22秒_a5b10438",
+        "run_preview_2026年5月22日_16时34分22秒_3926bc2d",
+        "run_preview_2026年5月22日_16时34分22秒_2104d509",
+        "run_preview_2026年5月22日_16时34分22秒_c1653514",
+        "run_preview_2026年5月22日_16时34分29秒_8b04c92f",
+        "run_preview_2026年5月22日_16时34分29秒_28c9b3b1",
+        "run_preview_2026年5月22日_16时34分29秒_f7339e0f",
+        "run_preview_2026年5月22日_16时34分29秒_3a006eae"
+      ],
+      "dirty_paths": [
+        "C2对称结构\\双圆盘\\results\\半径差扰动",
+        "C2对称结构\\双圆盘\\results\\半径差扰动\\run_preview_2026年5月22日_16时33分03秒",
+        "C2对称结构\\双圆盘\\results\\单盘开孔扰动",
+        "C2对称结构\\双圆盘\\results\\单盘开孔扰动\\run_preview_2026年5月22日_16时33分03秒",
+        "C2对称结构\\双圆盘\\results\\双盘同步开孔扰动",
+        "C2对称结构\\双圆盘\\results\\双盘同步开孔扰动\\run_preview_2026年5月22日_16时33分03秒",
+        "C2对称结构\\双圆盘\\results\\布里渊区折叠",
+        "C2对称结构\\双圆盘\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时33分03秒",
+        "C2对称结构\\双圆盘\\results\\非对称位移扰动",
+        "C2对称结构\\双圆盘\\results\\非对称位移扰动\\run_preview_2026年5月22日_16时33分18秒",
+        "C2对称结构\\双柱\\results\\左右位置差扰动",
+        "C2对称结构\\双柱\\results\\左右位置差扰动\\run_preview_2026年5月22日_16时33分18秒",
+        "C2对称结构\\双柱\\results\\左右半径差扰动",
+        "C2对称结构\\双柱\\results\\左右半径差扰动\\run_preview_2026年5月22日_16时33分18秒",
+        "C2对称结构\\双柱\\results\\布里渊区折叠",
+        "C2对称结构\\双柱\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时33分18秒",
+        "C2对称结构\\双柱\\results\\间距扫描扰动",
+        "C2对称结构\\双柱\\results\\间距扫描扰动\\run_preview_2026年5月22日_16时33分25秒",
+        "C2对称结构\\双柱\\results\\高度差扰动",
+        "C2对称结构\\双柱\\results\\高度差扰动\\run_preview_2026年5月22日_16时33分25秒",
+        "C2对称结构\\双梁\\results\\同步梁宽扫描扰动",
+        "C2对称结构\\双梁\\results\\同步梁宽扫描扰动\\run_preview_2026年5月22日_16时33分25秒",
+        "C2对称结构\\双梁\\results\\布里渊区折叠",
+        "C2对称结构\\双梁\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时33分25秒",
+        "C2对称结构\\双梁\\results\\梁偏移扰动",
+        "C2对称结构\\双梁\\results\\梁偏移扰动\\run_preview_2026年5月22日_16时33分33秒",
+        "C2对称结构\\双梁\\results\\梁宽差扰动",
+        "C2对称结构\\双梁\\results\\梁宽差扰动\\run_preview_2026年5月22日_16时33分33秒",
+        "C2对称结构\\双梁\\results\\梁长差扰动",
+        "C2对称结构\\双梁\\results\\梁长差扰动\\run_preview_2026年5月22日_16时33分33秒",
+        "C2对称结构\\双椭圆\\results\\布里渊区折叠",
+        "C2对称结构\\双椭圆\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时33分33秒",
+        "C2对称结构\\双椭圆\\results\\短轴差扰动",
+        "C2对称结构\\双椭圆\\results\\短轴差扰动\\run_preview_2026年5月22日_16时33分39秒",
+        "C2对称结构\\双椭圆\\results\\转角差扰动",
+        "C2对称结构\\双椭圆\\results\\转角差扰动\\run_preview_2026年5月22日_16时33分39秒",
+        "C2对称结构\\双椭圆\\results\\长轴差扰动",
+        "C2对称结构\\双椭圆\\results\\长轴差扰动\\run_preview_2026年5月22日_16时33分39秒",
+        "C2对称结构\\双椭圆\\results\\间距差扰动",
+        "C2对称结构\\双椭圆\\results\\间距差扰动\\run_preview_2026年5月22日_16时33分39秒",
+        "C2对称结构\\双脊\\results\\位置差扰动",
+        "C2对称结构\\双脊\\results\\位置差扰动\\run_preview_2026年5月22日_16时33分47秒",
+        "C2对称结构\\双脊\\results\\布里渊区折叠",
+        "C2对称结构\\双脊\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时33分47秒",
+        "C2对称结构\\双脊\\results\\脊宽差扰动",
+        "C2对称结构\\双脊\\results\\脊宽差扰动\\run_preview_2026年5月22日_16时33分47秒",
+        "C2对称结构\\双脊\\results\\脊高差扰动",
+        "C2对称结构\\双脊\\results\\脊高差扰动\\run_preview_2026年5月22日_16时33分47秒",
+        "C2对称结构\\双脊\\results\\顶部槽差扰动",
+        "C2对称结构\\双脊\\results\\顶部槽差扰动\\run_preview_2026年5月22日_16时33分53秒",
+        "C3对称结构\\三叶星\\results\\三臂同步缩放扰动",
+        "C3对称结构\\三叶星\\results\\三臂同步缩放扰动\\run_preview_2026年5月22日_16时33分53秒",
+        "C3对称结构\\三叶星\\results\\单臂宽度差扰动",
+        "C3对称结构\\三叶星\\results\\单臂宽度差扰动\\run_preview_2026年5月22日_16时33分53秒",
+        "C3对称结构\\三叶星\\results\\单臂转角扰动",
+        "C3对称结构\\三叶星\\results\\单臂转角扰动\\run_preview_2026年5月22日_16时33分53秒",
+        "C3对称结构\\三叶星\\results\\单臂长度差扰动",
+        "C3对称结构\\三叶星\\results\\单臂长度差扰动\\run_preview_2026年5月22日_16时34分01秒",
+        "C3对称结构\\三叶星\\results\\布里渊区折叠",
+        "C3对称结构\\三叶星\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时34分01秒",
+        "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动",
+        "C3对称结构\\三柱簇\\results\\三柱同步半径扫描扰动\\run_preview_2026年5月22日_16时34分01秒",
+        "C3对称结构\\三柱簇\\results\\其中两柱同改扰动",
+        "C3对称结构\\三柱簇\\results\\其中两柱同改扰动\\run_preview_2026年5月22日_16时34分01秒",
+        "C3对称结构\\三柱簇\\results\\单点偏移扰动",
+        "C3对称结构\\三柱簇\\results\\单点偏移扰动\\run_preview_2026年5月22日_16时34分07秒",
+        "C3对称结构\\三柱簇\\results\\布里渊区折叠",
+        "C3对称结构\\三柱簇\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时34分07秒",
+        "C3对称结构\\三柱簇\\results\\改单个柱子扰动",
+        "C3对称结构\\三柱簇\\results\\改单个柱子扰动\\run_preview_2026年5月22日_16时34分07秒",
+        "C3对称结构\\三裂缝环\\results\\三裂缝同步宽度扰动",
+        "C3对称结构\\三裂缝环\\results\\三裂缝同步宽度扰动\\run_preview_2026年5月22日_16时34分07秒",
+        "C3对称结构\\三裂缝环\\results\\单裂缝宽度扰动",
+        "C3对称结构\\三裂缝环\\results\\单裂缝宽度扰动\\run_preview_2026年5月22日_16时34分14秒",
+        "C3对称结构\\三裂缝环\\results\\单裂缝角度扰动",
+        "C3对称结构\\三裂缝环\\results\\单裂缝角度扰动\\run_preview_2026年5月22日_16时34分14秒",
+        "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动",
+        "C3对称结构\\三裂缝环\\results\\单裂缝长度扰动\\run_preview_2026年5月22日_16时34分14秒",
+        "C3对称结构\\三裂缝环\\results\\布里渊区折叠",
+        "C3对称结构\\三裂缝环\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时34分14秒",
+        "C4对称结构\\十字\\results\\单臂开槽扰动",
+        "C4对称结构\\十字\\results\\单臂开槽扰动\\run_preview_2026年5月22日_16时34分22秒",
+        "C4对称结构\\十字\\results\\单臂长度变化扰动",
+        "C4对称结构\\十字\\results\\单臂长度变化扰动\\run_preview_2026年5月22日_16时34分22秒",
+        "C4对称结构\\十字\\results\\布里渊区折叠",
+        "C4对称结构\\十字\\results\\布里渊区折叠\\run_preview_2026年5月22日_16时34分22秒",
+        "C4对称结构\\十字\\results\\横竖臂宽度差扰动",
+        "C4对称结构\\十字\\results\\横竖臂宽度差扰动\\run_preview_2026年5月22日_16时34分22秒",
+        "C4对称结构\\十字\\results\\横竖臂长度差扰动",
+        "C4对称结构\\十字\\results\\横竖臂长度差扰动\\run_preview_2026年5月22日_16时34分29秒",
+        "C4对称结构\\四孔方块\\results\\单孔偏移扰动",
+        "C4对称结构\\四孔方块\\results\\单孔偏移扰动\\run_preview_2026年5月22日_16时34分29秒",
+        "C4对称结构\\四孔方块\\results\\四孔同步孔径扰动",
+        "C4对称结构\\四孔方块\\results\\四孔同步孔径扰动\\run_preview_2026年5月22日_16时34分29秒",
+        "C4对称结构\\四孔方块\\results\\孔距同步扫描扰动",
+        "C4对称结构\\四孔方块\\results\\孔距同步扫描扰动\\run_preview_2026年5月22日_16时34分29秒"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:34:43",
+      "job_id": null,
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": []
+    },
+    {
+      "changed_at": "2026-05-22T16:36:02",
+      "job_id": null,
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": []
+    },
+    {
+      "changed_at": "2026-05-22T16:37:10",
+      "job_id": "job_20260522_163652_b4c96d",
+      "overview_changed": true,
+      "changed_runs": [
+        "run_full_2026年5月22日_16时36分53秒_058d2107"
+      ],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动",
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时36分53秒"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:37:43",
+      "job_id": null,
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": []
+    },
+    {
+      "changed_at": "2026-05-22T16:40:23",
+      "job_id": null,
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": []
+    },
+    {
+      "changed_at": "2026-05-22T16:40:54",
+      "job_id": "job_20260522_164043_b4c96d",
+      "overview_changed": true,
+      "changed_runs": [
+        "run_preview_2026年5月22日_16时40分44秒_f639b883"
+      ],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动",
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_preview_2026年5月22日_16时40分44秒"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:41:31",
+      "job_id": "job_20260522_164118_b4c96d",
+      "overview_changed": true,
+      "changed_runs": [
+        "run_full_2026年5月22日_16时41分19秒_8629fb07"
+      ],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动",
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时41分19秒"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T16:42:10",
+      "job_id": null,
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": []
+    },
+    {
+      "changed_at": "2026-05-22T16:57:56",
+      "job_id": "job_20260522_164249_b4c96d",
+      "overview_changed": true,
+      "changed_runs": [
+        "run_full_2026年5月22日_16时42分50秒_d9c42c10"
+      ],
+      "dirty_paths": [
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动",
+        "C6对称结构\\六柱环\\results\\交替两组柱子扰动\\run_full_2026年5月22日_16时42分50秒"
+      ]
+    },
+    {
+      "changed_at": "2026-05-22T17:54:10",
+      "job_id": null,
+      "overview_changed": false,
+      "changed_runs": [],
+      "dirty_paths": []
     }
   ]
 }
